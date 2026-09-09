@@ -116,7 +116,7 @@ If we graphed this linear system of eqautions assuming there are $i$ amount of c
 
 - We assume $d_i$ to be a good estimation from student
 
-$$0 < d_i \ge 10$$
+$$0 < d_i \le 10$$
 
 - Assuming that if a student studies the minimum amount of hours $m_i$ then they will receive a grade of a D
   
