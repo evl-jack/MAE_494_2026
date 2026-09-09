@@ -88,20 +88,24 @@ $H$ : Remaining hours a student has left in a week to study
 
 $$H = 168 - ( S + W + D + R + m_i)$$
 
+
 ## Constraints
 
 - Standard U.S grading system
 
-  $$0 \le P_i (x) \le 4$$
+$$0 \le P_i (x) \le 4$$
 
 - Required minimum study hours per class
 
-  $$x_i  \ge m_i \ge 0$$
+$$x_i  \ge m_i \ge 0$$
 
 - Maximum study hours per week
 
-  $$\Sigma x_i \le H$$
+ $$\Sigma x_i \le H$$
 
+-Minimum Grade Required to pass a class
+
+ $$P_i \ge 2$$
 ## Classification
 
 This problem is classified as a linear programming problem. the main constraint eqaution $P_i(x_i)$ is able to be represented as a linear inequality.
