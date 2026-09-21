@@ -1,151 +1,121 @@
-# MAE 494 Fall 2026 Project one
+# MAE 494 Fall 2026 — Project 1
 
+Team Name: AI Generated
 
-Team Name: Ai Generated
+Contributors: Jack Foster, Danny Lewis
 
-Contributors:Jack Foster, Danny Lewis
-
-Topic : Optimizing Student GPA by allocating hours studied
+Topic: Optimizing Student GPA by Allocating Study Hours
 
 ## Problem Identification
 
-Most college students are very busy and many have to get a job or take on other resposibilities. It can be hard for most students to be able to plan how much studying they really need to do especially when they have other things to plan such as work avalibility or extra cirriculars. In order to make these decisions it would require the student to sit down and spend quite a while planning their weeks. 
+Many college students balance coursework with jobs and other responsibilities. Planning how much time to spend studying can be difficult when students must also account for work availability and extracurricular activities. Creating a weekly schedule that accommodates these commitments can take considerable time.
 
-It is very important that students develope time management skills, and sometimes that hardest part is building a good study schedule that works withs with the students other time constraints. 
+Developing time management skills is important, but one of the hardest parts is building a study schedule that fits a student's other time constraints.
 
-This Algorith takes the students outside activities such as sleep and work and distributes the remaining time to studying. The algorith will divide the students remaining time based on the amount of credit hours and difficulty of the class. Being able to figure out how much time you should realisticaly be spending studying certin subjects is hard and will have negative consequeses on their grades.
-
+This algorithm accounts for commitments such as sleep and work, then allocates the remaining time to studying. It distributes study time among classes based on their credit hours and difficulty. The goal is to help students estimate how much time to spend on each subject and avoid study schedules that could negatively affect their grades.
 
 ## Decision Variables
- Variable $x_i$ representing the # hours a student spent studying subject $i$
- 
-$$x_i \epsilon ℝ$$  
+
+The variable $x_i$ represents the number of hours a student spends studying subject $i$ per week.
+
+$$x_i \in \mathbb{R}$$
 
 $$x_i \ge 0$$
-```
-
-```
 
 ## Objective Function
 
-The objective is to maximize GPA. GPA is defined as $(Grade Points Earned * Credit Hours) / (Credit Hours)$ to fully define this function.
+The objective is to maximize GPA, calculated by dividing the sum of each class's grade points multiplied by its credit hours by the total credit hours.
 
-$$G \epsilon ℝ$$  $0 \le G \le 4.0$  : GPA  standard U.S grading scale
+- $G$: GPA on the standard U.S. 4.0 scale, where $G \in \mathbb{R}$ and $0 \le G \le 4.0$.
+- $C_i$: Credit hours for class $i$.
+- $P_i(x_i)$: Grade points earned in class $i$ as a function of weekly study hours.
 
-$C_i$ : total credit hours taken in a students block 
+$$\max G = \max_P \frac{\sum_i P_i(x_i) C_i}{\sum_i C_i}$$
 
-$$P(x_i)$$ : Grade point earned per class $i$
+## Additional Definitions
 
-$$\max G = \max_P \frac{\Sigma(P(x_i) * C_i)}{\Sigma C_i}$$ 
-```
-```
+The following definitions describe how study hours relate to grade points.
 
-## More Definitions
-This algorithum requires more definitions to fully define
+- **Grade points earned in a class:** A function of the number of hours $x_i$ spent studying for class $i$, subject to the following upper bounds:
 
-**definitions:**
+$$P_i(x_i) \in \mathbb{R}, \qquad P_i(x_i) \le 4$$
 
-- **Grade point earned in class** : function of $x_i$ amount of hours spent studying for class $i$
+$$P_i(x_i) \le b_i + x_i a_i$$
 
-$$P_i(x_i) \epsilon ℝ  \le 4$$
+- **Difficulty:** A constant representing the student's assessment of the difficulty of each class. See [Assumptions and Simplifications](#assumptions-and-simplifications) for its interpretation in this model.
 
-$$\le b_i + x_i * a_i$$
+$$d_i \in \mathbb{R}, \qquad 0 < d_i \le 10$$
 
-- **Difficulty**: arbitary constant used to assign a value to the students confidence in each individual class
->Please see [Assumptions and Simplifications](#Assumptions-and-Simplifications) for better explination to the interpritation of this constant 
+- **Grade points earned per study hour:** The rate at which grade points in class $i$ increase with each additional hour of weekly study. See [Assumptions and Simplifications](#assumptions-and-simplifications) for the assumptions behind this rate.
 
-$$d_i \epsilon ℝ$$  $$0 < d_i \le 10$$
+$$a_i \in \mathbb{R}$$
 
-- **Grade point earned per hour**: rate of change of grade point average earned relative to the # of hours studied
->Please see [Assumptions and Simplifications](#Assumptions-and-Simplifications) for better explination to the interpritation
+$$a_i = \frac{2}{d_i + m_i - m_i}$$
 
-$$a_i \epsilon ℝ$$ 
+- **Base grade point value:** The intercept of the linear grade model for class $i$, calculated using $m_i$ and $a_i$. See [Assumptions and Simplifications](#assumptions-and-simplifications) for the assumptions behind this value.
 
-$$= \frac{2}{d_i + m_i - m_i}  $$
+$$b_i \in \mathbb{R}$$
 
-- **Base grade point**: base grade point value assigned to each students class relative to $a_i$
->Please see [Assumptions and Simplifications](#Assumptions-and-Simplifications) for better explination to the interpritation
+$$b_i = 1 - m_i a_i$$
 
-$$b_i \epsilon  \(\mathbb{Z}\)$$
+### Constants
 
-$$= 1 - m_i * a_i$$
-
-**Constants:**
-
-$S$ : # of hours a sleep a student needs per week
-
-$W$ : # of hours student works per week
-
-$D$ : # of hours student spends in class per week
-
-$R$ : # of hours studenr require to maintain ones self
-
-$m_i$ : minimum # of hours a student must spend on on class per week
+- $S$: Hours of sleep a student needs per week.
+- $W$: Hours a student works per week.
+- $D$: Hours a student spends attending classes per week.
+- $R$: Hours a student needs for personal care per week.
+- $m_i$: Minimum hours a student must spend studying for class $i$ per week.
 
 $$m_i = C_i - 1$$
 
-$H$ : Remaining hours a student has left in a week to study
+- $H$: Total hours available for studying each week after sleep, work, class attendance, and personal care.
 
-$$H = 168 - ( S + W + D + R + m_i)$$
+$$H = 168 - (S + W + D + R)$$
 
+Each $x_i$ includes the minimum study hours $m_i$ for that class. These minimums are enforced by $x_i \ge m_i$ and are not subtracted from $H$, which would count them twice.
 
 ## Constraints
 
-- Standard U.S grading system
+- **Grade point bounds:** Grade points must fall within the standard U.S. 4.0 scale.
 
-$$0 \le P_i (x) \le 4$$
+$$0 \le P_i(x_i) \le 4$$
 
-- Required minimum study hours per class
+- **Minimum study hours:** Each class requires a minimum amount of weekly study time.
 
-$$x_i  \ge m_i \ge 0$$
+$$x_i \ge m_i \ge 0$$
 
-- Maximum study hours per week
+- **Maximum study hours:** Total weekly study time cannot exceed the available hours.
 
- $$\Sigma x_i \le H$$
+$$\sum_i x_i \le H$$
 
--Minimum Grade Required to pass a class
+- **Minimum passing grade:** This model requires at least 2.0 grade points in each class.
 
- $$P_i \ge 2$$
+$$P_i(x_i) \ge 2$$
+
 ## Classification
 
-This problem is classified as a linear programming problem. the main constraint eqaution $P_i(x_i)$ is able to be represented as a linear inequality.
+This problem is formulated as a linear programming problem. With the credit hours and model parameters fixed, the GPA objective is linear in the grade point variables. The relationship between study hours and grade points can be represented by a linear inequality:
 
-$$P_i(x_i) \le b_i + x_i * a_i$$
+$$P_i(x_i) \le b_i + x_i a_i$$
 
-If we graphed this linear system of eqautions assuming there are $i$ amount of classes then $i$ linear lines will apear on the graph stoping within in the bounds of the constraints. The solution vector $\vec{x}$ will equal some point on these lines where $x_i$ is bound to there individual function $P_i(x_i)$. This can be defined as a convex set as each point will be found in there respective domain.
-  
-
+For each class, this inequality bounds the grade points achievable for a given number of study hours. Together with the remaining linear constraints, these inequalities define a convex feasible region. The solution specifies a study-hour allocation $\vec{x}$ and corresponding grade point values that maximize GPA within this region.
 
 ## Assumptions and Simplifications
 
-- We assume $d_i$ to be a good estimation from student
+- The student's estimate of class difficulty, $d_i$, is assumed to be reasonable.
 
 $$0 < d_i \le 10$$
 
-- Assuming that if a student studies the minimum amount of hours $m_i$ then they will receive a grade of a D
-  
-$$x_i = m_i \top p_i(x_i) = 1$$
+- Studying for the minimum number of hours, $m_i$, is assumed to produce a D, equivalent to 1.0 grade point.
 
-- $d_i + m_i$ is the amount of time a student needs to achive a $B$
+$$x_i = m_i \implies P_i(x_i) = 1$$
 
-$$x_i = d_i + m_i \top P_i(x_i) = 3$$
+- Studying for $d_i + m_i$ hours is assumed to produce a B, equivalent to 3.0 grade points.
 
-- each additional hour studied impoves the students grade linearly until it reach the upper bound $4.0$
+$$x_i = d_i + m_i \implies P_i(x_i) = 3$$
 
-Making these assumptions and simplifications makes this algorithum a good approximation based on how difficult a student interprets the class to be. To gain a good solution real emperical data should be collected pertaining to each specific class comparing the grades of students who studied for $x_i$ amount of hours. After gathering this data the algorithum would have to ask for specific class codes and be able to serch a liabary of these values. I also would expect this data to be far from linear for most classes.
+- Each additional hour of weekly study is assumed to improve the student's grade linearly until it reaches the upper bound of 4.0.
 
-This formula leaves alot of descion to the user asking them to make close approximations to how they usally allocate their time on a weekly basis. Idealy I would want to take this descion from the away from the user and add nessisary constraint equations to optimize every aspect of the students week.
+These assumptions allow the algorithm to estimate grades based on a student's perception of each class's difficulty. To improve the model, empirical data should be collected for individual classes to compare study hours with grades earned. The algorithm could then ask for class codes and look up the corresponding values in a database. In practice, the relationship between study time and grades may be nonlinear for many classes.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+The current model relies on the user's estimates of how they allocate their time each week. A future version could reduce this reliance by adding constraints that account for more of the student's weekly activities and help optimize the overall schedule.
