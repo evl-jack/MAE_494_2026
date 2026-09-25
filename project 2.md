@@ -8,9 +8,9 @@ Topic: Ill-Conditioned Optimization in Color Image Deblurring
 
 Assignment: [Project 2 requirements](https://designinformaticslab.github.io/DesignOptimization2025/project2.html)
 
-Implementation: [deblur_test.m](deblur_test.m) | Input: [Test_Image.jpg](Test_Image.jpg)
+Original: [deblur_test.m](deblur_test.m) | Working copy: [deblur_report.m](analysis/deblur_report.m) | Python: [deblur_report.py](analysis/deblur_report.py) | Input: [Test_Image.jpg](Test_Image.jpg)
 
-> Working report based on the existing MATLAB script and the supplied image. The mathematical formulation and D1/D2 checks are developed below. MATLAB execution was blocked by a MathWorks service error, so convergence counts, reconstruction errors, and reconstructed images are still pending. The MATLAB code and its model parameters have not been changed.
+> This report now includes a successful MATLAB run and a validated Python translation. The original `deblur_test.m` is unchanged. A separate working copy improves diagnostic reporting and exports without changing the model or its parameters. Measured results below come from the MATLAB copy; independent checks are labeled separately.
 
 ## Problem Identification
 
@@ -124,7 +124,7 @@ This explains both the large condition number and its upper limit for the curren
 
 ### D2 — Intrinsic Conditioning
 
-The existing `sigmaList` varies the blur width while holding the analysis dimensions and `lambda` fixed. The following values are **independent NumPy evaluations of the existing MATLAB formulas**, not recorded MATLAB execution results. The image pixels and random noise are not needed for these Hessian calculations.
+The existing `sigmaList` varies the blur width while holding the analysis dimensions and `lambda` fixed. The following values were first checked independently with NumPy and then confirmed by the MATLAB working-copy run; see the [saved MATLAB results](report_assets/matlab-run/results.json). The image pixels and random noise are not needed for these Hessian calculations.
 
 | `sigma_i` (pixels) | `kappaOriginal` | `kappaJacobi` |
 | --- | ---: | ---: |
@@ -155,7 +155,7 @@ All eigenvalues are divided by the same positive scalar, so their largest-to-sma
 
 ### D1 — Spectrum
 
-At `sigma = 3.1640625`, the independent check gives:
+At `sigma = 3.1640625`, the MATLAB run confirms the independent check:
 
 | Existing quantity | Checked value |
 | --- | ---: |
@@ -184,9 +184,15 @@ rho = 1 - alpha*hEig;
 
 For the checked spectrum, the largest magnitude of `rho` is about 0.99980004. Raising that factor to 20,000 gives about 0.018323. This describes a worst-mode contraction factor, **not a measured gradient residual or reconstruction error for the photograph**. It explains why the script's 20,000-iteration limit does not guarantee the requested tolerance.
 
-The existing controls are `gdTolerance = 1e-4` and `maxGDIterations = 20000`. Iterations are sampled logarithmically. If a sampled value first passes the tolerance, `gdIterations` reports that sampled index, not necessarily the earliest successful iteration. If no sample passes, it is set to 20,000 and the script prints a failure-to-converge message. That value must not be reported as successful convergence without checking the message.
+The existing controls are `gdTolerance = 1e-4` and `maxGDIterations = 20000`. In the original script, iterations are sampled logarithmically. If a sampled value first passes the tolerance, `gdIterations` reports that sampled index, not necessarily the earliest successful iteration. If no sample passes, it is set to 20,000 and the script prints a failure-to-converge message. That value must not be reported as successful convergence without checking the message.
 
-**Result still needed:** export the existing GD convergence figure and record whether the tolerance was reached. A two-variable contour-path plot is not applicable to this image with millions of decision values.
+The working copy checks the full-budget residual first and uses an integer binary search if the tolerance is reachable. This preserves the same GD trajectory and budget while distinguishing an iteration cap from convergence.
+
+**Measured result:** GD did not meet the tolerance. At 20,000 iterations, its relative RGB gradient was **0.01582584**, approximately 158 times the requested 0.0001. A two-variable contour-path plot is not applicable to this image with millions of decision values.
+
+![Measured RGB convergence, with the first 100 iterations shown separately](report_assets/matlab-run/convergence-detail.png)
+
+*Figure 4. MATLAB working-copy results. Both curves use the RGB relative gradient/residual norm. The right panel makes the early CG behavior visible; the left shows GD across its complete budget.*
 
 ## Proposed Solution and Demonstration
 
@@ -200,7 +206,15 @@ The Fourier representation makes the Hessian-vector operation inexpensive throug
 
 For each channel, the script prints `iterationsCG`, `relres`, and `flag`. A zero flag indicates successful convergence; the iteration count alone is insufficient to establish success. `maxCGUsed` is the largest per-channel count, not the sum of work across all channels.
 
-**Comparison limitation:** `relativeGradientGD` combines RGB gradient energy, but `cgHistory` stores only the first channel's normalized residual history. The two plotted curves therefore do not measure exactly the same aggregate. Explain this when presenting the existing figure; it cannot support a precise whole-image speedup ratio. No code changes have been made to resolve this gap.
+The original script stores only the red channel in `cgHistory`, whereas GD combines all three channels. The working copy fixes this reporting mismatch: it saves all three residual histories, combines their squared norms, and divides by the initial RGB norm. Once a channel stops, its last residual is held fixed in the aggregate curve.
+
+| Channel | CG iterations | Relative residual | MATLAB flag |
+| --- | ---: | ---: | ---: |
+| Red | 40 | 0.00009966508 | 0 |
+| Green | 42 | 0.00009963335 | 0 |
+| Blue | 47 | 0.00009688040 | 0 |
+
+All three channels met the tolerance. The final combined RGB residual was **0.00009900521**. CG therefore met the target within 47 iterations per channel, while GD still failed it after 20,000 iterations. This is an iteration-based comparison; a CG step is performed separately for each channel, and no wall-clock speedup ratio is claimed.
 
 ### Larger Image: Direct Fourier Reconstruction
 
@@ -214,20 +228,29 @@ and transforms the result back to pixel space. This directly solves the regulari
 
 `directSolveTime` measures this direct solve. The script does not time GD and CG, and GD is evaluated through sampled closed-form expressions. A wall-clock comparison between these paths would not measure equivalent iterative implementations.
 
-### Reconstruction Quality and Pending Results
+### Measured Reconstruction Quality
 
 Optimization accuracy and photographic fidelity are different. A small gradient or residual means the regularized equations have nearly been solved; it does not mean the original photograph has been recovered exactly.
 
 The script's `errorBlur`, `errorGD`, `errorCG`, and `error2K` are relative image errors against the corresponding resized reference. These errors use **clipped display images**. They are not objective-function values or solver residuals, and the larger-image error is measured at a different resolution from the iterative errors.
 
-| Result from the current script | Status |
-| --- | --- |
-| GD tolerance success and sampled iteration count | Awaiting MATLAB execution |
-| CG convergence flag, residual, and iteration count for each channel | Awaiting MATLAB execution |
-| GD/CG convergence figure | Awaiting MATLAB export; retain the RGB/red-channel caveat |
-| Smaller-image reconstruction comparison | Awaiting MATLAB export |
-| Direct 2K reconstruction and `directSolveTime` | Awaiting MATLAB execution and export |
-| `errorBlur`, `errorGD`, `errorCG`, `error2K` | Awaiting MATLAB execution |
+| Measured quantity | MATLAB result |
+| --- | ---: |
+| Blurred analysis image: `errorBlur` | 0.17448852 |
+| GD reconstruction: `errorGD` | 0.12399872 |
+| CG reconstruction: `errorCG` | 0.13058171 |
+| Direct 2K reconstruction: `error2K` | 0.14457829 |
+| Direct 2K solve time, one run | 0.894 seconds |
+
+Both iterative reconstructions reduced the clipped image error relative to the blurred input. CG met its solver tolerance much sooner, but its image error was slightly higher than GD's in this run. Solving the regularized equations more accurately does not guarantee a smaller error against the reference photograph. The current fixed regularization and stopping rules have not been optimized for image quality.
+
+![MATLAB analysis-resolution reconstruction comparison](report_assets/matlab-run/analysis-comparison.png)
+
+*Figure 5. Original, degraded, GD, and CG analysis images. GD's 20,000 iterations are a budget limit, not successful convergence. Broad features and some field detail return, but fine photographic detail is not completely restored.*
+
+![MATLAB full-resolution direct Fourier reconstruction](report_assets/matlab-run/full-comparison.png)
+
+*Figure 6. The 2048-pixel-wide direct reconstruction is a separate solve at a different resolution. It is not the CG image from Figure 5.*
 
 ## Assumptions and Simplifications
 
@@ -243,30 +266,53 @@ The following choices already exist in the script; no additional model assumptio
 
 ## Reproducibility
 
-The reviewed GitHub and local versions of `deblur_test.m` matched after ignoring line endings. The source image is `Test_Image.jpg`; there is no `stadium.png` in the reviewed repository.
+The original MATLAB source and `Test_Image.jpg` are preserved. The successful run used MATLAB R2023b Update 9 with Image Processing Toolbox in an already-open desktop session. Starting a separate batch process still encountered a MathWorks service error; this did not prevent execution in the open session.
 
-To run the existing script:
+From the repository root, run the separate copy:
 
-1. Use MATLAB with the Image Processing Toolbox and set the Current Folder to this repository.
-2. Run `deblur_test`.
-3. When the image picker appears, choose `Test_Image.jpg`. The script first searches for `stadium.png`, then falls back to this picker.
-4. Run the complete script so `rng(1)`, both image sizes, and both noise draws follow the existing sequence.
-5. Save the Command Window output and export the named spectrum, conditioning, convergence, and reconstruction figures. The current script displays these figures but does not save report assets automatically.
+```matlab
+addpath('analysis');
+results = deblur_report(fullfile(pwd,'analysis','results_matlab'));
+```
 
-The D1/D2 tables and figures above were checked separately with NumPy 2.3.5, using the exact Gaussian-kernel formula, dimensions, `sigmaList`, and `lambda` from the script. No synthetic image reconstructions or solver results were substituted for MATLAB output. Numeric check data are saved in [conditioning-check.json](report_assets/conditioning-check.json).
+It locates `Test_Image.jpg`, uses the original `rng(1)` sequence, and exports its figures, log, JSON measurements, and reference arrays. The original script still looks first for `stadium.png` and falls back to a picker; that original file was not edited. Full instructions and dependencies are in [analysis/README.md](analysis/README.md).
 
-MATLAB R2023b was found locally, but startup failed with MathWorks service error 5202. This prevents an end-to-end execution claim for this draft. The independent conditioning check confirms the spectral formulas, not the complete MATLAB pipeline.
+### Python Translation and Validation
 
-## Remaining Work Before Submission
+```text
+python -m pip install -r analysis/requirements.txt
+python analysis/deblur_report.py --output analysis/results_python
+python -m unittest discover -s analysis -p "test_*.py" -v
+```
 
-The [assignment](https://designinformaticslab.github.io/DesignOptimization2025/project2.html#report-requirements) calls for formulation, conditioning evidence, baseline behavior, and a demonstrated remedy. This draft maps those requirements to the actual implementation:
+The standalone translation keeps the model and parameter values. Its bicubic preprocessing matched the two MATLAB reference images within 1.6e-13 maximum absolute difference. NumPy's seeded noise differs from MATLAB's seeded noise, so two independently generated experiments need not return identical pixels.
 
-| Report component | Current evidence | Remaining work |
-| --- | --- | --- |
-| Formulation and classification | Objective, variables, constraints, and positive-definite Hessian explained from code | Team review |
-| D1 and D2 | Independent spectral/conditioning checks and figures | Compare with MATLAB output; add the requested small-case hand verification |
-| D3 | GD trajectory and stopping logic explained | Record actual convergence evidence |
-| D4 | CG and direct-solve roles distinguished | Record CG results and disclose the current channel mismatch |
-| Reproducibility | Existing settings and run instructions documented | Preserve MATLAB logs/figures and software details |
+For a stricter solver comparison, Python also ran on the exact references and noisy observations exported by MATLAB, using `--reference-mat`. The two implementations returned the same 40/42/47 CG counts. Maximum absolute reconstruction differences were 8.33e-15 for GD, 2.26e-14 for CG, and 1.12e-14 for the direct solve. These checks validate the translation on this case; they are not a general proof for every input or software version.
 
-Before submission, confirm that equations and images render correctly on GitHub, replace pending results with verified output, and submit the public repository link on Canvas. The present file is a developed report draft, not a claim that the outstanding experiments have been completed.
+The standalone Python run also completed, returning the same CG counts and GD nonconvergence status with its own noise sample. Saved [shared-input results](report_assets/python-shared-input-results.json), [standalone results](report_assets/python-standalone-results.json), and [validation details](report_assets/translation-validation.json) keep those experiments distinct.
+
+### Small-Case Verification
+
+As a check on the formulas, use a 2-by-2 grid with the existing blur setting `sigma = 0.5` and `lambda = 0.0001`. This is a verification case only; the reported image experiment retains its full dimensions.
+
+The same shifted, normalized Gaussian formula gives
+
+$$\text{psfShifted}=\frac{1}{(1+e^{-2})^2}\begin{bmatrix}1&e^{-2}\\e^{-2}&e^{-4}\end{bmatrix}.$$
+
+The 2-by-2 Fourier transform is obtained by adding and subtracting these four entries. Its values are approximately 1, 0.76159416, 0.76159416, and 0.58002566. Squaring them and adding 0.0001 gives Hessian eigenvalues 1.0001, 0.58012566, 0.58012566, and 0.33652976. Their ratio is **2.97180251**. An explicit 4-by-4 circular-blur matrix independently produced these same eigenvalues.
+
+Five numerical tests passed: the small Hessian check, direct GD steps against the Fourier trajectory, CG against the direct solution, stopping/zero-gradient cases, and resize identity/constant-image cases. These tests supplement the full-image cross-language comparison.
+
+## Submission Review
+
+The [assignment requirements](https://designinformaticslab.github.io/DesignOptimization2025/project2.html#report-requirements) are mapped to the evidence below.
+
+| Component | Evidence |
+| --- | --- |
+| Formulation and classification | Existing variables, objective, unconstrained domain, and positive-definite Hessian |
+| D1 and D2 | Spectral and Jacobi checks confirmed by MATLAB; small-case derivation above |
+| D3 | GD fails the fixed tolerance within its unchanged budget; measured RGB curve |
+| D4 | CG meets the same tolerance in all channels; corrected RGB comparison and actual image errors |
+| Reproducibility | Working MATLAB copy, Python translation, tests, run instructions, and saved results |
+
+Before submission, review the interpretation as a team and verify the GitHub rendering. The evidence supports faster optimizer convergence with CG for this experiment; it does not establish better image fidelity or a GD-versus-CG runtime benchmark. Submit the public repository link on Canvas when the team is ready.

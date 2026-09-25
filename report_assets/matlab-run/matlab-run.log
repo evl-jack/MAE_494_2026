@@ -1,0 +1,78 @@
+
+Image loaded from:
+C:\Users\jackf\Documents\Codex\2026-09-21\github-plugin-github-openai-curated-remote\work\MAE_494_2026\Test_Image.jpg
+
+2K image dimensions:
+2048 x 1366 x 3
+
+Blur sigma = 6.00 pixels
+Regularization lambda = 1.00e-04
+Noise standard deviation = 0.0010
+
+Full 2K Fourier deblurring time: 0.894 seconds
+
+============================================
+OPTIMIZATION ANALYSIS IMAGE
+============================================
+Analysis resolution: 1080 x 720 RGB
+Equivalent sigma: 3.164 pixels
+
+============================================
+D1 - HESSIAN CONDITION NUMBER
+============================================
+Minimum eigenvalue = 1.000000e-04
+Maximum eigenvalue = 1.000100e+00
+Condition number    = 1.000100e+04
+
+============================================
+D2 - INTRINSIC CONDITIONING TEST
+============================================
+ sigma       kappa(H)       kappa(Jacobi)
+---------------------------------------------
+  0.35       1.310e+00       1.310e+00
+  0.50       9.192e+00       9.192e+00
+  0.70       9.029e+02       9.029e+02
+  1.00       9.997e+03       9.997e+03
+  1.30       1.000e+04       1.000e+04
+  1.60       1.000e+04       1.000e+04
+  2.00       1.000e+04       1.000e+04
+
+============================================
+D3 - GRADIENT DESCENT
+============================================
+GD step size = 1.999600e+00
+GD iterations evaluated = 20000; converged = 0; RGB relative gradient = 1.58258416e-02
+
+============================================
+D4 - CONJUGATE GRADIENT
+============================================
+
+Channel 1:
+  CG iterations = 40
+  Relative residual = 9.967e-05
+  PCG flag = 0
+
+Channel 2:
+  CG iterations = 42
+  Relative residual = 9.963e-05
+  PCG flag = 0
+
+Channel 3:
+  CG iterations = 47
+  Relative residual = 9.688e-05
+  PCG flag = 0
+
+Maximum CG iterations = 47
+
+============================================
+FINAL RESULTS
+============================================
+Condition number       = 1.000e+04
+Blurred image error    = 0.17449
+GD reconstruction error = 0.12400
+CG reconstruction error = 0.13058
+2K reconstruction error = 0.14458
+GD iterations shown     = 20000
+Maximum CG iterations   = 47
+2K direct solve time     = 0.894 seconds
+REPORT RUN COMPLETE: C:/Users/jackf/Documents/Codex/2026-09-21/github-plugin-github-openai-curated-remote/work/matlab-results-final

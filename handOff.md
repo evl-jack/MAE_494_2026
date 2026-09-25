@@ -1,85 +1,59 @@
 # Project 2 Handoff
 
-Updated: September 24, 2026, approximately 3:20 p.m. America/Phoenix.
+## Current state
 
-## User's Request and Boundaries
+The report now contains measured results from a successful MATLAB desktop run and a validated Python translation. The user authorized edits in a separate MATLAB copy, requested Python, and asked to save the completed files to GitHub. The original `deblur_test.m` and `Test_Image.jpg` remain unchanged.
 
-Develop `project 2.md` from the existing outline using the MATLAB implementation, supplied image, and assignment at https://designinformaticslab.github.io/DesignOptimization2025/project2.html. Make the explanation easy to follow and tied to the assignment. The user explicitly confirmed:
+Repository: https://github.com/evl-jack/MAE_494_2026, branch `Main`.
 
-- Report only; document code issues and missing evidence instead of changing MATLAB.
-- Use `Test_Image.jpg`. There is no separate PNG to wait for.
-- Do not introduce new model variables or simplifications.
-- Provide progress updates every 20 minutes while active.
-- Save a handoff before exhausting account usage. If quota runs out, pause until 7:50 p.m. America/Phoenix on September 24 and check availability before resuming. Do not consume reset credits.
+## New working files
 
-No new push was requested for this report revision.
+- `analysis/deblur_report.m`: copy of the original, wrapped as a function. It locates the existing JPG, exports evidence, correctly reports GD stopping status, and combines all RGB CG residuals to match GD.
+- `analysis/plot_report_convergence.m`: full-budget and early-iteration plots from saved measurements.
+- `analysis/deblur_report.py`: complete standalone translation, plus a shared-input validation mode.
+- `analysis/test_deblur_report.py`: five numerical tests.
+- `analysis/requirements.txt` and `analysis/README.md`: dependencies, usage, differences, and validation instructions.
+- `report_assets/matlab-run/`: MATLAB measurements, log, and selected figures.
+- `report_assets/python-shared-input-results.json`, `python-standalone-results.json`, and `translation-validation.json`: cross-language evidence.
+- `project 2.md`: measured D3/D4 results, corrected comparison, reconstruction figures, small-case verification, and reproduction instructions.
 
-## Repository and Files
+## Results
 
-Repository: https://github.com/evl-jack/MAE_494_2026
+The model and all experiment parameters remain unchanged: periodic Gaussian blur; lambda 0.0001; noise standard deviation 0.001; 2048-pixel direct reconstruction; 1080-pixel optimizer analysis; GD limit 20000; CG limit 500; tolerance 0.0001.
 
-Branch: `Main`.
+MATLAB R2023b Update 9 with Image Processing Toolbox ran successfully through the user's open session. Starting a separate batch process still failed with service error 5202. Computer Use can run the copied function in the existing MATLAB Command Window.
 
-Local checkout: `C:/Users/jackf/Documents/Codex/2026-09-21/github-plugin-github-openai-curated-remote/work/MAE_494_2026`.
+- Hessian condition number: 10001.
+- GD: failed the tolerance at 20000; RGB relative gradient 0.0158258416059053.
+- CG: 40, 42, 47 iterations; all flags zero; RGB relative residual 0.0000990052086765.
+- Clipped relative image errors: blurred 0.17448852; GD 0.12399872; CG 0.13058171; direct full-resolution 0.14457829.
+- The final MATLAB direct solve took about 0.894 seconds in one observation. This is not a GD/CG or cross-language timing benchmark.
 
-Local HEAD at review start: `2515e4e447409ff4ede39a25b53aa85d54a9db08` (original outline).
+CG converges to the optimization criterion much earlier, but its image error is slightly higher than GD's. Preserve that distinction. The copied CG curve now aggregates RGB, holding each converged channel's final residual fixed. The original red-channel-only curve is not used for the corrected comparison.
 
-The GitHub source and local `deblur_test.m` match when line endings are ignored. GitHub blob: `b3bcfd6a33fee29a49357b0dde1618f2c9d2fc69`; local raw hash: `59ce9537f49a3f76aac89980985a95ba868bbafa`. Do not treat that newline-only discrepancy as a model difference.
+## Validation
 
-## Work Completed
+Five numerical tests passed: explicit small Hessian versus Fourier spectrum, GD recurrence versus literal iterations, CG versus direct solve, stopping/zero-input cases, and resize checks.
 
-- Read the complete MATLAB script and inspected the supplied stadium photo.
-- Verified the GitHub repository contents and reread the assignment requirements.
-- Replaced the outline with a developed report explaining the existing regularized least-squares formulation, decision variables, constraints, classification, blur mechanism, D1-D4 implementation, assumptions, reproduction steps, and evidence gaps.
-- Added `report_assets/d1-spectrum.svg`, `report_assets/d2-conditioning.svg`, and `report_assets/conditioning-check.json` from independent checks of the existing formulas. They are explicitly labeled as NumPy checks, not MATLAB execution results.
-- Left MATLAB and input image unchanged.
+Shared-input Python returned the same CG iteration counts as MATLAB. Maximum pixel differences: GD 8.33e-15, CG 2.26e-14, direct solve 1.12e-14. Independent bicubic resizing matched MATLAB within 1.6e-13. Standalone Python also ran successfully with its own seeded noise. NumPy and MATLAB seeds do not produce identical noise samples.
 
-## Key Findings
+The 2-by-2 hand-check case uses the existing sigma 0.5 and lambda 0.0001: Hessian eigenvalues 1.0001, 0.5801256584 (twice), and 0.3365297644; condition number 2.9718025145. This validates the formula without replacing the image experiment.
 
-The code minimizes `0.5*||A*x-b||^2 + lambda/2*||x||^2` with known periodic Gaussian blur and `lambda = 1e-4`. It is continuous, unconstrained, strongly convex quadratic optimization. `clampImage` is postprocessing, not a constraint.
+Source protection: original MATLAB raw Git blob remains `59ce9537f49a3f76aac89980985a95ba868bbafa`; image blob remains `44e52b98e03f87c86fa1750ceeb132ce569b5ab8`.
 
-The supplied JPG is 1920 by 1281 RGB. The code resizes it to 2048 by 1366 for direct Fourier reconstruction, then 1080 by 720 for optimizer diagnostics. The main analysis sigma is 3.1640625 pixels. It generates separate noisy observations at the two resolutions.
+## Local execution artifacts
 
-Independent spectral checks give minimum eigenvalue approximately 0.0001, maximum approximately 1.0001, condition number approximately 10001, and GD step approximately 1.99960008. The D2 condition number increases from 1.31 to about 10001 across the existing sigma list; Jacobi scaling leaves it unchanged. Regularization explains saturation of the condition number.
+The checkout is under `work/MAE_494_2026` in this Codex task. Neighboring scratch folders `work/matlab-results-final`, `work/python-reference-results`, and `work/python-standalone-results` contain full run outputs. `work/matlab-results-final/reference.mat` is approximately 303 MB and intentionally excluded from GitHub; rerunning the MATLAB copy regenerates it. The portable commands in `analysis/README.md` use ignored `analysis/results_*` folders instead.
 
-The GD trajectory is evaluated using Fourier formulas from a zero initial image, not a full timed iterative loop. Its stopping index is the first successful logarithmic sample, or 20000 on failure. Do not report the iteration cap as successful convergence.
+Python dependencies were installed only in the task's `work/python-deps` directory. To use that local installation, set PYTHONPATH to it and run the bundled Python executable. Normal users can install the listed requirements in their preferred environment.
 
-`pcg` has no preconditioner supplied. It solves each RGB channel separately. GD's plotted relative gradient combines RGB, but CG's stored history contains only the first (red) channel. Do not claim a directly comparable whole-image speedup from these curves.
+The MATLAB copy restores the caller's RNG state and does not clear the workspace. Its generated figures are exported and closed. MATLAB remains open.
 
-The full 2K result is a direct Fourier solve, not the CG result. Reconstruction-error values compare clipped displays to their corresponding resized references. These are not optimization residuals.
+## Next session
 
-## Verification and Blockers
+1. Review the report and images as a team; no missing numerical evidence remains from the earlier startup failure.
+2. Verify final GitHub math/image rendering before submission.
+3. Do not replace the original MATLAB file with the working copy unless separately requested.
+4. If more cases or different regularization are desired, treat them as new experiments and preserve the current evidence.
 
-MATLAB R2023b exists at `C:/Program Files/MATLAB/R2023b/bin/matlab.exe`. A batch startup failed initially due to preferences setup; setting `MATLAB_PREFDIR` to the workspace fixed that issue. Startup then failed with MathWorks service error 5202, including after network permission was granted. No MATLAB solver run completed. Do not invent iteration counts, flags, timings, image errors, or restored images.
-
-The existing script asks for `stadium.png`; since it is absent, a normal interactive run opens an image picker. Select `Test_Image.jpg`.
-
-Scratch verification files, outside the repository:
-
-- `../check_conditioning.py`: exact D1/D2 formulas evaluated using NumPy 2.3.5; assertions check eigenvalue bounds and unchanged Jacobi condition number.
-- `../plot_conditioning.py`: generates the two report SVG charts.
-- `../conditioning-check.json`: numeric check output.
-- `../review-source/deblur_test.m`: fetched GitHub source for comparison.
-- `../matlab-check.log`: startup failure record.
-
-Bundled Python: `C:/Users/jackf/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe`.
-
-Final review passed: both charts were rasterized and visually inspected; a legend overlap was corrected. Local Markdown links resolve, six display-math blocks and four code blocks are balanced, SVG XML parses, and all D2 table entries match the independently calculated values to their printed precision. Dimensions and model settings were checked against the source. `git diff --check` passed. MATLAB and image hashes remain unchanged. Scratch `../verify_report.py` records these checks. These checks do not establish successful MATLAB execution or full assignment completion.
-
-## Next Steps
-
-The requested report draft and handoff are complete. Repository changes are local and uncommitted. Reviewable copies are provided under `../../outputs/project-2-review/`, with the report, handoff, unchanged reference script/image, and report assets. A ZIP of that folder is also provided. Source files are copied only so the exported report's relative links work.
-
-For the next work session:
-
-1. Review the developed draft with the team.
-2. Run the existing script in an authenticated MATLAB session, selecting `Test_Image.jpg` when prompted.
-3. Supply D3/D4 evidence, image comparisons, output logs, flags, and error values. The assignment's small-case hand verification remains pending.
-4. Resolve the RGB/red-channel comparison only if the user authorizes a code change. Until then, keep the caveat explicit.
-5. Check final GitHub math rendering and publish only when requested. The requested draft is complete; the full experimental submission is not.
-
-## Progress Automation and Usage
-
-Heartbeat ID: `project-2-report-progress`. It was scheduled every 20 minutes and is now disabled (PAUSED) because the requested draft work is complete. No quota pause or reset-time restart was needed. Only one heartbeat can attach to a task; no separate reset automation was created.
-
-The last checked account limits were 46% used in the five-hour window and 7% used in the weekly window; recheck rather than relying on these old values. No reset credits were used. The tool does not expose a separate daily token counter.
+The previous 20-minute heartbeat is disabled because the earlier timed report-drafting task ended. No reset credits were consumed by this work. Current progress is communicated in the active task.

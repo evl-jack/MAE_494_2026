@@ -1,0 +1,50 @@
+{
+  "fullResizeMaxAbsDifference": 1.5648593532091581e-13,
+  "analysisResizeMaxAbsDifference": 1.1679546219056647e-13,
+  "sharedInputSolverComparison": {
+    "transferMaxAbsDifference": 4.560077085102965e-16,
+    "gdMaxAbsDifference": 8.326672684688674e-15,
+    "cgMaxAbsDifference": 2.2537527399890678e-14,
+    "directMaxAbsDifference": 1.1102230246251565e-14
+  },
+  "smallCase": {
+    "shape": [
+      2,
+      2
+    ],
+    "sigma": 0.5,
+    "regularization": 0.0001,
+    "shiftedKernel": [
+      [
+        0.7758034925743759,
+        0.10499358540350652
+      ],
+      [
+        0.10499358540350652,
+        0.014209336618611037
+      ]
+    ],
+    "transfer": [
+      [
+        1.0,
+        0.7615941559557647
+      ],
+      [
+        0.7615941559557649,
+        0.5800256583859739
+      ]
+    ],
+    "eigenvalues": [
+      [
+        1.0001,
+        0.5801256583859737
+      ],
+      [
+        0.5801256583859739,
+        0.33652976438608245
+      ]
+    ],
+    "kappa": 2.9718025144802325
+  },
+  "passed": true
+}
