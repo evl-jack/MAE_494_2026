@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="560" viewBox="0 0 960 560">
+<rect width="960" height="560" fill="white"/>
+<g font-family="Arial, sans-serif" font-size="15" fill="#172033">
+<text x="480" y="35" text-anchor="middle" font-size="22">D2: Increasing blur and the Jacobi scaling check</text>
+<text x="490" y="510" text-anchor="middle">sigma_i (pixels)</text>
+<text x="25" y="270" text-anchor="middle" transform="rotate(-90 25 270)">Condition number (log scale)</text>
+<path d="M100 450.0 H900" stroke="#dce2ea"/>
+<text x="88" y="455.0" text-anchor="end">10^0</text>
+<path d="M100 361.9047619047619 H900" stroke="#dce2ea"/>
+<text x="88" y="366.9047619047619" text-anchor="end">10^1</text>
+<path d="M100 273.80952380952385 H900" stroke="#dce2ea"/>
+<text x="88" y="278.80952380952385" text-anchor="end">10^2</text>
+<path d="M100 185.71428571428572 H900" stroke="#dce2ea"/>
+<text x="88" y="190.71428571428572" text-anchor="end">10^3</text>
+<path d="M100 97.61904761904765 H900" stroke="#dce2ea"/>
+<text x="88" y="102.61904761904765" text-anchor="end">10^4</text>
+<text x="100.0" y="478" text-anchor="middle">0.35</text>
+<text x="172.72727272727275" y="478" text-anchor="middle">0.50</text>
+<text x="269.6969696969697" y="478" text-anchor="middle">0.70</text>
+<text x="415.1515151515152" y="478" text-anchor="middle">1.00</text>
+<text x="560.6060606060606" y="478" text-anchor="middle">1.30</text>
+<text x="706.060606060606" y="478" text-anchor="middle">1.60</text>
+<text x="900.0" y="478" text-anchor="middle">2.00</text>
+<polyline points="100.00,439.66 172.73,365.13 269.70,189.62 415.15,97.63 560.61,97.62 706.06,97.62 900.00,97.62" fill="none" stroke="#215da8" stroke-width="2.5" />
+<circle cx="100.0" cy="439.6642657971433" r="6" fill="white" stroke="#215da8" stroke-width="2"/>
+<circle cx="172.72727272727275" cy="365.12897782915746" r="6" fill="white" stroke="#215da8" stroke-width="2"/>
+<circle cx="269.6969696969697" cy="189.62234885436192" r="6" fill="white" stroke="#215da8" stroke-width="2"/>
+<circle cx="415.1515151515152" cy="97.63159511137343" r="6" fill="white" stroke="#215da8" stroke-width="2"/>
+<circle cx="560.6060606060606" cy="97.61522190266453" r="6" fill="white" stroke="#215da8" stroke-width="2"/>
+<circle cx="706.060606060606" cy="97.61522188275262" r="6" fill="white" stroke="#215da8" stroke-width="2"/>
+<circle cx="900.0" cy="97.61522188275262" r="6" fill="white" stroke="#215da8" stroke-width="2"/>
+<polyline points="100.00,439.66 172.73,365.13 269.70,189.62 415.15,97.63 560.61,97.62 706.06,97.62 900.00,97.62" fill="none" stroke="#b84a13" stroke-width="2.5" stroke-dasharray="7 5"/>
+<rect x="97.0" y="436.6642657971433" width="6" height="6" fill="#b84a13"/>
+<rect x="169.72727272727275" y="362.12897782915746" width="6" height="6" fill="#b84a13"/>
+<rect x="266.6969696969697" y="186.62234885436192" width="6" height="6" fill="#b84a13"/>
+<rect x="412.1515151515152" y="94.63159511137343" width="6" height="6" fill="#b84a13"/>
+<rect x="557.6060606060606" y="94.61522190266453" width="6" height="6" fill="#b84a13"/>
+<rect x="703.060606060606" y="94.61522188275262" width="6" height="6" fill="#b84a13"/>
+<rect x="897.0" y="94.61522188275262" width="6" height="6" fill="#b84a13"/>
+<path d="M100 75 V450 H900" fill="none" stroke="#526174"/>
+<rect x="460" y="250" width="310" height="88" rx="6" fill="white" stroke="#dce2ea"/>
+<text x="475" y="274" fill="#215da8">Original Hessian (circles)</text>
+<text x="475" y="298" fill="#b84a13">After Jacobi scaling (squares)</text>
+<text x="475" y="322" font-size="13">The two curves overlap.</text>
+<text x="480" y="542" text-anchor="middle" font-size="12" fill="#526174">Independent NumPy check of deblur_test.m formulas — not MATLAB run output</text>
+</g></svg>
