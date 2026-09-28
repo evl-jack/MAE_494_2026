@@ -10,13 +10,15 @@ Assignment: [Project 2 requirements](https://designinformaticslab.github.io/Desi
 
 Original: [deblur_test.m](deblur_test.m) | Working copy: [deblur_report.m](analysis/deblur_report.m) | Python: [deblur_report.py](analysis/deblur_report.py) | Input: [Test_Image.jpg](Test_Image.jpg)
 
-> This report now includes a successful MATLAB run and a validated Python translation. The original `deblur_test.m` is unchanged. A separate working copy improves diagnostic reporting and exports without changing the model or its parameters. Measured results below come from the MATLAB copy; independent checks are labeled separately.
+Measured results come from the MATLAB working copy, which preserves the original model and parameters while exporting diagnostics. A Python translation provides an independent implementation check.
 
 ## Problem Identification
 
 A blurred photograph may preserve the overall scene while hiding details such as lettering, field markings, and individual rows of seats. Someone trying to recover useful information from that photograph needs an estimate of the image before the blur occurred. Simply sharpening the picture does not explain whether that estimate is consistent with the blur or how sensitive it is to noise.
 
 Our project studies this problem using the supplied stadium photograph. The broad areas of sky and field vary gradually, while the stadium lettering, seating, and yard lines contain sharper changes. This makes the image useful for explaining why recovering fine detail is harder than recovering broad features.
+
+An imaging engineer or sports-image analyst could use this reconstruction to make field markings and stadium features easier to inspect. The practical tradeoff is recovering useful detail without excessively amplifying noise. Here the known reference photograph lets us measure that tradeoff in a controlled experiment.
 
 ![Supplied stadium photograph used as the reference image](Test_Image.jpg)
 
@@ -26,7 +28,9 @@ The script creates a controlled experiment: it resizes this reference, applies a
 
 The optimization question is: which pixel values best explain the blurred image while limiting the size of the reconstructed values? The numerical question is why gradient descent can converge slowly on this problem, and whether conjugate gradient handles the same objective more effectively.
 
-## Decision Variables
+## Formulation
+
+### Decision Variables
 
 The decision variable $x$, already used in the script's formulation, represents the reconstructed pixel intensities. These are continuous, dimensionless values expressed on the normalized image-intensity scale.
 
@@ -46,7 +50,7 @@ MATLAB stores the image as an array and handles the channels separately where ap
 
 The analysis problem has 2,332,800 scalar pixel values. The larger reconstruction has 8,392,704. These dimensions follow from the supplied image and the script's rounding rules; increasing the image width to 2048 does not create new photographic detail.
 
-## Objective Function
+### Objective Function
 
 The script specifies Tikhonov-regularized least squares:
 
@@ -68,7 +72,7 @@ $$(A^\top A+\lambda I)x=A^\top b.$$
 
 Here $I$ is the identity operator already present in the script's mathematical description. The implementation does not build a dense matrix for $A$ or $H$; it applies their action using Fourier transforms.
 
-## Additional Definitions
+### Additional Definitions
 
 | Existing symbol or code name | Meaning and setting |
 | --- | --- |
@@ -89,13 +93,13 @@ Although a code comment calls `sigma2K` a blur radius, the Gaussian expression u
 
 The script first forms `b2K` from `xTrue2K`. It later resizes the reference to `xTrue` and generates `b` with a fresh noise draw. The analysis observation is therefore not simply a downsampled copy of `b2K`.
 
-## Constraints
+### Constraints
 
 The optimization is unconstrained: there are no equality constraints, inequality constraints, integer restrictions, or enforced pixel bounds on $x$.
 
 The `clampImage` function clips values to the interval $[0,1]$ for display. It is applied after solving, rather than as a projection within GD or CG. Consequently, clipping should not be described as a constraint in the optimization formulation. The input to each solver is the unclipped noisy image.
 
-## Classification
+### Classification
 
 This is a continuous, unconstrained, strongly convex quadratic optimization problem. The forward blur model is linear, while the objective is quadratic; this is not a linear programming problem.
 
@@ -216,6 +220,10 @@ The original script stores only the red channel in `cgHistory`, whereas GD combi
 
 All three channels met the tolerance. The final combined RGB residual was **0.00009900521**. CG therefore met the target within 47 iterations per channel, while GD still failed it after 20,000 iterations. This is an iteration-based comparison; a CG step is performed separately for each channel, and no wall-clock speedup ratio is claimed.
 
+The condition number remains **10001 for both methods**. CG improves the effective convergence rate by combining information from previous search directions, allowing it to handle the different curvatures more effectively. For positive-definite quadratics, the usual worst-case iteration bound for a fixed reduction in the Hessian energy norm of the solution error scales with the square root of the condition number for CG, versus the condition number for optimally stepped GD. These bounds explain the choice of remedy; they do not predict the exact residual history of this image.
+
+The measured iteration counts provide the direct D4 comparison: CG reaches the fixed tolerance within 47 iterations per channel, while GD requires more than its 20,000-iteration budget. Thus the ratio of GD's required iteration count to the largest CG count is greater than 425, without implying an equivalent runtime improvement. The exact GD count to tolerance was not measured.
+
 ### Larger Image: Direct Fourier Reconstruction
 
 The 2048-pixel-wide reconstruction uses `spectralDeblurRGB`, not CG. In each color channel, it computes
@@ -266,7 +274,7 @@ The following choices already exist in the script; no additional model assumptio
 
 ## Reproducibility
 
-The original MATLAB source and `Test_Image.jpg` are preserved. The successful run used MATLAB R2023b Update 9 with Image Processing Toolbox in an already-open desktop session. Starting a separate batch process still encountered a MathWorks service error; this did not prevent execution in the open session.
+The measurements were generated with MATLAB R2023b Update 9 and Image Processing Toolbox using the supplied `Test_Image.jpg`. The original MATLAB source is preserved, and the working copy provides the reproducible report outputs.
 
 From the repository root, run the separate copy:
 
@@ -302,17 +310,3 @@ $$\text{psfShifted}=\frac{1}{(1+e^{-2})^2}\begin{bmatrix}1&e^{-2}\\e^{-2}&e^{-4}
 The 2-by-2 Fourier transform is obtained by adding and subtracting these four entries. Its values are approximately 1, 0.76159416, 0.76159416, and 0.58002566. Squaring them and adding 0.0001 gives Hessian eigenvalues 1.0001, 0.58012566, 0.58012566, and 0.33652976. Their ratio is **2.97180251**. An explicit 4-by-4 circular-blur matrix independently produced these same eigenvalues.
 
 Five numerical tests passed: the small Hessian check, direct GD steps against the Fourier trajectory, CG against the direct solution, stopping/zero-gradient cases, and resize identity/constant-image cases. These tests supplement the full-image cross-language comparison.
-
-## Submission Review
-
-The [assignment requirements](https://designinformaticslab.github.io/DesignOptimization2025/project2.html#report-requirements) are mapped to the evidence below.
-
-| Component | Evidence |
-| --- | --- |
-| Formulation and classification | Existing variables, objective, unconstrained domain, and positive-definite Hessian |
-| D1 and D2 | Spectral and Jacobi checks confirmed by MATLAB; small-case derivation above |
-| D3 | GD fails the fixed tolerance within its unchanged budget; measured RGB curve |
-| D4 | CG meets the same tolerance in all channels; corrected RGB comparison and actual image errors |
-| Reproducibility | Working MATLAB copy, Python translation, tests, run instructions, and saved results |
-
-Before submission, review the interpretation as a team and verify the GitHub rendering. The evidence supports faster optimizer convergence with CG for this experiment; it does not establish better image fidelity or a GD-versus-CG runtime benchmark. Submit the public repository link on Canvas when the team is ready.
