@@ -40,6 +40,8 @@ $$x \in \mathbb{R}^{3\,\text{nRows}\,\text{nCols}}.$$
 
 MATLAB stores the image as an array and handles the channels separately where appropriate. This vector notation only explains the existing computation; it does not introduce another variable or change the model. The norms in the objective below mean Euclidean norms over the pixel values.
 
+Here `nRows = 720` and `nCols = 1080` for the analysis image. MATLAB array dimensions are rows × columns × channels; the table below instead lists the familiar image dimensions, width × height × channels. In the vector formulation, $b$ has the same dimensions as $x$, and $A$ applies the blur independently to the three stacked channels. Unless explicitly stated otherwise, $x$, $b$, $A$, and $H$ refer to this analysis-resolution problem.
+
 | Existing image variable | Role | Dimensions: width × height × channels |
 | --- | --- | --- |
 | `img` | Supplied image after conversion to double precision | 1920 × 1281 × 3 |
@@ -81,6 +83,7 @@ Here $I$ is the identity operator already present in the script's mathematical d
 | `psf`, `psf2K` | Gaussian blur kernels normalized so their entries sum to one |
 | `Hf`, `Hf2K` | Fourier transforms of the shifted blur kernels; these are not the Hessian $H$ |
 | `sigma2K` | Gaussian standard deviation of 6 pixels in the larger image |
+| `analysisScale` | Analysis-to-larger-image width ratio, `1080/2048` |
 | `sigma` | Analysis blur standard deviation: `sigma2K*analysisScale` = 3.1640625 pixels |
 | `noiseStd` | Added noise standard deviation of 0.001 in normalized intensity units |
 | `lambda` | Fixed regularization weight, 0.0001 |
@@ -146,6 +149,8 @@ The existing `sigmaList` varies the blur width while holding the analysis dimens
 
 The table shows substantial growth from weak to stronger blur, followed by saturation near the regularization limit. The sweep ends at 2 pixels; the main analysis setting, 3.1640625 pixels, is separate and lies beyond that sweep.
 
+Within this sweep, `sigma_i` is one entry of `sigmaList`, `psf_i` is its normalized kernel, and `eigHi` is its Hessian spectrum. `kappaOriginal` and `kappaJacobi` denote the condition numbers before and after diagonal rescaling, respectively; both include the same fixed regularization.
+
 For circular convolution, each pixel is treated by the same shifted kernel. Every diagonal entry of the spatial Hessian is therefore the same. The script calculates this shared value and the rescaled eigenvalues using
 
 ```matlab
@@ -184,7 +189,9 @@ hEig = abs(Hf).^2 + lambda;
 rho = 1 - alpha*hEig;
 ```
 
-`rho` describes how each Fourier component of the error changes in one iteration. Components with magnitude close to one decay slowly. The code calculates `relativeGradientGD` from `rhsEnergy` and powers of `absRho`, summing across all three channels. Fourier normalization cancels in this relative norm.
+`rho` describes how each Fourier component of the error relative to the regularized minimizer changes in one iteration; this is not the error relative to the reference photograph. Components with magnitude close to one decay slowly. Here `absRho = abs(rho)`, and `rhsEnergy` sums the squared Fourier magnitudes of $A^\top b$ across all three channels. The code calculates `relativeGradientGD` from `rhsEnergy` and powers of `absRho`. Fourier normalization cancels in this relative norm.
+
+At iteration $k$, the plotted relative gradient is $\lVert\nabla f(x_k)\rVert_2/\lVert\nabla f(x_0)\rVert_2$, with $x_0=0$. The normal-equation residual $A^\top b-Hx_k$ is the negative gradient, so its relative norm is the same quantity. This solver residual is distinct from the image-fitting residual $Ax_k-b$ in the objective.
 
 For the checked spectrum, the largest magnitude of `rho` is about 0.99980004. Raising that factor to 20,000 gives about 0.018323. This describes a worst-mode contraction factor, **not a measured gradient residual or reconstruction error for the photograph**. It explains why the script's 20,000-iteration limit does not guarantee the requested tolerance.
 
@@ -232,7 +239,7 @@ The 2048-pixel-wide reconstruction uses `spectralDeblurRGB`, not CG. In each col
 Xf = conj(Hf).*Bf ./ (abs(Hf).^2 + lambda);
 ```
 
-and transforms the result back to pixel space. This directly solves the regularized normal equations for the periodic blur model. The resulting `xDeblur2K` is separate from the smaller `xCG` image.
+and transforms the result back to pixel space. In this helper function, `b` and `Hf` are local argument names: for the larger reconstruction, the caller passes `b2K` and `Hf2K`. `Bf` is the Fourier transform of one channel of that observation, and `Xf` is the Fourier transform of its reconstructed channel. This directly solves the regularized normal equations for the periodic blur model at the larger resolution. The resulting `xDeblur2K` is separate from the smaller `xCG` image.
 
 `directSolveTime` measures this direct solve. The script does not time GD and CG, and GD is evaluated through sampled closed-form expressions. A wall-clock comparison between these paths would not measure equivalent iterative implementations.
 
@@ -301,7 +308,7 @@ The standalone Python run also completed, returning the same CG counts and GD no
 
 ### Small-Case Verification
 
-As a check on the formulas, use a 2-by-2 grid with the existing blur setting `sigma = 0.5` and `lambda = 0.0001`. This is a verification case only; the reported image experiment retains its full dimensions.
+As a check on the formulas, use a 2-by-2 grid with the blur width 0.5 pixels selected from `sigmaList` and `lambda = 0.0001`. This is a separate verification case; the main image experiment retains `sigma = 3.1640625` and its full analysis dimensions. The 2-by-2 case is not the 720-by-1080 D2 sweep, so its condition number need not match the D2 table at the same blur width.
 
 The same shifted, normalized Gaussian formula gives
 
