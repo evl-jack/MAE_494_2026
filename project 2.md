@@ -114,6 +114,10 @@ The assignment places image deblurring in **family B**. For this implementation,
 
 In the stadium image, smooth sky gradients represent slowly varying features. Fine lettering and seat patterns change more rapidly across pixels. The blur weakens those rapidly varying components, so changing them in a candidate reconstruction can produce very little change in the blurred result. The objective is therefore much flatter in some directions than in others.
 
+A direction here means a pattern of changes across pixel intensities, not a horizontal or vertical direction in the photograph. Increasing all intensities by the same amount survives a normalized blur unchanged. In contrast, neighboring positive and negative intensity changes largely cancel during Gaussian averaging. Two candidate images can therefore differ substantially in fine detail while producing nearly identical blurred observations. The data-fitting term strongly distinguishes some changes but barely distinguishes others.
+
+Fourier modes describe these patterns at different spatial frequencies. Circular convolution multiplies each mode by its corresponding entry in `Hf`. The singular values of $A$ are the magnitudes of these entries; the eigenvalues of $A^\top A$ are their squares. Thus the wide range of blur responses becomes a wide range of objective curvatures. The Hessian measures this curvature, and its condition number compares the largest curvature with the smallest.
+
 The code computes the Hessian eigenvalues directly in the Fourier basis:
 
 ```matlab
@@ -128,6 +132,10 @@ Squaring the transfer-function magnitude corresponds to $A^\top A$; adding `lamb
 $$\kappa(H)\le\frac{1+\lambda}{\lambda}=10001.$$
 
 This explains both the large condition number and its upper limit for the current fixed regularization. More blur does not make the regularized condition number grow without bound.
+
+For the main experiment, strongly attenuated modes have `abs(Hf).^2` far below 0.0001, so their curvature is approximately the regularization floor, 0.0001. The constant mode has curvature 1.0001. Their ratio is approximately 10001: the steepest direction has about ten thousand times the curvature of the flattest. Tikhonov regularization therefore makes the minimizer unique and limits the imbalance, but does not make the landscape well-conditioned at the chosen weight.
+
+This curvature imbalance comes from the blur operator and the regularization weight, not from the particular stadium pixels or the added noise. For fixed $A$ and $\lambda$, changing $b$ changes the minimizer and can change the observed convergence history, but it does not change $H$ or its condition number. Noise makes reconstruction more difficult because recovering attenuated components can amplify observation errors; the reported value 10001 is the condition number of the regularized Hessian, not a claim that image noise is amplified by exactly that factor.
 
 ### D2 — Intrinsic Conditioning
 
@@ -194,6 +202,8 @@ rho = 1 - alpha*hEig;
 At iteration $k$, the plotted relative gradient is $\lVert\nabla f(x_k)\rVert_2/\lVert\nabla f(x_0)\rVert_2$, with $x_0=0$. The normal-equation residual $A^\top b-Hx_k$ is the negative gradient, so its relative norm is the same quantity. This solver residual is distinct from the image-fitting residual $Ax_k-b$ in the objective.
 
 For the checked spectrum, the largest magnitude of `rho` is about 0.99980004. Raising that factor to 20,000 gives about 0.018323. This describes a worst-mode contraction factor, **not a measured gradient residual or reconstruction error for the photograph**. It explains why the script's 20,000-iteration limit does not guarantee the requested tolerance.
+
+The connection to GD is direct: one fixed step size must remain stable in the steep directions, leaving small updates in the shallow directions. With the chosen step, the smallest-curvature mode has `rho` approximately +0.99980004, while the largest-curvature mode has `rho` approximately -0.99980004. The former decays slowly without alternating sign; the latter alternates sign and also decays slowly. These values explain how the same curvature imbalance produces slow progress even with the optimal worst-case fixed step for this quadratic.
 
 The existing controls are `gdTolerance = 1e-4` and `maxGDIterations = 20000`. In the original script, iterations are sampled logarithmically. If a sampled value first passes the tolerance, `gdIterations` reports that sampled index, not necessarily the earliest successful iteration. If no sample passes, it is set to 20,000 and the script prints a failure-to-converge message. That value must not be reported as successful convergence without checking the message.
 
