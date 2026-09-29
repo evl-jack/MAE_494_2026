@@ -12,6 +12,14 @@ Original: [deblur_test.m](deblur_test.m) | Working copy: [deblur_report.m](analy
 
 Measured results come from the MATLAB working copy, which preserves the original model and parameters while exporting diagnostics. A Python translation provides an independent implementation check.
 
+## Project Overview
+
+We deliberately blur a known photograph, add small random intensity errors (noise), and try to reconstruct it. The reconstruction is a list of adjustable pixel values. An objective function scores how well those values explain the blurry observation while penalizing excessively large intensities.
+
+We compare two ways to reduce that score: **gradient descent (GD)** and **conjugate gradient (CG)**. Blur makes the score much more sensitive to some image changes than others; this imbalance is called **ill-conditioning**. CG reaches the specified solver accuracy in 40–47 iterations per color channel, while GD does not reach it within 20,000 iterations. Both improve the image-error measure, but CG does not give the lowest image error. Solving the mathematical model accurately and recovering the original photograph accurately are different goals.
+
+The report follows the assignment's four diagnostic checks: D1 measures the range of curvatures, D2 checks why the imbalance is structural, D3 measures GD's slowdown, and D4 compares CG with GD. The equations and code excerpts give the precise definitions behind these checks.
+
 ## Problem Identification
 
 A blurred photograph may preserve the overall scene while hiding details such as lettering, field markings, and individual rows of seats. Someone trying to recover useful information from that photograph needs an estimate of the image before the blur occurred. Simply sharpening the picture does not explain whether that estimate is consistent with the blur or how sensitive it is to noise.
@@ -32,13 +40,15 @@ The optimization question is: which pixel values best explain the blurred image 
 
 ### Decision Variables
 
-The decision variable $x$, already used in the script's formulation, represents the reconstructed pixel intensities. These are continuous, dimensionless values expressed on the normalized image-intensity scale.
+The decision variable $x$ represents the reconstructed pixel intensities: the numbers the optimizer is allowed to adjust. Each pixel has red, green, and blue (RGB) values. On the normalized intensity scale, 0 means no intensity and 1 means full intensity in a channel. These values are continuous (not restricted to integers) and dimensionless. The solver may produce values outside this display range because it does not enforce pixel bounds.
 
 For the analysis image, all three color channels can be understood as a single vector:
 
 $$x \in \mathbb{R}^{3\,\text{nRows}\,\text{nCols}}.$$
 
 MATLAB stores the image as an array and handles the channels separately where appropriate. This vector notation only explains the existing computation; it does not introduce another variable or change the model. The norms in the objective below mean Euclidean norms over the pixel values.
+
+A vector is simply an ordered list of numbers; stacking the three color arrays into a vector preserves the image information. A Euclidean norm is the square root of the sum of squared entries. Squaring the norm, as in the objective, therefore adds up the squared pixel differences.
 
 Here `nRows = 720` and `nCols = 1080` for the analysis image. MATLAB array dimensions are rows × columns × channels; the table below instead lists the familiar image dimensions, width × height × channels. In the vector formulation, $b$ has the same dimensions as $x$, and $A$ applies the blur independently to the three stacked channels. Unless explicitly stated otherwise, $x$, $b$, $A$, and $H$ refer to this analysis-resolution problem.
 
@@ -56,15 +66,19 @@ The analysis problem has 2,332,800 scalar pixel values. The larger reconstructio
 
 The script specifies Tikhonov-regularized least squares:
 
+Here $b$ is the fixed blurry, noisy observation, $A$ is the known operation that blurs an image, and $x$ is the reconstruction being adjusted. The expression $Ax-b$ compares the predicted blurry image with the observed one. The notation $\min_x$ means to choose the pixel values in $x$ that make the score $f(x)$ as small as possible.
+
 $$\min_x f(x) = \frac{1}{2}\lVert Ax-b\rVert_2^2 + \frac{\lambda}{2}\lVert x\rVert_2^2.$$
 
 The first term measures whether applying the blur to the reconstructed image reproduces the observed image. The second penalizes large reconstructed pixel values. It limits the amplification that can occur when attempting to recover information strongly suppressed by blur, but it also biases the solution. The code uses an intensity penalty, not a separate penalty on image derivatives.
 
 The regularization value is fixed at `lambda = 1e-4`. It is a parameter, not a quantity that the optimizer chooses.
 
+The factor $1/2$ simplifies the derivatives and does not affect the minimizing image. The notation `1e-4` means $10^{-4}=0.0001$. The reference photograph is used to generate the experiment and evaluate the result afterward; it is not an input to this objective during reconstruction.
+
 #### Why Tikhonov-Regularized Least Squares?
 
-Tikhonov regularization adds a quadratic penalty to a least-squares objective to stabilize an inverse problem. In the identity-penalty form used here, ordinary least squares minimizes the squared mismatch $\lVert Ax-b\rVert_2^2$, while the added term $\lambda\lVert x\rVert_2^2$ discourages large reconstruction magnitudes. It defines the objective; GD and CG are the algorithms used to minimize that objective.
+Tikhonov regularization adds a penalty based on squared values to a least-squares objective to stabilize an inverse problem: recovering a cause (the clear image) from an observed effect (the blurry image). In the identity-penalty form used here, the fit term is $\frac12\lVert Ax-b\rVert_2^2$, and the penalty is $\frac{\lambda}{2}\lVert x\rVert_2^2$. The penalty acts directly on the intensities, which is what “identity” means here. It defines the objective; GD and CG are the algorithms used to minimize that objective.
 
 We use this formulation because Gaussian blur strongly attenuates fine detail. Fitting the noisy observation without regularization can amplify noise in those weakly observed components. The penalty limits this amplification and adds $\lambda$ to every Hessian eigenvalue, improving conditioning and guaranteeing a unique minimizer for $\lambda>0$. The tradeoff is bias toward smaller intensities, so a more stable solution is not necessarily an exact recovery of the reference photograph. The penalty is not the noise itself; the noise is already present in $b$.
 
@@ -72,7 +86,7 @@ Tikhonov regularization was not explicitly taught in the lecture. We use it here
 
 #### Gradient and Optimality Condition
 
-For this objective, the gradient and Hessian are
+The **gradient** lists how the score changes as each pixel intensity changes. The **Hessian** describes how that gradient changes, measuring the objective's curvature or steepness in different directions. For this objective, they are
 
 $$\nabla f(x) = A^\top(Ax-b)+\lambda x,$$
 
@@ -83,6 +97,8 @@ Setting the gradient to zero gives the system solved by the reconstruction metho
 $$(A^\top A+\lambda I)x=A^\top b.$$
 
 Here $I$ is the identity operator already present in the script's mathematical description. The implementation does not build a dense matrix for $A$ or $H$; it applies their action using Fourier transforms.
+
+The identity operator leaves its input unchanged. The transpose $A^\top$ maps observation mismatches back to the reconstructed pixels; it is not an inverse blur. The final linear system is called the **normal equations**. A Fourier transform represents an image through broad and fine repeating patterns, allowing the code to apply blur efficiently without storing a huge matrix.
 
 ### Additional Definitions
 
@@ -104,6 +120,8 @@ Here $I$ is the identity operator already present in the script's mathematical d
 
 Although a code comment calls `sigma2K` a blur radius, the Gaussian expression uses it as a **standard deviation**. It is not a finite cutoff radius.
 
+A Gaussian kernel is a set of averaging weights with a bell-shaped profile: nearby pixels contribute more than distant pixels. Applying these weights throughout an image is called convolution. The parameter sigma controls the spread of the weights; larger sigma produces wider blur. “Circular” convolution means the averaging wraps around opposite image edges. `psf` stands for point spread function: how the blur spreads a single bright point.
+
 The script first forms `b2K` from `xTrue2K`. It later resizes the reference to `xTrue` and generates `b` with a fresh noise draw. The analysis observation is therefore not simply a downsampled copy of `b2K`.
 
 ### Constraints
@@ -118,6 +136,8 @@ This is a continuous, unconstrained, strongly convex quadratic optimization prob
 
 The matrix $A^\top A$ is positive semidefinite. Adding the positive `lambda` to every eigenvalue makes $H$ positive definite, so the regularized objective has a unique minimizer. A unique solution can still be difficult to reach with a particular algorithm when the curvature differs greatly between directions.
 
+In plain terms, the objective is a bowl-shaped function with one lowest point. “Quadratic” refers to its squared terms; “strongly convex” means it curves upward in every direction. An eigenvalue measures curvature along a particular direction: positive semidefinite allows zero curvature, while positive definite requires every such curvature to be positive.
+
 ## Ill-Conditioning Mechanism
 
 The assignment places image deblurring in **family B**. For this implementation, the source of poor conditioning is the Gaussian blur operator's suppression of spatial detail. See the assignment's [problem menu](https://designinformaticslab.github.io/DesignOptimization2025/project2.html#the-full-menu).
@@ -126,7 +146,7 @@ In the stadium image, smooth sky gradients represent slowly varying features. Fi
 
 A direction here means a pattern of changes across pixel intensities, not a horizontal or vertical direction in the photograph. Increasing all intensities by the same amount survives a normalized blur unchanged. In contrast, neighboring positive and negative intensity changes largely cancel during Gaussian averaging. Two candidate images can therefore differ substantially in fine detail while producing nearly identical blurred observations. The data-fitting term strongly distinguishes some changes but barely distinguishes others.
 
-Fourier modes describe these patterns at different spatial frequencies. Circular convolution multiplies each mode by its corresponding entry in `Hf`. The singular values of $A$ are the magnitudes of these entries; the eigenvalues of $A^\top A$ are their squares. Thus the wide range of blur responses becomes a wide range of objective curvatures. The Hessian measures this curvature, and its condition number compares the largest curvature with the smallest.
+Fourier modes describe these patterns at different spatial frequencies: low frequency means gradual variation across pixels, while high frequency means rapid variation. Circular convolution multiplies each mode by its corresponding entry in `Hf`. The singular values of $A$, which measure how strongly it scales image patterns, are the magnitudes of these entries; the eigenvalues of $A^\top A$ are their squares. Thus the wide range of blur responses becomes a wide range of objective curvatures. The Hessian measures this curvature, and its condition number compares the largest curvature with the smallest.
 
 The code computes the Hessian eigenvalues directly in the Fourier basis:
 
@@ -148,6 +168,8 @@ For the main experiment, strongly attenuated modes have `abs(Hf).^2` far below 0
 This curvature imbalance comes from the blur operator and the regularization weight, not from the particular stadium pixels or the added noise. For fixed $A$ and $\lambda$, changing $b$ changes the minimizer and can change the observed convergence history, but it does not change $H$ or its condition number. Noise makes reconstruction more difficult because recovering attenuated components can amplify observation errors; the reported value 10001 is the condition number of the regularized Hessian, not a claim that image noise is amplified by exactly that factor.
 
 ### D2 — Intrinsic Conditioning
+
+“Intrinsic” means the imbalance comes from the problem's structure. This check asks whether stronger blur makes the condition number grow and whether simply changing the scale of individual pixel variables can remove it. Jacobi scaling is that per-variable adjustment, based on the Hessian's diagonal entries.
 
 The existing `sigmaList` varies the blur width while holding the analysis dimensions and `lambda` fixed. The following values were first checked independently with NumPy and then confirmed by the MATLAB working-copy run; see the [saved MATLAB results](report_assets/matlab-run/results.json). The image pixels and random noise are not needed for these Hessian calculations.
 
@@ -182,6 +204,8 @@ All eigenvalues are divided by the same positive scalar, so their largest-to-sma
 
 ### D1 — Spectrum
 
+The spectrum is the collection of Hessian eigenvalues. Its spread shows how different the curvatures are. A logarithmic axis displays equal multiplicative changes at equal distances, making small and large eigenvalues visible on the same plot.
+
 At `sigma = 3.1640625`, the MATLAB run confirms the independent check:
 
 | Existing quantity | Checked value |
@@ -199,7 +223,11 @@ Many eigenvalues lie near the regularization floor, while a smaller portion exte
 
 ### D3 — Baseline: Gradient Descent
 
-The baseline is fixed-step gradient descent, represented in the Fourier basis. The script evaluates its trajectory from a zero initial image without explicitly executing every spatial-domain iteration:
+The baseline is fixed-step, full-gradient descent: it repeatedly adjusts all pixel values in the direction that locally reduces the score fastest. One update is an iteration. The step size $\alpha$ stays constant, and the update is
+
+$$x_{k+1}=x_k-\alpha\nabla f(x_k).$$
+
+Here $k$ counts iterations and $x_0=0$ is the initial black image. For this quadratic problem, the code uses Fourier formulas to calculate the same trajectory without explicitly executing every pixel-space update. The relevant quantities are
 
 ```matlab
 alpha = 2/(lambdaMax + lambdaMin);
@@ -217,6 +245,8 @@ The connection to GD is direct: one fixed step size must remain stable in the st
 
 The existing controls are `gdTolerance = 1e-4` and `maxGDIterations = 20000`. In the original script, iterations are sampled logarithmically. If a sampled value first passes the tolerance, `gdIterations` reports that sampled index, not necessarily the earliest successful iteration. If no sample passes, it is set to 20,000 and the script prints a failure-to-converge message. That value must not be reported as successful convergence without checking the message.
 
+The tolerance is the stopping threshold: the gradient norm must fall to at most 0.0001 of its initial value. It is not a requirement that the reconstructed photograph have only 0.01% image error. Logarithmic sampling uses closely spaced checks early on and wider spacing later. The working copy's binary search repeatedly halves the possible iteration range to locate the first successful integer iteration when one exists within the budget.
+
 The working copy checks the full-budget residual first and uses an integer binary search if the tolerance is reachable. This preserves the same GD trajectory and budget while distinguishing an iteration cap from convergence.
 
 **Measured result:** GD did not meet the tolerance. At 20,000 iterations, its relative RGB gradient was **0.01582584**, approximately 158 times the requested 0.0001. A two-variable contour-path plot is not applicable to this image with millions of decision values.
@@ -230,6 +260,8 @@ The working copy checks the full-budget residual first and uses an integer binar
 ### D4 — Improvement: Conjugate Gradient
 
 The proposed optimizer comparison is conjugate gradient on the same regularized normal equations. It uses the Hessian's structure to construct conjugate search directions rather than repeatedly following the steepest-descent direction. This can reduce the number of iterations needed for an ill-conditioned positive-definite quadratic.
+
+CG uses previous progress to choose new directions that are mutually orthogonal when measured using the Hessian; these are called conjugate directions. In exact arithmetic, this structure prevents later searches from undoing the minimization along earlier directions. A preconditioner would transform the system to improve its conditioning, but none is used here.
 
 The implementation uses `pcg` with `cgTolerance = 1e-4` and `maxCGIterations = 500`. Despite the function name, the call supplies **no preconditioner**. It is an unpreconditioned CG comparison. The default initial estimate is zero, and the three color channels are solved separately.
 
@@ -248,6 +280,8 @@ The original script stores only the red channel in `cgHistory`, whereas GD combi
 All three channels met the tolerance. The final combined RGB residual was **0.00009900521**. CG therefore met the target within 47 iterations per channel, while GD still failed it after 20,000 iterations. This is an iteration-based comparison; a CG step is performed separately for each channel, and no wall-clock speedup ratio is claimed.
 
 The condition number remains **10001 for both methods**. CG improves the effective convergence rate by combining information from previous search directions, allowing it to handle the different curvatures more effectively. For positive-definite quadratics, the usual worst-case iteration bound for a fixed reduction in the Hessian energy norm of the solution error scales with the square root of the condition number for CG, versus the condition number for optimally stepped GD. These bounds explain the choice of remedy; they do not predict the exact residual history of this image.
+
+The Hessian energy norm measures solution error while giving more weight to errors in steeper directions. A worst-case bound is a theoretical guarantee under the stated assumptions, rather than a prediction of the exact iteration count for this photograph.
 
 The measured iteration counts provide the direct D4 comparison: CG reaches the fixed tolerance within 47 iterations per channel, while GD requires more than its 20,000-iteration budget. Thus the ratio of GD's required iteration count to the largest CG count is greater than 425, without implying an equivalent runtime improvement. The exact GD count to tolerance was not measured.
 
@@ -268,6 +302,8 @@ and transforms the result back to pixel space. In this helper function, `b` and 
 Optimization accuracy and photographic fidelity are different. A small gradient or residual means the regularized equations have nearly been solved; it does not mean the original photograph has been recovered exactly.
 
 The script's `errorBlur`, `errorGD`, `errorCG`, and `error2K` are relative image errors against the corresponding resized reference. These errors use **clipped display images**. They are not objective-function values or solver residuals, and the larger-image error is measured at a different resolution from the iterative errors.
+
+Each relative image error is the norm of the difference from the reference divided by the norm of that reference. Smaller is better, and zero means an exact match. For example, 0.17448852 is about 17.45% by this norm-based measure; it does not mean that 17.45% of pixels are incorrect. Clipping replaces values below 0 with 0 and values above 1 with 1.
 
 | Measured quantity | MATLAB result |
 | --- | ---: |
@@ -300,6 +336,8 @@ The following choices already exist in the script; no additional model assumptio
 - **Post-solve clipping.** Display clipping affects the reported image errors without changing the unconstrained solution process.
 
 ## Reproducibility
+
+The instructions below let another person repeat the experiment. A fixed random seed makes the generated noise repeatable within the same implementation. Saved measurements and figures allow the reported outcomes to be checked without rerunning the full image calculations.
 
 The measurements were generated with MATLAB R2023b Update 9 and Image Processing Toolbox using the supplied `Test_Image.jpg`. The original MATLAB source is preserved, and the working copy provides the reproducible report outputs.
 
