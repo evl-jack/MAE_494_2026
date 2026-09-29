@@ -62,6 +62,16 @@ The first term measures whether applying the blur to the reconstructed image rep
 
 The regularization value is fixed at `lambda = 1e-4`. It is a parameter, not a quantity that the optimizer chooses.
 
+#### Why Tikhonov-Regularized Least Squares?
+
+Tikhonov regularization adds a quadratic penalty to a least-squares objective to stabilize an inverse problem. In the identity-penalty form used here, ordinary least squares minimizes the squared mismatch $\lVert Ax-b\rVert_2^2$, while the added term $\lambda\lVert x\rVert_2^2$ discourages large reconstruction magnitudes. It defines the objective; GD and CG are the algorithms used to minimize that objective.
+
+We use this formulation because Gaussian blur strongly attenuates fine detail. Fitting the noisy observation without regularization can amplify noise in those weakly observed components. The penalty limits this amplification and adds $\lambda$ to every Hessian eigenvalue, improving conditioning and guaranteeing a unique minimizer for $\lambda>0$. The tradeoff is bias toward smaller intensities, so a more stable solution is not necessarily an exact recovery of the reference photograph. The penalty is not the noise itself; the noise is already present in $b$.
+
+Tikhonov regularization was not explicitly taught in the lecture. We use it here as an additional modeling technique for image deblurring, while applying the course's gradient, Hessian, conditioning, and optimization methods to the resulting objective.
+
+#### Gradient and Optimality Condition
+
 For this objective, the gradient and Hessian are
 
 $$\nabla f(x) = A^\top(Ax-b)+\lambda x,$$
