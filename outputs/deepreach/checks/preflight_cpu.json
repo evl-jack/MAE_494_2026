@@ -1,0 +1,79 @@
+{
+  "status": "implementation checks only; no training",
+  "optimizer_steps": 0,
+  "environment": {
+    "python": "3.12.14",
+    "torch": "2.5.1+cpu",
+    "numpy": "1.26.4",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "processor": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+    "cpu_count": 14,
+    "device": "cpu",
+    "cuda_available": false,
+    "threads": 2,
+    "upstream": "a8127aa7825d58623e9646211644876c83dd71d0"
+  },
+  "mechanical": {
+    "autodiff_fd_max_abs": 4.1262434358202427e-07,
+    "chain_rule_max_abs": 1.4210854715202004e-14,
+    "hamiltonian_brute_max_abs": 1.7763568394002505e-15,
+    "optimal_control_max_abs": 1.7763568394002505e-15
+  },
+  "comparison_region": {
+    "half_width": 0.6,
+    "dependency_radius_bound": 1.5985281374238571,
+    "domain": 2.0
+  },
+  "physics_graph": {
+    "finite_parameter_gradients": true,
+    "weights_unchanged": true,
+    "sample_shape": [
+      128,
+      4
+    ]
+  },
+  "time_to_go_sign_max_abs": 0.0,
+  "numpy_torch_hamiltonian_max_abs": 8.881784197001252e-16,
+  "short_reference_refinement": {
+    "33_to_49": {
+      "mae": 0.0051938943798427225,
+      "rmse": 0.0070238820943281065,
+      "max_abs": 0.023597998926946317
+    },
+    "49_to_65": {
+      "mae": 0.0024960397931124826,
+      "rmse": 0.0035359387499172713,
+      "max_abs": 0.014764262644452075
+    }
+  },
+  "short_boundary_sensitivity": {
+    "mae": 0.0,
+    "rmse": 0.0,
+    "max_abs": 0.0
+  },
+  "boundary_test_matched_dx_and_dt": true,
+  "frozen_dynamics_max_abs": 0.0,
+  "straight_line_analytic": {
+    "coarse": {
+      "mae": 0.006905265588020035,
+      "rmse": 0.010054762795451772,
+      "max_abs": 0.07319023420338577
+    },
+    "fine": {
+      "mae": 0.0026528841822312708,
+      "rmse": 0.0046358086654884455,
+      "max_abs": 0.05152490987412614
+    }
+  },
+  "short_game_probe_values_same_heading_head_on": [
+    0.04999999999999999,
+    -0.01858521171531058
+  ],
+  "pinned_upstream_max_abs": {
+    "hamiltonian": 8.881784197001252e-16,
+    "flow": 4.440892098500626e-16,
+    "target": 0.0,
+    "control": 0.0,
+    "disturbance": 0.0
+  }
+}

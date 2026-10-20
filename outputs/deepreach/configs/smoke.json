@@ -1,0 +1,12 @@
+{
+  "problem": "Air3D", "formulation": "soft_terminal",
+  "seed": 7, "device": "cpu", "threads": 2,
+  "width": 32, "sine_layers": 3,
+  "horizon": 0.5, "domain": 2.0, "angle_factor": 1.2,
+  "comparison_half_width": 0.6,
+  "radius": 0.25, "speed": 0.75, "turn": 3.0,
+  "value_scale": 25.0, "value_mean": 0.25,
+  "lr": 0.0001, "pretrain_steps": 20, "curriculum_steps": 40,
+  "samples": 256, "terminal_samples": 32,
+  "log_every": 20, "save_every": 20
+}

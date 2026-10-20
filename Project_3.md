@@ -1,4 +1,4 @@
-# MAE 494 — Project 3: Minimal DeepReach Reproduction
+# MAE 494 — Project 3: DeepReach Air3D Reproduction
 
 ## Objective and interview context
 
@@ -8,109 +8,117 @@ According to the project interview notes, Professor Yi (Max) Ren explicitly appr
 
 The immediate priority is reproducing the PINN. A separate investigation of gradient reliability is optional future work. DeepReach **does compute gradients**: automatic differentiation supplies the derivatives used in training and in deriving control from the value function. The open question concerns their accuracy and usefulness in an approximation.
 
-## Primary sources
+## Current status — October 20, 2026
 
-- Bansal and Tomlin, *DeepReach: A Deep Learning Approach to High-Dimensional Reachability*: [paper](https://arxiv.org/abs/2011.02082), [PDF](https://arxiv.org/pdf/2011.02082).
-- [Official DeepReach repository](https://github.com/smlbansal/deepreach).
-- Relevant upstream files on the inspected `public_release` branch:
-  - [Dynamics](https://github.com/smlbansal/deepreach/blob/public_release/dynamics/dynamics.py)
-  - [Network](https://github.com/smlbansal/deepreach/blob/public_release/utils/modules.py)
-  - [Loss](https://github.com/smlbansal/deepreach/blob/public_release/utils/losses.py)
-  - [Sampling](https://github.com/smlbansal/deepreach/blob/public_release/utils/dataio.py)
-  - [Experiment launcher](https://github.com/smlbansal/deepreach/blob/public_release/run_experiment.py)
+The selected case is now **Air3D: two drones avoiding collision at a fixed altitude**, replacing the initial Dubins3D obstacle example. The Air3D implementation, numerical-reference solver, configurations and implementation checks are saved.
 
-Record the exact upstream commit when implementing. The refactored repository includes options introduced after the original paper; its current defaults are not automatically the original experimental protocol.
+**Training is paused at the user's request. No PINN training, trained checkpoints or trained-accuracy results exist yet.** The checks below use a randomly initialized network without changing its weights. They establish implementation consistency, not learned accuracy or a safety guarantee.
 
-## Initial example choice: Dubins3D
+- [Code and setup instructions](outputs/deepreach/README.md)
+- [PINN and Air3D equations](outputs/deepreach/deepreach.py)
+- [Independent numerical solver](outputs/deepreach/reference.py)
+- [Checks without training](outputs/deepreach/preflight.py)
+- [Actual implementation-check results](outputs/deepreach/checks/README.md)
+- [Future trained-model comparisons](outputs/deepreach/validate.py)
+- [Current build plan](outputs/deepreach/PLAN.md)
 
-Start with the repository's documented avoid-mode Dubins3D example. It has three state variables and one bounded control, making an independent grid-based comparison practical. Air3D remains a possible follow-up for closer comparison to the paper's running example, but adds adversarial dynamics.
+## The Air3D problem
 
-The upstream tutorial parameters are:
+The evader chooses a turn rate to avoid collision; a worst-case pursuer chooses its turn rate to force collision. The model uses relative position and heading in the evader's rotating coordinate frame. It does not include altitude, thrust or full quadrotor dynamics.
 
 | Parameter | Value |
 | --- | --- |
-| Target radius | 0.25 |
-| Constant speed | 0.6 |
-| Maximum turn rate | 1.1 |
-| Heading normalization factor | 1.2 |
-| Set mode | avoid |
-| Reachability option | minWith=target |
+| Both drone speeds | 0.75 m/s |
+| Evader and pursuer turn bounds | ±3 rad/s |
+| Collision radius | 0.25 m |
+| Reduced experiment horizon | 0.5 s |
+| Full experiment horizon | 1 s |
+| State | Relative x, y, heading psi |
+| Network input | Time remaining tau and the three states |
 
-For state `s=(x,y,theta)` and control `|u| <= omega_max`:
-
-```text
-dx/dt     = v cos(theta)
-dy/dt     = v sin(theta)
-dtheta/dt = u
-l(s)      = sqrt(x^2 + y^2) - R
-H(s,p)    = v[cos(theta) p_x + sin(theta) p_y] + omega_max |p_theta|
-u*(s)     = omega_max sign(p_theta)
-```
-
-The target is `l(s) <= 0`. The avoid-mode backward reachable tube identifies states from which entering the target cannot be prevented within the horizon.
-
-Use time-to-go `tau = T-t`, with `V(s,0)=l(s)`. The inspected upstream target-constrained residual is:
+With evader turn u and pursuer turn d:
 
 ```text
-r = max(dV/dtau - H(s, grad_s V), V - l(s))
+xdot   = v*(cos(psi)-1) + u*y
+ydot   = v*sin(psi) - u*x
+psidot = d-u
+l(s)   = sqrt(x*x+y*y)-R
 ```
 
-Minimize its absolute magnitude together with a weighted terminal-condition loss. Verify the sign convention, normalization chain rules, and actual loss weights against the pinned source before training.
+For p=grad_s(V), the avoid Hamiltonian is max_u min_d p.f:
 
-## Reproduction requirements
+```text
+H  = v*((cos(psi)-1)*p_x + sin(psi)*p_y)
+     + omega*abs(y*p_x-x*p_y-p_psi) - omega*abs(p_psi)
+u* =  omega*sign(y*p_x-x*p_y-p_psi)
+d* = -omega*sign(p_psi)
+```
 
-1. **Network:** Sine activations and the upstream SIREN initialization. The inspected module uses `sin(30*z)`. Trace the constructor to establish the actual number of layers.
-2. **Physics loss:** Automatic time and state derivatives, matching dynamics and Hamiltonian, and the HJ variational inequality.
-3. **Terminal condition:** Use the original soft terminal-loss formulation for the baseline. Current Dubins3D code selects an exact-boundary model; trace launcher overrides and document any use of that later option.
-4. **Sampling:** Uniform sampling in normalized state space, terminal samples in training batches, terminal-only pretraining, and gradual expansion of the time interval.
-5. **Training:** Seeded runs, explicit optimizer and loss settings, recorded device and package versions, and resumable checkpoints.
-6. **Configurations:** A quick CPU smoke configuration and a source-faithful configuration. Clearly label reductions in network size, samples, iterations, or horizon.
+Using time remaining tau=T-t:
 
-The paper's reported Air3D setup describes width 512, a three-layer network, roughly 65k samples, Adam at learning rate 1e-4, 10k pretraining iterations, and 100k curriculum iterations. Check layer-count semantics and distinguish these settings from modern repository defaults. Published Air3D accuracy figures are not Dubins3D results.
+```text
+max(V_tau-H, V-l) = 0
+V(0,s) = l(s)
+```
 
-## Smallest feasible build plan
+For the ideal solution, V<=0 identifies states from which collision can be forced despite optimal evasion. Controls derived from a learned approximation are candidates and are not certified safe.
 
-- Inspect available Python, PyTorch, CPU/GPU, upstream code, dependency requirements, and licensing.
-- Write a compact PyTorch implementation with explicit configuration and a documented mapping to source equations and code.
-- Run smoke checks, then a feasible nontrivial training run; save model, optimizer, configuration, random state, and curriculum progress.
-- Generate an independent numerical reference for the same Dubins3D problem.
-- Compare learned and reference value functions and reachable tubes.
-- Save metrics and plots and write a short results report with exact reproduction commands.
+## Four parts of the implementation
 
-Routine setup and implementation choices can be made from the available environment. Request user input only when a genuinely required choice cannot be discovered.
+1. **Problem:** dynamics, collision target, control/disturbance bounds and max-min Hamiltonian.
+2. **Neural solver:** a sine network predicts the scalar value from time and state. Terminal pretraining learns the known zero-time function; physics training then expands the sampled time interval. Autodiff supplies the derivatives in the HJI loss.
+3. **Independent grid solver:** NumPy local Lax–Friedrichs differences, periodic heading, explicit CFL and target-obstacle projection provide an approximate reference. Spatial boundaries use constant extension and are checked from an interior region against a larger domain.
+4. **Comparison:** after training, measure held-out terminal and physics errors, value errors, unsafe-region overlap, false-safe fractions, and value/zero-contour slices. Reference labels never enter PINN training.
 
-## Validation
+## Reproduction choices
 
-An appropriate minimal reference is an independent monotone grid-based HJ solver, such as an upwind/local Lax–Friedrichs scheme with a justified CFL limit. Use periodic heading, explicit spatial boundary handling, matching parameters, and a grid-refinement check. Compare within a region where spatial boundaries do not contaminate the result. Reference values are for evaluation, not PINN supervision.
+The implementation is grounded in the [paper](https://arxiv.org/abs/2011.02082) and [official source pinned at a8127aa](https://github.com/smlbansal/deepreach/tree/a8127aa7825d58623e9646211644876c83dd71d0).
 
-Required checks and diagnostics:
+The baseline uses original **soft terminal loss**, distinct from the modern repository's exact-boundary default. Inputs and output have explicit normalization and autodiff chain rules. Hidden activations use sin(30*z) and SIREN initialization. The terminal/PDE weight is calibrated at curriculum start and then fixed; mean losses and this balancing choice are documented departures from modern adaptive/sum-loss options.
 
-- Terminal-condition error on held-out states.
-- Autodiff versus finite differences away from nonsmooth points.
-- Analytic Hamiltonian versus direct bounded-control optimization.
-- Time-direction and sign sanity checks.
-- Checkpoint reload consistency.
-- Numerical-reference refinement.
-- Separate PDE and terminal loss curves.
-- Held-out value-function errors.
-- Reachable-tube overlap and classification errors, including a clearly defined false-safe fraction.
-- Value slices and zero-level contours at several times and headings.
+| Configuration | Actual sine hidden layers | Samples/step | Pretrain + curriculum iterations | Horizon |
+| --- | --- | --- | --- | --- |
+| Smoke | 3 × 32 | 256 | 20 + 40 | 0.5 s |
+| Reduced CPU | 3 × 64 | 2048 | 2,000 + 10,000 | 0.5 s |
+| Full paper-scale | 3 × 512 | 65,000 | 10,000 + 100,000 | 1 s |
 
-Low training loss alone does not establish a correct reachability solution. Numerical agreement is empirical evidence, not a formal safety guarantee.
+All use Adam at 1e-4 and currently select CPU. The modern repository's num_hl=3 creates four sine hidden layers; actual layer counts are explicit here. Spatial boxes are widened to [-2,2] m for reduced runs and [-3,3] m for full, departing from upstream scaling to permit interior reference comparisons. See the implementation README for the dependency-region bound and numerical limitations. Full is a paper-scale configuration, not a claim of exact paper replication.
 
-## Expected deliverables
+## Completed checks without training
 
-- Requirements and installation instructions.
-- Exact commands for smoke training, longer training, resuming, evaluation, and plotting.
-- Source code and reproducible configurations.
-- Actual saved checkpoints and recorded run metadata.
-- Independent reference results, quantitative diagnostics, and plots.
-- A report distinguishing completed results from proposed work, reduced experiments from full training, and reproduction from extensions.
+The [saved check data](outputs/deepreach/checks/preflight_cpu.json) record **zero optimizer steps**.
 
-If available compute does not produce good numerical agreement, report the measured errors and provide a longer-training command. Do not claim published-quality reproduction based on a smoke run.
+| Check | Result |
+| --- | --- |
+| Dynamics/Hamiltonian against pinned official Air3D | Differences below 1e-15 |
+| Candidate controls/disturbance against official source | Exact agreement on sampled cases |
+| Hamiltonian against direct bounded max-min search | Maximum difference 1.78e-15 |
+| Autodiff against float64 finite differences | Maximum difference 4.13e-7 |
+| Explicit normalization chain rule | Maximum difference 1.42e-14 |
+| Analytic time-to-go sign check | Zero residual |
+| Physics-loss parameter derivatives | Finite; weights unchanged |
+| Three configs and interior-domain bounds | Passed |
+| Launcher without explicit --train | Refuses training |
+| Syntax checks | Passed |
 
-## Current status
+A small **0.1 s** grid test showed refinement differences decreasing from 0.00519 m to 0.00250 m in mean absolute value. In the no-turn analytic case, mean error decreased from 0.00691 m to 0.00265 m; fine-grid maximum error remained 0.0515 m. Matching grid spacing and time steps, expanded-domain values agreed at the sampled interior points for this short test. Frozen dynamics, obstacle projection and periodic heading checks also passed.
 
-As of October 19, 2026, the paper and selected upstream source files have been inspected, and Dubins3D is the initial choice. A fresh Codex coding chat titled **Project 3: Minimal DeepReach PINN reproduction** has been started with the context and build requirements above.
+These results are solver/implementation checks, not PINN training results. Full-horizon reference validation remains pending.
 
-This document records the project scope and implementation plan. It does not claim completed training, saved checkpoints, or validated accuracy; those results must be added after execution.
+## Running checks
+
+From the repository root with Python 3.12:
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r outputs/deepreach/requirements.txt
+.\.venv\Scripts\python.exe outputs/deepreach/preflight.py --config outputs/deepreach/configs/cpu.json --out outputs/deepreach/checks/preflight_cpu.json
+```
+
+Preflight never trains. [The implementation README](outputs/deepreach/README.md) contains future training, resuming and comparison commands. Training requires an explicit --train flag; even smoke training has not been executed. Optimizer/checkpoint restart checks are also deferred.
+
+## Next work after training is requested
+
+Run smoke training and a feasible nontrivial experiment; save model/optimizer/configuration/random state and curriculum progress; validate the reference at the actual horizon; then report measured value/PDE/terminal/BRT errors and plots. If agreement is poor, report it candidly and provide a longer-training command.
+
+Low loss or numerical agreement alone does not establish a safety guarantee. A separate study of learned-gradient reliability remains outside the present scope.
