@@ -92,7 +92,10 @@ def straight_line_values(states,t,c):
 
 def reference_checks(c,states,times):
     clock=time.perf_counter()
-    refs=[solve(c,n,nh,times) for n,nh in [(65,48),(97,72),(129,96)]]
+    refs=[]
+    for n,nh in [(65,48),(97,72),(129,96)]:
+        print(f"Reference: solving {n} x {n} x {nh} through {times[-1]}s",flush=True)
+        refs.append(solve(c,n,nh,times))
     refinement={}
     for t in times[1:]:
         vals=[interpolate(r,t,states) for r in refs]
@@ -100,6 +103,7 @@ def reference_checks(c,states,times):
                             "classification_97_to_129":classification(vals[1],vals[2])}
         assert refinement[str(t)]["97_to_129"]["mae"] < refinement[str(t)]["65_to_97"]["mae"]
     # Same dx and heading, farther spatial boundaries; no neural model involved.
+    print("Reference: checking expanded spatial domain at matching dx and dt",flush=True)
     expanded=solve(c,193,96,times,domain=1.5*c["domain"])
     matched=solve(c,129,96,times,dt_limit=expanded["dtmax"])
     boundary={str(t):error(interpolate(matched,t,states),interpolate(expanded,t,states)) for t in times[1:]}
@@ -112,6 +116,7 @@ def reference_checks(c,states,times):
     exact={}
     for t in times[1:]:
         exact[t]=straight_line_values(states,t,c)
+    print("Reference: checking no-turn analytic solution",flush=True)
     st_coarse=solve(straight,65,48,times); st_fine=solve(straight,129,96,times)
     straight_errors={str(t):{"coarse":error(interpolate(st_coarse,t,states),exact[t]),"fine":error(interpolate(st_fine,t,states),exact[t])} for t in times[1:]}
     assert all(e["fine"]["mae"]<e["coarse"]["mae"] for e in straight_errors.values())
@@ -153,6 +158,7 @@ def evaluate(checkpoint,out,check_training_resume=False):
     times=[0.,c["horizon"]/2,c["horizon"]]
     ref,reference_metrics=reference_checks(c,states,times)
     save_reference(ref,out/"reference_fine.npz")
+    print("Comparison: evaluating held-out values and physics diagnostics",flush=True)
     metrics=dict(checkpoint=str(checkpoint),completed_steps=ck["step"],training_seconds=ck["elapsed_seconds"],
                  terminal_weight=ck["terminal_weight"],interior_half_width=interior,dependency_radius_bound=dependency_radius,heldout_seed=20261019,
                  mechanical=mechanical_checks(model,c),reference=reference_metrics,comparisons={})
@@ -180,6 +186,7 @@ def evaluate(checkpoint,out,check_training_resume=False):
     assert metrics["mechanical"]["reload_prediction_max_abs"]==0
     metrics["resume_check"]=resume_check(c,out) if check_training_resume else {"status":"not run; requires --check-training-resume"}
     (out/"metrics.json").write_text(json.dumps(metrics,indent=2))
+    print("Comparison: saving metrics and plots",flush=True)
     plot_slices(model,c,ref,out,interior,times)
     plot_history(Path(checkpoint).parent/"history.csv",out)
     print(json.dumps(metrics,indent=2),flush=True)
@@ -192,6 +199,7 @@ def plot_slices(model,c,ref,out,interior,times):
     fig,axs=plt.subplots(3,3,figsize=(11,10),layout="constrained")
     fig2,axs2=plt.subplots(3,3,figsize=(11,10),layout="constrained")
     fig3,axs3=plt.subplots(3,3,figsize=(11,10),layout="constrained")
+    error_limit=1e-6
     for i,t in enumerate(times):
         for j,th in enumerate(headings):
             states=np.column_stack([xx.ravel(),yy.ravel(),np.full(xx.size,th)])
@@ -202,6 +210,7 @@ def plot_slices(model,c,ref,out,interior,times):
             ax.contour(xx,yy,a,levels=[0],colors=["red"],linestyles="--",linewidths=1.5)
             ax.set_title(f"tau={t:.2f}s, heading={th/math.pi:.1f} pi")
             im2=axs2[i,j].pcolormesh(xx,yy,a-b,vmin=-.15,vmax=.15,cmap="coolwarm",shading="auto")
+            error_limit=max(error_limit,float(np.max(np.abs(a-b))))
             axs2[i,j].set_title(f"tau={t:.2f}s, heading={th/math.pi:.1f} pi")
             im3=axs3[i,j].pcolormesh(xx,yy,b,vmin=-.25,vmax=.6,cmap="viridis",shading="auto")
             axs3[i,j].contour(xx,yy,b,levels=[0],colors="white")
@@ -211,6 +220,8 @@ def plot_slices(model,c,ref,out,interior,times):
     fig.suptitle("PINN value [m]; grid zero contour white, PINN zero contour red dashed")
     fig.colorbar(im,ax=axs.ravel().tolist(),shrink=.6); fig.savefig(out/"value_and_brt_slices.png",dpi=160)
     fig2.suptitle("PINN minus numerical reference [m]")
+    for axis in axs2.ravel():
+        for collection in axis.collections: collection.set_clim(-error_limit,error_limit)
     fig2.colorbar(im2,ax=axs2.ravel().tolist(),shrink=.6); fig2.savefig(out/"error_slices.png",dpi=160)
     fig3.suptitle("Independent grid reference value [m]")
     fig3.colorbar(im3,ax=axs3.ravel().tolist(),shrink=.6); fig3.savefig(out/"reference_slices.png",dpi=160)
@@ -221,8 +232,12 @@ def plot_history(path,out):
     with open(path) as f: rows=list(csv.DictReader(f))
     fig,ax=plt.subplots(figsize=(8,4),layout="constrained")
     for field in ["terminal_mae","pde_mae"]:
-        ax.semilogy([int(r["step"]) for r in rows],[max(1e-8,float(r[field])) for r in rows],label=field)
-    ax.set_xlabel("Training iteration"); ax.set_ylabel("Training batch MAE [physical units]"); ax.legend(); ax.grid(alpha=.25)
+        selected=[r for r in rows if field!="pde_mae" or r["phase"]=="curriculum"]
+        label="Terminal MAE [m]" if field=="terminal_mae" else "VI residual MAE (physics phase)"
+        ax.semilogy([int(r["step"]) for r in selected],[max(1e-8,float(r[field])) for r in selected],label=label)
+    starts=[int(r["step"]) for r in rows if r["phase"]=="curriculum"]
+    if starts: ax.axvline(min(starts)-1,color="gray",linestyle="--",alpha=.6,label="Physics training begins")
+    ax.set_xlabel("Training iteration"); ax.set_ylabel("Mean absolute batch diagnostic"); ax.legend(); ax.grid(alpha=.25)
     fig.savefig(out/"training_history.png",dpi=160); plt.close(fig)
 
 

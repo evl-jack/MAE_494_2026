@@ -125,7 +125,10 @@ def environment(device):
 
 
 def train(c, out, resume=None, stop_after=None):
-    out = Path(out); out.mkdir(parents=True, exist_ok=True)
+    out = Path(out)
+    if (out/"checkpoint.pt").exists() and not resume:
+        raise FileExistsError("This run already has a checkpoint. Use --resume or a new output folder.")
+    out.mkdir(parents=True, exist_ok=True)
     device = torch.device(c["device"])
     torch.set_num_threads(c["threads"])
     torch.use_deterministic_algorithms(True)
@@ -143,6 +146,9 @@ def train(c, out, resume=None, stop_after=None):
         torch.set_rng_state(ck["torch_rng"].cpu()); np.random.set_state(ck["numpy_rng"]); random.setstate(ck["python_rng"])
         if device.type == "cuda": torch.cuda.set_rng_state_all(ck["cuda_rng"])
     total = c["pretrain_steps"]+c["curriculum_steps"]
+    print(f"Air3D | device={device} | threads={c['threads']} | "
+          f"sine layers={c['sine_layers']} x {c['width']} | samples={c['samples']} | "
+          f"steps={start}..{total} | horizon={c['horizon']}s | output={out}",flush=True)
     end = min(total, stop_after) if stop_after else total
     (out/"config.json").write_text(json.dumps(c, indent=2))
     (out/"environment.json").write_text(json.dumps(environment(device), indent=2))
@@ -183,7 +189,10 @@ def train(c, out, resume=None, stop_after=None):
         loss.backward(); optimizer.step()
         if (step+1)%c["log_every"] == 0 or step in [0,c["pretrain_steps"]] or step+1 == end:
             row = [step+1,"pretrain" if pre else "curriculum",tmax,float(b.detach()),float(p.detach()),weight,float(loss.detach()),elapsed+time.perf_counter()-clock]
-            writer.writerow(row); log.flush(); print(row,flush=True)
+            writer.writerow(row); log.flush()
+            print(f"[{step+1}/{total}] {row[1]} | horizon sampled=0..{tmax:.4f}s | "
+                  f"terminal MAE={row[3]:.6f} | VI MAE={row[4]:.6f} | "
+                  f"elapsed={row[7]:.1f}s",flush=True)
         if (step+1)%c["save_every"] == 0 or step+1 == end: save(step+1)
     log.close()
     return model

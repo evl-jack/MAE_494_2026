@@ -1,6 +1,8 @@
-# DeepReach Air3D — implementation checked, training paused
+# DeepReach Air3D — Experiment 1 completed
 
-The active code models two fixed-altitude drones in the Air3D collision-avoidance game. Implementation checks passed without an optimizer or weight updates. **No PINN has been trained and no trained checkpoint exists.** No trained accuracy or safety claim is established.
+The active code models two fixed-altitude drones in the Air3D collision-avoidance game. **Experiment 1** is the first trained baseline: a 12,000-step reduced CPU run completed on 22 October 2026. The 60-step smoke run is a preceding setup check, not another experiment. The CPU training loop took 206.4 seconds using two threads and saved a resumable checkpoint. The Experiment 1 report, comparison figures, aggregate metrics and configuration are public; raw run artifacts remain local. This is a reduced experiment, not a paper-scale reproduction or a safety certificate.
+
+**Measured outcome:** the reduced model is not yet accurate enough for collision decisions. At .5 s, value MAE is .0915 m and 46.4% of reference-unsafe held-out states are labeled safe by the PINN. Grid refinement and checkpoint restart checks passed. See the [Experiment 1 report](experiments/experiment_1/README.md) for denominators, plots and limitations, or the [experiment index](experiments/README.md).
 
 ## The problem
 
@@ -38,6 +40,8 @@ For the ideal solution, V<=0 identifies states from which collision can be force
 | THIRD_PARTY_NOTICES.md | Source attribution and SIREN license |
 | requirements.txt | Core dependency pins |
 | requirements-lock.txt | Exact installed dependencies |
+| Experiment 1 report | Public comparison figures, metrics, configuration and limitations |
+| Local runs/ | Raw checkpoints, logs, source snapshots and reference arrays; not uploaded |
 
 ## Sources and departures
 
@@ -81,14 +85,14 @@ Add --upstream references/upstream-a8127aa to compare against the bundled offici
 
 Preflight checks autodiff versus finite differences, explicit max-min optimization, NumPy/PyTorch Hamiltonians, physical-time signs, finite physics-loss parameter derivatives without applying them, sampling, a .1 s grid refinement, larger-domain sensitivity, frozen dynamics, no-turn analytic agreement and the periodic heading seam. The randomly initialized network has not learned a value function. Saved checks include software versions and optimizer_steps=0.
 
-## Training commands: not executed
+## Training commands
 
-The launcher refuses to train without --train. Even smoke training remains paused.
+The launcher refuses to train without --train and refuses to overwrite an existing checkpoint without --resume. The dated smoke and CPU runs below have completed. For a new experiment, choose a fresh output folder.
 
-    .\.venv\Scripts\python.exe outputs/deepreach/deepreach.py --train --config outputs/deepreach/configs/smoke.json --out outputs/deepreach/runs/air3d_smoke
-    .\.venv\Scripts\python.exe outputs/deepreach/deepreach.py --train --config outputs/deepreach/configs/cpu.json --out outputs/deepreach/runs/air3d_cpu
-    .\.venv\Scripts\python.exe outputs/deepreach/validate.py --checkpoint outputs/deepreach/runs/air3d_cpu/checkpoint.pt --out outputs/deepreach/runs/air3d_cpu/validation
+    .\.venv\Scripts\python.exe outputs/deepreach/deepreach.py --train --config outputs/deepreach/configs/smoke.json --out outputs/deepreach/runs/air3d_smoke_20261022
+    .\.venv\Scripts\python.exe outputs/deepreach/deepreach.py --train --config outputs/deepreach/configs/cpu.json --out outputs/deepreach/runs/air3d_cpu_20261022
+    .\.venv\Scripts\python.exe outputs/deepreach/validate.py --checkpoint outputs/deepreach/runs/air3d_cpu_20261022/checkpoint.pt --out outputs/deepreach/runs/air3d_cpu_20261022/validation
 
-Resume by adding --resume outputs/deepreach/runs/air3d_cpu/checkpoint.pt to the identical training command. Configs must match exactly; old Dubins checkpoints are rejected. Full training substitutes configs/full.json and a separate output directory and requires substantial compute. CUDA requires a suitable installation and a device config change.
+Resume by adding --resume outputs/deepreach/runs/air3d_cpu_20261022/checkpoint.pt to the identical training command. Configs must match exactly; old Dubins checkpoints are rejected. Full training substitutes configs/full.json and a separate output directory and requires substantial compute; it has not run. CUDA requires suitable hardware, installation and a device config change. This laptop has integrated Intel graphics and uses CPU PyTorch.
 
-Normal validation does not train. Its optional --check-training-resume runs six tiny optimizer steps to verify a split restart; that test is deferred until training is requested. Checkpoint reload/restart verification, smoke training, trained accuracy, and full-horizon reference validation remain pending. Future measurements include held-out terminal/VI errors, value errors, BRT overlap, false-safe fractions and slices at multiple times/headings. Loss alone does not establish correctness. Empirical agreement is not a safety guarantee; a gradient reliability study remains outside scope.
+Normal validation does not train. Its optional --check-training-resume runs a six-step optimizer sequence both continuously and with a split restart. The reduced-run comparison command on 22 October includes that check. Comparison outputs include held-out terminal/VI errors, value errors, BRT overlap, false-safe fractions and slices at multiple times/headings. See the Experiment 1 report and aggregate metrics for measured agreement and limitations. Loss alone does not establish correctness. Empirical agreement is not a safety guarantee; a gradient reliability study remains outside scope.

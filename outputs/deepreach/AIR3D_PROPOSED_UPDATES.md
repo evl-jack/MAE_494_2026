@@ -1,6 +1,6 @@
 # Proposed switch to Air3D — 20 October 2026
 
-Status updated 20 October 2026: the user approved implementation and requested a pause before training. The active code, configs, reference and validation now implement Air3D. Implementation checks passed without weight updates; results are in checks/. No PINN training has begun. This document preserves the earlier proposal; README.md describes the current code.
+Historical proposal: implemented on 20 October 2026, followed by the requested pause. On 22 October the user authorized training. The smoke and reduced CPU runs have now completed. This document preserves the earlier proposal; README.md and the dated run outputs describe current results.
 
 ## Selected case
 
@@ -34,6 +34,6 @@ These equations were checked against the pinned official repository's `Air3D` cl
 - `configs/`: .75 m/s speed and 3 rad/s turn bounds; reduced .5 s trial and 1 s full horizon. Review the spatial domain for boundary-free comparison before executing.
 - `README.md` and `PLAN.md`: replace the active Dubins scope with Air3D and record all reductions and departures from the paper.
 
-No trained Air3D checkpoint or PINN accuracy result exists. Small numerical-reference checks are recorded in checks/. Agreement against an approximate reference will not establish a safety guarantee.
+Trained Air3D checkpoints are saved locally in the dated runs/ folders; raw artifacts are not uploaded in this publication. Initial implementation checks remain in checks/. Agreement against an approximate reference does not establish a safety guarantee.
 
 Sources: https://arxiv.org/abs/2011.02082 and https://github.com/smlbansal/deepreach/tree/a8127aa7825d58623e9646211644876c83dd71d0

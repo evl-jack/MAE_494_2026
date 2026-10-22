@@ -1,0 +1,17 @@
+{
+  "experiment_id": "experiment_1",
+  "title": "Reduced CPU DeepReach Air3D baseline",
+  "date": "2026-10-22",
+  "status": "completed; numerical agreement not satisfactory",
+  "configuration": "config.json",
+  "metrics": "metrics.json",
+  "completed_steps": 12000,
+  "training_seconds": 206.3843549999874,
+  "final_horizon_seconds": 0.5,
+  "final_value_mae_m": 0.09149674665517198,
+  "final_false_safe_among_reference_unsafe": 0.46417740712661104,
+  "paper_scale_training_executed": false,
+  "smoke_run_is_separate_experiment": false,
+  "retrained_for_publication": false,
+  "raw_artifacts": "Retained locally; not uploaded in this publication."
+}

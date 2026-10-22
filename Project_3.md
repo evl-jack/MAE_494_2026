@@ -8,19 +8,34 @@ According to the project interview notes, Professor Yi (Max) Ren explicitly appr
 
 The immediate priority is reproducing the PINN. A separate investigation of gradient reliability is optional future work. DeepReach **does compute gradients**: automatic differentiation supplies the derivatives used in training and in deriving control from the value function. The open question concerns their accuracy and usefulness in an approximation.
 
-## Current status — October 20, 2026
+## Current status — October 22, 2026
 
-The selected case is now **Air3D: two drones avoiding collision at a fixed altitude**, replacing the initial Dubins3D obstacle example. The Air3D implementation, numerical-reference solver, configurations and implementation checks are saved.
+**Experiment 1 — Reduced CPU baseline is complete.** The first trained Air3D PINN and independent numerical comparison are now saved. This reproduces the core training workflow, but its measured accuracy is not satisfactory.
 
-**Training is paused at the user's request. No PINN training, trained checkpoints or trained-accuracy results exist yet.** The checks below use a randomly initialized network without changing its weights. They establish implementation consistency, not learned accuracy or a safety guarantee.
-
+- [Experiment 1: full report, plots and artifacts](outputs/deepreach/experiments/experiment_1/README.md)
+- [Experiment index](outputs/deepreach/experiments/README.md)
 - [Code and setup instructions](outputs/deepreach/README.md)
-- [PINN and Air3D equations](outputs/deepreach/deepreach.py)
-- [Independent numerical solver](outputs/deepreach/reference.py)
-- [Checks without training](outputs/deepreach/preflight.py)
-- [Actual implementation-check results](outputs/deepreach/checks/README.md)
-- [Future trained-model comparisons](outputs/deepreach/validate.py)
-- [Current build plan](outputs/deepreach/PLAN.md)
+- [Measured metrics](outputs/deepreach/experiments/experiment_1/metrics.json)
+
+Public materials include the report, comparison figures, aggregate diagnostics and configuration. Raw model/optimizer checkpoints, source snapshots, training logs and reference arrays remain in the local project copies.
+
+The 60-step smoke run is a setup check and is not counted as another experiment. Full paper-scale training has not run; no Experiment 2 has been executed.
+
+## Experiment 1 — results summary
+
+The reduced model uses three sine hidden layers of width 64, 2,048 samples per iteration, 2,000 terminal-pretraining steps and 10,000 physics-curriculum steps. Training took 206.4 seconds on two CPU threads, with a .5 s horizon.
+
+| Time remaining | Value MAE | Unsafe-region IoU | False-safe among reference-unsafe |
+|---|---|---|---|
+| 0 s | .01184 m | .930 | 6.28% |
+| .25 s | .04230 m | .695 | 23.77% |
+| .5 s | .09150 m | .478 | 46.42% |
+
+False-safe here means PINN>0 while the approximate grid reference is <=0, divided by the reference-unsafe sample count. The comparison uses 24,000 held-out interior states. At .5 s, 5,276 are reference-unsafe; false-safe among all states is 10.20%. These are reference-relative classifications, not certified ground truth.
+
+**Interpretation:** the network learned the terminal condition considerably better than the time-dependent reachability solution. Checkpoint reload and optimizer restart checks passed. Reference refinement improved, and the larger-domain test showed negligible interior sensitivity. The reduced PINN nevertheless misses substantial unsafe regions, so successful reproduction of the paper's reported accuracy is not claimed.
+
+![Experiment 1: PINN values with grid reference contours in white and PINN contours in red](outputs/deepreach/experiments/experiment_1/figures/value_and_brt_slices.png)
 
 ## The Air3D problem
 
@@ -84,7 +99,7 @@ The baseline uses original **soft terminal loss**, distinct from the modern repo
 
 All use Adam at 1e-4 and currently select CPU. The modern repository's num_hl=3 creates four sine hidden layers; actual layer counts are explicit here. Spatial boxes are widened to [-2,2] m for reduced runs and [-3,3] m for full, departing from upstream scaling to permit interior reference comparisons. See the implementation README for the dependency-region bound and numerical limitations. Full is a paper-scale configuration, not a claim of exact paper replication.
 
-## Completed checks without training
+## Initial implementation checks — before Experiment 1
 
 The [saved check data](outputs/deepreach/checks/preflight_cpu.json) record **zero optimizer steps**.
 
@@ -103,7 +118,7 @@ The [saved check data](outputs/deepreach/checks/preflight_cpu.json) record **zer
 
 A small **0.1 s** grid test showed refinement differences decreasing from 0.00519 m to 0.00250 m in mean absolute value. In the no-turn analytic case, mean error decreased from 0.00691 m to 0.00265 m; fine-grid maximum error remained 0.0515 m. Matching grid spacing and time steps, expanded-domain values agreed at the sampled interior points for this short test. Frozen dynamics, obstacle projection and periodic heading checks also passed.
 
-These results are solver/implementation checks, not PINN training results. Full-horizon reference validation remains pending.
+These initial results are implementation checks. The later Experiment 1 report records the trained comparison and reference refinement at its actual .5 s horizon. The full 1 s paper-scale experiment remains unexecuted.
 
 ## Running checks
 
@@ -115,10 +130,10 @@ python -m venv .venv
 .\.venv\Scripts\python.exe outputs/deepreach/preflight.py --config outputs/deepreach/configs/cpu.json --out outputs/deepreach/checks/preflight_cpu.json
 ```
 
-Preflight never trains. [The implementation README](outputs/deepreach/README.md) contains future training, resuming and comparison commands. Training requires an explicit --train flag; even smoke training has not been executed. Optimizer/checkpoint restart checks are also deferred.
+Preflight never trains. [The implementation README](outputs/deepreach/README.md) contains training, resuming and comparison commands. Training requires an explicit --train flag, and existing checkpoints are protected against accidental overwriting. The smoke and reduced CPU runs and optimizer/checkpoint restart tests have completed.
 
-## Next work after training is requested
+## Future experiments — not executed
 
-Run smoke training and a feasible nontrivial experiment; save model/optimizer/configuration/random state and curriculum progress; validate the reference at the actual horizon; then report measured value/PDE/terminal/BRT errors and plots. If agreement is poor, report it candidly and provide a longer-training command.
+Experiment 1 is the saved baseline. A paper-scale configuration is available but has not run. Smaller network capacity, fewer samples/iterations, broad uniform sampling and loss balancing are plausible contributors to the error; controlled follow-up experiments are required to isolate them. Scaling up alone is not a demonstrated remedy.
 
-Low loss or numerical agreement alone does not establish a safety guarantee. A separate study of learned-gradient reliability remains outside the present scope.
+No new training was performed for this publication. Low loss or numerical agreement alone does not establish a safety guarantee. A separate learned-gradient reliability study remains outside the present scope.

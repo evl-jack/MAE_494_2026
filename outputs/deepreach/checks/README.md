@@ -1,6 +1,6 @@
 # Air3D implementation checks — 20 October 2026
 
-**Passed without training. Optimizer steps: 0.** The network was randomly initialized for inference and differentiation, and its weights were verified unchanged. No trained checkpoint or training results exist.
+**Historical implementation checks, before training: optimizer steps 0.** The network was randomly initialized for inference and differentiation, and its weights were verified unchanged. No trained checkpoint existed at that stage. Subsequent training and comparison on 22 October are recorded in ../experiments/experiment_1/README.md.
 
 | Check | Observed result |
 |---|---|

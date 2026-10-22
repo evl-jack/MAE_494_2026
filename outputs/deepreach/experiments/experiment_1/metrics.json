@@ -1,0 +1,204 @@
+{
+  "completed_steps": 12000,
+  "training_seconds": 206.3843549999874,
+  "terminal_weight": 106.42515563964844,
+  "interior_half_width": 0.6,
+  "dependency_radius_bound": 1.5985281374238571,
+  "heldout_seed": 20261019,
+  "mechanical": {
+    "autodiff_fd_max_abs": 9.569420811317286e-10,
+    "chain_rule_max_abs": 7.771561172376096e-16,
+    "hamiltonian_brute_max_abs": 1.7763568394002505e-15,
+    "optimal_control_max_abs": 1.7763568394002505e-15,
+    "reload_prediction_max_abs": 0.0
+  },
+  "reference": {
+    "refinement": {
+      "0.25": {
+        "65_to_97": {
+          "mae": 0.003914377704885994,
+          "rmse": 0.0068138414469667745,
+          "max_abs": 0.026134037821195846
+        },
+        "97_to_129": {
+          "mae": 0.001955336171822364,
+          "rmse": 0.0035406834903875077,
+          "max_abs": 0.015606860654116012
+        },
+        "classification_97_to_129": {
+          "iou": 0.9800083298625573,
+          "disagreement_fraction": 0.004,
+          "false_safe_fraction_of_reference_unsafe": 0.019787544261612163,
+          "false_safe_fraction_of_all": 0.003958333333333334,
+          "false_unsafe_fraction_of_reference_safe": 5.2086046148236886e-05,
+          "reference_unsafe_count": 4801,
+          "total_count": 24000
+        }
+      },
+      "0.5": {
+        "65_to_97": {
+          "mae": 0.004419861307794238,
+          "rmse": 0.008408937873845479,
+          "max_abs": 0.03690339130055248
+        },
+        "97_to_129": {
+          "mae": 0.00220555749601481,
+          "rmse": 0.004373226974590881,
+          "max_abs": 0.022469419551345945
+        },
+        "classification_97_to_129": {
+          "iou": 0.9793482379689277,
+          "disagreement_fraction": 0.004541666666666667,
+          "false_safe_fraction_of_reference_unsafe": 0.02028051554207733,
+          "false_safe_fraction_of_all": 0.004458333333333333,
+          "false_unsafe_fraction_of_reference_safe": 0.00010681478316599017,
+          "reference_unsafe_count": 5276,
+          "total_count": 24000
+        }
+      }
+    },
+    "boundary_sensitivity": {
+      "0.25": {
+        "mae": 0.0,
+        "rmse": 0.0,
+        "max_abs": 0.0
+      },
+      "0.5": {
+        "mae": 1.61907524424502e-20,
+        "rmse": 1.1884227471249333e-18,
+        "max_abs": 1.1102230246251565e-16
+      }
+    },
+    "frozen_max_abs": 0.0,
+    "straight_line_analytic": {
+      "0.25": {
+        "coarse": {
+          "mae": 0.004428348316231679,
+          "rmse": 0.00968055538823121,
+          "max_abs": 0.09121640186955618
+        },
+        "fine": {
+          "mae": 0.002021739211081418,
+          "rmse": 0.0051797949892144176,
+          "max_abs": 0.06340348427641823
+        }
+      },
+      "0.5": {
+        "coarse": {
+          "mae": 0.005602124696272786,
+          "rmse": 0.015100639364506568,
+          "max_abs": 0.13723532107113476
+        },
+        "fine": {
+          "mae": 0.0026309426623772687,
+          "rmse": 0.008495221270968656,
+          "max_abs": 0.09589067361524051
+        }
+      }
+    },
+    "sign_probe_values": [
+      0.15000000000000002,
+      -0.24999831231509406
+    ],
+    "obstacle_violation": 0.0,
+    "grids": [
+      [
+        65,
+        65,
+        48
+      ],
+      [
+        97,
+        97,
+        72
+      ],
+      [
+        129,
+        129,
+        96
+      ]
+    ],
+    "dtmax": 0.00149920999302421,
+    "cfl": 0.8,
+    "seconds": 696.6935263000196
+  },
+  "comparisons": {
+    "0.0": {
+      "mae": 0.011836767826362338,
+      "rmse": 0.014819145133626498,
+      "max_abs": 0.10231865041805982,
+      "iou": 0.9301768055139347,
+      "disagreement_fraction": 0.009708333333333333,
+      "false_safe_fraction_of_reference_unsafe": 0.06280193236714976,
+      "false_safe_fraction_of_all": 0.008666666666666666,
+      "false_unsafe_fraction_of_reference_safe": 0.001208430007733952,
+      "reference_unsafe_count": 3312,
+      "total_count": 24000,
+      "outside_reference_margin_0.02": {
+        "iou": 0.9996434937611408,
+        "disagreement_fraction": 4.3578681309103584e-05,
+        "false_safe_fraction_of_reference_unsafe": 0.00035650623885918,
+        "false_safe_fraction_of_all": 4.3578681309103584e-05,
+        "false_unsafe_fraction_of_reference_safe": 0.0,
+        "reference_unsafe_count": 2805,
+        "total_count": 22947
+      }
+    },
+    "0.25": {
+      "mae": 0.042299025124508366,
+      "rmse": 0.052056686583073906,
+      "max_abs": 0.17414878653123106,
+      "iou": 0.6951566951566952,
+      "disagreement_fraction": 0.066875,
+      "false_safe_fraction_of_reference_unsafe": 0.2376588210789419,
+      "false_safe_fraction_of_all": 0.04754166666666667,
+      "false_unsafe_fraction_of_reference_safe": 0.024167925412781916,
+      "reference_unsafe_count": 4801,
+      "total_count": 24000,
+      "outside_reference_margin_0.02": {
+        "iou": 0.77068345323741,
+        "disagreement_fraction": 0.04491611255449381,
+        "false_safe_fraction_of_reference_unsafe": 0.17695078031212486,
+        "false_safe_fraction_of_all": 0.032454093090845036,
+        "false_unsafe_fraction_of_reference_safe": 0.01526100086281277,
+        "reference_unsafe_count": 4165,
+        "total_count": 22709
+      }
+    },
+    "0.5": {
+      "mae": 0.09149674665517198,
+      "rmse": 0.11688528104300384,
+      "max_abs": 0.4124869791979081,
+      "iou": 0.47769516728624534,
+      "disagreement_fraction": 0.12879166666666667,
+      "false_safe_fraction_of_reference_unsafe": 0.46417740712661104,
+      "false_safe_fraction_of_all": 0.10204166666666667,
+      "false_unsafe_fraction_of_reference_safe": 0.03428754539628284,
+      "reference_unsafe_count": 5276,
+      "total_count": 24000,
+      "outside_reference_margin_0.02": {
+        "iou": 0.5127495552480728,
+        "disagreement_fraction": 0.10881560941155696,
+        "false_safe_fraction_of_reference_unsafe": 0.4382849718492854,
+        "false_safe_fraction_of_all": 0.08934798922879972,
+        "false_unsafe_fraction_of_reference_safe": 0.024452453562517327,
+        "reference_unsafe_count": 4618,
+        "total_count": 22653
+      }
+    }
+  },
+  "heldout": {
+    "pde_vi_mae": 0.0903313010931015,
+    "pde_vi_p95": 0.3186183571815491,
+    "terminal_mae": 0.00891268547168242,
+    "terminal_max_abs": 0.09634940119836372,
+    "positive_obstacle_violation_mean": 0.013116719201207161,
+    "heading_seam_mae": 0.04060828685760498
+  },
+  "resume_check": {
+    "split_resume_parameter_max_abs": 0.0,
+    "split_after": 4,
+    "total_steps": 6
+  },
+  "data_scope": "Aggregate diagnostics only; raw weights, logs, source snapshots and reference arrays remain local."
+}
