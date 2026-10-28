@@ -1,0 +1,82 @@
+[
+  {
+    "group": "all",
+    "count": 24000,
+    "mae": 0.026021214020890148,
+    "squared_error_share": 1.0,
+    "vi_mae": 0.033640701323747635,
+    "mean_separation": 0.4584683414532561
+  },
+  {
+    "group": "top_1_percent",
+    "count": 240,
+    "mae": 0.20120562096637226,
+    "squared_error_share": 0.1966880393586047,
+    "vi_mae": 0.2265174835920334,
+    "mean_separation": 0.5467351315962536
+  },
+  {
+    "group": "remaining_99_percent",
+    "count": 23760,
+    "mae": 0.02425167455679437,
+    "squared_error_share": 0.8033119606413953,
+    "vi_mae": 0.03169244900345802,
+    "mean_separation": 0.4575767577144379
+  },
+  {
+    "group": "inside_collision",
+    "count": 3319,
+    "mae": 0.03063816555133832,
+    "squared_error_share": 0.09409832694759394,
+    "vi_mae": 0.057535409927368164,
+    "mean_separation": 0.16616396774398104
+  },
+  {
+    "group": "initially_separated",
+    "count": 20681,
+    "mae": 0.025280260385690815,
+    "squared_error_share": 0.905901673052406,
+    "vi_mae": 0.029805945232510567,
+    "mean_separation": 0.5053789461793855
+  },
+  {
+    "group": "below_physical_minimum",
+    "count": 428,
+    "mae": 0.11053045749191442,
+    "squared_error_share": 0.13506533759975725,
+    "vi_mae": 0.14543473720550537,
+    "mean_separation": 0.29109594245175235
+  },
+  {
+    "group": "false_unsafe",
+    "count": 1329,
+    "mae": 0.08580249095452967,
+    "squared_error_share": 0.2774315697981851,
+    "vi_mae": 0.09432785212993622,
+    "mean_separation": 0.4390400423318254
+  },
+  {
+    "group": "pursuer_ahead",
+    "count": 11961,
+    "mae": 0.045736283709284134,
+    "squared_error_share": 0.9695975536867615,
+    "vi_mae": 0.060078833252191544,
+    "mean_separation": 0.45779297098577004
+  },
+  {
+    "group": "pursuer_behind",
+    "count": 12039,
+    "mae": 0.006433877153801474,
+    "squared_error_share": 0.03040244631323846,
+    "vi_mae": 0.007373859640210867,
+    "mean_separation": 0.45913933623368625
+  },
+  {
+    "group": "opposing_headings",
+    "count": 6054,
+    "mae": 0.030954023053152688,
+    "squared_error_share": 0.38867681523859177,
+    "vi_mae": 0.0331975594162941,
+    "mean_separation": 0.4571775852373109
+  }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "group": "all_final",
+    "count": 24000,
+    "physics_loss": 0.033640701323747635,
+    "physics_gradient_norm": 8.180724251252471,
+    "pde_branch_fraction": 0.3399583333333333,
+    "reference_half_mse": 0.0010456409685476707,
+    "reference_gradient_norm": 0.4017173105023769,
+    "physics_reference_cosine": -0.4673945145701676,
+    "reference_mae_gradient_norm": 6.316382890013449,
+    "physics_reference_mae_cosine": -0.43354560694765076
+  },
+  {
+    "group": "outliers_240",
+    "count": 240,
+    "physics_loss": 0.2265174835920334,
+    "physics_gradient_norm": 115.89810100871621,
+    "pde_branch_fraction": 0.9291666666666667,
+    "reference_half_mse": 0.020566507259004604,
+    "reference_gradient_norm": 5.5765383900177135,
+    "physics_reference_cosine": -0.35788535557892115,
+    "reference_mae_gradient_norm": 27.434534372220455,
+    "physics_reference_mae_cosine": -0.3644426584495649
+  },
+  {
+    "group": "remaining",
+    "count": 23760,
+    "physics_loss": 0.03169244900345802,
+    "physics_gradient_norm": 7.682982908324242,
+    "pde_branch_fraction": 0.33400673400673403,
+    "reference_half_mse": 0.000848460502150776,
+    "reference_gradient_norm": 0.3609470634880164,
+    "physics_reference_cosine": -0.4439797322192,
+    "reference_mae_gradient_norm": 6.182315568603489,
+    "physics_reference_mae_cosine": -0.430172904575268
+  },
+  {
+    "group": "ahead",
+    "count": 11961,
+    "physics_loss": 0.060078833252191544,
+    "physics_gradient_norm": 15.196465814670454,
+    "pde_branch_fraction": 0.5545522949586155,
+    "reference_half_mse": 0.0020343133716138684,
+    "reference_gradient_norm": 0.7776031550072302,
+    "physics_reference_cosine": -0.46059271903277543,
+    "reference_mae_gradient_norm": 11.037981733684733,
+    "physics_reference_mae_cosine": -0.44042206756191765
+  },
+  {
+    "group": "behind",
+    "count": 12039,
+    "physics_loss": 0.007373859640210867,
+    "physics_gradient_norm": 2.8291865772674125,
+    "pde_branch_fraction": 0.126754713846665,
+    "reference_half_mse": 6.337412125786512e-05,
+    "reference_gradient_norm": 0.04084091735519147,
+    "physics_reference_cosine": -0.05182934301043339,
+    "reference_mae_gradient_norm": 2.1327678436917377,
+    "physics_reference_mae_cosine": -0.02460936956171059
+  }
+]

@@ -1,0 +1,9 @@
+model,slug,threshold,curriculum_expected_nonterminal_fraction,hold_expected_nonterminal_fraction,expected_nonterminal_draws,note
+Experiment 1,baseline,0.4,0.021485158948632177,0.19999999999999996,385014.0483594886,"Continuous-ramp approximation to expected sampling, not a log of actual draws."
+Experiment 1,baseline,0.475,0.0012713703318269973,0.050000000000000044,22782.95634633979,"Continuous-ramp approximation to expected sampling, not a log of actual draws."
+A: lower terminal weight,a,0.4,0.021485158948632177,0.19999999999999996,385014.0483594886,"Continuous-ramp approximation to expected sampling, not a log of actual draws."
+A: lower terminal weight,a,0.475,0.0012713703318269973,0.050000000000000044,22782.95634633979,"Continuous-ramp approximation to expected sampling, not a log of actual draws."
+B: focused sampling,b,0.4,0.021485158948632177,0.19999999999999996,385014.0483594886,"Continuous-ramp approximation to expected sampling, not a log of actual draws."
+B: focused sampling,b,0.475,0.0012713703318269973,0.050000000000000044,22782.95634633979,"Continuous-ramp approximation to expected sampling, not a log of actual draws."
+C: full-horizon hold,c,0.4,0.021485158948632177,0.19999999999999996,3969014.0483594877,"Continuous-ramp approximation to expected sampling, not a log of actual draws."
+C: full-horizon hold,c,0.475,0.0012713703318269973,0.050000000000000044,918782.9563463406,"Continuous-ramp approximation to expected sampling, not a log of actual draws."

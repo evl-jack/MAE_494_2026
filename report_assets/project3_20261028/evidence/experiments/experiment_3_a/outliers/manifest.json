@@ -1,0 +1,25 @@
+{
+  "training": false,
+  "model_unchanged": true,
+  "protected_inputs": {
+    "lookahead_21points_20261027\\heldout_values.npz": "b70e081991f8dee14b03acebd5f63ee3fd85b5ef0a044714a3df4545425f0177",
+    "experiments\\experiment_3_a\\candidate_values.npz": "ed9fbf160f446d7c2a144d360f06e600d85cd5d1cb142d220ce55cae9d59895e",
+    "runs\\experiment_3_a_constraints\\checkpoint.pt": "44d19503406e4339fda5376c1074a20e5bf2c3508085af9f47d159e9858d8b62",
+    "runs\\air3d_cpu_20261022\\validation\\reference_fine.npz": "d3d76ab2209bf551de61fc1f0c681dd03bbdd5c3639ce8c1d63b14ad59a69cc5",
+    "runs\\experiment_2_a_loss_20261022\\checkpoint.pt": "78b5efd83e9023a2089b13a524a26b60084df9746a750f453e6abfd7592ebbac"
+  },
+  "sources": {
+    "analyze_outliers.py": "51a1112b0d992a8a9c5932dc1411a52b43cb6737e1e6d7b56fab75ed6863f51e",
+    "deepreach.py": "5e205cd540b9afa09aed1b7ff30cdd4584f7dd2ef747314ee254ae51138bbaab",
+    "reference.py": "9d47292d61389539b4a6677249bf17e4dc38315bf49c5864bcfcb7d9d505ea32",
+    "validate.py": "827ff3fbf99e0bfc2b22e6d760a9f257201a8e2ca4d47f6f431d5dc104d64169"
+  },
+  "checks": {
+    "saved_predictions_reproduced_exactly": true,
+    "reference_invariances_verified": true,
+    "all_protected_inputs_unchanged": true
+  },
+  "state_seed": 20261019,
+  "lookahead": 0.5,
+  "derivative_note": "Value derivatives and equation residuals only; no controller rollout or training."
+}

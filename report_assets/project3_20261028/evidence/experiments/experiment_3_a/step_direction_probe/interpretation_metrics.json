@@ -1,0 +1,22 @@
+{
+  "selected_audit_physics_percent_reduction": 10.779377308506456,
+  "selected_final_mae_percent_reduction": 2.899892288403478,
+  "selected_outlier_mae_percent_reduction": 2.1341888132856877,
+  "by_method": {
+    "adam": {
+      "audit_improvements": 5,
+      "final_mae_improvements": 8,
+      "median_final_mae": 0.026005403271325923
+    },
+    "plain_gradient": {
+      "audit_improvements": 8,
+      "final_mae_improvements": 8,
+      "median_final_mae": 0.02527175141176613
+    },
+    "second_moment_preconditioned": {
+      "audit_improvements": 8,
+      "final_mae_improvements": 8,
+      "median_final_mae": 0.02514823225978852
+    }
+  }
+}

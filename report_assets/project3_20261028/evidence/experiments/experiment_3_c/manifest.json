@@ -1,0 +1,49 @@
+{
+  "status": "completed",
+  "training_source": "Managed process using the VS Code interpreter; UI busy",
+  "evaluation_trains": false,
+  "protected_inputs": {
+    "runs\\experiment_3_c_time_sampling\\checkpoint.pt": "2ef5c97491ad35dd5b436507f65352e56ee91485e9af86537a77b4e9c8000f95",
+    "runs\\experiment_3_a_constraints\\checkpoint.pt": "44d19503406e4339fda5376c1074a20e5bf2c3508085af9f47d159e9858d8b62",
+    "lookahead_21points_20261027\\heldout_values.npz": "b70e081991f8dee14b03acebd5f63ee3fd85b5ef0a044714a3df4545425f0177",
+    "experiments\\experiment_3_a\\candidate_values.npz": "ed9fbf160f446d7c2a144d360f06e600d85cd5d1cb142d220ce55cae9d59895e",
+    "experiments\\experiment_3_a\\outliers\\worst_240_states.csv": "9ceec217b2e794cd062bdb8dc8eb6c096ee36aaaa1dada4bd036e10b0eb695bb",
+    "runs\\air3d_cpu_20261022\\validation\\reference_fine.npz": "d3d76ab2209bf551de61fc1f0c681dd03bbdd5c3639ce8c1d63b14ad59a69cc5"
+  },
+  "checks": {
+    "inputs_unchanged": true,
+    "sampler_final_rng_matches_3a": true,
+    "terminal_and_obstacle": true
+  },
+  "parameters": 8705,
+  "training_seconds": 203.97559499996714,
+  "completed_steps": 10000,
+  "sources": {
+    "deepreach.py": "442b005f8a8c6e0e4762badf70c4ebc60350914a7afcf8bbe2589a141fa3bd53",
+    "validate.py": "827ff3fbf99e0bfc2b22e6d760a9f257201a8e2ca4d47f6f431d5dc104d64169",
+    "compare_time_sampling.py": "1baaf92ec389649e1a6e75a8eb06b33c69ea26d1adf0438cc0070483008f1c78"
+  },
+  "evaluation_times": [
+    0.0,
+    0.025,
+    0.05,
+    0.07500000000000001,
+    0.1,
+    0.125,
+    0.15000000000000002,
+    0.17500000000000002,
+    0.2,
+    0.225,
+    0.25,
+    0.275,
+    0.30000000000000004,
+    0.325,
+    0.35000000000000003,
+    0.375,
+    0.4,
+    0.42500000000000004,
+    0.45,
+    0.47500000000000003,
+    0.5
+  ]
+}

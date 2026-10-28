@@ -1,0 +1,7 @@
+{
+  "relative_l2_known_error": true,
+  "angular_harmonic_recovered": 3,
+  "spatial_and_heading_parseval": true,
+  "constant_field_removed": true,
+  "cached_grid_cost_cases": true
+}

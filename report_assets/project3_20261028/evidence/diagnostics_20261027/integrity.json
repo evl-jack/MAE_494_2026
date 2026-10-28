@@ -1,0 +1,12 @@
+{
+  "checkpoints_and_reference_unchanged": true,
+  "hashes": {
+    "runs\\air3d_cpu_20261022\\validation\\reference_fine.npz": "d3d76ab2209bf551de61fc1f0c681dd03bbdd5c3639ce8c1d63b14ad59a69cc5",
+    "runs\\air3d_cpu_20261022\\checkpoint.pt": "4b7c44caa643bc5b7145edcfc57dc325ef9915372a52023c2a6e865e09055e8d",
+    "runs\\experiment_2_a_loss_20261022\\checkpoint.pt": "78b5efd83e9023a2089b13a524a26b60084df9746a750f453e6abfd7592ebbac",
+    "runs\\experiment_2_b_sampling_20261022\\checkpoint.pt": "4a9db6ba6b5a4fc83ebbe0b10a588c02ac830d4d639703bbada1222c150a2e42",
+    "runs\\experiment_2_c_hold_20261022\\checkpoint.pt": "5f1c41f8903325db05e8963edb0a6b370e2e71f33a77f5996ab05a4b7ccb8a1c"
+  },
+  "existing_metrics_reproduced": true,
+  "no_training": true
+}

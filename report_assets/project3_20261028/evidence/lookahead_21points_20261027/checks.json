@@ -1,0 +1,7 @@
+{
+  "checkpoints_and_reference_unchanged": true,
+  "shared_reference_within_1mm": true,
+  "all_exported_relative_l2_recomputed": true,
+  "comparisons": 84,
+  "no_training": true
+}

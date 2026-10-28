@@ -1,0 +1,83 @@
+{
+  "optimizer_steps": 0,
+  "parameter_updates": 0,
+  "reference_gradients_used_for_updates": false,
+  "parameter_directional_derivative_check": {
+    "physics": {
+      "autodiff": 1.0760546366692245,
+      "finite_difference": 1.076054625265277,
+      "absolute_error": 1.1403947564048167e-08
+    },
+    "reference_half_mse": {
+      "autodiff": 0.15460553647696085,
+      "finite_difference": 0.1546055364634591,
+      "absolute_error": 1.3501755269373916e-11
+    },
+    "reference_mae": {
+      "autodiff": 0.581933503454907,
+      "finite_difference": 0.5819335030521344,
+      "absolute_error": 4.027725930555448e-10
+    }
+  },
+  "training_batches": 8,
+  "training_batch_size": 2048,
+  "terminal_points": 256,
+  "physics_group_names": [
+    "all_final",
+    "outliers_240",
+    "remaining",
+    "ahead",
+    "behind"
+  ],
+  "physics_gradient_cosines": [
+    [
+      0.9999999999999998,
+      0.5491817715642391,
+      0.9918591900953502,
+      0.9867212234009795,
+      0.49870212986102497
+    ],
+    [
+      0.5491817715642391,
+      1.0000000000000002,
+      0.4382929983763438,
+      0.5750541372274137,
+      0.09689337440376976
+    ],
+    [
+      0.9918591900953502,
+      0.4382929983763438,
+      1.0,
+      0.9736350514308123,
+      0.5216101886819506
+    ],
+    [
+      0.9867212234009795,
+      0.5750541372274137,
+      0.9736350514308123,
+      0.9999999999999999,
+      0.3512960439484224
+    ],
+    [
+      0.49870212986102497,
+      0.09689337440376976,
+      0.5216101886819506,
+      0.3512960439484224,
+      1.0
+    ]
+  ],
+  "diagnostic_batch_pair_cosine_median": 0.6667033869465966,
+  "diagnostic_batch_pair_cosine_min": 0.5720138430634635,
+  "hypothetical_adam_reduces_reference_outlier_half_mse_batches": 6,
+  "hypothetical_adam_reduces_all_final_reference_half_mse_batches": 8,
+  "hypothetical_adam_reduces_reference_outlier_mae_batches": 6,
+  "hypothetical_adam_reduces_all_final_reference_mae_batches": 8,
+  "outlier_weighted_physics_norm": 1.1589810100871625,
+  "remaining_weighted_physics_norm": 7.606153079241,
+  "reserved_final_states": {
+    "path": "evaluation\\reserved_final_states\\states.npz",
+    "sha256": "f902bb08c7fe93d7a6275048e9cc41ddf2f4819be2f9a600597ae1d5666280c6",
+    "used": false
+  },
+  "threshold_note": "Low residual <=.01 in training convention; large value error >=.05 m. Descriptive thresholds, not bounds."
+}

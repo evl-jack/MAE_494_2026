@@ -1,0 +1,42 @@
+{
+  "outlier_definition": "240 states with largest absolute value error at tau=.5; selected on validation.",
+  "count": 24000,
+  "top_count": 240,
+  "absolute_error_quantiles": {
+    "0.5": 0.009136426014205619,
+    "0.9": 0.07320902449210315,
+    "0.95": 0.10676396698114744,
+    "0.99": 0.17195856336940288,
+    "1": 0.2779011833730442
+  },
+  "top_squared_error_share": 0.1966880393586047,
+  "top_pursuer_ahead_count": 240,
+  "top_opposing_heading_count": 173,
+  "top_negative_error_count": 240,
+  "top_separation_min": 0.3749457778407526,
+  "top_separation_max": 0.7512140703435182,
+  "alias_pair_count": 4863,
+  "alias_gap_mae": 0.03269652649760246,
+  "alias_gap_p95": 0.15890400111675254,
+  "reflection_gap_mae": 0.006229188293218613,
+  "clipping_diagnostic": {
+    "original": {
+      "mae": 0.026021214020890148,
+      "rmse": 0.045730536223975625,
+      "max_abs": 0.2779011833730442
+    },
+    "clipped": {
+      "mae": 0.025713360771678042,
+      "rmse": 0.04497549213638731,
+      "max_abs": 0.2779011833730442
+    },
+    "mae_reduction_percent": 1.1830856506731657,
+    "note": "Offline analytic-bound clipping only; saved model is unchanged. It does not change sign classifications."
+  },
+  "upward_increment": {
+    "count": 6010,
+    "median_m": 0.0010384470224380493,
+    "p95_m": 0.011544696986675262,
+    "max_m": 0.01818317174911499
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "training": false,
+  "protected_inputs": {
+    "lookahead_21points_20261027\\heldout_values.npz": "b70e081991f8dee14b03acebd5f63ee3fd85b5ef0a044714a3df4545425f0177",
+    "runs\\air3d_cpu_20261022\\validation\\reference_fine.npz": "d3d76ab2209bf551de61fc1f0c681dd03bbdd5c3639ce8c1d63b14ad59a69cc5",
+    "runs\\air3d_cpu_20261022\\checkpoint.pt": "4b7c44caa643bc5b7145edcfc57dc325ef9915372a52023c2a6e865e09055e8d",
+    "runs\\experiment_2_a_loss_20261022\\checkpoint.pt": "78b5efd83e9023a2089b13a524a26b60084df9746a750f453e6abfd7592ebbac",
+    "runs\\experiment_2_b_sampling_20261022\\checkpoint.pt": "4a9db6ba6b5a4fc83ebbe0b10a588c02ac830d4d639703bbada1222c150a2e42",
+    "runs\\experiment_2_c_hold_20261022\\checkpoint.pt": "5f1c41f8903325db05e8963edb0a6b370e2e71f33a77f5996ab05a4b7ccb8a1c"
+  },
+  "sources": {
+    "failure_analysis.py": "00911e264e5c291fc327674aa010e3c45f69f12c0410f1b3e2017fafeceeb2a0",
+    "deepreach.py": "e911aabd59c5691a8a133732d0b3219f9be9e9aaf6dd2a1554f8be65a2f68e9c",
+    "diagnostics.py": "6c43d03a0f5657db00a023b4817190dbac0e02a784b65e590d5ad83d4f99d8f6"
+  },
+  "value_states": 24000,
+  "equation_states_per_region": 6000,
+  "times": [
+    0.0,
+    0.025,
+    0.05,
+    0.07500000000000001,
+    0.1,
+    0.125,
+    0.15000000000000002,
+    0.17500000000000002,
+    0.2,
+    0.225,
+    0.25,
+    0.275,
+    0.30000000000000004,
+    0.325,
+    0.35000000000000003,
+    0.375,
+    0.4,
+    0.42500000000000004,
+    0.45,
+    0.47500000000000003,
+    0.5
+  ],
+  "threads": 2,
+  "checks": {
+    "error_decomposition_identity": true,
+    "checkpoints_and_reference_unchanged": true
+  }
+}

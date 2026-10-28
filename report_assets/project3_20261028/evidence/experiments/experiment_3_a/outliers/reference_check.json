@@ -1,0 +1,33 @@
+{
+  "signature": {
+    "solver": "9d47292d61389539b4a6677249bf17e4dc38315bf49c5864bcfcb7d9d505ea32",
+    "fine": "d3d76ab2209bf551de61fc1f0c681dd03bbdd5c3639ce8c1d63b14ad59a69cc5",
+    "sweep": "b70e081991f8dee14b03acebd5f63ee3fd85b5ef0a044714a3df4545425f0177",
+    "config": {
+      "domain": 2.0,
+      "radius": 0.25,
+      "speed": 0.75,
+      "turn": 3.0,
+      "horizon": 0.5
+    }
+  },
+  "construction_seconds": 46.62525270006154,
+  "all_states_coarse_vs_fine": {
+    "mae": 0.00220555749601481,
+    "rmse": 0.004373226974590881,
+    "max_abs": 0.022469419551345945
+  },
+  "top_one_percent_coarse_vs_fine": {
+    "mae": 0.007870286278200578,
+    "rmse": 0.008856973466931822,
+    "max_abs": 0.018524116067551832
+  },
+  "dense_vs_original_fine": {
+    "mae": 4.1410426151409964e-07,
+    "rmse": 1.2045532598487309e-06,
+    "max_abs": 8.080482479314033e-06
+  },
+  "reference_reflection_max": 2.7755575615628914e-16,
+  "reference_alias_max": 1.6653345369377348e-16,
+  "note": "97x97x72 versus 129x129x96 at the selected validation states; empirical sensitivity, not an error bound."
+}

@@ -1,0 +1,43 @@
+{
+  "optimizer_steps": 0,
+  "initial_weights_identical_to_3a": true,
+  "spatial_heading_terminal_samples_identical": true,
+  "remaining_curriculum_times_identical": true,
+  "same_uniform_draws_and_rng_consumption": true,
+  "sampler_replay_matches_3a": true,
+  "full_horizon_nonterminal_per_batch": 896,
+  "curriculum_nonterminal_per_batch": 896,
+  "terminal_per_batch": 256,
+  "mechanical": {
+    "autodiff_fd_max_abs": 6.657381590446931e-09,
+    "chain_rule_max_abs": 2.220446049250313e-16,
+    "hamiltonian_brute_max_abs": 1.7763568394002505e-15,
+    "optimal_control_max_abs": 1.7763568394002505e-15
+  },
+  "finite_nonzero_physics_gradients": true,
+  "legacy_predictions_bitwise_identical": {
+    "baseline": true,
+    "a": true,
+    "b": true,
+    "c": true,
+    "3a": true,
+    "3b": true
+  },
+  "protected_inputs": {
+    "runs\\air3d_cpu_20261022\\checkpoint.pt": "4b7c44caa643bc5b7145edcfc57dc325ef9915372a52023c2a6e865e09055e8d",
+    "runs\\experiment_2_a_loss_20261022\\checkpoint.pt": "78b5efd83e9023a2089b13a524a26b60084df9746a750f453e6abfd7592ebbac",
+    "runs\\experiment_2_b_sampling_20261022\\checkpoint.pt": "4a9db6ba6b5a4fc83ebbe0b10a588c02ac830d4d639703bbada1222c150a2e42",
+    "runs\\experiment_2_c_hold_20261022\\checkpoint.pt": "5f1c41f8903325db05e8963edb0a6b370e2e71f33a77f5996ab05a4b7ccb8a1c",
+    "runs\\experiment_3_a_constraints\\checkpoint.pt": "44d19503406e4339fda5376c1074a20e5bf2c3508085af9f47d159e9858d8b62",
+    "runs\\experiment_3_b_periodic\\checkpoint.pt": "e18ff2c9733eb93c226e3e0eb03578cafefc9725695dc1e6045ec001faa42ac0"
+  },
+  "parameters": 8705,
+  "sources": {
+    "deepreach.py": "442b005f8a8c6e0e4762badf70c4ebc60350914a7afcf8bbe2589a141fa3bd53",
+    "validate.py": "827ff3fbf99e0bfc2b22e6d760a9f257201a8e2ca4d47f6f431d5dc104d64169",
+    "check_time_sampling.py": "dee7db5fd0b925d568ff2b5e6cefee162984a18f61d766161a8abcd61c57a310"
+  },
+  "config_sha256": "9f8a77f92d2d6158ad021e7a43a7ca34e7ec8b2ecd9ecc1a01dbd1bc2deab3e5",
+  "expected_late_fraction_original": 0.021495158573632184,
+  "expected_late_fraction_mixture": 0.11074757928681606
+}

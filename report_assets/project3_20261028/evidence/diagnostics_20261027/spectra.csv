@@ -1,0 +1,1156 @@
+model,slug,tau,axis,frequency,power
+Reference signal,reference,0.0,spatial,0.41025641025641024,3.830334044557131e-36
+Reference signal,reference,0.0,spatial,1.2307692307692308,0.007318361124196015
+Reference signal,reference,0.0,spatial,2.051282051282051,0.007211820956938751
+Reference signal,reference,0.0,spatial,2.871794871794872,0.00013941482137300176
+Reference signal,reference,0.0,spatial,3.692307692307692,4.553269346511263e-05
+Reference signal,reference,0.0,spatial,4.512820512820513,1.7131516224275223e-05
+Reference signal,reference,0.0,spatial,5.333333333333334,4.558846798140281e-06
+Reference signal,reference,0.0,spatial,6.153846153846153,3.1050933656170954e-06
+Reference signal,reference,0.0,spatial,6.9743589743589745,1.3588847743994936e-06
+Reference signal,reference,0.0,spatial,7.794871794871794,9.296805545885856e-07
+Reference signal,reference,0.0,spatial,8.615384615384615,5.222085726896974e-07
+Reference signal,reference,0.0,spatial,9.435897435897436,3.9980323050109456e-07
+Reference signal,reference,0.0,spatial,10.256410256410255,2.7198790096549796e-07
+Reference signal,reference,0.0,spatial,11.076923076923077,2.634211871410663e-07
+Reference signal,reference,0.0,spatial,11.897435897435898,1.606203795800898e-07
+Reference signal,reference,0.0,spatial,12.717948717948717,1.6151376999729017e-07
+Reference signal,reference,0.0,spatial,13.538461538461538,1.2901625636579928e-07
+Reference signal,reference,0.0,spatial,14.358974358974358,1.2600824902953e-07
+Reference signal,reference,0.0,spatial,15.179487179487179,1.1899657835490185e-07
+Reference signal,reference,0.0,spatial,16.0,1.1280239229499722e-07
+Reference signal,reference,0.0,spatial,16.820512820512818,5.6838742407139264e-08
+Reference signal,reference,0.0,spatial,17.641025641025642,4.896991848829524e-08
+Reference signal,reference,0.0,spatial,18.46153846153846,2.8723559336585325e-08
+Reference signal,reference,0.0,spatial,19.282051282051285,2.0033500525151737e-08
+Reference signal,reference,0.0,spatial,20.102564102564102,2.123248524915633e-08
+Reference signal,reference,0.0,spatial,20.92307692307692,6.839840402395048e-09
+Reference signal,reference,0.0,spatial,21.743589743589745,6.724173579053527e-09
+Reference signal,reference,0.0,spatial,22.564102564102562,0.0
+Reference signal,reference,0.0,heading,0.0,2.0696466101912802e-33
+Reference signal,reference,0.0,heading,1.0,0.0
+Reference signal,reference,0.0,heading,2.0,0.0
+Reference signal,reference,0.0,heading,3.0,0.0
+Reference signal,reference,0.0,heading,4.0,0.0
+Reference signal,reference,0.0,heading,5.0,0.0
+Reference signal,reference,0.0,heading,6.0,0.0
+Reference signal,reference,0.0,heading,7.0,0.0
+Reference signal,reference,0.0,heading,8.0,0.0
+Reference signal,reference,0.0,heading,9.0,0.0
+Reference signal,reference,0.0,heading,10.0,0.0
+Reference signal,reference,0.0,heading,11.0,0.0
+Reference signal,reference,0.0,heading,12.0,0.0
+Reference signal,reference,0.0,heading,13.0,0.0
+Reference signal,reference,0.0,heading,14.0,0.0
+Reference signal,reference,0.0,heading,15.0,0.0
+Reference signal,reference,0.0,heading,16.0,0.0
+Reference signal,reference,0.0,heading,17.0,0.0
+Reference signal,reference,0.0,heading,18.0,0.0
+Reference signal,reference,0.0,heading,19.0,0.0
+Reference signal,reference,0.0,heading,20.0,0.0
+Reference signal,reference,0.0,heading,21.0,0.0
+Reference signal,reference,0.0,heading,22.0,0.0
+Reference signal,reference,0.0,heading,23.0,0.0
+Reference signal,reference,0.0,heading,24.0,0.0
+Reference signal,reference,0.0,heading,25.0,0.0
+Reference signal,reference,0.0,heading,26.0,0.0
+Reference signal,reference,0.0,heading,27.0,0.0
+Reference signal,reference,0.0,heading,28.0,0.0
+Reference signal,reference,0.0,heading,29.0,0.0
+Reference signal,reference,0.0,heading,30.0,0.0
+Reference signal,reference,0.0,heading,31.0,0.0
+Reference signal,reference,0.0,heading,32.0,0.0
+Reference signal,reference,0.0,heading,33.0,0.0
+Reference signal,reference,0.0,heading,34.0,0.0
+Reference signal,reference,0.0,heading,35.0,0.0
+Reference signal,reference,0.0,heading,36.0,0.0
+Reference signal,reference,0.0,heading,37.0,0.0
+Reference signal,reference,0.0,heading,38.0,0.0
+Reference signal,reference,0.0,heading,39.0,0.0
+Reference signal,reference,0.0,heading,40.0,0.0
+Reference signal,reference,0.0,heading,41.0,0.0
+Reference signal,reference,0.0,heading,42.0,0.0
+Reference signal,reference,0.0,heading,43.0,0.0
+Reference signal,reference,0.0,heading,44.0,0.0
+Reference signal,reference,0.0,heading,45.0,0.0
+Reference signal,reference,0.0,heading,46.0,0.0
+Reference signal,reference,0.0,heading,47.0,0.0
+Reference signal,reference,0.0,heading,48.0,0.0
+Reference signal,reference,0.25,spatial,0.41025641025641024,1.607507665496852e-34
+Reference signal,reference,0.25,spatial,1.2307692307692308,0.007527746627018721
+Reference signal,reference,0.25,spatial,2.051282051282051,0.006280077569612901
+Reference signal,reference,0.25,spatial,2.871794871794872,0.00014053569394041274
+Reference signal,reference,0.25,spatial,3.692307692307692,4.419025532746354e-05
+Reference signal,reference,0.25,spatial,4.512820512820513,1.7010470908435105e-05
+Reference signal,reference,0.25,spatial,5.333333333333334,4.696347900356307e-06
+Reference signal,reference,0.25,spatial,6.153846153846153,3.125721817601873e-06
+Reference signal,reference,0.25,spatial,6.9743589743589745,1.4160356956796627e-06
+Reference signal,reference,0.25,spatial,7.794871794871794,9.817488354837978e-07
+Reference signal,reference,0.25,spatial,8.615384615384615,5.511741559688366e-07
+Reference signal,reference,0.25,spatial,9.435897435897436,4.4172820048982153e-07
+Reference signal,reference,0.25,spatial,10.256410256410255,2.897462580420118e-07
+Reference signal,reference,0.25,spatial,11.076923076923077,2.8597991603984685e-07
+Reference signal,reference,0.25,spatial,11.897435897435898,1.7700327582456654e-07
+Reference signal,reference,0.25,spatial,12.717948717948717,1.789836510147913e-07
+Reference signal,reference,0.25,spatial,13.538461538461538,1.4065015290637417e-07
+Reference signal,reference,0.25,spatial,14.358974358974358,1.3866573266019255e-07
+Reference signal,reference,0.25,spatial,15.179487179487179,1.288392528601967e-07
+Reference signal,reference,0.25,spatial,16.0,1.2174710772513975e-07
+Reference signal,reference,0.25,spatial,16.820512820512818,3.6475694492610344e-08
+Reference signal,reference,0.25,spatial,17.641025641025642,2.8241159487352174e-08
+Reference signal,reference,0.25,spatial,18.46153846153846,1.5049154020174704e-08
+Reference signal,reference,0.25,spatial,19.282051282051285,1.0226775343236127e-08
+Reference signal,reference,0.25,spatial,20.102564102564102,1.0370793744607365e-08
+Reference signal,reference,0.25,spatial,20.92307692307692,3.2578464786992e-09
+Reference signal,reference,0.25,spatial,21.743589743589745,3.1566881816824655e-09
+Reference signal,reference,0.25,spatial,22.564102564102562,0.0
+Reference signal,reference,0.25,heading,0.0,1.1964593103086997e-33
+Reference signal,reference,0.25,heading,1.0,0.0028340432440735783
+Reference signal,reference,0.25,heading,2.0,8.118501766890944e-05
+Reference signal,reference,0.25,heading,3.0,1.403594130355582e-05
+Reference signal,reference,0.25,heading,4.0,2.773127812299848e-06
+Reference signal,reference,0.25,heading,5.0,8.78113424579111e-07
+Reference signal,reference,0.25,heading,6.0,3.1180061565054325e-07
+Reference signal,reference,0.25,heading,7.0,1.248555879467682e-07
+Reference signal,reference,0.25,heading,8.0,5.4588324160372443e-08
+Reference signal,reference,0.25,heading,9.0,2.6835072106485377e-08
+Reference signal,reference,0.25,heading,10.0,1.3921438168105008e-08
+Reference signal,reference,0.25,heading,11.0,7.87145735659743e-09
+Reference signal,reference,0.25,heading,12.0,4.629311819322902e-09
+Reference signal,reference,0.25,heading,13.0,2.859912109429017e-09
+Reference signal,reference,0.25,heading,14.0,1.8596378953208965e-09
+Reference signal,reference,0.25,heading,15.0,1.2333910643887182e-09
+Reference signal,reference,0.25,heading,16.0,8.438686040926717e-10
+Reference signal,reference,0.25,heading,17.0,6.111947870586183e-10
+Reference signal,reference,0.25,heading,18.0,4.311212714209428e-10
+Reference signal,reference,0.25,heading,19.0,3.1683796146943277e-10
+Reference signal,reference,0.25,heading,20.0,2.3901150265312313e-10
+Reference signal,reference,0.25,heading,21.0,1.829933942571375e-10
+Reference signal,reference,0.25,heading,22.0,1.4250628029520875e-10
+Reference signal,reference,0.25,heading,23.0,1.1072031567941927e-10
+Reference signal,reference,0.25,heading,24.0,9.309745736869426e-11
+Reference signal,reference,0.25,heading,25.0,7.122265047116935e-11
+Reference signal,reference,0.25,heading,26.0,6.105002070270495e-11
+Reference signal,reference,0.25,heading,27.0,4.7733410048849794e-11
+Reference signal,reference,0.25,heading,28.0,4.135541704643309e-11
+Reference signal,reference,0.25,heading,29.0,3.32071169442607e-11
+Reference signal,reference,0.25,heading,30.0,3.020982378924599e-11
+Reference signal,reference,0.25,heading,31.0,2.4379006922574482e-11
+Reference signal,reference,0.25,heading,32.0,2.211528661672964e-11
+Reference signal,reference,0.25,heading,33.0,1.917077854867204e-11
+Reference signal,reference,0.25,heading,34.0,1.73935530203096e-11
+Reference signal,reference,0.25,heading,35.0,1.4959565422597647e-11
+Reference signal,reference,0.25,heading,36.0,1.3439380531062125e-11
+Reference signal,reference,0.25,heading,37.0,1.217972445941714e-11
+Reference signal,reference,0.25,heading,38.0,1.10408011831344e-11
+Reference signal,reference,0.25,heading,39.0,1.0287261151566118e-11
+Reference signal,reference,0.25,heading,40.0,9.46592603790899e-12
+Reference signal,reference,0.25,heading,41.0,8.715596988011131e-12
+Reference signal,reference,0.25,heading,42.0,8.3178263366627e-12
+Reference signal,reference,0.25,heading,43.0,8.036172424164629e-12
+Reference signal,reference,0.25,heading,44.0,7.561520435779573e-12
+Reference signal,reference,0.25,heading,45.0,7.289139675287196e-12
+Reference signal,reference,0.25,heading,46.0,7.074598026071056e-12
+Reference signal,reference,0.25,heading,47.0,7.1351826800118496e-12
+Reference signal,reference,0.25,heading,48.0,3.3845196124550273e-12
+Reference signal,reference,0.5,spatial,0.41025641025641024,1.3135599878996963e-34
+Reference signal,reference,0.5,spatial,1.2307692307692308,0.007537316981051343
+Reference signal,reference,0.5,spatial,2.051282051282051,0.006118182961287615
+Reference signal,reference,0.5,spatial,2.871794871794872,0.00014363056438303212
+Reference signal,reference,0.5,spatial,3.692307692307692,4.319656622376114e-05
+Reference signal,reference,0.5,spatial,4.512820512820513,1.76365728326959e-05
+Reference signal,reference,0.5,spatial,5.333333333333334,4.695070715352717e-06
+Reference signal,reference,0.5,spatial,6.153846153846153,3.209920979428682e-06
+Reference signal,reference,0.5,spatial,6.9743589743589745,1.4362074301187133e-06
+Reference signal,reference,0.5,spatial,7.794871794871794,9.935133948278663e-07
+Reference signal,reference,0.5,spatial,8.615384615384615,5.611715757948554e-07
+Reference signal,reference,0.5,spatial,9.435897435897436,4.4311708210717504e-07
+Reference signal,reference,0.5,spatial,10.256410256410255,2.923396257049904e-07
+Reference signal,reference,0.5,spatial,11.076923076923077,2.8712347721268627e-07
+Reference signal,reference,0.5,spatial,11.897435897435898,1.7765831554147904e-07
+Reference signal,reference,0.5,spatial,12.717948717948717,1.7913703202407372e-07
+Reference signal,reference,0.5,spatial,13.538461538461538,1.409948086582291e-07
+Reference signal,reference,0.5,spatial,14.358974358974358,1.388479961735023e-07
+Reference signal,reference,0.5,spatial,15.179487179487179,1.2865046869481311e-07
+Reference signal,reference,0.5,spatial,16.0,1.220839299029275e-07
+Reference signal,reference,0.5,spatial,16.820512820512818,3.711951045842765e-08
+Reference signal,reference,0.5,spatial,17.641025641025642,2.919276625296119e-08
+Reference signal,reference,0.5,spatial,18.46153846153846,1.4957942204296693e-08
+Reference signal,reference,0.5,spatial,19.282051282051285,9.997456883181766e-09
+Reference signal,reference,0.5,spatial,20.102564102564102,1.016011839938269e-08
+Reference signal,reference,0.5,spatial,20.92307692307692,3.2358750540195658e-09
+Reference signal,reference,0.5,spatial,21.743589743589745,3.1538270675590674e-09
+Reference signal,reference,0.5,spatial,22.564102564102562,0.0
+Reference signal,reference,0.5,heading,0.0,1.1480714226238854e-33
+Reference signal,reference,0.5,heading,1.0,0.004238285761816976
+Reference signal,reference,0.5,heading,2.0,0.00010937508604254355
+Reference signal,reference,0.5,heading,3.0,2.625220819143178e-05
+Reference signal,reference,0.5,heading,4.0,5.969508250906376e-06
+Reference signal,reference,0.5,heading,5.0,1.593298980975139e-06
+Reference signal,reference,0.5,heading,6.0,5.663701407807379e-07
+Reference signal,reference,0.5,heading,7.0,2.2352126021704385e-07
+Reference signal,reference,0.5,heading,8.0,9.766284162327916e-08
+Reference signal,reference,0.5,heading,9.0,4.684141786444026e-08
+Reference signal,reference,0.5,heading,10.0,2.4483273132733606e-08
+Reference signal,reference,0.5,heading,11.0,1.345487866846564e-08
+Reference signal,reference,0.5,heading,12.0,8.123940704130553e-09
+Reference signal,reference,0.5,heading,13.0,4.946661459949639e-09
+Reference signal,reference,0.5,heading,14.0,3.243893534338396e-09
+Reference signal,reference,0.5,heading,15.0,2.1630294065542714e-09
+Reference signal,reference,0.5,heading,16.0,1.5171301916794289e-09
+Reference signal,reference,0.5,heading,17.0,1.0467943591216153e-09
+Reference signal,reference,0.5,heading,18.0,7.670234048089629e-10
+Reference signal,reference,0.5,heading,19.0,5.484735204266704e-10
+Reference signal,reference,0.5,heading,20.0,4.3538373291991393e-10
+Reference signal,reference,0.5,heading,21.0,3.278779915832862e-10
+Reference signal,reference,0.5,heading,22.0,2.4091677144637877e-10
+Reference signal,reference,0.5,heading,23.0,1.9512760480143773e-10
+Reference signal,reference,0.5,heading,24.0,1.5439929193255992e-10
+Reference signal,reference,0.5,heading,25.0,1.217062104231982e-10
+Reference signal,reference,0.5,heading,26.0,1.020896476915031e-10
+Reference signal,reference,0.5,heading,27.0,8.048321787027604e-11
+Reference signal,reference,0.5,heading,28.0,6.795911285845615e-11
+Reference signal,reference,0.5,heading,29.0,5.656300651507554e-11
+Reference signal,reference,0.5,heading,30.0,4.890794922260204e-11
+Reference signal,reference,0.5,heading,31.0,4.019238462626265e-11
+Reference signal,reference,0.5,heading,32.0,3.6136639547255316e-11
+Reference signal,reference,0.5,heading,33.0,2.953277713433228e-11
+Reference signal,reference,0.5,heading,34.0,2.7303524751453388e-11
+Reference signal,reference,0.5,heading,35.0,2.4440252933036963e-11
+Reference signal,reference,0.5,heading,36.0,2.110780506474578e-11
+Reference signal,reference,0.5,heading,37.0,1.8779417616128037e-11
+Reference signal,reference,0.5,heading,38.0,1.656426020160539e-11
+Reference signal,reference,0.5,heading,39.0,1.5292661635367285e-11
+Reference signal,reference,0.5,heading,40.0,1.4692137057919845e-11
+Reference signal,reference,0.5,heading,41.0,1.3719052025647762e-11
+Reference signal,reference,0.5,heading,42.0,1.2740836791198924e-11
+Reference signal,reference,0.5,heading,43.0,1.2342167893028816e-11
+Reference signal,reference,0.5,heading,44.0,1.1829691209266126e-11
+Reference signal,reference,0.5,heading,45.0,1.1011313084106729e-11
+Reference signal,reference,0.5,heading,46.0,1.0896117082906814e-11
+Reference signal,reference,0.5,heading,47.0,1.0583539975795536e-11
+Reference signal,reference,0.5,heading,48.0,5.061112203292255e-12
+Experiment 1,baseline,0.0,spatial,0.41025641025641024,1.1074581907417161e-34
+Experiment 1,baseline,0.0,spatial,1.2307692307692308,3.5792844427556754e-05
+Experiment 1,baseline,0.0,spatial,2.051282051282051,9.040265940988876e-05
+Experiment 1,baseline,0.0,spatial,2.871794871794872,8.312149545534918e-05
+Experiment 1,baseline,0.0,spatial,3.692307692307692,4.2784749177608705e-05
+Experiment 1,baseline,0.0,spatial,4.512820512820513,1.7507718067212184e-05
+Experiment 1,baseline,0.0,spatial,5.333333333333334,4.9896426359426725e-06
+Experiment 1,baseline,0.0,spatial,6.153846153846153,2.791447930658203e-06
+Experiment 1,baseline,0.0,spatial,6.9743589743589745,1.5024151481915536e-06
+Experiment 1,baseline,0.0,spatial,7.794871794871794,8.070840308248544e-07
+Experiment 1,baseline,0.0,spatial,8.615384615384615,5.756750571059722e-07
+Experiment 1,baseline,0.0,spatial,9.435897435897436,3.485761368968209e-07
+Experiment 1,baseline,0.0,spatial,10.256410256410255,2.9510015468010506e-07
+Experiment 1,baseline,0.0,spatial,11.076923076923077,2.400203383646571e-07
+Experiment 1,baseline,0.0,spatial,11.897435897435898,1.719444875053315e-07
+Experiment 1,baseline,0.0,spatial,12.717948717948717,1.505599674378466e-07
+Experiment 1,baseline,0.0,spatial,13.538461538461538,1.3471278029436422e-07
+Experiment 1,baseline,0.0,spatial,14.358974358974358,1.213901137540798e-07
+Experiment 1,baseline,0.0,spatial,15.179487179487179,1.2125225490799627e-07
+Experiment 1,baseline,0.0,spatial,16.0,1.1201200279743924e-07
+Experiment 1,baseline,0.0,spatial,16.820512820512818,5.6838511795819294e-08
+Experiment 1,baseline,0.0,spatial,17.641025641025642,4.897149892980207e-08
+Experiment 1,baseline,0.0,spatial,18.46153846153846,2.8723485094974202e-08
+Experiment 1,baseline,0.0,spatial,19.282051282051285,2.0033026545355354e-08
+Experiment 1,baseline,0.0,spatial,20.102564102564102,2.1232673507961576e-08
+Experiment 1,baseline,0.0,spatial,20.92307692307692,6.8399019754290455e-09
+Experiment 1,baseline,0.0,spatial,21.743589743589745,6.724103326764298e-09
+Experiment 1,baseline,0.0,spatial,22.564102564102562,0.0
+Experiment 1,baseline,0.0,heading,0.0,1.42075218982961e-36
+Experiment 1,baseline,0.0,heading,1.0,2.876408357974347e-05
+Experiment 1,baseline,0.0,heading,2.0,1.9797821934031745e-05
+Experiment 1,baseline,0.0,heading,3.0,3.98307567473917e-06
+Experiment 1,baseline,0.0,heading,4.0,1.8340795231371453e-06
+Experiment 1,baseline,0.0,heading,5.0,9.446486610420922e-07
+Experiment 1,baseline,0.0,heading,6.0,4.6701367640187806e-07
+Experiment 1,baseline,0.0,heading,7.0,2.8310736948181133e-07
+Experiment 1,baseline,0.0,heading,8.0,1.3929758937380549e-07
+Experiment 1,baseline,0.0,heading,9.0,9.187987376544404e-08
+Experiment 1,baseline,0.0,heading,10.0,6.526866669712627e-08
+Experiment 1,baseline,0.0,heading,11.0,5.05257513435038e-08
+Experiment 1,baseline,0.0,heading,12.0,4.15473979584276e-08
+Experiment 1,baseline,0.0,heading,13.0,3.5101840426219085e-08
+Experiment 1,baseline,0.0,heading,14.0,3.022197937070944e-08
+Experiment 1,baseline,0.0,heading,15.0,2.6374085806337642e-08
+Experiment 1,baseline,0.0,heading,16.0,2.328108854390291e-08
+Experiment 1,baseline,0.0,heading,17.0,2.0756784533749298e-08
+Experiment 1,baseline,0.0,heading,18.0,1.8667789897386784e-08
+Experiment 1,baseline,0.0,heading,19.0,1.6920085069300023e-08
+Experiment 1,baseline,0.0,heading,20.0,1.5442703287702287e-08
+Experiment 1,baseline,0.0,heading,21.0,1.4183183664928274e-08
+Experiment 1,baseline,0.0,heading,22.0,1.3100797497460394e-08
+Experiment 1,baseline,0.0,heading,23.0,1.2164923225320755e-08
+Experiment 1,baseline,0.0,heading,24.0,1.1350647879757362e-08
+Experiment 1,baseline,0.0,heading,25.0,1.063875201446514e-08
+Experiment 1,baseline,0.0,heading,26.0,1.0013456871703455e-08
+Experiment 1,baseline,0.0,heading,27.0,9.462221311963601e-09
+Experiment 1,baseline,0.0,heading,28.0,8.974598880266287e-09
+Experiment 1,baseline,0.0,heading,29.0,8.542009230676235e-09
+Experiment 1,baseline,0.0,heading,30.0,8.15763299817875e-09
+Experiment 1,baseline,0.0,heading,31.0,7.815202895390421e-09
+Experiment 1,baseline,0.0,heading,32.0,7.51016130991836e-09
+Experiment 1,baseline,0.0,heading,33.0,7.2380118964339595e-09
+Experiment 1,baseline,0.0,heading,34.0,6.995417184147038e-09
+Experiment 1,baseline,0.0,heading,35.0,6.779348966114088e-09
+Experiment 1,baseline,0.0,heading,36.0,6.5872665966652126e-09
+Experiment 1,baseline,0.0,heading,37.0,6.416936405412257e-09
+Experiment 1,baseline,0.0,heading,38.0,6.2665789314995e-09
+Experiment 1,baseline,0.0,heading,39.0,6.134663303436469e-09
+Experiment 1,baseline,0.0,heading,40.0,6.019693761283594e-09
+Experiment 1,baseline,0.0,heading,41.0,5.9206592724150505e-09
+Experiment 1,baseline,0.0,heading,42.0,5.836641869746623e-09
+Experiment 1,baseline,0.0,heading,43.0,5.766760090944053e-09
+Experiment 1,baseline,0.0,heading,44.0,5.710428047564943e-09
+Experiment 1,baseline,0.0,heading,45.0,5.667054714186011e-09
+Experiment 1,baseline,0.0,heading,46.0,5.6364658118596594e-09
+Experiment 1,baseline,0.0,heading,47.0,5.6181342090447394e-09
+Experiment 1,baseline,0.0,heading,48.0,2.806045050473429e-09
+Experiment 1,baseline,0.25,spatial,0.41025641025641024,7.909108807279824e-34
+Experiment 1,baseline,0.25,spatial,1.2307692307692308,0.0014453573435908068
+Experiment 1,baseline,0.25,spatial,2.051282051282051,0.0011369115386057303
+Experiment 1,baseline,0.25,spatial,2.871794871794872,0.00019223862625569656
+Experiment 1,baseline,0.25,spatial,3.692307692307692,4.548870558410134e-05
+Experiment 1,baseline,0.25,spatial,4.512820512820513,1.681450749149542e-05
+Experiment 1,baseline,0.25,spatial,5.333333333333334,4.987892242976251e-06
+Experiment 1,baseline,0.25,spatial,6.153846153846153,2.843102081658e-06
+Experiment 1,baseline,0.25,spatial,6.9743589743589745,1.5468976066372944e-06
+Experiment 1,baseline,0.25,spatial,7.794871794871794,8.630441011379247e-07
+Experiment 1,baseline,0.25,spatial,8.615384615384615,6.05941355116997e-07
+Experiment 1,baseline,0.25,spatial,9.435897435897436,3.894666458694601e-07
+Experiment 1,baseline,0.25,spatial,10.256410256410255,3.153273402329085e-07
+Experiment 1,baseline,0.25,spatial,11.076923076923077,2.609874372554166e-07
+Experiment 1,baseline,0.25,spatial,11.897435897435898,1.903521652593665e-07
+Experiment 1,baseline,0.25,spatial,12.717948717948717,1.6664782347564772e-07
+Experiment 1,baseline,0.25,spatial,13.538461538461538,1.4765144798305208e-07
+Experiment 1,baseline,0.25,spatial,14.358974358974358,1.3321943347858328e-07
+Experiment 1,baseline,0.25,spatial,15.179487179487179,1.3162472540378944e-07
+Experiment 1,baseline,0.25,spatial,16.0,1.2078870234317335e-07
+Experiment 1,baseline,0.25,spatial,16.820512820512818,3.647512464635683e-08
+Experiment 1,baseline,0.25,spatial,17.641025641025642,2.8242055921320897e-08
+Experiment 1,baseline,0.25,spatial,18.46153846153846,1.5049118163440456e-08
+Experiment 1,baseline,0.25,spatial,19.282051282051285,1.0226578735748892e-08
+Experiment 1,baseline,0.25,spatial,20.102564102564102,1.0370882283158855e-08
+Experiment 1,baseline,0.25,spatial,20.92307692307692,3.2578449347953065e-09
+Experiment 1,baseline,0.25,spatial,21.743589743589745,3.156638122767119e-09
+Experiment 1,baseline,0.25,spatial,22.564102564102562,0.0
+Experiment 1,baseline,0.25,heading,0.0,2.629433958197423e-35
+Experiment 1,baseline,0.25,heading,1.0,0.0008161966810955323
+Experiment 1,baseline,0.25,heading,2.0,0.0002110224900183487
+Experiment 1,baseline,0.25,heading,3.0,6.173828111114033e-05
+Experiment 1,baseline,0.25,heading,4.0,2.6533062330497407e-05
+Experiment 1,baseline,0.25,heading,5.0,8.903541814232146e-06
+Experiment 1,baseline,0.25,heading,6.0,3.763156837492496e-06
+Experiment 1,baseline,0.25,heading,7.0,1.696869886507643e-06
+Experiment 1,baseline,0.25,heading,8.0,1.0994858063534607e-06
+Experiment 1,baseline,0.25,heading,9.0,7.317721250507662e-07
+Experiment 1,baseline,0.25,heading,10.0,5.82335884355839e-07
+Experiment 1,baseline,0.25,heading,11.0,4.406761838246323e-07
+Experiment 1,baseline,0.25,heading,12.0,3.963615690098038e-07
+Experiment 1,baseline,0.25,heading,13.0,3.1344089728536477e-07
+Experiment 1,baseline,0.25,heading,14.0,2.925862534989854e-07
+Experiment 1,baseline,0.25,heading,15.0,2.371376711716828e-07
+Experiment 1,baseline,0.25,heading,16.0,2.2628057508933617e-07
+Experiment 1,baseline,0.25,heading,17.0,1.880906206842994e-07
+Experiment 1,baseline,0.25,heading,18.0,1.8136245264535528e-07
+Experiment 1,baseline,0.25,heading,19.0,1.544548611868873e-07
+Experiment 1,baseline,0.25,heading,20.0,1.4958176688733207e-07
+Experiment 1,baseline,0.25,heading,21.0,1.3056335563738953e-07
+Experiment 1,baseline,0.25,heading,22.0,1.2635829033553555e-07
+Experiment 1,baseline,0.25,heading,23.0,1.129573013471276e-07
+Experiment 1,baseline,0.25,heading,24.0,1.0888061214458135e-07
+Experiment 1,baseline,0.25,heading,25.0,9.941827162183434e-08
+Experiment 1,baseline,0.25,heading,26.0,9.5564890749719e-08
+Experiment 1,baseline,0.25,heading,27.0,8.887098502760787e-08
+Experiment 1,baseline,0.25,heading,28.0,8.53982603638768e-08
+Experiment 1,baseline,0.25,heading,29.0,8.056878791404308e-08
+Experiment 1,baseline,0.25,heading,30.0,7.746036810484834e-08
+Experiment 1,baseline,0.25,heading,31.0,7.394336868167193e-08
+Experiment 1,baseline,0.25,heading,32.0,7.118773176099205e-08
+Experiment 1,baseline,0.25,heading,33.0,6.860331755881282e-08
+Experiment 1,baseline,0.25,heading,34.0,6.623417810209287e-08
+Experiment 1,baseline,0.25,heading,35.0,6.433482797616452e-08
+Experiment 1,baseline,0.25,heading,36.0,6.236137922481728e-08
+Experiment 1,baseline,0.25,heading,37.0,6.091525234062807e-08
+Experiment 1,baseline,0.25,heading,38.0,5.935795854494398e-08
+Experiment 1,baseline,0.25,heading,39.0,5.820565043123706e-08
+Experiment 1,baseline,0.25,heading,40.0,5.707184571284682e-08
+Experiment 1,baseline,0.25,heading,41.0,5.610949573795985e-08
+Experiment 1,baseline,0.25,heading,42.0,5.5405710238656516e-08
+Experiment 1,baseline,0.25,heading,43.0,5.459790567212877e-08
+Experiment 1,baseline,0.25,heading,44.0,5.4283121588173855e-08
+Experiment 1,baseline,0.25,heading,45.0,5.3616281502237355e-08
+Experiment 1,baseline,0.25,heading,46.0,5.361030337894271e-08
+Experiment 1,baseline,0.25,heading,47.0,5.3112842159373587e-08
+Experiment 1,baseline,0.25,heading,48.0,2.66899226957005e-08
+Experiment 1,baseline,0.5,spatial,0.41025641025641024,1.038686218083344e-32
+Experiment 1,baseline,0.5,spatial,1.2307692307692308,0.003736330021997663
+Experiment 1,baseline,0.5,spatial,2.051282051282051,0.0025760280687200225
+Experiment 1,baseline,0.5,spatial,2.871794871794872,0.000264682141527247
+Experiment 1,baseline,0.5,spatial,3.692307692307692,4.182054595022397e-05
+Experiment 1,baseline,0.5,spatial,4.512820512820513,1.7591231985879252e-05
+Experiment 1,baseline,0.5,spatial,5.333333333333334,4.905828512159413e-06
+Experiment 1,baseline,0.5,spatial,6.153846153846153,2.998083322210826e-06
+Experiment 1,baseline,0.5,spatial,6.9743589743589745,1.5260767677501008e-06
+Experiment 1,baseline,0.5,spatial,7.794871794871794,9.048341289563666e-07
+Experiment 1,baseline,0.5,spatial,8.615384615384615,5.99034770195836e-07
+Experiment 1,baseline,0.5,spatial,9.435897435897436,4.0326088120157255e-07
+Experiment 1,baseline,0.5,spatial,10.256410256410255,3.1069878265489737e-07
+Experiment 1,baseline,0.5,spatial,11.076923076923077,2.6781634545301747e-07
+Experiment 1,baseline,0.5,spatial,11.897435897435898,1.8743575390563205e-07
+Experiment 1,baseline,0.5,spatial,12.717948717948717,1.6961951953935184e-07
+Experiment 1,baseline,0.5,spatial,13.538461538461538,1.4619106606869603e-07
+Experiment 1,baseline,0.5,spatial,14.358974358974358,1.3467096706375192e-07
+Experiment 1,baseline,0.5,spatial,15.179487179487179,1.3074957553455002e-07
+Experiment 1,baseline,0.5,spatial,16.0,1.2135299660466503e-07
+Experiment 1,baseline,0.5,spatial,16.820512820512818,3.7118935397595365e-08
+Experiment 1,baseline,0.5,spatial,17.641025641025642,2.9193124605197962e-08
+Experiment 1,baseline,0.5,spatial,18.46153846153846,1.495764910021402e-08
+Experiment 1,baseline,0.5,spatial,19.282051282051285,9.997239869274921e-09
+Experiment 1,baseline,0.5,spatial,20.102564102564102,1.0160250280000227e-08
+Experiment 1,baseline,0.5,spatial,20.92307692307692,3.2359397869607953e-09
+Experiment 1,baseline,0.5,spatial,21.743589743589745,3.1538886675896993e-09
+Experiment 1,baseline,0.5,spatial,22.564102564102562,0.0
+Experiment 1,baseline,0.5,heading,0.0,1.4966159624128517e-34
+Experiment 1,baseline,0.5,heading,1.0,0.0026341761527326714
+Experiment 1,baseline,0.5,heading,2.0,0.0009871907474894499
+Experiment 1,baseline,0.5,heading,3.0,0.00037405184907485966
+Experiment 1,baseline,0.5,heading,4.0,0.00015626038846706377
+Experiment 1,baseline,0.5,heading,5.0,4.3209627962534185e-05
+Experiment 1,baseline,0.5,heading,6.0,3.484678717887727e-05
+Experiment 1,baseline,0.5,heading,7.0,2.192992863606902e-05
+Experiment 1,baseline,0.5,heading,8.0,1.7253616542998573e-05
+Experiment 1,baseline,0.5,heading,9.0,1.3065729829973983e-05
+Experiment 1,baseline,0.5,heading,10.0,1.0943410835456707e-05
+Experiment 1,baseline,0.5,heading,11.0,8.65583134706599e-06
+Experiment 1,baseline,0.5,heading,12.0,7.587691253765217e-06
+Experiment 1,baseline,0.5,heading,13.0,6.2847288233162315e-06
+Experiment 1,baseline,0.5,heading,14.0,5.615928268116574e-06
+Experiment 1,baseline,0.5,heading,15.0,4.81890641746599e-06
+Experiment 1,baseline,0.5,heading,16.0,4.357569972372226e-06
+Experiment 1,baseline,0.5,heading,17.0,3.845850060771557e-06
+Experiment 1,baseline,0.5,heading,18.0,3.506906435030777e-06
+Experiment 1,baseline,0.5,heading,19.0,3.1653939656458256e-06
+Experiment 1,baseline,0.5,heading,20.0,2.907575128912824e-06
+Experiment 1,baseline,0.5,heading,21.0,2.670493296013158e-06
+Experiment 1,baseline,0.5,heading,22.0,2.4714133660254637e-06
+Experiment 1,baseline,0.5,heading,23.0,2.3001313307404014e-06
+Experiment 1,baseline,0.5,heading,24.0,2.1453554537351093e-06
+Experiment 1,baseline,0.5,heading,25.0,2.016880776703446e-06
+Experiment 1,baseline,0.5,heading,26.0,1.8963361891942029e-06
+Experiment 1,baseline,0.5,heading,27.0,1.7966649757922329e-06
+Experiment 1,baseline,0.5,heading,28.0,1.7023782531065167e-06
+Experiment 1,baseline,0.5,heading,29.0,1.6236669750644738e-06
+Experiment 1,baseline,0.5,heading,30.0,1.5500564865723227e-06
+Experiment 1,baseline,0.5,heading,31.0,1.4868330943085808e-06
+Experiment 1,baseline,0.5,heading,32.0,1.4287385644581683e-06
+Experiment 1,baseline,0.5,heading,33.0,1.3776522946768586e-06
+Experiment 1,baseline,0.5,heading,34.0,1.3318970527951067e-06
+Experiment 1,baseline,0.5,heading,35.0,1.2909309529892333e-06
+Experiment 1,baseline,0.5,heading,36.0,1.2549915135417573e-06
+Experiment 1,baseline,0.5,heading,37.0,1.222703135724515e-06
+Experiment 1,baseline,0.5,heading,38.0,1.194494605566599e-06
+Experiment 1,baseline,0.5,heading,39.0,1.1695547394181315e-06
+Experiment 1,baseline,0.5,heading,40.0,1.1474585530880717e-06
+Experiment 1,baseline,0.5,heading,41.0,1.1292005998616708e-06
+Experiment 1,baseline,0.5,heading,42.0,1.1127298691661597e-06
+Experiment 1,baseline,0.5,heading,43.0,1.1001754745470402e-06
+Experiment 1,baseline,0.5,heading,44.0,1.088788121759916e-06
+Experiment 1,baseline,0.5,heading,45.0,1.0814514191623449e-06
+Experiment 1,baseline,0.5,heading,46.0,1.074743528679101e-06
+Experiment 1,baseline,0.5,heading,47.0,1.0721817511611784e-06
+Experiment 1,baseline,0.5,heading,48.0,5.350282313012612e-07
+A: lower terminal weight,a,0.0,spatial,0.41025641025641024,6.300093273377486e-35
+A: lower terminal weight,a,0.0,spatial,1.2307692307692308,7.516122297087524e-05
+A: lower terminal weight,a,0.0,spatial,2.051282051282051,0.00013877524620342603
+A: lower terminal weight,a,0.0,spatial,2.871794871794872,0.00011128664622141236
+A: lower terminal weight,a,0.0,spatial,3.692307692307692,4.31961831813579e-05
+A: lower terminal weight,a,0.0,spatial,4.512820512820513,1.6864126706439184e-05
+A: lower terminal weight,a,0.0,spatial,5.333333333333334,4.9885465947334916e-06
+A: lower terminal weight,a,0.0,spatial,6.153846153846153,2.7775557972108036e-06
+A: lower terminal weight,a,0.0,spatial,6.9743589743589745,1.5082520822303066e-06
+A: lower terminal weight,a,0.0,spatial,7.794871794871794,8.045235837385138e-07
+A: lower terminal weight,a,0.0,spatial,8.615384615384615,5.771113775378126e-07
+A: lower terminal weight,a,0.0,spatial,9.435897435897436,3.477328740522862e-07
+A: lower terminal weight,a,0.0,spatial,10.256410256410255,2.956343690810109e-07
+A: lower terminal weight,a,0.0,spatial,11.076923076923077,2.3967275439849053e-07
+A: lower terminal weight,a,0.0,spatial,11.897435897435898,1.721796490961611e-07
+A: lower terminal weight,a,0.0,spatial,12.717948717948717,1.504014080012158e-07
+A: lower terminal weight,a,0.0,spatial,13.538461538461538,1.3481969542887898e-07
+A: lower terminal weight,a,0.0,spatial,14.358974358974358,1.213216499432873e-07
+A: lower terminal weight,a,0.0,spatial,15.179487179487179,1.2129046552268163e-07
+A: lower terminal weight,a,0.0,spatial,16.0,1.1199944019012632e-07
+A: lower terminal weight,a,0.0,spatial,16.820512820512818,5.6838386696344244e-08
+A: lower terminal weight,a,0.0,spatial,17.641025641025642,4.897126129740567e-08
+A: lower terminal weight,a,0.0,spatial,18.46153846153846,2.872332738562515e-08
+A: lower terminal weight,a,0.0,spatial,19.282051282051285,2.003295832160839e-08
+A: lower terminal weight,a,0.0,spatial,20.102564102564102,2.123249365378315e-08
+A: lower terminal weight,a,0.0,spatial,20.92307692307692,6.839829666408295e-09
+A: lower terminal weight,a,0.0,spatial,21.743589743589745,6.7241278676804725e-09
+A: lower terminal weight,a,0.0,spatial,22.564102564102562,0.0
+A: lower terminal weight,a,0.0,heading,0.0,1.4872090348438527e-36
+A: lower terminal weight,a,0.0,heading,1.0,8.574678168111217e-05
+A: lower terminal weight,a,0.0,heading,2.0,1.2640124894380922e-05
+A: lower terminal weight,a,0.0,heading,3.0,4.594132602645925e-06
+A: lower terminal weight,a,0.0,heading,4.0,1.6915323955094796e-06
+A: lower terminal weight,a,0.0,heading,5.0,1.0580398176267694e-06
+A: lower terminal weight,a,0.0,heading,6.0,4.979091759763339e-07
+A: lower terminal weight,a,0.0,heading,7.0,3.467287460963538e-07
+A: lower terminal weight,a,0.0,heading,8.0,2.406749992312615e-07
+A: lower terminal weight,a,0.0,heading,9.0,1.8766082934695464e-07
+A: lower terminal weight,a,0.0,heading,10.0,1.505576335786529e-07
+A: lower terminal weight,a,0.0,heading,11.0,1.2398799110014662e-07
+A: lower terminal weight,a,0.0,heading,12.0,1.0420572243439533e-07
+A: lower terminal weight,a,0.0,heading,13.0,8.9047467815798e-08
+A: lower terminal weight,a,0.0,heading,14.0,7.716953427755664e-08
+A: lower terminal weight,a,0.0,heading,15.0,6.768125256785975e-08
+A: lower terminal weight,a,0.0,heading,16.0,5.997897138851763e-08
+A: lower terminal weight,a,0.0,heading,17.0,5.364115138946423e-08
+A: lower terminal weight,a,0.0,heading,18.0,4.836416890023724e-08
+A: lower terminal weight,a,0.0,heading,19.0,4.39247934755415e-08
+A: lower terminal weight,a,0.0,heading,20.0,4.0156348604492856e-08
+A: lower terminal weight,a,0.0,heading,21.0,3.693220076077935e-08
+A: lower terminal weight,a,0.0,heading,22.0,3.4154132745513526e-08
+A: lower terminal weight,a,0.0,heading,23.0,3.174568551869578e-08
+A: lower terminal weight,a,0.0,heading,24.0,2.9646256899110437e-08
+A: lower terminal weight,a,0.0,heading,25.0,2.7807249782413107e-08
+A: lower terminal weight,a,0.0,heading,26.0,2.6189596378077082e-08
+A: lower terminal weight,a,0.0,heading,27.0,2.476169838795755e-08
+A: lower terminal weight,a,0.0,heading,28.0,2.3497158395315904e-08
+A: lower terminal weight,a,0.0,heading,29.0,2.2374359229071595e-08
+A: lower terminal weight,a,0.0,heading,30.0,2.1375476220637836e-08
+A: lower terminal weight,a,0.0,heading,31.0,2.0485382457266853e-08
+A: lower terminal weight,a,0.0,heading,32.0,1.9691438659309295e-08
+A: lower terminal weight,a,0.0,heading,33.0,1.898310487112961e-08
+A: lower terminal weight,a,0.0,heading,34.0,1.8351229597306575e-08
+A: lower terminal weight,a,0.0,heading,35.0,1.7788081975556217e-08
+A: lower terminal weight,a,0.0,heading,36.0,1.7287186474972952e-08
+A: lower terminal weight,a,0.0,heading,37.0,1.684303867370143e-08
+A: lower terminal weight,a,0.0,heading,38.0,1.6450787967780632e-08
+A: lower terminal weight,a,0.0,heading,39.0,1.6106344670830592e-08
+A: lower terminal weight,a,0.0,heading,40.0,1.580653072986666e-08
+A: lower terminal weight,a,0.0,heading,41.0,1.5547951747274925e-08
+A: lower terminal weight,a,0.0,heading,42.0,1.53283592722141e-08
+A: lower terminal weight,a,0.0,heading,43.0,1.5145855861426233e-08
+A: lower terminal weight,a,0.0,heading,44.0,1.4998675831158332e-08
+A: lower terminal weight,a,0.0,heading,45.0,1.4885558583647523e-08
+A: lower terminal weight,a,0.0,heading,46.0,1.4805421933188972e-08
+A: lower terminal weight,a,0.0,heading,47.0,1.4757615837215492e-08
+A: lower terminal weight,a,0.0,heading,48.0,7.370951720011848e-09
+A: lower terminal weight,a,0.25,spatial,0.41025641025641024,5.310721179964683e-35
+A: lower terminal weight,a,0.25,spatial,1.2307692307692308,0.00034477053380252285
+A: lower terminal weight,a,0.25,spatial,2.051282051282051,0.00038812083279399706
+A: lower terminal weight,a,0.25,spatial,2.871794871794872,0.00014595828674910608
+A: lower terminal weight,a,0.25,spatial,3.692307692307692,4.196447090835378e-05
+A: lower terminal weight,a,0.25,spatial,4.512820512820513,1.671527805640607e-05
+A: lower terminal weight,a,0.25,spatial,5.333333333333334,4.97623828822299e-06
+A: lower terminal weight,a,0.25,spatial,6.153846153846153,2.8383140562326416e-06
+A: lower terminal weight,a,0.25,spatial,6.9743589743589745,1.549191012049922e-06
+A: lower terminal weight,a,0.25,spatial,7.794871794871794,8.607915913023696e-07
+A: lower terminal weight,a,0.25,spatial,8.615384615384615,6.07102896861729e-07
+A: lower terminal weight,a,0.25,spatial,9.435897435897436,3.884316821817918e-07
+A: lower terminal weight,a,0.25,spatial,10.256410256410255,3.1601546318410674e-07
+A: lower terminal weight,a,0.25,spatial,11.076923076923077,2.6038099704161523e-07
+A: lower terminal weight,a,0.25,spatial,11.897435897435898,1.9078147036125093e-07
+A: lower terminal weight,a,0.25,spatial,12.717948717948717,1.6630307644394451e-07
+A: lower terminal weight,a,0.25,spatial,13.538461538461538,1.4788506619550085e-07
+A: lower terminal weight,a,0.25,spatial,14.358974358974358,1.3305677544071977e-07
+A: lower terminal weight,a,0.25,spatial,15.179487179487179,1.3171583819969988e-07
+A: lower terminal weight,a,0.25,spatial,16.0,1.207585959863127e-07
+A: lower terminal weight,a,0.25,spatial,16.820512820512818,3.647521927053511e-08
+A: lower terminal weight,a,0.25,spatial,17.641025641025642,2.8241953838048506e-08
+A: lower terminal weight,a,0.25,spatial,18.46153846153846,1.504895636968498e-08
+A: lower terminal weight,a,0.25,spatial,19.282051282051285,1.0226435892546348e-08
+A: lower terminal weight,a,0.25,spatial,20.102564102564102,1.037077050083067e-08
+A: lower terminal weight,a,0.25,spatial,20.92307692307692,3.2578636476911227e-09
+A: lower terminal weight,a,0.25,spatial,21.743589743589745,3.156682885354853e-09
+A: lower terminal weight,a,0.25,spatial,22.564102564102562,0.0
+A: lower terminal weight,a,0.25,heading,0.0,3.104643107680726e-36
+A: lower terminal weight,a,0.25,heading,1.0,0.000335869041151831
+A: lower terminal weight,a,0.25,heading,2.0,6.832458661012173e-05
+A: lower terminal weight,a,0.25,heading,3.0,1.9746846044135436e-05
+A: lower terminal weight,a,0.25,heading,4.0,8.798619022984311e-06
+A: lower terminal weight,a,0.25,heading,5.0,2.3920792789215646e-06
+A: lower terminal weight,a,0.25,heading,6.0,9.961660383777986e-07
+A: lower terminal weight,a,0.25,heading,7.0,6.654761252345858e-07
+A: lower terminal weight,a,0.25,heading,8.0,4.0029033983561447e-07
+A: lower terminal weight,a,0.25,heading,9.0,3.2007385884578844e-07
+A: lower terminal weight,a,0.25,heading,10.0,2.294963844239489e-07
+A: lower terminal weight,a,0.25,heading,11.0,2.0202856161112555e-07
+A: lower terminal weight,a,0.25,heading,12.0,1.5522243640871302e-07
+A: lower terminal weight,a,0.25,heading,13.0,1.4119712490949632e-07
+A: lower terminal weight,a,0.25,heading,14.0,1.1431910871550207e-07
+A: lower terminal weight,a,0.25,heading,15.0,1.0557438310924355e-07
+A: lower terminal weight,a,0.25,heading,16.0,8.901197991396223e-08
+A: lower terminal weight,a,0.25,heading,17.0,8.262593140299591e-08
+A: lower terminal weight,a,0.25,heading,18.0,7.193888939995506e-08
+A: lower terminal weight,a,0.25,heading,19.0,6.706936844574017e-08
+A: lower terminal weight,a,0.25,heading,20.0,6.002684599465719e-08
+A: lower terminal weight,a,0.25,heading,21.0,5.59231619693439e-08
+A: lower terminal weight,a,0.25,heading,22.0,5.118034959162742e-08
+A: lower terminal weight,a,0.25,heading,23.0,4.7746521682235905e-08
+A: lower terminal weight,a,0.25,heading,24.0,4.4580401652897706e-08
+A: lower terminal weight,a,0.25,heading,25.0,4.16733082162253e-08
+A: lower terminal weight,a,0.25,heading,26.0,3.948735810617195e-08
+A: lower terminal weight,a,0.25,heading,27.0,3.705465332298266e-08
+A: lower terminal weight,a,0.25,heading,28.0,3.55049090208375e-08
+A: lower terminal weight,a,0.25,heading,29.0,3.340097260233707e-08
+A: lower terminal weight,a,0.25,heading,30.0,3.2308572024059545e-08
+A: lower terminal weight,a,0.25,heading,31.0,3.0532308962729486e-08
+A: lower terminal weight,a,0.25,heading,32.0,2.9782572451857963e-08
+A: lower terminal weight,a,0.25,heading,33.0,2.827742873403546e-08
+A: lower terminal weight,a,0.25,heading,34.0,2.7749244549449035e-08
+A: lower terminal weight,a,0.25,heading,35.0,2.6524524467431424e-08
+A: lower terminal weight,a,0.25,heading,36.0,2.6110479430141466e-08
+A: lower terminal weight,a,0.25,heading,37.0,2.512001846544961e-08
+A: lower terminal weight,a,0.25,heading,38.0,2.4797142831116953e-08
+A: lower terminal weight,a,0.25,heading,39.0,2.4044000863114295e-08
+A: lower terminal weight,a,0.25,heading,40.0,2.3816110667200145e-08
+A: lower terminal weight,a,0.25,heading,41.0,2.3254014469093648e-08
+A: lower terminal weight,a,0.25,heading,42.0,2.305492634082685e-08
+A: lower terminal weight,a,0.25,heading,43.0,2.268403838156156e-08
+A: lower terminal weight,a,0.25,heading,44.0,2.2521255684338818e-08
+A: lower terminal weight,a,0.25,heading,45.0,2.2300952204016177e-08
+A: lower terminal weight,a,0.25,heading,46.0,2.22230601231182e-08
+A: lower terminal weight,a,0.25,heading,47.0,2.2131569531483873e-08
+A: lower terminal weight,a,0.25,heading,48.0,1.106766122457374e-08
+A: lower terminal weight,a,0.5,spatial,0.41025641025641024,4.94641510334853e-34
+A: lower terminal weight,a,0.5,spatial,1.2307692307692308,0.001574406257827828
+A: lower terminal weight,a,0.5,spatial,2.051282051282051,0.0011640726433382836
+A: lower terminal weight,a,0.5,spatial,2.871794871794872,0.00020319408048065108
+A: lower terminal weight,a,0.5,spatial,3.692307692307692,3.978478602400474e-05
+A: lower terminal weight,a,0.5,spatial,4.512820512820513,1.7499870324118143e-05
+A: lower terminal weight,a,0.5,spatial,5.333333333333334,4.911307038671202e-06
+A: lower terminal weight,a,0.5,spatial,6.153846153846153,2.9627833200611756e-06
+A: lower terminal weight,a,0.5,spatial,6.9743589743589745,1.5433918314411085e-06
+A: lower terminal weight,a,0.5,spatial,7.794871794871794,8.897032290856519e-07
+A: lower terminal weight,a,0.5,spatial,8.615384615384615,6.07480622744419e-07
+A: lower terminal weight,a,0.5,spatial,9.435897435897436,3.9624468120644935e-07
+A: lower terminal weight,a,0.5,spatial,10.256410256410255,3.149481529766615e-07
+A: lower terminal weight,a,0.5,spatial,11.076923076923077,2.6435697166819067e-07
+A: lower terminal weight,a,0.5,spatial,11.897435897435898,1.8966815200967962e-07
+A: lower terminal weight,a,0.5,spatial,12.717948717948717,1.6786207470299158e-07
+A: lower terminal weight,a,0.5,spatial,13.538461538461538,1.473346034853648e-07
+A: lower terminal weight,a,0.5,spatial,14.358974358974358,1.3387062884964718e-07
+A: lower terminal weight,a,0.5,spatial,15.179487179487179,1.3118896112149225e-07
+A: lower terminal weight,a,0.5,spatial,16.0,1.2120645171385946e-07
+A: lower terminal weight,a,0.5,spatial,16.820512820512818,3.711913569397207e-08
+A: lower terminal weight,a,0.5,spatial,17.641025641025642,2.9193730664671402e-08
+A: lower terminal weight,a,0.5,spatial,18.46153846153846,1.495782170433252e-08
+A: lower terminal weight,a,0.5,spatial,19.282051282051285,9.99714840077548e-09
+A: lower terminal weight,a,0.5,spatial,20.102564102564102,1.016007623432652e-08
+A: lower terminal weight,a,0.5,spatial,20.92307692307692,3.23590080772429e-09
+A: lower terminal weight,a,0.5,spatial,21.743589743589745,3.153900893920758e-09
+A: lower terminal weight,a,0.5,spatial,22.564102564102562,0.0
+A: lower terminal weight,a,0.5,heading,0.0,2.0374943665983755e-35
+A: lower terminal weight,a,0.5,heading,1.0,0.0006428018225071673
+A: lower terminal weight,a,0.5,heading,2.0,0.00026364162566728757
+A: lower terminal weight,a,0.5,heading,3.0,5.293364514896103e-05
+A: lower terminal weight,a,0.5,heading,4.0,1.9948141346603983e-05
+A: lower terminal weight,a,0.5,heading,5.0,1.333645742260747e-05
+A: lower terminal weight,a,0.5,heading,6.0,7.018080941527901e-06
+A: lower terminal weight,a,0.5,heading,7.0,4.625889744346175e-06
+A: lower terminal weight,a,0.5,heading,8.0,3.5393269706523445e-06
+A: lower terminal weight,a,0.5,heading,9.0,2.5652159440545958e-06
+A: lower terminal weight,a,0.5,heading,10.0,2.225852005896058e-06
+A: lower terminal weight,a,0.5,heading,11.0,1.696450452263393e-06
+A: lower terminal weight,a,0.5,heading,12.0,1.5443120100085831e-06
+A: lower terminal weight,a,0.5,heading,13.0,1.2271464427882518e-06
+A: lower terminal weight,a,0.5,heading,14.0,1.1388164104208509e-06
+A: lower terminal weight,a,0.5,heading,15.0,9.427476026653131e-07
+A: lower terminal weight,a,0.5,heading,16.0,8.794435194328378e-07
+A: lower terminal weight,a,0.5,heading,17.0,7.553669740306517e-07
+A: lower terminal weight,a,0.5,heading,18.0,7.041727066567661e-07
+A: lower terminal weight,a,0.5,heading,19.0,6.243185138155239e-07
+A: lower terminal weight,a,0.5,heading,20.0,5.81152874530448e-07
+A: lower terminal weight,a,0.5,heading,21.0,5.287067748675556e-07
+A: lower terminal weight,a,0.5,heading,22.0,4.92067802437752e-07
+A: lower terminal weight,a,0.5,heading,23.0,4.5679564434319265e-07
+A: lower terminal weight,a,0.5,heading,24.0,4.2597308739017966e-07
+A: lower terminal weight,a,0.5,heading,25.0,4.013615416375934e-07
+A: lower terminal weight,a,0.5,heading,26.0,3.7584761162508637e-07
+A: lower terminal weight,a,0.5,heading,27.0,3.5795229090052445e-07
+A: lower terminal weight,a,0.5,heading,28.0,3.371207429304536e-07
+A: lower terminal weight,a,0.5,heading,29.0,3.234998132723507e-07
+A: lower terminal weight,a,0.5,heading,30.0,3.068552982210451e-07
+A: lower terminal weight,a,0.5,heading,31.0,2.960747776677671e-07
+A: lower terminal weight,a,0.5,heading,32.0,2.8301252922825103e-07
+A: lower terminal weight,a,0.5,heading,33.0,2.7420678444030324e-07
+A: lower terminal weight,a,0.5,heading,34.0,2.6407596814802177e-07
+A: lower terminal weight,a,0.5,heading,35.0,2.5676044289431765e-07
+A: lower terminal weight,a,0.5,heading,36.0,2.4893148307967e-07
+A: lower terminal weight,a,0.5,heading,37.0,2.4303652432629845e-07
+A: lower terminal weight,a,0.5,heading,38.0,2.370640350787539e-07
+A: lower terminal weight,a,0.5,heading,39.0,2.323698281638473e-07
+A: lower terminal weight,a,0.5,heading,40.0,2.2780927989940796e-07
+A: lower terminal weight,a,0.5,heading,41.0,2.2427593977660553e-07
+A: lower terminal weight,a,0.5,heading,42.0,2.209938871655323e-07
+A: lower terminal weight,a,0.5,heading,43.0,2.1849341202505725e-07
+A: lower terminal weight,a,0.5,heading,44.0,2.162516482050666e-07
+A: lower terminal weight,a,0.5,heading,45.0,2.1476555003962e-07
+A: lower terminal weight,a,0.5,heading,46.0,2.134976904266104e-07
+A: lower terminal weight,a,0.5,heading,47.0,2.1291956440682483e-07
+A: lower terminal weight,a,0.5,heading,48.0,1.0628153689612928e-07
+B: focused sampling,b,0.0,spatial,0.41025641025641024,1.171969774116127e-34
+B: focused sampling,b,0.0,spatial,1.2307692307692308,4.1459662120312934e-05
+B: focused sampling,b,0.0,spatial,2.051282051282051,8.810579532183614e-05
+B: focused sampling,b,0.0,spatial,2.871794871794872,8.085688435635212e-05
+B: focused sampling,b,0.0,spatial,3.692307692307692,4.0080331175296695e-05
+B: focused sampling,b,0.0,spatial,4.512820512820513,1.7137488546191968e-05
+B: focused sampling,b,0.0,spatial,5.333333333333334,4.954848419822726e-06
+B: focused sampling,b,0.0,spatial,6.153846153846153,2.788456069715726e-06
+B: focused sampling,b,0.0,spatial,6.9743589743589745,1.5037628830959172e-06
+B: focused sampling,b,0.0,spatial,7.794871794871794,8.065030531152284e-07
+B: focused sampling,b,0.0,spatial,8.615384615384615,5.760853981092275e-07
+B: focused sampling,b,0.0,spatial,9.435897435897436,3.4830073606241345e-07
+B: focused sampling,b,0.0,spatial,10.256410256410255,2.9529031770074345e-07
+B: focused sampling,b,0.0,spatial,11.076923076923077,2.3988698232783184e-07
+B: focused sampling,b,0.0,spatial,11.897435897435898,1.7203858323946563e-07
+B: focused sampling,b,0.0,spatial,12.717948717948717,1.5049394913927133e-07
+B: focused sampling,b,0.0,spatial,13.538461538461538,1.34758548709789e-07
+B: focused sampling,b,0.0,spatial,14.358974358974358,1.2136078169505422e-07
+B: focused sampling,b,0.0,spatial,15.179487179487179,1.2126892039133422e-07
+B: focused sampling,b,0.0,spatial,16.0,1.1200582512881953e-07
+B: focused sampling,b,0.0,spatial,16.820512820512818,5.683783107905162e-08
+B: focused sampling,b,0.0,spatial,17.641025641025642,4.897141160284651e-08
+B: focused sampling,b,0.0,spatial,18.46153846153846,2.8723489194667877e-08
+B: focused sampling,b,0.0,spatial,19.282051282051285,2.003305014854507e-08
+B: focused sampling,b,0.0,spatial,20.102564102564102,2.123256356172977e-08
+B: focused sampling,b,0.0,spatial,20.92307692307692,6.839842631731555e-09
+B: focused sampling,b,0.0,spatial,21.743589743589745,6.724053230010296e-09
+B: focused sampling,b,0.0,spatial,22.564102564102562,0.0
+B: focused sampling,b,0.0,heading,0.0,1.5271752738734244e-36
+B: focused sampling,b,0.0,heading,1.0,2.3438884678929582e-05
+B: focused sampling,b,0.0,heading,2.0,2.8570821870433562e-05
+B: focused sampling,b,0.0,heading,3.0,7.030018397660608e-06
+B: focused sampling,b,0.0,heading,4.0,2.0675586393783987e-06
+B: focused sampling,b,0.0,heading,5.0,7.485054688454568e-07
+B: focused sampling,b,0.0,heading,6.0,4.409139950242277e-07
+B: focused sampling,b,0.0,heading,7.0,2.1005716988463368e-07
+B: focused sampling,b,0.0,heading,8.0,1.5905009240365458e-07
+B: focused sampling,b,0.0,heading,9.0,1.2562389738645477e-07
+B: focused sampling,b,0.0,heading,10.0,9.891677123120019e-08
+B: focused sampling,b,0.0,heading,11.0,8.162234290228358e-08
+B: focused sampling,b,0.0,heading,12.0,6.902468456317368e-08
+B: focused sampling,b,0.0,heading,13.0,5.920951077758271e-08
+B: focused sampling,b,0.0,heading,14.0,5.150378005002842e-08
+B: focused sampling,b,0.0,heading,15.0,4.5278101819419745e-08
+B: focused sampling,b,0.0,heading,16.0,4.020998171552008e-08
+B: focused sampling,b,0.0,heading,17.0,3.6026651867295074e-08
+B: focused sampling,b,0.0,heading,18.0,3.253202570141123e-08
+B: focused sampling,b,0.0,heading,19.0,2.958439299853036e-08
+B: focused sampling,b,0.0,heading,20.0,2.7076845779259163e-08
+B: focused sampling,b,0.0,heading,21.0,2.4926668444302363e-08
+B: focused sampling,b,0.0,heading,22.0,2.3071109073000426e-08
+B: focused sampling,b,0.0,heading,23.0,2.1459913278062282e-08
+B: focused sampling,b,0.0,heading,24.0,2.005351872260076e-08
+B: focused sampling,b,0.0,heading,25.0,1.8820286823289516e-08
+B: focused sampling,b,0.0,heading,26.0,1.7734364932535784e-08
+B: focused sampling,b,0.0,heading,27.0,1.6774848257558557e-08
+B: focused sampling,b,0.0,heading,28.0,1.5924333728879727e-08
+B: focused sampling,b,0.0,heading,29.0,1.5168717758824886e-08
+B: focused sampling,b,0.0,heading,30.0,1.4496112669170414e-08
+B: focused sampling,b,0.0,heading,31.0,1.389630514272271e-08
+B: focused sampling,b,0.0,heading,32.0,1.3360972300975568e-08
+B: focused sampling,b,0.0,heading,33.0,1.2883272166101833e-08
+B: focused sampling,b,0.0,heading,34.0,1.2456846101225227e-08
+B: focused sampling,b,0.0,heading,35.0,1.2076764657676813e-08
+B: focused sampling,b,0.0,heading,36.0,1.1738562757081889e-08
+B: focused sampling,b,0.0,heading,37.0,1.1438641254090704e-08
+B: focused sampling,b,0.0,heading,38.0,1.117358505789222e-08
+B: focused sampling,b,0.0,heading,39.0,1.094090573220392e-08
+B: focused sampling,b,0.0,heading,40.0,1.0738079715549836e-08
+B: focused sampling,b,0.0,heading,41.0,1.0563327105535718e-08
+B: focused sampling,b,0.0,heading,42.0,1.0414986331223712e-08
+B: focused sampling,b,0.0,heading,43.0,1.029151755387455e-08
+B: focused sampling,b,0.0,heading,44.0,1.0192050704857996e-08
+B: focused sampling,b,0.0,heading,45.0,1.0115609066921233e-08
+B: focused sampling,b,0.0,heading,46.0,1.006136023043347e-08
+B: focused sampling,b,0.0,heading,47.0,1.0028994163740968e-08
+B: focused sampling,b,0.0,heading,48.0,5.009103041202407e-09
+B: focused sampling,b,0.25,spatial,0.41025641025641024,2.09135268141889e-34
+B: focused sampling,b,0.25,spatial,1.2307692307692308,0.0007701476113444871
+B: focused sampling,b,0.25,spatial,2.051282051282051,0.0006674878403867181
+B: focused sampling,b,0.25,spatial,2.871794871794872,0.00018117323334939728
+B: focused sampling,b,0.25,spatial,3.692307692307692,4.2910449320109935e-05
+B: focused sampling,b,0.25,spatial,4.512820512820513,1.6943153931683972e-05
+B: focused sampling,b,0.25,spatial,5.333333333333334,5.01241908132475e-06
+B: focused sampling,b,0.25,spatial,6.153846153846153,2.824252877020334e-06
+B: focused sampling,b,0.25,spatial,6.9743589743589745,1.5570300569592126e-06
+B: focused sampling,b,0.25,spatial,7.794871794871794,8.57022232749003e-07
+B: focused sampling,b,0.25,spatial,8.615384615384615,6.094014023453297e-07
+B: focused sampling,b,0.25,spatial,9.435897435897436,3.871663043532314e-07
+B: focused sampling,b,0.25,spatial,10.256410256410255,3.1683961858363155e-07
+B: focused sampling,b,0.25,spatial,11.076923076923077,2.598820296709388e-07
+B: focused sampling,b,0.25,spatial,11.897435897435898,1.9112677605457803e-07
+B: focused sampling,b,0.25,spatial,12.717948717948717,1.6607781809941519e-07
+B: focused sampling,b,0.25,spatial,13.538461538461538,1.4804162191527775e-07
+B: focused sampling,b,0.25,spatial,14.358974358974358,1.3295867538377915e-07
+B: focused sampling,b,0.25,spatial,15.179487179487179,1.3177203247571184e-07
+B: focused sampling,b,0.25,spatial,16.0,1.2074115931159576e-07
+B: focused sampling,b,0.25,spatial,16.820512820512818,3.6475600020870885e-08
+B: focused sampling,b,0.25,spatial,17.641025641025642,2.8242254103937048e-08
+B: focused sampling,b,0.25,spatial,18.46153846153846,1.504906930191799e-08
+B: focused sampling,b,0.25,spatial,19.282051282051285,1.022644351925811e-08
+B: focused sampling,b,0.25,spatial,20.102564102564102,1.0370845017829144e-08
+B: focused sampling,b,0.25,spatial,20.92307692307692,3.257889669844305e-09
+B: focused sampling,b,0.25,spatial,21.743589743589745,3.156738637415807e-09
+B: focused sampling,b,0.25,spatial,22.564102564102562,0.0
+B: focused sampling,b,0.25,heading,0.0,6.360206485392397e-36
+B: focused sampling,b,0.25,heading,1.0,0.00048010181160350573
+B: focused sampling,b,0.25,heading,2.0,0.00020744964433696818
+B: focused sampling,b,0.25,heading,3.0,5.81936903115931e-05
+B: focused sampling,b,0.25,heading,4.0,2.2976585454254844e-05
+B: focused sampling,b,0.25,heading,5.0,1.2617580389472266e-05
+B: focused sampling,b,0.25,heading,6.0,3.251000155862108e-06
+B: focused sampling,b,0.25,heading,7.0,2.231421330392951e-06
+B: focused sampling,b,0.25,heading,8.0,1.6394849838369357e-06
+B: focused sampling,b,0.25,heading,9.0,1.2456248153174748e-06
+B: focused sampling,b,0.25,heading,10.0,9.85234776992915e-07
+B: focused sampling,b,0.25,heading,11.0,7.94016740889585e-07
+B: focused sampling,b,0.25,heading,12.0,6.704826149610492e-07
+B: focused sampling,b,0.25,heading,13.0,5.650152356762154e-07
+B: focused sampling,b,0.25,heading,14.0,4.942089765938059e-07
+B: focused sampling,b,0.25,heading,15.0,4.270078640981668e-07
+B: focused sampling,b,0.25,heading,16.0,3.8262096654394823e-07
+B: focused sampling,b,0.25,heading,17.0,3.375065516100439e-07
+B: focused sampling,b,0.25,heading,18.0,3.0764523570307176e-07
+B: focused sampling,b,0.25,heading,19.0,2.7598134251376525e-07
+B: focused sampling,b,0.25,heading,20.0,2.549086746492713e-07
+B: focused sampling,b,0.25,heading,21.0,2.319348355648571e-07
+B: focused sampling,b,0.25,heading,22.0,2.1637679528731943e-07
+B: focused sampling,b,0.25,heading,23.0,1.9923817240538908e-07
+B: focused sampling,b,0.25,heading,24.0,1.8746263486542424e-07
+B: focused sampling,b,0.25,heading,25.0,1.7457836586282732e-07
+B: focused sampling,b,0.25,heading,26.0,1.6544042142601355e-07
+B: focused sampling,b,0.25,heading,27.0,1.5555374274916335e-07
+B: focused sampling,b,0.25,heading,28.0,1.4818561456511614e-07
+B: focused sampling,b,0.25,heading,29.0,1.4060407807376762e-07
+B: focused sampling,b,0.25,heading,30.0,1.346654972291202e-07
+B: focused sampling,b,0.25,heading,31.0,1.287881246639046e-07
+B: focused sampling,b,0.25,heading,32.0,1.2393762101126716e-07
+B: focused sampling,b,0.25,heading,33.0,1.1936257063427962e-07
+B: focused sampling,b,0.25,heading,34.0,1.1544533766322103e-07
+B: focused sampling,b,0.25,heading,35.0,1.118531830632713e-07
+B: focused sampling,b,0.25,heading,36.0,1.086685521482902e-07
+B: focused sampling,b,0.25,heading,37.0,1.0596295820553618e-07
+B: focused sampling,b,0.25,heading,38.0,1.0338877902663816e-07
+B: focused sampling,b,0.25,heading,39.0,1.0133910974780999e-07
+B: focused sampling,b,0.25,heading,40.0,9.926413472968082e-08
+B: focused sampling,b,0.25,heading,41.0,9.783540248590945e-08
+B: focused sampling,b,0.25,heading,42.0,9.625624925468526e-08
+B: focused sampling,b,0.25,heading,43.0,9.532790655964043e-08
+B: focused sampling,b,0.25,heading,44.0,9.414455916943558e-08
+B: focused sampling,b,0.25,heading,45.0,9.37063766736649e-08
+B: focused sampling,b,0.25,heading,46.0,9.294124697914336e-08
+B: focused sampling,b,0.25,heading,47.0,9.290564748151772e-08
+B: focused sampling,b,0.25,heading,48.0,4.6266572540363923e-08
+B: focused sampling,b,0.5,spatial,0.41025641025641024,6.840331969999374e-33
+B: focused sampling,b,0.5,spatial,1.2307692307692308,0.0034068529348454963
+B: focused sampling,b,0.5,spatial,2.051282051282051,0.0018714171375925634
+B: focused sampling,b,0.5,spatial,2.871794871794872,0.000235982094563561
+B: focused sampling,b,0.5,spatial,3.692307692307692,3.9735792727174646e-05
+B: focused sampling,b,0.5,spatial,4.512820512820513,1.727435167060351e-05
+B: focused sampling,b,0.5,spatial,5.333333333333334,4.996260702718261e-06
+B: focused sampling,b,0.5,spatial,6.153846153846153,2.959550213444545e-06
+B: focused sampling,b,0.5,spatial,6.9743589743589745,1.5478720075939173e-06
+B: focused sampling,b,0.5,spatial,7.794871794871794,8.925883186721578e-07
+B: focused sampling,b,0.5,spatial,8.615384615384615,6.06550215902571e-07
+B: focused sampling,b,0.5,spatial,9.435897435897436,3.9816620843804995e-07
+B: focused sampling,b,0.5,spatial,10.256410256410255,3.1392208906487473e-07
+B: focused sampling,b,0.5,spatial,11.076923076923077,2.654436962040707e-07
+B: focused sampling,b,0.5,spatial,11.897435897435898,1.8899667338090342e-07
+B: focused sampling,b,0.5,spatial,12.717948717948717,1.6844242797624254e-07
+B: focused sampling,b,0.5,spatial,13.538461538461538,1.4696098441652206e-07
+B: focused sampling,b,0.5,spatial,14.358974358974358,1.341426947298885e-07
+B: focused sampling,b,0.5,spatial,15.179487179487179,1.3104058048905853e-07
+B: focused sampling,b,0.5,spatial,16.0,1.2125671965124152e-07
+B: focused sampling,b,0.5,spatial,16.820512820512818,3.71189787240489e-08
+B: focused sampling,b,0.5,spatial,17.641025641025642,2.9193463518123464e-08
+B: focused sampling,b,0.5,spatial,18.46153846153846,1.4957763572881477e-08
+B: focused sampling,b,0.5,spatial,19.282051282051285,9.99711689993188e-09
+B: focused sampling,b,0.5,spatial,20.102564102564102,1.0160210084722565e-08
+B: focused sampling,b,0.5,spatial,20.92307692307692,3.2359883540139522e-09
+B: focused sampling,b,0.5,spatial,21.743589743589745,3.1538087540833315e-09
+B: focused sampling,b,0.5,spatial,22.564102564102562,0.0
+B: focused sampling,b,0.5,heading,0.0,5.432624662781383e-35
+B: focused sampling,b,0.5,heading,1.0,0.0029375667512307425
+B: focused sampling,b,0.5,heading,2.0,0.0007407275791632926
+B: focused sampling,b,0.5,heading,3.0,0.00020384291152560603
+B: focused sampling,b,0.5,heading,4.0,0.0001056929120456696
+B: focused sampling,b,0.5,heading,5.0,5.9501377054933464e-05
+B: focused sampling,b,0.5,heading,6.0,2.923837979112443e-05
+B: focused sampling,b,0.5,heading,7.0,1.9242225277585787e-05
+B: focused sampling,b,0.5,heading,8.0,1.5354240965504226e-05
+B: focused sampling,b,0.5,heading,9.0,1.1873494600957338e-05
+B: focused sampling,b,0.5,heading,10.0,9.862130347083277e-06
+B: focused sampling,b,0.5,heading,11.0,7.942639145727632e-06
+B: focused sampling,b,0.5,heading,12.0,6.879443098496216e-06
+B: focused sampling,b,0.5,heading,13.0,5.7575017789375035e-06
+B: focused sampling,b,0.5,heading,14.0,5.108431935140071e-06
+B: focused sampling,b,0.5,heading,15.0,4.409307181378728e-06
+B: focused sampling,b,0.5,heading,16.0,3.971224283531312e-06
+B: focused sampling,b,0.5,heading,17.0,3.515643144161655e-06
+B: focused sampling,b,0.5,heading,18.0,3.2002923836852557e-06
+B: focused sampling,b,0.5,heading,19.0,2.8917913867879595e-06
+B: focused sampling,b,0.5,heading,20.0,2.6553414242967107e-06
+B: focused sampling,b,0.5,heading,21.0,2.439183267675659e-06
+B: focused sampling,b,0.5,heading,22.0,2.2577419548540865e-06
+B: focused sampling,b,0.5,heading,23.0,2.1010173752125323e-06
+B: focused sampling,b,0.5,heading,24.0,1.9599632837046346e-06
+B: focused sampling,b,0.5,heading,25.0,1.8426041794609483e-06
+B: focused sampling,b,0.5,heading,26.0,1.7323100280953787e-06
+B: focused sampling,b,0.5,heading,27.0,1.6417596439228654e-06
+B: focused sampling,b,0.5,heading,28.0,1.5550707046881776e-06
+B: focused sampling,b,0.5,heading,29.0,1.4839192122578111e-06
+B: focused sampling,b,0.5,heading,30.0,1.4158146317852227e-06
+B: focused sampling,b,0.5,heading,31.0,1.3588597085474753e-06
+B: focused sampling,b,0.5,heading,32.0,1.3050448254610852e-06
+B: focused sampling,b,0.5,heading,33.0,1.259020139222811e-06
+B: focused sampling,b,0.5,heading,34.0,1.216791254928553e-06
+B: focused sampling,b,0.5,heading,35.0,1.1797354200219223e-06
+B: focused sampling,b,0.5,heading,36.0,1.1466504744128994e-06
+B: focused sampling,b,0.5,heading,37.0,1.1172584027707487e-06
+B: focused sampling,b,0.5,heading,38.0,1.0914996882826538e-06
+B: focused sampling,b,0.5,heading,39.0,1.0685599559745467e-06
+B: focused sampling,b,0.5,heading,40.0,1.0486769292709807e-06
+B: focused sampling,b,0.5,heading,41.0,1.0315707458664246e-06
+B: focused sampling,b,0.5,heading,42.0,1.0170473592649895e-06
+B: focused sampling,b,0.5,heading,43.0,1.0050453969393712e-06
+B: focused sampling,b,0.5,heading,44.0,9.951906832305708e-07
+B: focused sampling,b,0.5,heading,45.0,9.879159462784847e-07
+B: focused sampling,b,0.5,heading,46.0,9.823890792664264e-07
+B: focused sampling,b,0.5,heading,47.0,9.794357560740273e-07
+B: focused sampling,b,0.5,heading,48.0,4.89058493459773e-07
+C: full-horizon hold,c,0.0,spatial,0.41025641025641024,3.667670151290937e-35
+C: full-horizon hold,c,0.0,spatial,1.2307692307692308,3.542801811838344e-05
+C: full-horizon hold,c,0.0,spatial,2.051282051282051,6.76381825758932e-05
+C: full-horizon hold,c,0.0,spatial,2.871794871794872,6.287941983422787e-05
+C: full-horizon hold,c,0.0,spatial,3.692307692307692,3.6028702681280446e-05
+C: full-horizon hold,c,0.0,spatial,4.512820512820513,1.7008604452387147e-05
+C: full-horizon hold,c,0.0,spatial,5.333333333333334,4.995480263667528e-06
+C: full-horizon hold,c,0.0,spatial,6.153846153846153,2.7987781882094376e-06
+C: full-horizon hold,c,0.0,spatial,6.9743589743589745,1.5064857015879124e-06
+C: full-horizon hold,c,0.0,spatial,7.794871794871794,8.054414257772685e-07
+C: full-horizon hold,c,0.0,spatial,8.615384615384615,5.767827595279471e-07
+C: full-horizon hold,c,0.0,spatial,9.435897435897436,3.47831828739775e-07
+C: full-horizon hold,c,0.0,spatial,10.256410256410255,2.9560283293839e-07
+C: full-horizon hold,c,0.0,spatial,11.076923076923077,2.3967468898146395e-07
+C: full-horizon hold,c,0.0,spatial,11.897435897435898,1.7218597182273735e-07
+C: full-horizon hold,c,0.0,spatial,12.717948717948717,1.5039222116356452e-07
+C: full-horizon hold,c,0.0,spatial,13.538461538461538,1.3482797451088878e-07
+C: full-horizon hold,c,0.0,spatial,14.358974358974358,1.213154391934367e-07
+C: full-horizon hold,c,0.0,spatial,15.179487179487179,1.2129427538754012e-07
+C: full-horizon hold,c,0.0,spatial,16.0,1.1199747283004071e-07
+C: full-horizon hold,c,0.0,spatial,16.820512820512818,5.683790345415449e-08
+C: full-horizon hold,c,0.0,spatial,17.641025641025642,4.897124222254896e-08
+C: full-horizon hold,c,0.0,spatial,18.46153846153846,2.8723489349437737e-08
+C: full-horizon hold,c,0.0,spatial,19.282051282051285,2.003308840196243e-08
+C: full-horizon hold,c,0.0,spatial,20.102564102564102,2.123271136423568e-08
+C: full-horizon hold,c,0.0,spatial,20.92307692307692,6.839983762924658e-09
+C: full-horizon hold,c,0.0,spatial,21.743589743589745,6.724330891421954e-09
+C: full-horizon hold,c,0.0,spatial,22.564102564102562,0.0
+C: full-horizon hold,c,0.0,heading,0.0,6.218061476396746e-37
+C: full-horizon hold,c,0.0,heading,1.0,4.0563428185013e-05
+C: full-horizon hold,c,0.0,heading,2.0,2.9524568283503355e-05
+C: full-horizon hold,c,0.0,heading,3.0,6.297337671671918e-06
+C: full-horizon hold,c,0.0,heading,4.0,2.4726407330625027e-06
+C: full-horizon hold,c,0.0,heading,5.0,1.136679663785108e-06
+C: full-horizon hold,c,0.0,heading,6.0,6.865586707812101e-07
+C: full-horizon hold,c,0.0,heading,7.0,4.623991475840732e-07
+C: full-horizon hold,c,0.0,heading,8.0,3.497822054095323e-07
+C: full-horizon hold,c,0.0,heading,9.0,2.7596976735181646e-07
+C: full-horizon hold,c,0.0,heading,10.0,2.241343914212143e-07
+C: full-horizon hold,c,0.0,heading,11.0,1.858648544657854e-07
+C: full-horizon hold,c,0.0,heading,12.0,1.569228674238605e-07
+C: full-horizon hold,c,0.0,heading,13.0,1.3461297494479995e-07
+C: full-horizon hold,c,0.0,heading,14.0,1.1699891049208268e-07
+C: full-horizon hold,c,0.0,heading,15.0,1.0285188782741422e-07
+C: full-horizon hold,c,0.0,heading,16.0,9.131434689804754e-08
+C: full-horizon hold,c,0.0,heading,17.0,8.178698871324605e-08
+C: full-horizon hold,c,0.0,heading,18.0,7.383076160374788e-08
+C: full-horizon hold,c,0.0,heading,19.0,6.712228737892115e-08
+C: full-horizon hold,c,0.0,heading,20.0,6.141615930796471e-08
+C: full-horizon hold,c,0.0,heading,21.0,5.6525921056597654e-08
+C: full-horizon hold,c,0.0,heading,22.0,5.23067331194167e-08
+C: full-horizon hold,c,0.0,heading,23.0,4.864419557143205e-08
+C: full-horizon hold,c,0.0,heading,24.0,4.544836405714011e-08
+C: full-horizon hold,c,0.0,heading,25.0,4.264678060994962e-08
+C: full-horizon hold,c,0.0,heading,26.0,4.0180163593055824e-08
+C: full-horizon hold,c,0.0,heading,27.0,3.800107995619276e-08
+C: full-horizon hold,c,0.0,heading,28.0,3.60704121919571e-08
+C: full-horizon hold,c,0.0,heading,29.0,3.4355346022671767e-08
+C: full-horizon hold,c,0.0,heading,30.0,3.282875201667278e-08
+C: full-horizon hold,c,0.0,heading,31.0,3.146780330722471e-08
+C: full-horizon hold,c,0.0,heading,32.0,3.025343406046253e-08
+C: full-horizon hold,c,0.0,heading,33.0,2.9169663770251132e-08
+C: full-horizon hold,c,0.0,heading,34.0,2.8202447375437646e-08
+C: full-horizon hold,c,0.0,heading,35.0,2.7340462258810418e-08
+C: full-horizon hold,c,0.0,heading,36.0,2.6573517486420682e-08
+C: full-horizon hold,c,0.0,heading,37.0,2.589347460805751e-08
+C: full-horizon hold,c,0.0,heading,38.0,2.5292357918839137e-08
+C: full-horizon hold,c,0.0,heading,39.0,2.4764734334195154e-08
+C: full-horizon hold,c,0.0,heading,40.0,2.430494483735175e-08
+C: full-horizon hold,c,0.0,heading,41.0,2.3908715370159365e-08
+C: full-horizon hold,c,0.0,heading,42.0,2.357253316890741e-08
+C: full-horizon hold,c,0.0,heading,43.0,2.329264447287782e-08
+C: full-horizon hold,c,0.0,heading,44.0,2.3067111132108383e-08
+C: full-horizon hold,c,0.0,heading,45.0,2.2893612792119178e-08
+C: full-horizon hold,c,0.0,heading,46.0,2.2770769942480886e-08
+C: full-horizon hold,c,0.0,heading,47.0,2.2697578964433335e-08
+C: full-horizon hold,c,0.0,heading,48.0,1.133653591478303e-08
+C: full-horizon hold,c,0.25,spatial,0.41025641025641024,1.4298592719879137e-34
+C: full-horizon hold,c,0.25,spatial,1.2307692307692308,0.0007389804493927923
+C: full-horizon hold,c,0.25,spatial,2.051282051282051,0.0008483117833182304
+C: full-horizon hold,c,0.25,spatial,2.871794871794872,0.0002028021186149154
+C: full-horizon hold,c,0.25,spatial,3.692307692307692,4.068160952372304e-05
+C: full-horizon hold,c,0.25,spatial,4.512820512820513,1.6535731376139586e-05
+C: full-horizon hold,c,0.25,spatial,5.333333333333334,4.9337501020706685e-06
+C: full-horizon hold,c,0.25,spatial,6.153846153846153,2.8375818801221024e-06
+C: full-horizon hold,c,0.25,spatial,6.9743589743589745,1.5510916472486272e-06
+C: full-horizon hold,c,0.25,spatial,7.794871794871794,8.59915741001447e-07
+C: full-horizon hold,c,0.25,spatial,8.615384615384615,6.077744678823112e-07
+C: full-horizon hold,c,0.25,spatial,9.435897435897436,3.881520484858188e-07
+C: full-horizon hold,c,0.25,spatial,10.256410256410255,3.1624493669526327e-07
+C: full-horizon hold,c,0.25,spatial,11.076923076923077,2.6029290910558125e-07
+C: full-horizon hold,c,0.25,spatial,11.897435897435898,1.9086161579147387e-07
+C: full-horizon hold,c,0.25,spatial,12.717948717948717,1.6626406043303635e-07
+C: full-horizon hold,c,0.25,spatial,13.538461538461538,1.4792209184670904e-07
+C: full-horizon hold,c,0.25,spatial,14.358974358974358,1.3303734187723737e-07
+C: full-horizon hold,c,0.25,spatial,15.179487179487179,1.317290630282672e-07
+C: full-horizon hold,c,0.25,spatial,16.0,1.2075514587523914e-07
+C: full-horizon hold,c,0.25,spatial,16.820512820512818,3.647548429052891e-08
+C: full-horizon hold,c,0.25,spatial,17.641025641025642,2.82422378400371e-08
+C: full-horizon hold,c,0.25,spatial,18.46153846153846,1.5049183934180005e-08
+C: full-horizon hold,c,0.25,spatial,19.282051282051285,1.0226458608750266e-08
+C: full-horizon hold,c,0.25,spatial,20.102564102564102,1.0370993861440192e-08
+C: full-horizon hold,c,0.25,spatial,20.92307692307692,3.2579279452167598e-09
+C: full-horizon hold,c,0.25,spatial,21.743589743589745,3.156696071638515e-09
+C: full-horizon hold,c,0.25,spatial,22.564102564102562,0.0
+C: full-horizon hold,c,0.25,heading,0.0,8.282363403875504e-36
+C: full-horizon hold,c,0.25,heading,1.0,0.0005359421006640957
+C: full-horizon hold,c,0.25,heading,2.0,0.0002483492510475905
+C: full-horizon hold,c,0.25,heading,3.0,2.5533626517390828e-05
+C: full-horizon hold,c,0.25,heading,4.0,2.289762277481263e-05
+C: full-horizon hold,c,0.25,heading,5.0,4.8123605584769695e-06
+C: full-horizon hold,c,0.25,heading,6.0,3.4013749197965417e-06
+C: full-horizon hold,c,0.25,heading,7.0,1.8638409629636238e-06
+C: full-horizon hold,c,0.25,heading,8.0,1.4776274666307208e-06
+C: full-horizon hold,c,0.25,heading,9.0,1.0402183164505694e-06
+C: full-horizon hold,c,0.25,heading,10.0,8.889842275591261e-07
+C: full-horizon hold,c,0.25,heading,11.0,6.767795787757064e-07
+C: full-horizon hold,c,0.25,heading,12.0,6.070118623434428e-07
+C: full-horizon hold,c,0.25,heading,13.0,4.900522376694323e-07
+C: full-horizon hold,c,0.25,heading,14.0,4.4587589317566526e-07
+C: full-horizon hold,c,0.25,heading,15.0,3.7544361327702473e-07
+C: full-horizon hold,c,0.25,heading,16.0,3.444817008096256e-07
+C: full-horizon hold,c,0.25,heading,17.0,2.9997932759871726e-07
+C: full-horizon hold,c,0.25,heading,18.0,2.763420262998486e-07
+C: full-horizon hold,c,0.25,heading,19.0,2.4710313293972505e-07
+C: full-horizon hold,c,0.25,heading,20.0,2.2837484036314527e-07
+C: full-horizon hold,c,0.25,heading,21.0,2.0887139301436196e-07
+C: full-horizon hold,c,0.25,heading,22.0,1.934573213803563e-07
+C: full-horizon hold,c,0.25,heading,23.0,1.8037913436098248e-07
+C: full-horizon hold,c,0.25,heading,24.0,1.6749748822081988e-07
+C: full-horizon hold,c,0.25,heading,25.0,1.5847272452277838e-07
+C: full-horizon hold,c,0.25,heading,26.0,1.4765198211471726e-07
+C: full-horizon hold,c,0.25,heading,27.0,1.413524587481117e-07
+C: full-horizon hold,c,0.25,heading,28.0,1.3243759071866956e-07
+C: full-horizon hold,c,0.25,heading,29.0,1.2780572975639613e-07
+C: full-horizon hold,c,0.25,heading,30.0,1.2050563582450712e-07
+C: full-horizon hold,c,0.25,heading,31.0,1.1699490369705468e-07
+C: full-horizon hold,c,0.25,heading,32.0,1.1115164590258428e-07
+C: full-horizon hold,c,0.25,heading,33.0,1.0827244318390205e-07
+C: full-horizon hold,c,0.25,heading,34.0,1.0374308543032537e-07
+C: full-horizon hold,c,0.25,heading,35.0,1.0131691756808289e-07
+C: full-horizon hold,c,0.25,heading,36.0,9.794108366473101e-08
+C: full-horizon hold,c,0.25,heading,37.0,9.571969340467316e-08
+C: full-horizon hold,c,0.25,heading,38.0,9.3415394507307e-08
+C: full-horizon hold,c,0.25,heading,39.0,9.132292529832055e-08
+C: full-horizon hold,c,0.25,heading,40.0,8.999825868484122e-08
+C: full-horizon hold,c,0.25,heading,41.0,8.794559255104932e-08
+C: full-horizon hold,c,0.25,heading,42.0,8.745678723778869e-08
+C: full-horizon hold,c,0.25,heading,43.0,8.551631729520685e-08
+C: full-horizon hold,c,0.25,heading,44.0,8.572699610535701e-08
+C: full-horizon hold,c,0.25,heading,45.0,8.392915413269e-08
+C: full-horizon hold,c,0.25,heading,46.0,8.471617448614344e-08
+C: full-horizon hold,c,0.25,heading,47.0,8.314402590706252e-08
+C: full-horizon hold,c,0.25,heading,48.0,4.218860968456386e-08
+C: full-horizon hold,c,0.5,spatial,0.41025641025641024,1.4044792721256122e-33
+C: full-horizon hold,c,0.5,spatial,1.2307692307692308,0.0023550845611466
+C: full-horizon hold,c,0.5,spatial,2.051282051282051,0.002122751163419103
+C: full-horizon hold,c,0.5,spatial,2.871794871794872,0.00025684012698316827
+C: full-horizon hold,c,0.5,spatial,3.692307692307692,3.8755325887217945e-05
+C: full-horizon hold,c,0.5,spatial,4.512820512820513,1.8053656523665806e-05
+C: full-horizon hold,c,0.5,spatial,5.333333333333334,4.925769193274421e-06
+C: full-horizon hold,c,0.5,spatial,6.153846153846153,2.9926538150527177e-06
+C: full-horizon hold,c,0.5,spatial,6.9743589743589745,1.5308233442083707e-06
+C: full-horizon hold,c,0.5,spatial,7.794871794871794,8.988562995408678e-07
+C: full-horizon hold,c,0.5,spatial,8.615384615384615,6.028196323955293e-07
+C: full-horizon hold,c,0.5,spatial,9.435897435897436,3.999944624029361e-07
+C: full-horizon hold,c,0.5,spatial,10.256410256410255,3.127509412403223e-07
+C: full-horizon hold,c,0.5,spatial,11.076923076923077,2.661376391054765e-07
+C: full-horizon hold,c,0.5,spatial,11.897435897435898,1.8854217943148344e-07
+C: full-horizon hold,c,0.5,spatial,12.717948717948717,1.6874916011766494e-07
+C: full-horizon hold,c,0.5,spatial,13.538461538461538,1.4676546216188524e-07
+C: full-horizon hold,c,0.5,spatial,14.358974358974358,1.342711752425757e-07
+C: full-horizon hold,c,0.5,spatial,15.179487179487179,1.3097124448857578e-07
+C: full-horizon hold,c,0.5,spatial,16.0,1.2128038502819127e-07
+C: full-horizon hold,c,0.5,spatial,16.820512820512818,3.711921329335732e-08
+C: full-horizon hold,c,0.5,spatial,17.641025641025642,2.9193588104228785e-08
+C: full-horizon hold,c,0.5,spatial,18.46153846153846,1.4957736379356268e-08
+C: full-horizon hold,c,0.5,spatial,19.282051282051285,9.997142209547394e-09
+C: full-horizon hold,c,0.5,spatial,20.102564102564102,1.0160129950906316e-08
+C: full-horizon hold,c,0.5,spatial,20.92307692307692,3.2358508598312463e-09
+C: full-horizon hold,c,0.5,spatial,21.743589743589745,3.1537866051339902e-09
+C: full-horizon hold,c,0.5,spatial,22.564102564102562,0.0
+C: full-horizon hold,c,0.5,heading,0.0,4.718980976517757e-35
+C: full-horizon hold,c,0.5,heading,1.0,0.0015940342099087677
+C: full-horizon hold,c,0.5,heading,2.0,0.0004637777792430553
+C: full-horizon hold,c,0.5,heading,3.0,0.00012449897190379308
+C: full-horizon hold,c,0.5,heading,4.0,6.150072015390787e-05
+C: full-horizon hold,c,0.5,heading,5.0,2.430832899407204e-05
+C: full-horizon hold,c,0.5,heading,6.0,1.6525411555458426e-05
+C: full-horizon hold,c,0.5,heading,7.0,1.1218879569215202e-05
+C: full-horizon hold,c,0.5,heading,8.0,9.154250040566921e-06
+C: full-horizon hold,c,0.5,heading,9.0,6.77794793701579e-06
+C: full-horizon hold,c,0.5,heading,10.0,5.8021454256110596e-06
+C: full-horizon hold,c,0.5,heading,11.0,4.582759813953513e-06
+C: full-horizon hold,c,0.5,heading,12.0,4.039445844429594e-06
+C: full-horizon hold,c,0.5,heading,13.0,3.3464669853009623e-06
+C: full-horizon hold,c,0.5,heading,14.0,2.9915276063237983e-06
+C: full-horizon hold,c,0.5,heading,15.0,2.574752013397103e-06
+C: full-horizon hold,c,0.5,heading,16.0,2.3206282552019788e-06
+C: full-horizon hold,c,0.5,heading,17.0,2.0594559403291453e-06
+C: full-horizon hold,c,0.5,heading,18.0,1.8675663920001518e-06
+C: full-horizon hold,c,0.5,heading,19.0,1.6969801460594903e-06
+C: full-horizon hold,c,0.5,heading,20.0,1.5492262862380753e-06
+C: full-horizon hold,c,0.5,heading,21.0,1.4320637645952618e-06
+C: full-horizon hold,c,0.5,heading,22.0,1.3178552936053116e-06
+C: full-horizon hold,c,0.5,heading,23.0,1.2331118234274909e-06
+C: full-horizon hold,c,0.5,heading,24.0,1.1452604433145968e-06
+C: full-horizon hold,c,0.5,heading,25.0,1.0806160527892654e-06
+C: full-horizon hold,c,0.5,heading,26.0,1.0133943590177624e-06
+C: full-horizon hold,c,0.5,heading,27.0,9.620367250368207e-07
+C: full-horizon hold,c,0.5,heading,28.0,9.105778157044022e-07
+C: full-horizon hold,c,0.5,heading,29.0,8.688896131748964e-07
+C: full-horizon hold,c,0.5,heading,30.0,8.297254275707099e-07
+C: full-horizon hold,c,0.5,heading,31.0,7.955163305863175e-07
+C: full-horizon hold,c,0.5,heading,32.0,7.652120196328353e-07
+C: full-horizon hold,c,0.5,heading,33.0,7.369313515683769e-07
+C: full-horizon hold,c,0.5,heading,34.0,7.134309405080633e-07
+C: full-horizon hold,c,0.5,heading,35.0,6.905841596078581e-07
+C: full-horizon hold,c,0.5,heading,36.0,6.722608009347279e-07
+C: full-horizon hold,c,0.5,heading,37.0,6.542274676399594e-07
+C: full-horizon hold,c,0.5,heading,38.0,6.397819603048352e-07
+C: full-horizon hold,c,0.5,heading,39.0,6.25971476941786e-07
+C: full-horizon hold,c,0.5,heading,40.0,6.144661048925962e-07
+C: full-horizon hold,c,0.5,heading,41.0,6.045361892515128e-07
+C: full-horizon hold,c,0.5,heading,42.0,5.957273205349168e-07
+C: full-horizon hold,c,0.5,heading,43.0,5.891517510756975e-07
+C: full-horizon hold,c,0.5,heading,44.0,5.827925097905465e-07
+C: full-horizon hold,c,0.5,heading,45.0,5.792415685401235e-07
+C: full-horizon hold,c,0.5,heading,46.0,5.75205853863417e-07
+C: full-horizon hold,c,0.5,heading,47.0,5.743291904511075e-07
+C: full-horizon hold,c,0.5,heading,48.0,2.8632990705470084e-07

@@ -1,0 +1,33 @@
+{
+  "outlier": {
+    "count": 240,
+    "median_physics_parameter_gradient_norm": 288.31878512203775,
+    "median_value_parameter_gradient_norm": 37.11478624510151,
+    "negative_physics_reference_alignment_count": 181
+  },
+  "random_remaining_control": {
+    "count": 240,
+    "median_physics_parameter_gradient_norm": 6.294561821868771,
+    "median_value_parameter_gradient_norm": 6.03129720113812,
+    "negative_physics_reference_alignment_count": 57
+  },
+  "batches": {
+    "terminal_nonterminal_cosine_range": [
+      -0.21862531819447104,
+      -0.07493775451161983
+    ],
+    "terminal_to_nonterminal_weighted_norm_range": [
+      0.021177612170869508,
+      0.044872095696916234
+    ],
+    "adam_descent_half_mse_alignment_all_range": [
+      0.008645049136209636,
+      0.08167438271931321
+    ],
+    "raw_physics_half_mse_alignment_all_range": [
+      0.21237260880973668,
+      0.4086013111199941
+    ]
+  },
+  "saved_parameter_vectors_finite": true
+}

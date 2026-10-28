@@ -1,0 +1,107 @@
+[
+  {
+    "model": "Reference signal",
+    "slug": "reference",
+    "tau": 0.0,
+    "spatial_energy": 0.014744669358426872,
+    "heading_energy": 2.0696466101912802e-33
+  },
+  {
+    "model": "Reference signal",
+    "slug": "reference",
+    "tau": 0.25,
+    "spatial_energy": 0.014022341766872323,
+    "heading_energy": 0.0029334693671070507
+  },
+  {
+    "model": "Reference signal",
+    "slug": "reference",
+    "tau": 0.5,
+    "spatial_energy": 0.013872877300106307,
+    "heading_energy": 0.004382472717681926
+  },
+  {
+    "model": "Experiment 1",
+    "slug": "baseline",
+    "tau": 0.0,
+    "spatial_energy": 0.00028216066277815435,
+    "heading_energy": 5.686642974854224e-05
+  },
+  {
+    "model": "Experiment 1",
+    "slug": "baseline",
+    "tau": 0.25,
+    "spatial_energy": 0.0028496204428794638,
+    "heading_energy": 0.001136903331977349
+  },
+  {
+    "model": "Experiment 1",
+    "slug": "baseline",
+    "tau": 0.5,
+    "spatial_energy": 0.006649365480598048,
+    "heading_energy": 0.004384947551027569
+  },
+  {
+    "model": "A: lower terminal weight",
+    "slug": "a",
+    "tau": 0.0,
+    "spatial_energy": 0.0003978238294095661,
+    "heading_energy": 0.00010843141750864042
+  },
+  {
+    "model": "A: lower terminal weight",
+    "slug": "a",
+    "tau": 0.25,
+    "spatial_energy": 0.0009503231470024995,
+    "heading_energy": 0.00043968654100219357
+  },
+  {
+    "model": "A: lower terminal weight",
+    "slug": "a",
+    "tau": 0.5,
+    "spatial_energy": 0.0030118468024290276,
+    "heading_energy": 0.0010309269866952107
+  },
+  {
+    "model": "B: focused sampling",
+    "slug": "b",
+    "tau": 0.0,
+    "spatial_energy": 0.00028015458422969225,
+    "heading_energy": 6.37482300561238e-05
+  },
+  {
+    "model": "B: focused sampling",
+    "slug": "b",
+    "tau": 0.25,
+    "spatial_energy": 0.0016914837988589177,
+    "heading_energy": 0.0007987829068515024
+  },
+  {
+    "model": "B: focused sampling",
+    "slug": "b",
+    "tau": 0.5,
+    "spatial_energy": 0.005584241322261985,
+    "heading_energy": 0.004216942752305579
+  },
+  {
+    "model": "C: full-horizon hold",
+    "slug": "c",
+    "tau": 0.0,
+    "spatial_energy": 0.00023155038145595714,
+    "heading_energy": 8.394003084854961e-05
+  },
+  {
+    "model": "C: full-horizon hold",
+    "slug": "c",
+    "tau": 0.25,
+    "spatial_energy": 0.001860063844259817,
+    "heading_energy": 0.0008534273831364228
+  },
+  {
+    "model": "C: full-horizon hold",
+    "slug": "c",
+    "tau": 0.5,
+    "spatial_energy": 0.0048044130363408405,
+    "heading_energy": 0.00236671668223611
+  }
+]

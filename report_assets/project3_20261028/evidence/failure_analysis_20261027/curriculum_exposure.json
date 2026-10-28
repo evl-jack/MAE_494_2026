@@ -1,0 +1,74 @@
+[
+  {
+    "model": "Experiment 1",
+    "slug": "baseline",
+    "threshold": 0.4,
+    "curriculum_expected_nonterminal_fraction": 0.021485158948632177,
+    "hold_expected_nonterminal_fraction": 0.19999999999999996,
+    "expected_nonterminal_draws": 385014.0483594886,
+    "note": "Continuous-ramp approximation to expected sampling, not a log of actual draws."
+  },
+  {
+    "model": "Experiment 1",
+    "slug": "baseline",
+    "threshold": 0.475,
+    "curriculum_expected_nonterminal_fraction": 0.0012713703318269973,
+    "hold_expected_nonterminal_fraction": 0.050000000000000044,
+    "expected_nonterminal_draws": 22782.95634633979,
+    "note": "Continuous-ramp approximation to expected sampling, not a log of actual draws."
+  },
+  {
+    "model": "A: lower terminal weight",
+    "slug": "a",
+    "threshold": 0.4,
+    "curriculum_expected_nonterminal_fraction": 0.021485158948632177,
+    "hold_expected_nonterminal_fraction": 0.19999999999999996,
+    "expected_nonterminal_draws": 385014.0483594886,
+    "note": "Continuous-ramp approximation to expected sampling, not a log of actual draws."
+  },
+  {
+    "model": "A: lower terminal weight",
+    "slug": "a",
+    "threshold": 0.475,
+    "curriculum_expected_nonterminal_fraction": 0.0012713703318269973,
+    "hold_expected_nonterminal_fraction": 0.050000000000000044,
+    "expected_nonterminal_draws": 22782.95634633979,
+    "note": "Continuous-ramp approximation to expected sampling, not a log of actual draws."
+  },
+  {
+    "model": "B: focused sampling",
+    "slug": "b",
+    "threshold": 0.4,
+    "curriculum_expected_nonterminal_fraction": 0.021485158948632177,
+    "hold_expected_nonterminal_fraction": 0.19999999999999996,
+    "expected_nonterminal_draws": 385014.0483594886,
+    "note": "Continuous-ramp approximation to expected sampling, not a log of actual draws."
+  },
+  {
+    "model": "B: focused sampling",
+    "slug": "b",
+    "threshold": 0.475,
+    "curriculum_expected_nonterminal_fraction": 0.0012713703318269973,
+    "hold_expected_nonterminal_fraction": 0.050000000000000044,
+    "expected_nonterminal_draws": 22782.95634633979,
+    "note": "Continuous-ramp approximation to expected sampling, not a log of actual draws."
+  },
+  {
+    "model": "C: full-horizon hold",
+    "slug": "c",
+    "threshold": 0.4,
+    "curriculum_expected_nonterminal_fraction": 0.021485158948632177,
+    "hold_expected_nonterminal_fraction": 0.19999999999999996,
+    "expected_nonterminal_draws": 3969014.0483594877,
+    "note": "Continuous-ramp approximation to expected sampling, not a log of actual draws."
+  },
+  {
+    "model": "C: full-horizon hold",
+    "slug": "c",
+    "threshold": 0.475,
+    "curriculum_expected_nonterminal_fraction": 0.0012713703318269973,
+    "hold_expected_nonterminal_fraction": 0.050000000000000044,
+    "expected_nonterminal_draws": 918782.9563463406,
+    "note": "Continuous-ramp approximation to expected sampling, not a log of actual draws."
+  }
+]

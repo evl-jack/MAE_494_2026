@@ -1,0 +1,56 @@
+{
+  "status": "completed",
+  "training": false,
+  "optimizer_created": false,
+  "parameter_updates": 0,
+  "protected_inputs": {
+    "runs\\experiment_3_a_constraints\\checkpoint.pt": "44d19503406e4339fda5376c1074a20e5bf2c3508085af9f47d159e9858d8b62",
+    "lookahead_21points_20261027\\heldout_values.npz": "b70e081991f8dee14b03acebd5f63ee3fd85b5ef0a044714a3df4545425f0177",
+    "experiments\\experiment_3_a\\outliers\\worst_240_states.csv": "9ceec217b2e794cd062bdb8dc8eb6c096ee36aaaa1dada4bd036e10b0eb695bb",
+    "runs\\air3d_cpu_20261022\\validation\\reference_fine.npz": "d3d76ab2209bf551de61fc1f0c681dd03bbdd5c3639ce8c1d63b14ad59a69cc5",
+    "runs\\air3d_cpu_20261022\\checkpoint.pt": "4b7c44caa643bc5b7145edcfc57dc325ef9915372a52023c2a6e865e09055e8d",
+    "runs\\air3d_smoke_20261022\\checkpoint.pt": "d8dc0ab79419fcf6ca280e2ace8a67ce7a1a00d32f17fc2899784a25900ea76b",
+    "runs\\experiment_2_a_loss_20261022\\checkpoint.pt": "78b5efd83e9023a2089b13a524a26b60084df9746a750f453e6abfd7592ebbac",
+    "runs\\experiment_2_b_sampling_20261022\\checkpoint.pt": "4a9db6ba6b5a4fc83ebbe0b10a588c02ac830d4d639703bbada1222c150a2e42",
+    "runs\\experiment_2_c_hold_20261022\\checkpoint.pt": "5f1c41f8903325db05e8963edb0a6b370e2e71f33a77f5996ab05a4b7ccb8a1c",
+    "runs\\experiment_3_b_periodic\\checkpoint.pt": "e18ff2c9733eb93c226e3e0eb03578cafefc9725695dc1e6045ec001faa42ac0",
+    "runs\\experiment_3_c_time_sampling\\checkpoint.pt": "2ef5c97491ad35dd5b436507f65352e56ee91485e9af86537a77b4e9c8000f95"
+  },
+  "sources": {
+    "diagnose_learning_signals.py": "b5e3773dad1c61ae34cdb8f6cc9bb458e21cab2c82f50d8a95e0dfb81cca3a23",
+    "deepreach.py": "442b005f8a8c6e0e4762badf70c4ebc60350914a7afcf8bbe2589a141fa3bd53"
+  },
+  "checks": {
+    "parameter_direction_finite_difference": {
+      "physics": {
+        "autodiff": 1.0760546366692245,
+        "finite_difference": 1.076054625265277,
+        "absolute_error": 1.1403947564048167e-08
+      },
+      "reference_half_mse": {
+        "autodiff": 0.15460553647696085,
+        "finite_difference": 0.1546055364634591,
+        "absolute_error": 1.3501755269373916e-11
+      },
+      "reference_mae": {
+        "autodiff": 0.581933503454907,
+        "finite_difference": 0.5819335030521344,
+        "absolute_error": 4.027725930555448e-10
+      }
+    },
+    "group_gradient_decomposition": true,
+    "terminal_nonterminal_gradient_decomposition": true,
+    "square_output_parameter_chain_rule": true,
+    "adam_scalar_formula": true,
+    "weights_unchanged": true,
+    "no_accumulated_parameter_gradients": true
+  },
+  "reference_usage": "Evaluation-only half-MSE gradients; no supervised updates.",
+  "reserved_final_states": {
+    "path": "evaluation\\reserved_final_states\\states.npz",
+    "sha256": "f902bb08c7fe93d7a6275048e9cc41ddf2f4819be2f9a600597ae1d5666280c6",
+    "used": false
+  },
+  "derivative_scope": "Parameter learning signals, not control-gradient reliability.",
+  "threads": 2
+}

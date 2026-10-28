@@ -1,0 +1,149 @@
+[
+  {
+    "tau": 0.0,
+    "vi_mae": 0.0029394663870334625,
+    "vi_p95": 0.000574379344470799,
+    "positive_time_derivative_fraction": 0.0,
+    "heading_seam_mae": 0.0
+  },
+  {
+    "tau": 0.025,
+    "vi_mae": 0.009278344921767712,
+    "vi_p95": 0.029603611677885056,
+    "positive_time_derivative_fraction": 0.05133333429694176,
+    "heading_seam_mae": 0.004442248493432999
+  },
+  {
+    "tau": 0.05,
+    "vi_mae": 0.012230795808136463,
+    "vi_p95": 0.04599880799651146,
+    "positive_time_derivative_fraction": 0.1550000011920929,
+    "heading_seam_mae": 0.008705568499863148
+  },
+  {
+    "tau": 0.07500000000000001,
+    "vi_mae": 0.012707667425274849,
+    "vi_p95": 0.05127812176942825,
+    "positive_time_derivative_fraction": 0.22316665947437286,
+    "heading_seam_mae": 0.012737222947180271
+  },
+  {
+    "tau": 0.1,
+    "vi_mae": 0.012443531304597855,
+    "vi_p95": 0.05096928030252457,
+    "positive_time_derivative_fraction": 0.26249998807907104,
+    "heading_seam_mae": 0.016534904018044472
+  },
+  {
+    "tau": 0.125,
+    "vi_mae": 0.01260407269001007,
+    "vi_p95": 0.051982175558805466,
+    "positive_time_derivative_fraction": 0.28583332896232605,
+    "heading_seam_mae": 0.020120345056056976
+  },
+  {
+    "tau": 0.15000000000000002,
+    "vi_mae": 0.013004709035158157,
+    "vi_p95": 0.05200430378317833,
+    "positive_time_derivative_fraction": 0.30916666984558105,
+    "heading_seam_mae": 0.023518847301602364
+  },
+  {
+    "tau": 0.17500000000000002,
+    "vi_mae": 0.013423985801637173,
+    "vi_p95": 0.05507627874612808,
+    "positive_time_derivative_fraction": 0.3226666748523712,
+    "heading_seam_mae": 0.02674434892833233
+  },
+  {
+    "tau": 0.2,
+    "vi_mae": 0.013950804248452187,
+    "vi_p95": 0.058418355882167816,
+    "positive_time_derivative_fraction": 0.3543333411216736,
+    "heading_seam_mae": 0.02978956513106823
+  },
+  {
+    "tau": 0.225,
+    "vi_mae": 0.014589815400540829,
+    "vi_p95": 0.06094479560852051,
+    "positive_time_derivative_fraction": 0.38333332538604736,
+    "heading_seam_mae": 0.0326269268989563
+  },
+  {
+    "tau": 0.25,
+    "vi_mae": 0.015373455360531807,
+    "vi_p95": 0.066469706594944,
+    "positive_time_derivative_fraction": 0.4116666615009308,
+    "heading_seam_mae": 0.03520520403981209
+  },
+  {
+    "tau": 0.275,
+    "vi_mae": 0.01617085188627243,
+    "vi_p95": 0.06782282143831253,
+    "positive_time_derivative_fraction": 0.42800000309944153,
+    "heading_seam_mae": 0.03744913637638092
+  },
+  {
+    "tau": 0.30000000000000004,
+    "vi_mae": 0.01706349477171898,
+    "vi_p95": 0.07214637100696564,
+    "positive_time_derivative_fraction": 0.43033334612846375,
+    "heading_seam_mae": 0.039269957691431046
+  },
+  {
+    "tau": 0.325,
+    "vi_mae": 0.01818917505443096,
+    "vi_p95": 0.07998815178871155,
+    "positive_time_derivative_fraction": 0.4163333475589752,
+    "heading_seam_mae": 0.04057641327381134
+  },
+  {
+    "tau": 0.35000000000000003,
+    "vi_mae": 0.019510308280587196,
+    "vi_p95": 0.08492138981819153,
+    "positive_time_derivative_fraction": 0.3866666555404663,
+    "heading_seam_mae": 0.041287705302238464
+  },
+  {
+    "tau": 0.375,
+    "vi_mae": 0.02092464454472065,
+    "vi_p95": 0.09237978607416153,
+    "positive_time_derivative_fraction": 0.3564999997615814,
+    "heading_seam_mae": 0.04134061560034752
+  },
+  {
+    "tau": 0.4,
+    "vi_mae": 0.022410031408071518,
+    "vi_p95": 0.10082627087831497,
+    "positive_time_derivative_fraction": 0.32366666197776794,
+    "heading_seam_mae": 0.040696412324905396
+  },
+  {
+    "tau": 0.42500000000000004,
+    "vi_mae": 0.02399001270532608,
+    "vi_p95": 0.10730087757110596,
+    "positive_time_derivative_fraction": 0.2931666672229767,
+    "heading_seam_mae": 0.03931323066353798
+  },
+  {
+    "tau": 0.45,
+    "vi_mae": 0.02578287571668625,
+    "vi_p95": 0.11370931565761566,
+    "positive_time_derivative_fraction": 0.2671666741371155,
+    "heading_seam_mae": 0.03720398247241974
+  },
+  {
+    "tau": 0.47500000000000003,
+    "vi_mae": 0.028397193178534508,
+    "vi_p95": 0.12434513121843338,
+    "positive_time_derivative_fraction": 0.2590000033378601,
+    "heading_seam_mae": 0.034482069313526154
+  },
+  {
+    "tau": 0.5,
+    "vi_mae": 0.03364582732319832,
+    "vi_p95": 0.15603457391262054,
+    "positive_time_derivative_fraction": 0.26216667890548706,
+    "heading_seam_mae": 0.03151349350810051
+  }
+]

@@ -1,0 +1,28 @@
+{
+  "seconds": 136.72731859993655,
+  "max_abs_vs_cache": 0.0,
+  "signature": {
+    "reference_sha256": "d3d76ab2209bf551de61fc1f0c681dd03bbdd5c3639ce8c1d63b14ad59a69cc5",
+    "solver_sha256": "9d47292d61389539b4a6677249bf17e4dc38315bf49c5864bcfcb7d9d505ea32",
+    "config": {
+      "radius": 0.25,
+      "speed": 0.75,
+      "turn": 3.0,
+      "domain": 2.0,
+      "horizon": 0.5
+    }
+  },
+  "grid": [
+    129,
+    129,
+    96
+  ],
+  "times": [
+    0.0,
+    0.25,
+    0.5
+  ],
+  "steps": 334,
+  "dtmax": 0.00149920999302421,
+  "reused_on_this_run": false
+}

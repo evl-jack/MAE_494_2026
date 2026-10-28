@@ -1,0 +1,76 @@
+{
+  "status": "implementation verified; training paused",
+  "optimizer_steps": 0,
+  "reference_labels_used_for_training": false,
+  "environment": {
+    "python": "3.12.14",
+    "torch": "2.5.1+cpu",
+    "numpy": "1.26.4",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "processor": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+    "cpu_count": 14,
+    "device": "cpu",
+    "cuda_available": false,
+    "threads": 2,
+    "upstream": "a8127aa7825d58623e9646211644876c83dd71d0"
+  },
+  "terminal_exact": true,
+  "obstacle_exact_for_tested_nonnegative_times": true,
+  "already_collided_predictions_nonpositive": true,
+  "formula_matches_hand_example": true,
+  "mechanical": {
+    "autodiff_fd_max_abs": 6.657381590446931e-09,
+    "chain_rule_max_abs": 2.220446049250313e-16,
+    "hamiltonian_brute_max_abs": 1.7763568394002505e-15,
+    "optimal_control_max_abs": 1.7763568394002505e-15
+  },
+  "physics_parameter_gradient_norms": [
+    0.28140953183174133,
+    0.21532028913497925,
+    1.173350214958191,
+    0.17934070527553558,
+    0.9235007762908936,
+    0.12473499774932861,
+    0.8048147559165955,
+    0.08402417600154877
+  ],
+  "initialization": {
+    "raw_min": 0.8862488865852356,
+    "raw_max": 1.0638654232025146,
+    "raw_mean": 0.9700775146484375,
+    "correction_mean_m": 0.1194142997264862,
+    "vi_mae": 0.22790604829788208
+  },
+  "legacy": {
+    "baseline": {
+      "predictions_bitwise_identical": true
+    },
+    "a": {
+      "predictions_bitwise_identical": true
+    },
+    "b": {
+      "predictions_bitwise_identical": true
+    },
+    "c": {
+      "predictions_bitwise_identical": true
+    }
+  },
+  "untrained_reload_bitwise_identical": true,
+  "weights_unchanged": true,
+  "invalid_configs_rejected": true,
+  "protected_inputs": {
+    "runs\\air3d_cpu_20261022\\checkpoint.pt": "4b7c44caa643bc5b7145edcfc57dc325ef9915372a52023c2a6e865e09055e8d",
+    "runs\\experiment_2_a_loss_20261022\\checkpoint.pt": "78b5efd83e9023a2089b13a524a26b60084df9746a750f453e6abfd7592ebbac",
+    "runs\\experiment_2_b_sampling_20261022\\checkpoint.pt": "4a9db6ba6b5a4fc83ebbe0b10a588c02ac830d4d639703bbada1222c150a2e42",
+    "runs\\experiment_2_c_hold_20261022\\checkpoint.pt": "5f1c41f8903325db05e8963edb0a6b370e2e71f33a77f5996ab05a4b7ccb8a1c",
+    "runs\\air3d_cpu_20261022\\validation\\reference_fine.npz": "d3d76ab2209bf551de61fc1f0c681dd03bbdd5c3639ce8c1d63b14ad59a69cc5"
+  },
+  "sources": {
+    "deepreach.py": "5e205cd540b9afa09aed1b7ff30cdd4584f7dd2ef747314ee254ae51138bbaab",
+    "validate.py": "827ff3fbf99e0bfc2b22e6d760a9f257201a8e2ca4d47f6f431d5dc104d64169",
+    "check_constraints.py": "425b3eeda1f186379d2aa2c7e983761903ea07c23aafb8f0cfe996e1e68ee5c0"
+  },
+  "config_sha256": "2c5aa963fc07716cde5b07b51a6cbb946da05fe4396d7e33deada353c1e64f58",
+  "parameter_count": 8705,
+  "limitations": "No trained candidate, optimizer trajectory or accuracy improvement tested. Spatial derivatives of l are nonsmooth at x=y=0; derivative probes exclude that point."
+}

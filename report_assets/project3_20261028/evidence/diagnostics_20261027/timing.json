@@ -1,0 +1,252 @@
+{
+  "benchmarks": {
+    "baseline": {
+      "1": {
+        "median_seconds": 0.00035114299971610307,
+        "min_seconds": 0.0002704399998765439,
+        "max_seconds": 0.0003938470000866801,
+        "block_seconds": [
+          0.0002704399998765439,
+          0.00033075000043027104,
+          0.0003938470000866801,
+          0.00030637199990451335,
+          0.00037326000048778954,
+          0.00035114299971610307,
+          0.00036559099913574755
+        ],
+        "repeats": 7,
+        "calls_per_block": 100,
+        "warmups": 30
+      },
+      "1024": {
+        "median_seconds": 0.0027524800039827823,
+        "min_seconds": 0.0024303899961523713,
+        "max_seconds": 0.0028828399954363704,
+        "block_seconds": [
+          0.002801580005325377,
+          0.0027923100045882166,
+          0.0027523400029167535,
+          0.0027524800039827823,
+          0.0024303899961523713,
+          0.0027076099999248982,
+          0.0028828399954363704
+        ],
+        "repeats": 7,
+        "calls_per_block": 10,
+        "warmups": 30
+      },
+      "cached_grid_break_even_batch1": {
+        "pattern": "PINN cheaper above crossover",
+        "crossover_state_queries": 56079646.23665391,
+        "first_integer_query": 56079647
+      },
+      "cached_grid_break_even_batch1024": {
+        "pattern": "No PINN cost break-even: grid build and queries both cheaper",
+        "crossover_state_queries": null
+      }
+    },
+    "a": {
+      "1": {
+        "median_seconds": 0.00033340300084091725,
+        "min_seconds": 0.000256218999857083,
+        "max_seconds": 0.00036655500065535307,
+        "block_seconds": [
+          0.0003250540001317859,
+          0.0003495130001101643,
+          0.0002583160006906837,
+          0.000256218999857083,
+          0.000341416000155732,
+          0.00033340300084091725,
+          0.00036655500065535307
+        ],
+        "repeats": 7,
+        "calls_per_block": 100,
+        "warmups": 30
+      },
+      "1024": {
+        "median_seconds": 0.0024115200038068,
+        "min_seconds": 0.002279329998418689,
+        "max_seconds": 0.0028732200036756693,
+        "block_seconds": [
+          0.0024115200038068,
+          0.0027113399934023618,
+          0.00240093000466004,
+          0.0025698299985378982,
+          0.002279329998418689,
+          0.0028732200036756693,
+          0.002310280001256615
+        ],
+        "repeats": 7,
+        "calls_per_block": 10,
+        "warmups": 30
+      },
+      "cached_grid_break_even_batch1": {
+        "pattern": "PINN cheaper above crossover",
+        "crossover_state_queries": 9999286.645649523,
+        "first_integer_query": 9999287
+      },
+      "cached_grid_break_even_batch1024": {
+        "pattern": "No PINN cost break-even: grid build and queries both cheaper",
+        "crossover_state_queries": null
+      }
+    },
+    "b": {
+      "1": {
+        "median_seconds": 0.0003308289998676628,
+        "min_seconds": 0.00032843700028024615,
+        "max_seconds": 0.0003687720000743866,
+        "block_seconds": [
+          0.0003308289998676628,
+          0.00033060200046747924,
+          0.0003303479996975511,
+          0.0003333300002850592,
+          0.00032843700028024615,
+          0.0003567100001964718,
+          0.0003687720000743866
+        ],
+        "repeats": 7,
+        "calls_per_block": 100,
+        "warmups": 30
+      },
+      "1024": {
+        "median_seconds": 0.002550760004669428,
+        "min_seconds": 0.002334750001318753,
+        "max_seconds": 0.0027354400022886693,
+        "block_seconds": [
+          0.002550760004669428,
+          0.0024039899930357934,
+          0.0026840100064873694,
+          0.0026518499944359064,
+          0.0027354400022886693,
+          0.002334750001318753,
+          0.002335909998510033
+        ],
+        "repeats": 7,
+        "calls_per_block": 10,
+        "warmups": 30
+      },
+      "cached_grid_break_even_batch1": {
+        "pattern": "PINN cheaper above crossover",
+        "crossover_state_queries": 9499554.637783691,
+        "first_integer_query": 9499555
+      },
+      "cached_grid_break_even_batch1024": {
+        "pattern": "No PINN cost break-even: grid build and queries both cheaper",
+        "crossover_state_queries": null
+      }
+    },
+    "c": {
+      "1": {
+        "median_seconds": 0.00027761399978771807,
+        "min_seconds": 0.00025853400002233683,
+        "max_seconds": 0.00035419499967247246,
+        "block_seconds": [
+          0.0002924199996050447,
+          0.0002613679994828999,
+          0.00027761399978771807,
+          0.00025853400002233683,
+          0.00035419499967247246,
+          0.0002643189998343587,
+          0.00030033100047148763
+        ],
+        "repeats": 7,
+        "calls_per_block": 100,
+        "warmups": 30
+      },
+      "1024": {
+        "median_seconds": 0.002368340000975877,
+        "min_seconds": 0.0019326799898408352,
+        "max_seconds": 0.002429520001169294,
+        "block_seconds": [
+          0.002429520001169294,
+          0.002381830010563135,
+          0.0023631400079466404,
+          0.0021913599921390414,
+          0.002368340000975877,
+          0.0023929200018756092,
+          0.0019326799898408352
+        ],
+        "repeats": 7,
+        "calls_per_block": 10,
+        "warmups": 30
+      },
+      "cached_grid_break_even_batch1": {
+        "pattern": "PINN cheaper above crossover",
+        "crossover_state_queries": 4014963.776189594,
+        "first_integer_query": 4014964
+      },
+      "cached_grid_break_even_batch1024": {
+        "pattern": "No PINN cost break-even: grid build and queries both cheaper",
+        "crossover_state_queries": null
+      }
+    },
+    "grid": {
+      "1": {
+        "median_seconds": 0.0003523849998600781,
+        "min_seconds": 0.00024017499992623926,
+        "max_seconds": 0.000379139999859035,
+        "block_seconds": [
+          0.000379139999859035,
+          0.0003523849998600781,
+          0.00024017499992623926,
+          0.00036014199955388906,
+          0.0003481129999272525,
+          0.0003508449997752905,
+          0.00036691299988888203
+        ],
+        "repeats": 7,
+        "calls_per_block": 100,
+        "warmups": 30
+      },
+      "1024": {
+        "median_seconds": 0.0009080299991182983,
+        "min_seconds": 0.0008826300036162138,
+        "max_seconds": 0.0010244000004604459,
+        "block_seconds": [
+          0.0008826300036162138,
+          0.0009080299991182983,
+          0.0008865400101058185,
+          0.0009155299980193376,
+          0.0009184199967421591,
+          0.0008862999966368079,
+          0.0010244000004604459
+        ],
+        "repeats": 7,
+        "calls_per_block": 10,
+        "warmups": 30
+      },
+      "interpolator_setup_seconds": 0.006107700057327747
+    }
+  },
+  "reference_build": {
+    "seconds": 136.72731859993655,
+    "max_abs_vs_cache": 0.0,
+    "signature": {
+      "reference_sha256": "d3d76ab2209bf551de61fc1f0c681dd03bbdd5c3639ce8c1d63b14ad59a69cc5",
+      "solver_sha256": "9d47292d61389539b4a6677249bf17e4dc38315bf49c5864bcfcb7d9d505ea32",
+      "config": {
+        "radius": 0.25,
+        "speed": 0.75,
+        "turn": 3.0,
+        "domain": 2.0,
+        "horizon": 0.5
+      }
+    },
+    "grid": [
+      129,
+      129,
+      96
+    ],
+    "times": [
+      0.0,
+      0.25,
+      0.5
+    ],
+    "steps": 334,
+    "dtmax": 0.00149920999302421,
+    "reused_on_this_run": false
+  },
+  "threads": 2,
+  "value_only": true,
+  "prepared_inputs": true
+}
