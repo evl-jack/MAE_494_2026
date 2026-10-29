@@ -280,7 +280,9 @@ The [evidence register](report_assets/project3_final_20261028/source_packet/evid
 
 Experiment 5 [training records](report_assets/project3_final_20261028/evidence/experiments_6d/experiment_5_sampling/TRAINING_RESULTS.md), [evaluation](report_assets/project3_final_20261028/evidence/experiments_6d/experiment_5_sampling/evaluation/README.md), and [methodology](report_assets/project3_final_20261028/evidence/experiments_6d/experiment_5_sampling/evaluation/METHODOLOGY.md) include protocols and verification. Checks recalculated the saved measurements and replayed 5.88 million control updates. They verify the records, not a safety guarantee.
 
-Large arrays, checkpoints and complete source snapshots remain local. A portable runnable archive still needs assembly. The [recommendation memo draft](report_assets/project3_final_20261028/source_packet/RECOMMENDATION_MEMO.md) is available separately and remains unsent. [Earlier detailed reports](https://github.com/evl-jack/MAE_494_2026/blob/5461fdf9d07c7a170a6b1803a585fc2a1b1994b3/Project_3.md) remain available; their next-step statements are historical.
+The [portable runnable packages](packages/README.md) include the original code, configurations, trained models and saved results. Start with the small code ZIP and add the three optional result ZIPs as needed. The guide explains setup, basic checks, model queries and results replay; training requires an explicit command. [Validation](packages/VALIDATION.md) passed from a separate Windows folder using existing dependencies. A clean installation and other operating systems remain untested.
+
+The [recommendation memo draft](report_assets/project3_final_20261028/source_packet/RECOMMENDATION_MEMO.md) is available separately and remains unsent. [Earlier detailed reports](https://github.com/evl-jack/MAE_494_2026/blob/5461fdf9d07c7a170a6b1803a585fc2a1b1994b3/Project_3.md) remain available; their next-step statements are historical.
 
 ## 7. Assumptions and limitations
 

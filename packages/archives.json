@@ -1,0 +1,29 @@
+{
+  "archives": [
+    {
+      "name": "project3-20261028-v1-code.zip",
+      "bytes": 2174640,
+      "sha256": "f1467068778e9db69bd3a63684d4df266e1333c578fca45c56c5b60c1f0d48ae"
+    },
+    {
+      "name": "project3-20261028-v1-relative-results.zip",
+      "bytes": 81636568,
+      "sha256": "77e2fc29fac11fdb8b982c4459a2433e17bc8e25550ba34e0aead347a1a70a2a",
+      "url": "https://raw.githubusercontent.com/evl-jack/MAE_494_2026/Main/packages/project3-20261028-v1-relative-results.zip"
+    },
+    {
+      "name": "project3-20261028-v1-reference-results.zip",
+      "bytes": 47893179,
+      "sha256": "b995fec28a44187598d9c4a3443b1de7e73d0527de917706b98ea710c751326e",
+      "url": "https://raw.githubusercontent.com/evl-jack/MAE_494_2026/Main/packages/project3-20261028-v1-reference-results.zip"
+    },
+    {
+      "name": "project3-20261028-v1-joint-results.zip",
+      "bytes": 49003725,
+      "sha256": "703267a9ac64c0d3621a8521865f4937651cff5524f19cfaa90a4da5584f0b0a",
+      "url": "https://raw.githubusercontent.com/evl-jack/MAE_494_2026/Main/packages/project3-20261028-v1-joint-results.zip"
+    }
+  ],
+  "files": 848,
+  "source_files_unchanged": true
+}
