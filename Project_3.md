@@ -241,14 +241,6 @@ Experiment 5 [training records](report_assets/project3_final_20261028/evidence/e
 
 Large arrays, checkpoints and complete source snapshots remain local. A portable runnable archive still needs assembly. [Earlier detailed reports](https://github.com/evl-jack/MAE_494_2026/blob/5461fdf9d07c7a170a6b1803a585fc2a1b1994b3/Project_3.md) remain available; their next-step statements are historical.
 
-## 6. Recommendation memo — draft, not sent
-
-The [memo draft](report_assets/project3_final_20261028/source_packet/RECOMMENDATION_MEMO.md) recommends further research, not safety deployment. It has not been sent.
-
-## 7. Presentation and submission status
-
-Outreach/interview details remain omitted. I still need to add the researcher-facing records, document memo delivery, and finish the portable code package and presentation polish. GitHub publication does not constitute course submission.
-
 ## References
 
 1. Bansal, S., and Tomlin, C. *DeepReach: A Deep Learning Approach to High-Dimensional Reachability*. [arXiv:2011.02082](https://arxiv.org/abs/2011.02082).
