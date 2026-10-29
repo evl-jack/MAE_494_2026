@@ -1,7 +1,7 @@
 # Learning reachability on a laptop: accuracy, gradients and control in Air3D
 
 MAE 494 Project 3 — final technical analysis, 28 October 2026.  
-Experiments 1–5 are complete. The 3D final evaluation is complete; 6D results remain development evidence. The outreach and interview are summarized below; the memo remains an unsent draft.
+Experiments 1–5 are complete. The relative-coordinate model was also tested on previously unused states. The joint-coordinate results are development tests used to guide the research; their reserved final test remains unused. The memo is an unsent draft.
 
 ## 1. Outreach and interview
 
@@ -9,19 +9,30 @@ After contacting several ASU researchers whose work involves partial differentia
 
 In our initial email exchange, he suggested exploring Hamilton–Jacobi equations for safe control and DeepReach. I expressed interest in the limitations of PINNs for safety-critical control and how researchers assess the safety of their results. He then suggested a meeting to discuss the topic further.
 
-The interview raised concerns about statistical evidence for safety and the reliability of control directions derived from learned value functions. DeepReach estimates a reachability value function and derives candidate controls from its gradients; the research question is how accurately those gradients support control decisions. Professor Ren also indicated that reproducing DeepReach would be a viable small-scale experiment.
+The interview raised concerns about using statistical evidence to assess safety and about the reliability of steering decisions from a learned model. DeepReach estimates a value function—a score describing the collision margin—and uses its gradients, or local rates of change, to choose turns. My study examines how accurately those predictions support control decisions. Professor Ren also indicated that reproducing DeepReach would be a viable small-scale experiment.
 
 ## 2. Problem brief — DeepReach Air3D replication
 
 **Can formulation, optimization and sampling improve a small reachability model, and do better value predictions lead to better control?**
 
-I reproduced the core [DeepReach](https://arxiv.org/abs/2011.02082) workflow on a CPU laptop using the Air3D collision-avoidance benchmark. A physics-informed neural network (PINN) estimates a value function that describes whether an adversarial pursuer can force a collision. Its sign classifies states; its derivatives determine candidate controls.
+I reproduced the core [DeepReach](https://arxiv.org/abs/2011.02082) method on a CPU laptop using Air3D, a simplified two-vehicle collision-avoidance problem. One vehicle tries to avoid a collision while the other tries to cause one. This represents a worst-case interaction, which is useful when studying safety.
 
-Loss balancing, analytic constraints and additional training improved value accuracy. However, better values and lower physics loss did not consistently improve control. This is a reduced replication and diagnostic study, not a demonstration of paper-scale accuracy or certified safety.
+A physics-informed neural network (PINN) learns from the equations of motion. It predicts a **value function**: a collision-margin score for a starting situation and a chosen look-ahead time. For the ideal solution, a positive value means the evader can maintain separation; a nonpositive value means collision can be forced. Changes in this score also suggest which way to turn.
+
+**Project route: Path B — diagnosis, with tested remedies.** I investigated why the small model was inaccurate, compared possible improvements, and checked whether better predictions led to better steering. The reduced case keeps the difficult connection between predicting safety and choosing a useful action. It leaves out full vehicle dynamics, sensing and real flight.
+
+The study supports specific improvements in value accuracy. It also shows that a lower training error or a better average prediction does not by itself establish reliable control.
 
 ## 3. Minimal case formulation and replication
 
-Two planar vehicles travel at $v=.75$ m/s. The evader chooses turn rate $u$, and the pursuer chooses $d$, with $|u|,|d|\le3$ rad/s. Collision occurs at separation $R=.25$ m; the horizon is $T=.5$ s.
+The vehicles move in a plane at a fixed speed of $v=.75$ m/s. Each can turn at up to 3 rad/s. A collision occurs when their centers are no more than $R=.25$ m apart. The model looks ahead by at most $T=.5$ s.
+
+A **state** describes the vehicles' positions and headings. The model answers two questions: what collision margin is possible from that state, and which turn does its prediction suggest? The equations below specify the game for readers who want the mathematical detail.
+
+<details>
+<summary>Governing equations and control rule — technical detail</summary>
+
+Here $\omega=3$ rad/s is the turn-rate limit.
 
 Relative position and heading in the evader's frame are $s=(x,y,\psi)$:
 
@@ -54,19 +65,21 @@ $$
 
 Value accuracy and the reliability of these gradient-derived controls are evaluated separately.
 
+</details>
+
 ### Network and training
 
-The main networks use three sine hidden layers of width 64, Adam at $10^{-4}$, and 2,048 samples per step, including 256 zero-time points during physics training. Autodiff supplies the derivatives. **Numerical-reference values, gradients and bounds never enter training.**
+The main networks have three layers of 64 units, with sine activations. Each training step checks 2,048 sampled situations, including 256 with no time remaining. Adam is the optimization method used to adjust the network; its learning rate is $10^{-4}$. **Training uses the physics and known collision condition, without numerical-reference answers or gradients.**
 
-The original baseline uses 2,000 terminal-pretraining steps followed by 10,000 expanding-time physics steps. The constrained alternative is
+The original baseline—the starting model—first spends 2,000 steps learning the known answer when no time remains. It then takes 10,000 physics-training steps while gradually increasing the look-ahead interval. Later models build the known condition directly into the output:
 
 $$
 V_\theta(\tau,s)=l(s)-.25(\tau/T)g_\theta(\tau,s)^2.
 $$
 
-This enforces $V(0,s)=l(s)$ and $V\le l$, making terminal-only pretraining unnecessary. It does not enforce heading periodicity, horizon monotonicity or the lower bound $V\ge-R$.
+Here $g_\theta$ is the network's learned correction. This construction guarantees the correct answer at zero look-ahead and prevents the predicted value from exceeding the current collision margin. Separate pretraining for that condition is therefore unnecessary. Other physical consistency checks can still fail, as discussed in Section 7.
 
-The relative network has four inputs and 8,705 parameters. The joint-coordinate extension has seven inputs—time and both vehicles' planar poses—and 8,897 parameters. Its six states reduce exactly to the original three-state game. It tests redundant representation and coordinate consistency, not altitude, full quadrotor flight or a genuinely new six-dimensional interaction.
+The **3D model** uses relative position and heading—three state variables—plus time, with 8,705 adjustable parameters. The **6D model** uses both vehicles' separate positions and headings, plus time, with 8,897 parameters. Both describe the same physical game. The second tests whether extra coordinates make learning harder and whether moving or rotating an equivalent encounter changes the prediction.
 
 ## 4. Baseline and diagnostics — P1–P5
 
@@ -74,36 +87,36 @@ The [assignment diagnostic kit](https://designinformaticslab.github.io/DesignOpt
 
 ### P1 — Conventional baseline
 
-An independent first-order local Lax–Friedrichs solver uses CFL-controlled explicit stepping, target projection, periodic heading and constant spatial boundary extension. Its domain is $[-2,2]^2\times[-\pi,\pi)$; value comparisons use the interior square $[-.6,.6]^2$.
+I compare the network with an independent numerical solver that calculates the solution on a grid. This provides an approximate reference answer. The grid covers $[-2,2]^2$ m in relative position and all headings; comparisons use the smaller interior square $[-.6,.6]^2$ m to reduce boundary effects.
 
-Refinement, expanded-domain, analytic no-turn and frozen-dynamics checks support the reference:
+I checked the reference using finer grids, a larger domain and simplified cases with known behavior. Smaller differences between successive grids increase confidence in the comparison:
 
 | Look-ahead | MAE between 65- and 97-node references [m] | MAE between 97- and 129-node references [m] | Expanded-domain maximum change [m] |
 |---|---:|---:|---:|
 | 0.25 s | 0.003914 | 0.001955 | 0 |
 | 0.5 s | 0.004420 | 0.002206 | 1.11e-16 |
 
-The spatial grids above use 48, 72 and 96 heading nodes. A standalone fine-grid solve took **136.73 s**. The older 696.7 s measurement covers a multi-solve verification suite, not one solve. Reference checks measure numerical sensitivity; they do not certify exact values or derivatives.
+These spatial grids use 48, 72 and 96 heading points. The solver uses local Lax–Friedrichs differences, CFL-controlled time steps, a collision-target constraint and periodic headings; outer spatial values use constant extension. A single fine-grid solve took **136.73 s**. Agreement between grids supports the reference but does not prove it is exact.
 
 ### Metrics and evaluation groups
 
-- **Value MAE:** mean absolute difference from the numerical reference.
-- **Relative L² [%]:**
+- **Value MAE:** average absolute error in the collision-margin score, measured in meters; lower is better.
+- **Relative L² [%]:** overall prediction error relative to the size of the reference values; lower is better. Its definition is
 
 $$
 100\sqrt{\frac{\sum_i(V_\theta(\tau,s_i)-V_{\mathrm{ref}}(\tau,s_i))^2}
 {\sum_i V_{\mathrm{ref}}(\tau,s_i)^2}}\ \%.
 $$
 
-- **IoU:** intersection/union of predicted and reference unsafe regions.
-- **False-safe:** PINN > 0 and reference ≤ 0, divided by the reference-unsafe count.
-- **False-unsafe:** PINN ≤ 0 and reference > 0, divided by the reference-safe count.
+- **IoU:** how closely the predicted unsafe region overlaps the reference unsafe region; higher is better.
+- **False-safe:** the model calls a reference-unsafe state safe, as a percentage of reference-unsafe states.
+- **False-unsafe:** the model calls a reference-safe state unsafe, as a percentage of reference-safe states.
 
-The original 24,000 development states, 24,000 final states, and later 6D development groups are distinct datasets. Four equivalent joint poses share one relative encounter and stay together in bootstrap resampling. Full-box terminal diagnostics also use different samples from interior value comparisons.
+**Development data** were used to compare ideas; **final-test data** were kept separate until the models and test rules were fixed. The two 24,000-state 3D sets and later 6D sets must therefore be reported separately. Four equivalent poses are four placements of the same encounter, not four independent encounters; uncertainty calculations keep them together.
 
 ### P2 — Training-loss components
 
-Terminal and physics losses are logged separately. The soft baseline calibrates its terminal multiplier once and then fixes it. Loss reduction is checked against held-out value error rather than treated as proof of accuracy.
+A **loss** is the error measure used to train the network. I track two components: error against the known zero-time answer (terminal loss), and disagreement with the governing equation (physics loss or residual). The original model sets their relative weighting once. Reference comparisons then check whether lower training loss actually produces better predictions.
 
 ![Baseline separate training-loss history](https://raw.githubusercontent.com/evl-jack/MAE_494_2026/ed8a645c080b8aaf0ac0c0625fc514da7c3cc7e9/outputs/deepreach/experiments/experiment_1/figures/training_history.png)
 
@@ -113,21 +126,21 @@ Terminal and physics losses are logged separately. The soft baseline calibrates 
 
 *Joint-coordinate histories. 4C continues 4B.*
 
-For the constrained models, analytic terminal loss is zero, but zero-time points still contribute to the physics residual. A log plot must handle zero explicitly. Experiment 5's training losses use different sampling distributions, so its models are compared on a common physics audit. Complete component-plot coverage across every candidate remains a reporting task.
+The constrained models have zero terminal-value loss by construction, although zero-time points still enter the physics checks. Zero loss requires special handling on logarithmic axes. Experiment 5 uses a common set of physics-check points because its two training methods sample different situations. Complete component plots for every candidate still need a reporting check.
 
 ### P3 — Difficulty knob and relative L²
 
-The **difficulty knob is evaluation look-ahead $\tau$**, varied from 0 to 0.5 s at 21 points spaced 0.025 s apart, with each model fixed. This tests error growth within the trained horizon, not separately trained horizons or extrapolation.
+The **difficulty knob is look-ahead time $\tau$**: how far into the future the model must assess an encounter. I test 21 times from 0 to 0.5 s, spaced 0.025 s apart, without retraining each model. This shows how accuracy changes farther from the known zero-time answer, within the trained interval.
 
 ![Relative L2 error versus evaluation look-ahead at 21 times](report_assets/project3_final_20261028/source_packet/figures/lookahead.png)
 
 *Original development models: relative L² is on the left; MAE and false-safe rate are alongside it.*
 
-The solver stores direct snapshots without temporal interpolation. Output-aligned time steps change shared reference snapshots by at most 0.00001375 m relative to the original three-time solve.
+The original model's MAE increases from .04230 m at .25 s to .09150 m at .5 s. Longer look-ahead is therefore harder in this comparison. The reference is solved directly at each plotted time. This is not a study of separately trained horizons, and it does not identify a precise failure threshold.
 
 ![Relative L2 and other metrics on the fixed 3D final set](report_assets/project3_20261028/revision2/evidence/evaluation/final_evaluation_20261028/final_comparison.png)
 
-*Separate 3D final evaluation. Long22000 reaches 15.48% relative L² and 0.02008032 m MAE at 0.5 s. These final states are now consumed.*
+*Separate 3D final evaluation. Long22000 reaches 15.48% relative L² and 0.02008032 m MAE—about 2 cm average error in the collision-margin score—at 0.5 s. These states have now been used and are no longer an untouched test resource.*
 
 ### P4 — Error location and spectra
 
@@ -139,7 +152,9 @@ The solver stores direct snapshots without temporal interpolation. Output-aligne
 
 *Spatial and heading spectra for the initial models.*
 
-Spatial spectra use centered, windowed fields; heading spectra remove the mean before a periodic transform. These measures differ from held-out RMSE. Most centered error energy is at lower frequencies, but the spectra alone do not establish spectral bias or a unique cause. Windowing, heading seams and reference diffusion also matter. Three snapshots do not support a time Fourier spectrum, and these plots do not characterize every later network.
+The error maps show **where predictions differ from the reference**. The Fourier spectra show whether those errors mainly vary smoothly or contain rapid spatial/heading changes. Most centered error energy is at lower frequencies, so these plots do not establish an inability to represent fine detail as the main problem.
+
+The spectra remove mean error and use windowing to reduce artificial edge effects; they complement the value metrics. The original plots cover the initial models and three times, so they do not describe every later model or establish how error frequencies vary over time.
 
 ### P5 — Computational cost
 
@@ -151,22 +166,22 @@ Runs used an Intel Core Ultra 7 165U laptop, about 31.45 GiB RAM, CPU-only PyTor
 | Warm single-state value query [µs] | 351.14 | 352.38 |
 | Batch of 1,024: per-state query [µs] | 2.69 | 0.89 |
 
-Queries exclude loading, conversion and gradient/control calculations. Timings are not accuracy-matched. Both models can be cached, so repeated-query cost is
+Here a **query** means asking for one value prediction after setup. Timings exclude loading and steering calculations, and the two methods do not have equal accuracy. Both the network and grid can be saved and reused, so the fair cost comparison is
 
 $$
 T_{\rm train}+Nt_{\rm NN}\quad\text{versus}\quad
 T_{\rm grid\ build}+Nt_{\rm interpolation}.
 $$
 
-The batched grid queries were faster. Near-equal single-state timings produced large, workload-sensitive crossover estimates, not a demonstrated speed advantage. Later models were not all benchmarked under this protocol.
+For batches, the saved grid was faster. The study therefore demonstrates no practical speed advantage for the PINN on this fixed game. Later models were not all timed under the same query protocol.
 
-Experiment 5 matched **2,000 updates per arm**, not total compute: 5R scored 327,680 additional candidates. Recorded run times were 49.138 s for 5U and 49.090 s for 5R; scoring is included. Similar wall times do not imply equal work. Value/reference and rollout evaluation took 157.44 s and 145.96 s respectively, excluding startup and later verification.
+Experiment 5 gives each method **2,000 training updates**. The residual-guided method also scores 327,680 candidate points, so it performs extra work. Recorded run times were 49.138 s for 5U and 49.090 s for 5R, including scoring; this small timing difference does not establish a speedup. Value/reference and simulated-control evaluation took 157.44 s and 145.96 s respectively, excluding startup and later verification.
 
 ## 5. Experiments, research and conclusions
 
 ### Experiments 1–3 — relative-state models
 
-These are development results; final and 6D results are reported separately.
+The first experiments ask whether changing training choices can improve the same small model. The table reports development results; final-test and 6D results use separate datasets.
 
 | Experiment | Change | MAE at .5 s (m) | Interpretation |
 |---|---|---:|---|
@@ -181,9 +196,9 @@ These are development results; final and 6D results are reported separately.
 | 3E | Width-64 model continued to 22,000 updates | .01985 | Best value result in that development comparison |
 | 3E | Fresh width-96 model, 10,000 updates | .02127 | Capacity helped, but not a controlled equal-runtime win |
 
-The original baseline labeled 46.42% of reference-unsafe states safe at 0.5 s. Lower terminal weighting cut MAE by 51.1%; constrained 3A improved it another 41.87%. The constraint comparison also changes initialization and removes pretraining, so it tests a formulation package rather than the output equation alone.
+The original model called 46.42% of reference-unsafe states safe at 0.5 s. Reducing the terminal-loss weight cut MAE by **51.1% without adding training steps**. This controlled comparison supports loss imbalance as a contributing problem. Building known conditions into the output then reduced MAE by another **41.87%**. That change also alters initialization and removes pretraining, so its effects cannot all be assigned to the output equation alone.
 
-Periodic inputs and time mixtures improved selected outliers but worsened overall accuracy. Parameter-gradient probes also reduced physics loss without reliably reducing value error. These findings apply to the tested settings; they do not rule out other encodings, sampling rules or optimizers.
+Other ideas were less successful. Making heading inputs repeat correctly after a full turn, or sampling more later-time situations, improved some large-error cases but worsened overall accuracy. Trial parameter changes also reduced physics loss without reliably improving values. These outcomes show why an appealing idea needs a broad comparison before being adopted.
 
 ### Completed 3D final evaluation
 
@@ -197,19 +212,19 @@ After I froze the models and protocol, evaluation on 24,000 previously unused st
 
 Long22000 reduced MAE **12.61%** versus Adam +200, with a paired 95% sampling interval of **11.93–13.25%**, and improved it at all 20 nonzero horizons. Maximum final-time error remained .26455 m. No false-safe classifications were observed at those horizons, but that does not certify controls or bound error everywhere.
 
-This final set is consumed and was not reused as untouched evidence for later 6D work.
+These results confirm an improvement on new states in the same game. The final set has now been used and cannot serve as fresh evidence for later changes.
 
 ### Experiment 4 — joint coordinates and control
 
-On the same grouped 6D development encounters, MAE was .08695 m for soft-output 4A, .02631 m for exact-output 4B, and .02573 m for its longer continuation, 4C. Formulation improved MAE **69.75%**; additional training improved it **2.19%**. The fixed 3D Long model was more accurate on these encounters at .01943 m.
+On the same grouped 6D development encounters, MAE was .08695 m for soft-output 4A, .02631 m for exact-output 4B, and .02573 m for its longer continuation, 4C. 4A and 4B each use 10,000 physics updates; 4A also uses 2,000 pretraining updates. 4C continues 4B to 22,000 physics updates. Formulation improved MAE **69.75%**; additional training improved it **2.19%**. The fixed 3D Long model was more accurate on these encounters at .01943 m.
 
-Equivalent rotations and translations could still change joint-model predictions. Gradient and rollout tests found local turning failures despite strong aggregate agreement. Reference refinement supported a displaced learned switching transition, while also exposing uncertainty in numerical derivatives. Large local residuals flagged the difficult region but did not reliably distinguish correct from incorrect turns, motivating Experiment 5.
+Moving or rotating an otherwise identical encounter could still change the joint model's answer. Simulations also found situations where it chose the wrong turn, despite good average gradient agreement. Local checks suggested that its change from one turning direction to the other occurred in the wrong place. The physics loss flagged the difficult region, but did not reliably identify which turns were wrong. This motivated a sampling test.
 
 ### Experiment 5 — uniform versus residual-guided sampling
 
-Both branches inherited 4C's weights, Adam state and base sampling state, adding 2,000 updates to reach 24,000. Uniform 5U retained random sampling. Mixed 5R replaced 25% of nonterminal points with residual-bank samples; 40 refreshes scored 327,680 candidates.
+Both methods continue the same 4C model and optimizer state for 2,000 updates, reaching 24,000 total. **5U** keeps uniform random sampling. **5R** replaces 25% of the nonterminal samples with situations where the current physics error is high. Its selection bank is refreshed 40 times, scoring 327,680 candidates. Neither method uses reference answers in training.
 
-Evaluation used **6,000 new development groups**, four poses each, at 21 horizons:
+Evaluation uses **6,000 new development encounters**, each placed in four equivalent poses, at 21 look-ahead times:
 
 | Model | MAE at .5 s (m) | Improvement over 4C | Contacts vs reference pursuer on 628 reference-safe poses |
 |---|---:|---:|---:|
@@ -217,35 +232,35 @@ Evaluation used **6,000 new development groups**, four poses each, at 21 horizon
 | 5U: uniform | .02284501 | 10.19% | 8 |
 | 5R: residual-guided | .02277261 | 10.48% | 8 |
 
-5R's MAE advantage was **0.3169%**, with a paired 95% group-sampling interval of **−0.2478% to +0.8802%**. This establishes neither superiority nor equivalence. Both continuations helped values, but the residual-bank rule offered no clear overall advantage.
+Both methods improve value accuracy by about 10%. However, 5R's advantage over 5U is only **0.3169%**, with a paired 95% sampling interval of **−0.2478% to +0.8802%**. Because the interval spans either method winning, the study establishes no clear sampling advantage; it also does not prove the methods equivalent.
 
-5R improved late residuals and some residual tails, but was worse than 5U on average common-domain residual, evader turn-sign agreement, pose consistency and heading aliases. Neither repaired the known initial-turn error.
+5R reduces some large and later-time physics errors. But 5U performs better on average physics error, evader turning decisions and consistency across equivalent poses/headings. Neither fixes the known initial-turn error.
 
 ![Experiment 5 values, classification and equivalent-pose spread](report_assets/project3_final_20261028/source_packet/figures/experiment5.png)
 
-The seven-policy rollout matrix covered **78,400 trajectories** at two time steps. All learned models had eight contacts on the same 628 reference-safe poses against the reference pursuer; halving the time step changed none of these outcomes. The learned models initially labeled those failed states unsafe.
+The control test simulates the vehicles using seven steering policies at two control intervals, covering **78,400 trajectories**. Against the reference pursuer, all three learned models collide in eight of the same 628 reference-safe starting poses. Halving the control interval does not change those outcomes. Those eight contacts are two underlying encounters in four poses each. The learned models had already labeled those starting states unsafe.
 
-The approximate reference controller also collided in **four poses**, reaching .24521 m separation despite positive initial values from both grids. This exposes reference-feedback uncertainty rather than proving an exact winning strategy fails. Saved controls reproduced the rollout results on replay.
+The numerical-reference controller also collides in **four poses**, reaching .24521 m separation despite positive initial values from both grids. The four poses represent one underlying encounter. Its value predictions and feedback are therefore imperfect too. Replaying the saved controls reproduces the results; resolving the reference failure remains future work.
 
 ### Conclusions
 
-The main finding is that **better values, lower physics loss and reliable control are different goals**.
+**The study produced useful improvements and a clear limit: better average predictions did not guarantee better steering.**
 
-- Loss balancing and analytic constraints improved accuracy before increasing physics updates.
-- Additional training helped selected models, including the completed 3D final evaluation.
-- Residual-guided sampling showed no clear advantage over uniform sampling and did not reduce primary collisions.
+- **Formulation mattered:** changing loss weights and enforcing known physical conditions substantially improved value accuracy before adding physics-training steps.
+- **More training helped the selected models:** the 3D improvement carried over to previously unused states.
+- **The tested sampling change was not a clear improvement:** its small value advantage was uncertain, and collision counts were unchanged.
 
-I would conclude this study and retain **5U as the simpler 6D baseline**. **Long22000 remains the best confirmed 3D value result.** Neither is a universal winner across datasets and metrics.
+I recommend retaining **5U as the simpler 6D comparison model** because the extra sampling mechanism showed no clear benefit. **Long22000 is the best confirmed 3D value model in this study.** The evidence supports further research on learned reachability, but not using these models as a safety assurance system.
 
-Future work should first resolve the reference-feedback collision, then test targeted control/representation changes across seeds. The **reserved 6D final set remains unused**. Genuinely higher-dimensional games, reference-supervised training and real-world flight require separate studies.
+Next, resolve the numerical-reference collision before designing another steering or representation change, then check findings across training seeds. The **reserved 6D final set remains unused**. More complex games and real-world flight require separate validation.
 
 ## 6. Reproducibility and evidence
 
 The [evidence register](report_assets/project3_final_20261028/source_packet/evidence.json) records source paths, hashes and headline metrics. The [archived analysis](report_assets/project3_final_20261028/source_packet/REPORT.md) and [reproduction guide](report_assets/project3_final_20261028/source_packet/REPRODUCIBILITY.md) retain full methods. Register paths refer to the original project root.
 
-Experiment 5 [training records](report_assets/project3_final_20261028/evidence/experiments_6d/experiment_5_sampling/TRAINING_RESULTS.md), [evaluation](report_assets/project3_final_20261028/evidence/experiments_6d/experiment_5_sampling/evaluation/README.md), and [methodology](report_assets/project3_final_20261028/evidence/experiments_6d/experiment_5_sampling/evaluation/METHODOLOGY.md) include protocols and verification. Checks recomputed saved metrics and replayed 5.88 million control updates; they do not independently certify scientific conclusions.
+Experiment 5 [training records](report_assets/project3_final_20261028/evidence/experiments_6d/experiment_5_sampling/TRAINING_RESULTS.md), [evaluation](report_assets/project3_final_20261028/evidence/experiments_6d/experiment_5_sampling/evaluation/README.md), and [methodology](report_assets/project3_final_20261028/evidence/experiments_6d/experiment_5_sampling/evaluation/METHODOLOGY.md) include protocols and verification. Checks recalculated the saved measurements and replayed 5.88 million control updates. They verify the records, not a safety guarantee.
 
-Large arrays, checkpoints and complete source snapshots remain local. A portable runnable archive still needs assembly. [Earlier detailed reports](https://github.com/evl-jack/MAE_494_2026/blob/5461fdf9d07c7a170a6b1803a585fc2a1b1994b3/Project_3.md) remain available; their next-step statements are historical.
+Large arrays, checkpoints and complete source snapshots remain local. A portable runnable archive still needs assembly. The [recommendation memo draft](report_assets/project3_final_20261028/source_packet/RECOMMENDATION_MEMO.md) is available separately and remains unsent. [Earlier detailed reports](https://github.com/evl-jack/MAE_494_2026/blob/5461fdf9d07c7a170a6b1803a585fc2a1b1994b3/Project_3.md) remain available; their next-step statements are historical.
 
 ## 7. Assumptions and limitations
 
@@ -258,9 +273,9 @@ Large arrays, checkpoints and complete source snapshots remain local. A portable
 ### Limitations
 
 - **Approximate reference:** grid resolution, interpolation and feedback discretization affect values and controls. The reference controller also collided in one tested encounter, so it is not a safety guarantee.
-- **Limited generalization:** most configurations use one training seed. Bootstrap intervals cover sampled-state variation, not training-seed or solver uncertainty. Development groups informed the research; the 3D final set is consumed, and the 6D final set remains unused.
+- **Limited generalization:** most configurations use one training seed, or random training setup. Sampling intervals measure variation across evaluation states, not across training seeds or reference solvers. Development encounters guided the research; the 3D final test has been used, and the 6D final test remains unused.
 - **Incomplete causal isolation:** some comparisons change initialization, pretraining or compute alongside the intended modification. They do not identify a universal cause of error.
-- **Control and constraints:** exact terminal/obstacle conditions do not enforce periodicity, horizon monotonicity or the lower value bound. Finite-policy rollouts leave unresolved failures and cannot establish safety against every allowed pursuer action.
+- **Control and consistency:** the built-in conditions do not guarantee matching answers for equivalent headings, nonincreasing values with longer look-ahead, or the separate lower value bound. Simulations test a finite set of steering policies and leave unresolved failures.
 - **Scope of claims:** no uniform error bound, paper-scale accuracy, real-world flight validation or accuracy-matched speed advantage is established.
 
 ## References
