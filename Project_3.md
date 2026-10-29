@@ -1,9 +1,22 @@
 # Learning reachability on a laptop: accuracy, gradients and control in Air3D
 
 MAE 494 Project 3 — final technical analysis, 28 October 2026.  
-Experiments 1–5 are complete. The 3D final evaluation is complete; 6D results remain development evidence. Outreach is omitted, and the memo is an unsent draft.
+Experiments 1–5 are complete. The 3D final evaluation is complete; 6D results remain development evidence. The outreach record below is awaiting details; the memo remains an unsent draft.
 
-## 1. Problem brief — DeepReach Air3D replication
+## 1. Outreach and interview
+
+*To complete from my outreach and interview records.*
+
+| Item | Details |
+|---|---|
+| Researcher contacted | To add |
+| How I found and contacted the researcher | To add |
+| Contact and interview dates; meeting format | To add |
+| Researcher's problem and computational challenges | To add |
+| Interview outcome and connection to this project | To add |
+| Researcher's review of the problem brief | To confirm |
+
+## 2. Problem brief — DeepReach Air3D replication
 
 **Can formulation, optimization and sampling improve a small reachability model, and do better value predictions lead to better control?**
 
@@ -11,7 +24,7 @@ I reproduced the core [DeepReach](https://arxiv.org/abs/2011.02082) workflow on 
 
 Loss balancing, analytic constraints and additional training improved value accuracy. However, better values and lower physics loss did not consistently improve control. This is a reduced replication and diagnostic study, not a demonstration of paper-scale accuracy or certified safety.
 
-## 2. Minimal case formulation and replication
+## 3. Minimal case formulation and replication
 
 Two planar vehicles travel at $v=.75$ m/s. The evader chooses turn rate $u$, and the pursuer chooses $d$, with $|u|,|d|\le3$ rad/s. Collision occurs at separation $R=.25$ m; the horizon is $T=.5$ s.
 
@@ -60,7 +73,7 @@ This enforces $V(0,s)=l(s)$ and $V\le l$, making terminal-only pretraining unnec
 
 The relative network has four inputs and 8,705 parameters. The joint-coordinate extension has seven inputs—time and both vehicles' planar poses—and 8,897 parameters. Its six states reduce exactly to the original three-state game. It tests redundant representation and coordinate consistency, not altitude, full quadrotor flight or a genuinely new six-dimensional interaction.
 
-## 3. Baseline and diagnostics — P1–P5
+## 4. Baseline and diagnostics — P1–P5
 
 The [assignment diagnostic kit](https://designinformaticslab.github.io/DesignOptimization2025/project3.html#pinn-pino-diagnostic-kit-required) organizes the evaluation. The conventional baseline is the numerical solver; the original PINN baseline is Experiment 1.
 
@@ -154,7 +167,7 @@ The batched grid queries were faster. Near-equal single-state timings produced l
 
 Experiment 5 matched **2,000 updates per arm**, not total compute: 5R scored 327,680 additional candidates. Recorded run times were 49.138 s for 5U and 49.090 s for 5R; scoring is included. Similar wall times do not imply equal work. Value/reference and rollout evaluation took 157.44 s and 145.96 s respectively, excluding startup and later verification.
 
-## 4. Experiments, research and conclusions
+## 5. Experiments, research and conclusions
 
 ### Experiments 1–3 — relative-state models
 
@@ -231,7 +244,7 @@ I would conclude this study and retain **5U as the simpler 6D baseline**. **Long
 
 Future work should first resolve the reference-feedback collision, then test targeted control/representation changes across seeds. The **reserved 6D final set remains unused**. Genuinely higher-dimensional games, reference-supervised training and real-world flight require separate studies.
 
-## 5. Reproducibility and evidence
+## 6. Reproducibility and evidence
 
 The [evidence register](report_assets/project3_final_20261028/source_packet/evidence.json) records source paths, hashes and headline metrics. The [archived analysis](report_assets/project3_final_20261028/source_packet/REPORT.md) and [reproduction guide](report_assets/project3_final_20261028/source_packet/REPRODUCIBILITY.md) retain full methods. Register paths refer to the original project root.
 
@@ -239,7 +252,7 @@ Experiment 5 [training records](report_assets/project3_final_20261028/evidence/e
 
 Large arrays, checkpoints and complete source snapshots remain local. A portable runnable archive still needs assembly. [Earlier detailed reports](https://github.com/evl-jack/MAE_494_2026/blob/5461fdf9d07c7a170a6b1803a585fc2a1b1994b3/Project_3.md) remain available; their next-step statements are historical.
 
-## 6. Assumptions and limitations
+## 7. Assumptions and limitations
 
 ### Assumptions
 
