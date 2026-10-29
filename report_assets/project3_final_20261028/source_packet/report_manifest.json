@@ -1,0 +1,16 @@
+{
+  "status": "report packet prepared; numerical and link checks passed",
+  "files": {
+    "evidence.json": "a38eb6bbaa13104fbc6ce8c92ac8a19cedb31095c8f2d1f269b0c07ede4da605",
+    "figures\\experiment5.png": "e452a277788683f7bcfe604803b64207594fc54476fd3915a888efae2e0c5349",
+    "figures\\lookahead.png": "cba069e13d4fee0a825544e47d095f88fa397219d5d93511736c994a6d8d633a",
+    "figures\\spectra.png": "7debce92291ec254acc1ec38c829b20243bace18fca779bd8f5b6a5b7e42d2ac",
+    "RECOMMENDATION_MEMO.md": "048c36843b58899310faf73682859d47f1c2ddbc03cde8bc245784658bd64aeb",
+    "REPORT.md": "92b90f2333578b6b581b2728bddf741e352b8e98090c565c0f280de21b8ac8fa",
+    "REPRODUCIBILITY.md": "e216018feae4261f7d3ed5e84d3392cd68ac262e13016a5631e51c718f54378c",
+    "verify_report.py": "69339f105d1bc1a7b185ea0269df30d35729a1994acae6865a6a9edec70ece86"
+  },
+  "new_training": false,
+  "new_evaluation": false,
+  "memo_sent": false
+}

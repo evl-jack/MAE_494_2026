@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "independent_model_objects": true,
+  "initial_model_and_adam_states_equal": true,
+  "initial_base_sampler_states_equal": true,
+  "additional_updates": 0,
+  "parent_step": 22000
+}

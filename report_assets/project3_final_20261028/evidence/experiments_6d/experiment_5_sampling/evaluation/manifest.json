@@ -1,0 +1,134 @@
+{
+  "status": "completed grouped development evaluation",
+  "training": false,
+  "optimizer_created": false,
+  "parameter_updates": 0,
+  "old_final_states_queried": false,
+  "future_final_seed_used": false,
+  "protected_inputs_unchanged": true,
+  "protocol_sha256": "f9631271a84486207ce0873d957c7dd4b6155a098222afcf549a066aa932932a",
+  "source_hashes": {
+    "evaluate_comparison.py": "7ee723d6764122b40433dec77501011a4c35537ce2d34d2f61411d32d1a5b441",
+    "evaluate.py": "a513e8ba9e7bcad396bd6ee16b6f4f1070bb18bca702960e89d04b33f61eeca1",
+    "rollouts.py": "72d6cfd548cbf2ec0ac1796566b34dad24f9eb04e6acf4c9edb78648d4c44978",
+    "network.py": "07f95e3e5ada96373b243d4d8dca4b55362763b5cd2416af672d597a9fd7eb59",
+    "train.py": "0d309cdd1d429ab94a4d9a98e1501c972c2e26f49ac8bec731a2f538a8ed8698",
+    "runner.py": "2118953b921ba7b36c2ba80b44d39e38be3fa38d5ff07e49854192c137af1be8",
+    "sampler.py": "c0b37947ed5b838d8ffb4bb77d72d27146206e46874fb79e89ed9cafee6f02d8",
+    "joint6d.py": "b0734c017847e6d5783357ed1291bfa7150f73e4e0a258b5ffec366bb69fc0de",
+    "reference.py": "9d47292d61389539b4a6677249bf17e4dc38315bf49c5864bcfcb7d9d505ea32",
+    "deepreach.py": "830e2e0544f5b1d9fab80d59217e50b5fba0a6b7c0c91e536343d2123d5d016a",
+    "validate.py": "827ff3fbf99e0bfc2b22e6d760a9f257201a8e2ca4d47f6f431d5dc104d64169"
+  },
+  "seconds": 157.44145649997517,
+  "execution": "managed process with main project interpreter; not VS Code debugger",
+  "relative_groups": 6000,
+  "joint_queries_per_horizon": 24000,
+  "final_metrics": [
+    {
+      "model": "4C",
+      "time": 0.5,
+      "mae": 0.02543784607494833,
+      "rmse": 0.04179220642099413,
+      "max_abs": 0.1755546715523629,
+      "iou": 0.7888422315536893,
+      "disagreement_fraction": 0.058666666666666666,
+      "false_safe_fraction_of_reference_unsafe": 0.0,
+      "false_safe_fraction_of_all": 0.0,
+      "false_unsafe_fraction_of_reference_safe": 0.07513340448239061,
+      "reference_unsafe_count": 5260,
+      "total_count": 24000,
+      "false_safe_count": 0,
+      "false_unsafe_count": 1408,
+      "bias": -0.025384767798412387,
+      "p99_abs": 0.130319774387163,
+      "relative_l2": 0.17393150369411725
+    },
+    {
+      "model": "5U",
+      "time": 0.5,
+      "mae": 0.022845007856072058,
+      "rmse": 0.03817080071558503,
+      "max_abs": 0.1868052748894684,
+      "iou": 0.8039125783279841,
+      "disagreement_fraction": 0.05345833333333333,
+      "false_safe_fraction_of_reference_unsafe": 0.0,
+      "false_safe_fraction_of_all": 0.0,
+      "false_unsafe_fraction_of_reference_safe": 0.0684631803628602,
+      "reference_unsafe_count": 5260,
+      "total_count": 24000,
+      "false_safe_count": 0,
+      "false_unsafe_count": 1283,
+      "bias": -0.022733994100465553,
+      "p99_abs": 0.11460687760716229,
+      "relative_l2": 0.15885987685816622
+    },
+    {
+      "model": "5R",
+      "time": 0.5,
+      "mae": 0.022772610597329115,
+      "rmse": 0.0381662015715093,
+      "max_abs": 0.1731884510376138,
+      "iou": 0.8065010732904018,
+      "disagreement_fraction": 0.052583333333333336,
+      "false_safe_fraction_of_reference_unsafe": 0.0,
+      "false_safe_fraction_of_all": 0.0,
+      "false_unsafe_fraction_of_reference_safe": 0.06734258271077909,
+      "reference_unsafe_count": 5260,
+      "total_count": 24000,
+      "false_safe_count": 0,
+      "false_unsafe_count": 1262,
+      "bias": -0.02270389679697794,
+      "p99_abs": 0.1226217349202004,
+      "relative_l2": 0.1588407360634271
+    }
+  ],
+  "bootstrap": [
+    {
+      "old": "5U",
+      "new": "5R",
+      "mae_reduction": 7.239725874294209e-05,
+      "relative_improvement_percent": 0.3169062545264101,
+      "mae_reduction_95_interval": [
+        -5.7614531379812474e-05,
+        0.00020089768564715565
+      ],
+      "relative_improvement_percent_95_interval": [
+        -0.24784123388660922,
+        0.8801989276804308
+      ],
+      "scope": "Group sampling only; conditional on trained models and approximate reference. No training-seed or reference-grid uncertainty."
+    },
+    {
+      "old": "4C",
+      "new": "5U",
+      "mae_reduction": 0.0025928382188762714,
+      "relative_improvement_percent": 10.19283712637033,
+      "mae_reduction_95_interval": [
+        0.0024467250253377274,
+        0.00274778210933843
+      ],
+      "relative_improvement_percent_95_interval": [
+        9.656330103193728,
+        10.74225140859349
+      ],
+      "scope": "Group sampling only; conditional on trained models and approximate reference. No training-seed or reference-grid uncertainty."
+    },
+    {
+      "old": "4C",
+      "new": "5R",
+      "mae_reduction": 0.0026652354776192135,
+      "relative_improvement_percent": 10.477441642529584,
+      "mae_reduction_95_interval": [
+        0.002492351738356842,
+        0.002832294826133063
+      ],
+      "relative_improvement_percent_95_interval": [
+        9.856227640158922,
+        11.07425218653595
+      ],
+      "scope": "Group sampling only; conditional on trained models and approximate reference. No training-seed or reference-grid uncertainty."
+    }
+  ],
+  "closed_loop_rollouts_performed": false
+}

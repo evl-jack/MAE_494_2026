@@ -1,0 +1,94 @@
+{
+  "local": [
+    {
+      "model": "4C",
+      "known_region": true,
+      "points": 16884,
+      "stable_count": 16060,
+      "stable_turn_sign_agreement": 0.6284557907845579,
+      "value_mae_vs_193": 0.06542640389503109
+    },
+    {
+      "model": "5U",
+      "known_region": true,
+      "points": 16884,
+      "stable_count": 16060,
+      "stable_turn_sign_agreement": 0.6404109589041096,
+      "value_mae_vs_193": 0.052881658185491405
+    },
+    {
+      "model": "5R",
+      "known_region": true,
+      "points": 16884,
+      "stable_count": 16060,
+      "stable_turn_sign_agreement": 0.6208592777085927,
+      "value_mae_vs_193": 0.06675651445477898
+    }
+  ],
+  "initial": [
+    {
+      "model": "4C",
+      "values": [
+        -0.07315680384635925,
+        -0.075375497341156,
+        -0.04049143195152283,
+        -0.07919412851333618
+      ],
+      "evader_coefficients": [
+        0.17995381355285645,
+        0.18789230287075043,
+        0.14684180915355682,
+        0.2005363255739212
+      ],
+      "initial_evader_turns": [
+        3.0,
+        3.0,
+        3.0,
+        3.0
+      ]
+    },
+    {
+      "model": "5U",
+      "values": [
+        -0.04312536120414734,
+        -0.049490123987197876,
+        -0.06426525115966797,
+        -0.039921969175338745
+      ],
+      "evader_coefficients": [
+        0.14137570559978485,
+        0.13684003055095673,
+        0.18527370691299438,
+        0.16738900542259216
+      ],
+      "initial_evader_turns": [
+        3.0,
+        3.0,
+        3.0,
+        3.0
+      ]
+    },
+    {
+      "model": "5R",
+      "values": [
+        -0.07045367360115051,
+        -0.0775189995765686,
+        -0.06463345885276794,
+        -0.05498480796813965
+      ],
+      "evader_coefficients": [
+        0.22376635670661926,
+        0.2247803807258606,
+        0.17469611763954163,
+        0.2581467926502228
+      ],
+      "initial_evader_turns": [
+        3.0,
+        3.0,
+        3.0,
+        3.0
+      ]
+    }
+  ],
+  "scope": "Secondary known-case diagnostic. Refined reference remains approximate; no new rollout here."
+}

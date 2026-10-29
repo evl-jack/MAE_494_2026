@@ -1,0 +1,62 @@
+[
+  {
+    "model": "4C",
+    "time": 0.25,
+    "six_gradient_component_mae": 0.03455752554533709,
+    "reference_coarse_fine_component_mae": 0.005313655297402595,
+    "mean_gradient_cosine": 0.9950622288388913,
+    "nonzero_cosine_count": 24000,
+    "translation_identity_mean_norm": 0.002172518987208605,
+    "rotation_identity_mean_abs": 0.005923910277217537
+  },
+  {
+    "model": "4C",
+    "time": 0.5,
+    "six_gradient_component_mae": 0.052342053513746614,
+    "reference_coarse_fine_component_mae": 0.006682248357571556,
+    "mean_gradient_cosine": 0.9871769229448877,
+    "nonzero_cosine_count": 24000,
+    "translation_identity_mean_norm": 0.0033396435901522636,
+    "rotation_identity_mean_abs": 0.010196919287393129
+  },
+  {
+    "model": "5U",
+    "time": 0.25,
+    "six_gradient_component_mae": 0.0343204139943981,
+    "reference_coarse_fine_component_mae": 0.005313655297402595,
+    "mean_gradient_cosine": 0.9949791825950546,
+    "nonzero_cosine_count": 24000,
+    "translation_identity_mean_norm": 0.0023989228066056967,
+    "rotation_identity_mean_abs": 0.004773457300533877
+  },
+  {
+    "model": "5U",
+    "time": 0.5,
+    "six_gradient_component_mae": 0.04872396393256197,
+    "reference_coarse_fine_component_mae": 0.006682248357571556,
+    "mean_gradient_cosine": 0.9863180984178698,
+    "nonzero_cosine_count": 24000,
+    "translation_identity_mean_norm": 0.004081569146364927,
+    "rotation_identity_mean_abs": 0.008537418108880987
+  },
+  {
+    "model": "5R",
+    "time": 0.25,
+    "six_gradient_component_mae": 0.03396632276565744,
+    "reference_coarse_fine_component_mae": 0.005313655297402595,
+    "mean_gradient_cosine": 0.994592006509399,
+    "nonzero_cosine_count": 24000,
+    "translation_identity_mean_norm": 0.0022497365716844797,
+    "rotation_identity_mean_abs": 0.006951587076779103
+  },
+  {
+    "model": "5R",
+    "time": 0.5,
+    "six_gradient_component_mae": 0.048687355162642616,
+    "reference_coarse_fine_component_mae": 0.006682248357571556,
+    "mean_gradient_cosine": 0.986432019470851,
+    "nonzero_cosine_count": 24000,
+    "translation_identity_mean_norm": 0.003797941841185093,
+    "rotation_identity_mean_abs": 0.010324063410260341
+  }
+]

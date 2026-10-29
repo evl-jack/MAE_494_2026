@@ -1,0 +1,23 @@
+[
+  {
+    "model": "4C",
+    "terminal_max_abs": 1.0099897396198543e-07,
+    "maximum_obstacle_violation": 1.0099897396198543e-07,
+    "below_minus_radius_fraction": 0.002958333333333333,
+    "temporal_increase_fraction": 0.139125
+  },
+  {
+    "model": "5U",
+    "terminal_max_abs": 1.0099897396198543e-07,
+    "maximum_obstacle_violation": 1.0099897396198543e-07,
+    "below_minus_radius_fraction": 0.0021666666666666666,
+    "temporal_increase_fraction": 0.15458125
+  },
+  {
+    "model": "5R",
+    "terminal_max_abs": 1.0099897396198543e-07,
+    "maximum_obstacle_violation": 1.0099897396198543e-07,
+    "below_minus_radius_fraction": 0.0026666666666666666,
+    "temporal_increase_fraction": 0.14856875
+  }
+]

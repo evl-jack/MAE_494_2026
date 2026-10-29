@@ -1,0 +1,60 @@
+{
+  "status": "passed",
+  "frozen_preparation_unchanged": true,
+  "parent_checkpoint_unchanged": true,
+  "both_completed_fixed_budgets": true,
+  "inherited_adam_steps_advanced_exactly": true,
+  "paired_base_sampler_end_states_identical": true,
+  "endpoints_differ": true,
+  "logged_terminal_error_zero": true,
+  "all_weights_optimizer_and_logs_finite": true,
+  "runs": {
+    "5U": {
+      "status": "completed",
+      "mode": "uniform",
+      "additional_updates": 2000,
+      "cumulative_physics_updates": 24000,
+      "train_point_evaluations": 4096000,
+      "scored_candidates": 0,
+      "bank_refreshes": 0,
+      "update_seconds": 41.79689860192593,
+      "candidate_scoring_seconds": 0.0,
+      "sampling_seconds": 0.7439771951176226,
+      "selection_seconds": 0.0,
+      "run_wall_seconds": 49.13755580002908,
+      "timing_scope": "run() entry through final checkpoint/history save; excludes Python import and debugger startup",
+      "parent": {
+        "path": "C:\\Users\\jackf\\Documents\\Codex\\2026-10-19\\deepreach-project-3\\outputs\\deepreach\\experiments_6d\\runs\\4C\\checkpoint.pt",
+        "sha256": "55cd53461dc8ea02c03f801494050ebdf126b2f97b6c0198284cc70e530e7706",
+        "step": 22000,
+        "inherited_update_seconds": 771.5802447909955
+      },
+      "checkpoint_sha256": "29c18b5faf315f8062f536979f288c6506d359bfb72ba0de89d980ed10246c8b",
+      "execution": "VS Code Run and Debug; main project interpreter and output"
+    },
+    "5R": {
+      "status": "completed",
+      "mode": "mixed",
+      "additional_updates": 2000,
+      "cumulative_physics_updates": 24000,
+      "train_point_evaluations": 4096000,
+      "scored_candidates": 327680,
+      "bank_refreshes": 40,
+      "update_seconds": 40.36603459727485,
+      "candidate_scoring_seconds": 1.6131692002527416,
+      "sampling_seconds": 2.8538369006710127,
+      "selection_seconds": 0.45806689898017794,
+      "run_wall_seconds": 49.089690599939786,
+      "timing_scope": "run() entry through final checkpoint/history save; excludes Python import and debugger startup",
+      "parent": {
+        "path": "C:\\Users\\jackf\\Documents\\Codex\\2026-10-19\\deepreach-project-3\\outputs\\deepreach\\experiments_6d\\runs\\4C\\checkpoint.pt",
+        "sha256": "55cd53461dc8ea02c03f801494050ebdf126b2f97b6c0198284cc70e530e7706",
+        "step": 22000,
+        "inherited_update_seconds": 771.5802447909955
+      },
+      "checkpoint_sha256": "dcdba3e718e3a62e1f76f2aeb8d5303a2273ac6fb15f5d0bb912c59bebd4ca93",
+      "execution": "VS Code Run and Debug; main project interpreter and output"
+    }
+  },
+  "accuracy_evaluation": "pending; training losses use different distributions"
+}

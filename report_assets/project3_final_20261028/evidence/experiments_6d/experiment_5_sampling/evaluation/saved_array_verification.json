@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "value_metric_rows_recomputed": 63,
+  "gradient_rows_recomputed": 6,
+  "switching_rows_recomputed": 72,
+  "physics_rows_recomputed": 6,
+  "bootstrap_intervals_recomputed": true,
+  "rollout_subset_and_safe_mask_verified": true,
+  "rollout_metric_rows_checked": 294,
+  "saved_control_updates_replayed": 5880000,
+  "replays": [
+    {
+      "dt": 0.01,
+      "final_states_and_distance_bounds_bitwise_equal": true
+    },
+    {
+      "dt": 0.005,
+      "final_states_and_distance_bounds_bitwise_equal": true
+    }
+  ],
+  "protected_inputs_unchanged": true,
+  "training": false,
+  "parameter_updates": 0
+}

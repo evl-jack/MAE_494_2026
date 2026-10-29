@@ -1,0 +1,35 @@
+{
+  "status": "passed",
+  "experimental_training_started": false,
+  "disposable_optimizer_updates": 27,
+  "fixtures_deleted": true,
+  "paired_uniform_suffix_and_terminal_rows": true,
+  "independent_candidate_selection_streams": true,
+  "top_residual_selection_and_stable_ties": true,
+  "bank_bounds_and_no_duplicate_selection": true,
+  "sampler_replay_across_refreshes": true,
+  "bitwise_model_adam_sampler_resume_both_modes": true,
+  "inherited_adam_state_preserved": true,
+  "invalid_settings_scores_schema_protocol_and_mode_rejected": true,
+  "actual_parent_dry_check": {
+    "optimizer_created": false,
+    "parameter_updates": 0,
+    "candidates_scored": 8192,
+    "bank_size": 1024,
+    "hard_rows": 448,
+    "unchanged_common_rows": 1600,
+    "scoring_seconds": 0.04697390005458146,
+    "parent_sha256": "55cd53461dc8ea02c03f801494050ebdf126b2f97b6c0198284cc70e530e7706",
+    "weights_unchanged": true
+  },
+  "protected_inputs_unchanged": true,
+  "old_final_states_queried": false,
+  "source_hashes": {
+    "runner.py": "2118953b921ba7b36c2ba80b44d39e38be3fa38d5ff07e49854192c137af1be8",
+    "sampler.py": "c0b37947ed5b838d8ffb4bb77d72d27146206e46874fb79e89ed9cafee6f02d8",
+    "network.py": "07f95e3e5ada96373b243d4d8dca4b55362763b5cd2416af672d597a9fd7eb59",
+    "train.py": "0d309cdd1d429ab94a4d9a98e1501c972c2e26f49ac8bec731a2f538a8ed8698",
+    "joint6d.py": "b0734c017847e6d5783357ed1291bfa7150f73e4e0a258b5ffec366bb69fc0de"
+  },
+  "check_source_sha256": "dfba3e656ac2acba005918f4d09f154c174ed3ca4cb46219d3487b29f0c99883"
+}

@@ -1,0 +1,50 @@
+[
+  {
+    "model": "4C",
+    "subset": "all",
+    "count": 8192,
+    "mean_abs_residual": 0.012502307072281837,
+    "p99_abs_residual": 0.1580606399476529,
+    "max_abs_residual": 0.6648992300033569
+  },
+  {
+    "model": "4C",
+    "subset": "late_tau_ge_0.4",
+    "count": 1666,
+    "mean_abs_residual": 0.02189464308321476,
+    "p99_abs_residual": 0.24629684686660697,
+    "max_abs_residual": 0.6648992300033569
+  },
+  {
+    "model": "5U",
+    "subset": "all",
+    "count": 8192,
+    "mean_abs_residual": 0.011918489821255207,
+    "p99_abs_residual": 0.14162197858095224,
+    "max_abs_residual": 0.7582843899726868
+  },
+  {
+    "model": "5U",
+    "subset": "late_tau_ge_0.4",
+    "count": 1666,
+    "mean_abs_residual": 0.021444180980324745,
+    "p99_abs_residual": 0.23909102678298816,
+    "max_abs_residual": 0.7582843899726868
+  },
+  {
+    "model": "5R",
+    "subset": "all",
+    "count": 8192,
+    "mean_abs_residual": 0.01295093260705471,
+    "p99_abs_residual": 0.13530626624822634,
+    "max_abs_residual": 0.7018046379089355
+  },
+  {
+    "model": "5R",
+    "subset": "late_tau_ge_0.4",
+    "count": 1666,
+    "mean_abs_residual": 0.020153233781456947,
+    "p99_abs_residual": 0.19611417800187908,
+    "max_abs_residual": 0.7018046379089355
+  }
+]

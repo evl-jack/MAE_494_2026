@@ -1,0 +1,50 @@
+[
+  {
+    "model": "4C",
+    "actor": "pursuer",
+    "count": 4937,
+    "mean_abs_alias_gap": 0.003919039387255907,
+    "max_abs_alias_gap": 0.03351569175720215,
+    "classification_disagreement": 0.008102086287218958
+  },
+  {
+    "model": "4C",
+    "actor": "evader",
+    "count": 2380,
+    "mean_abs_alias_gap": 0.018082156777381897,
+    "max_abs_alias_gap": 0.2184072732925415,
+    "classification_disagreement": 0.0365546218487395
+  },
+  {
+    "model": "5U",
+    "actor": "pursuer",
+    "count": 4937,
+    "mean_abs_alias_gap": 0.0027808835729956627,
+    "max_abs_alias_gap": 0.040551409125328064,
+    "classification_disagreement": 0.004658699615150901
+  },
+  {
+    "model": "5U",
+    "actor": "evader",
+    "count": 2380,
+    "mean_abs_alias_gap": 0.016252348199486732,
+    "max_abs_alias_gap": 0.24171721935272217,
+    "classification_disagreement": 0.02773109243697479
+  },
+  {
+    "model": "5R",
+    "actor": "pursuer",
+    "count": 4937,
+    "mean_abs_alias_gap": 0.00407472625374794,
+    "max_abs_alias_gap": 0.054854944348335266,
+    "classification_disagreement": 0.006076564715414219
+  },
+  {
+    "model": "5R",
+    "actor": "evader",
+    "count": 2380,
+    "mean_abs_alias_gap": 0.019294951111078262,
+    "max_abs_alias_gap": 0.2246926873922348,
+    "classification_disagreement": 0.037815126050420166
+  }
+]
