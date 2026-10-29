@@ -40,8 +40,8 @@ $$
 For the ideal solution, $V\le0$ identifies states where collision can be forced. Candidate feedback is
 
 $$
-u^*=\omega\operatorname{sign}(yp_x-xp_y-p_\psi),\qquad
-d^*=-\omega\operatorname{sign}(p_\psi).
+u^*=\omega\mathrm{sign}(yp_x-xp_y-p_\psi),\qquad
+d^*=-\omega\mathrm{sign}(p_\psi).
 $$
 
 Value accuracy and the reliability of these gradient-derived controls are evaluated separately.
