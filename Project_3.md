@@ -1,4 +1,4 @@
-# Learning reachability on a laptop: accuracy, gradients and control in Air3D
+# Small Case Learning reachability: accuracy, gradients and control in Air3D
 
 MAE 494 Project 3 — final technical analysis, 28 October 2026.  
 Experiments 1–5 are complete. The relative-coordinate model was also tested on previously unused states. The joint-coordinate results are development tests used to guide the research; their reserved final test remains unused. The memo is an unsent draft.
