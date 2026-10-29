@@ -7,14 +7,7 @@ Experiments 1–5 are complete. The 3D final evaluation is complete; 6D results 
 
 *To complete from my outreach and interview records.*
 
-| Item | Details |
-|---|---|
-| Researcher contacted | To add |
-| How I found and contacted the researcher | To add |
-| Contact and interview dates; meeting format | To add |
-| Researcher's problem and computational challenges | To add |
-| Interview outcome and connection to this project | To add |
-| Researcher's review of the problem brief | To confirm |
+After contancting several ASU reaserchers whose work allign closly with partial differential equations, I contacted Proffesor Ren on Monday the 19th, 2026. Dr. Yi Ren works with differential games, Optimal Control, and Physics informed training for neural networks. In our inital discussion via email it was brought up that I should look into a Hamiltonian PDE for safe control and DeepReach. I presented my intrest in the limitations of a Physics Informed Neural Network used to model safe control and the ways reserchers ensured safe results, to which Dr Ren suggested a meeting to further discus the topic. During the interveiw the it was discussed that DeepReach used statitical methods which where not favorable. It was also brought up that the DeepReach Network was only able to establish if a state was safe or not safe. The actual direction was still left to be figured out. Dr Ren mentioned that being able to reproduce DeepReach would be a viable small scale experiment.
 
 ## 2. Problem brief — DeepReach Air3D replication
 
