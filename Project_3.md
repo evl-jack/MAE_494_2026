@@ -1,13 +1,15 @@
 # Learning reachability on a laptop: accuracy, gradients and control in Air3D
 
 MAE 494 Project 3 — final technical analysis, 28 October 2026.  
-Experiments 1–5 are complete. The 3D final evaluation is complete; 6D results remain development evidence. The outreach record below is awaiting details; the memo remains an unsent draft.
+Experiments 1–5 are complete. The 3D final evaluation is complete; 6D results remain development evidence. The outreach and interview are summarized below; the memo remains an unsent draft.
 
 ## 1. Outreach and interview
 
-*To complete from my outreach and interview records.*
+After contacting several ASU researchers whose work involves partial differential equations, I contacted Professor Yi Ren on Monday, October 19, 2026. His work includes differential games, optimal control and physics-informed neural networks.
 
-After contancting several ASU reaserchers whose work allign closly with partial differential equations, I contacted Proffesor Ren on Monday the 19th, 2026. Dr. Yi Ren works with differential games, Optimal Control, and Physics informed training for neural networks. In our inital discussion via email it was brought up that I should look into a Hamiltonian PDE for safe control and DeepReach. I presented my intrest in the limitations of a Physics Informed Neural Network used to model safe control and the ways reserchers ensured safe results, to which Dr Ren suggested a meeting to further discus the topic. During the interveiw the it was discussed that DeepReach used statitical methods which where not favorable. It was also brought up that the DeepReach Network was only able to establish if a state was safe or not safe. The actual direction was still left to be figured out. Dr Ren mentioned that being able to reproduce DeepReach would be a viable small scale experiment.
+In our initial email exchange, he suggested exploring Hamilton–Jacobi equations for safe control and DeepReach. I expressed interest in the limitations of PINNs for safety-critical control and how researchers assess the safety of their results. He then suggested a meeting to discuss the topic further.
+
+The interview raised concerns about statistical evidence for safety and the reliability of control directions derived from learned value functions. DeepReach estimates a reachability value function and derives candidate controls from its gradients; the research question is how accurately those gradients support control decisions. Professor Ren also indicated that reproducing DeepReach would be a viable small-scale experiment.
 
 ## 2. Problem brief — DeepReach Air3D replication
 
