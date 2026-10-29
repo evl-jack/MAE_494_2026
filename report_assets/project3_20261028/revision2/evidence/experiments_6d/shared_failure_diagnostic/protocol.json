@@ -1,0 +1,177 @@
+{
+  "status": "frozen before new reference solves, trace queries or interventions",
+  "date": "2026-10-28",
+  "case": "Development group 603, selected because it failed both 4C and 3D_Long; post-hoc diagnostic, not independent validation",
+  "group_id": 603,
+  "poses": 4,
+  "models": [
+    "4C",
+    "3D_Long"
+  ],
+  "control_time_steps": [
+    0.01,
+    0.005
+  ],
+  "variants": [
+    {
+      "id": "learned",
+      "mode": "learned",
+      "duration": 0.0
+    },
+    {
+      "id": "initial_turn_5ms",
+      "mode": "initial_turn",
+      "duration": 0.005
+    },
+    {
+      "id": "initial_turn_10ms",
+      "mode": "initial_turn",
+      "duration": 0.01
+    },
+    {
+      "id": "initial_turn_25ms",
+      "mode": "initial_turn",
+      "duration": 0.025
+    },
+    {
+      "id": "initial_turn_50ms",
+      "mode": "initial_turn",
+      "duration": 0.05
+    },
+    {
+      "id": "initial_turn_100ms",
+      "mode": "initial_turn",
+      "duration": 0.1
+    },
+    {
+      "id": "feedback_prefix_5ms",
+      "mode": "feedback_prefix",
+      "duration": 0.005
+    },
+    {
+      "id": "feedback_prefix_10ms",
+      "mode": "feedback_prefix",
+      "duration": 0.01
+    },
+    {
+      "id": "feedback_prefix_25ms",
+      "mode": "feedback_prefix",
+      "duration": 0.025
+    },
+    {
+      "id": "feedback_prefix_50ms",
+      "mode": "feedback_prefix",
+      "duration": 0.05
+    },
+    {
+      "id": "feedback_prefix_100ms",
+      "mode": "feedback_prefix",
+      "duration": 0.1
+    },
+    {
+      "id": "reference_all",
+      "mode": "reference_all",
+      "duration": 0.5
+    }
+  ],
+  "primary": "At dt=.005 compare learned baseline with a 5ms constant initial-reference-turn prefix; then return to unchanged learned policy",
+  "secondary": "All fixed prefix durations, reference-feedback prefixes, four poses and dt sensitivity; no adaptive duration search",
+  "pursuer": "Same fine-reference feedback throughout each actual trajectory, reevaluated at every control event",
+  "prefix_initial_turn": "Hold u equal to the fine reference initial sign at the original state, not recomputed within prefix",
+  "prefix_feedback": "Use fine reference evader feedback on current state within prefix, then learned feedback",
+  "full_reference": "Reference feedback throughout; diagnostic network values still recorded on its trajectory",
+  "reference_grids": [
+    [
+      97,
+      97,
+      72
+    ],
+    [
+      129,
+      129,
+      96
+    ]
+  ],
+  "reference_times": [
+    0.0,
+    0.025,
+    0.05,
+    0.07500000000000001,
+    0.1,
+    0.125,
+    0.15000000000000002,
+    0.17500000000000002,
+    0.2,
+    0.225,
+    0.25,
+    0.275,
+    0.30000000000000004,
+    0.325,
+    0.35000000000000003,
+    0.375,
+    0.4,
+    0.42500000000000004,
+    0.45,
+    0.47500000000000003,
+    0.5
+  ],
+  "time_interpolation": "Central grid gradients and values spatially interpolated, linearly blended between time planes; approximate reference",
+  "events": "Add the exact prefix-end time to the controller grid if needed; the primary 5ms prefix is aligned with dt=.005",
+  "integration": "Unchanged exact constant-turn arc and nine within-interval samples plus relative-speed lower distance bound",
+  "derivatives": "Initial learned evader/pursuer coefficients checked with double-precision central finite differences at eps 1e-5 on physical joint headings",
+  "traces": "Time, time remaining, joint state, learned/coarse/fine values and both switching coefficients, actual controls, separation and contact bounds",
+  "coefficient_margins": [
+    0.005,
+    0.01,
+    0.02
+  ],
+  "limitations": "One deliberately selected failure, fixed approximate pursuer, not a learned correction or causal identification of a training defect",
+  "training": false,
+  "parameter_updates": 0,
+  "old_final_states_queried": false,
+  "future_final_seed_used": false,
+  "threads": 2,
+  "source_hashes": {
+    "diagnose_shared_failure.py": "d5c1b23da32ac7c199c08bb1e1e8d3ebe556a7eec8f50fc9e226d470ee74cd3d",
+    "rollouts.py": "72d6cfd548cbf2ec0ac1796566b34dad24f9eb04e6acf4c9edb78648d4c44978",
+    "evaluate.py": "a513e8ba9e7bcad396bd6ee16b6f4f1070bb18bca702960e89d04b33f61eeca1",
+    "network.py": "07f95e3e5ada96373b243d4d8dca4b55362763b5cd2416af672d597a9fd7eb59",
+    "deepreach.py": "830e2e0544f5b1d9fab80d59217e50b5fba0a6b7c0c91e536343d2123d5d016a",
+    "reference.py": "9d47292d61389539b4a6677249bf17e4dc38315bf49c5864bcfcb7d9d505ea32",
+    "joint6d.py": "b0734c017847e6d5783357ed1291bfa7150f73e4e0a258b5ffec366bb69fc0de"
+  },
+  "protected_inputs": {
+    "experiments\\experiment_3_d_refinement\\adam\\checkpoint_200.pt": "d803ad0c33811dd89f64157e0f546f294f1fd7609213f5778dae398d7bb83147",
+    "experiments\\experiment_3_d_refinement\\adam\\checkpoint_800.pt": "a10929c354d28d8109c7f187371d28603fc0f810c67a10d6ce4b01cafac3d29c",
+    "experiments\\experiment_3_d_refinement\\plain_gradient\\checkpoint_200.pt": "9538904a6c6ae7c4a20ec723314e5b67b2fe8caced7e284452cdbc5d14df0d1d",
+    "experiments\\experiment_3_d_refinement\\second_moment_scaled\\checkpoint_200.pt": "d72c85c5b9343630386735142982cf8e0589589b4e826190f425b0d07354efad",
+    "experiments_6d\\runs\\4A\\checkpoint.pt": "9f6baf59d6fe6e44e3100d6e36fdf13d4c044f8a82f4f15f6775caeeeb3ecc0c",
+    "experiments_6d\\runs\\4B\\checkpoint.pt": "169488aa121b8cd1ce1497471e0530e7a601fcc34a660e3257dac22e4432810a",
+    "experiments_6d\\runs\\4C\\checkpoint.pt": "55cd53461dc8ea02c03f801494050ebdf126b2f97b6c0198284cc70e530e7706",
+    "runs\\air3d_cpu_20261022\\checkpoint.pt": "4b7c44caa643bc5b7145edcfc57dc325ef9915372a52023c2a6e865e09055e8d",
+    "runs\\air3d_smoke_20261022\\checkpoint.pt": "d8dc0ab79419fcf6ca280e2ace8a67ce7a1a00d32f17fc2899784a25900ea76b",
+    "runs\\experiment_2_a_loss_20261022\\checkpoint.pt": "78b5efd83e9023a2089b13a524a26b60084df9746a750f453e6abfd7592ebbac",
+    "runs\\experiment_2_b_sampling_20261022\\checkpoint.pt": "4a9db6ba6b5a4fc83ebbe0b10a588c02ac830d4d639703bbada1222c150a2e42",
+    "runs\\experiment_2_c_hold_20261022\\checkpoint.pt": "5f1c41f8903325db05e8963edb0a6b370e2e71f33a77f5996ab05a4b7ccb8a1c",
+    "runs\\experiment_3_a_constraints\\checkpoint.pt": "44d19503406e4339fda5376c1074a20e5bf2c3508085af9f47d159e9858d8b62",
+    "runs\\experiment_3_b_periodic\\checkpoint.pt": "e18ff2c9733eb93c226e3e0eb03578cafefc9725695dc1e6045ec001faa42ac0",
+    "runs\\experiment_3_c_time_sampling\\checkpoint.pt": "2ef5c97491ad35dd5b436507f65352e56ee91485e9af86537a77b4e9c8000f95",
+    "runs\\experiment_3_e_long64\\checkpoint.pt": "92ffc1e8c2bb3c17b871716932db94a86dc3c098181fabf60842fcf191414393",
+    "runs\\experiment_3_e_long64\\checkpoint_10200.pt": "4e5fb8b23e9a8711f550d8ec6ad076ba610736da126998d201160b3e828d7364",
+    "runs\\experiment_3_e_long64\\checkpoint_10800.pt": "fa5424fd329359f80b7bc44137f24603540d767fd2c8966e691e8759d9219254",
+    "runs\\experiment_3_e_long64\\checkpoint_12000.pt": "94634d8ae525b4886ae89f12f078ca82e3bd2be1357ac3ba5abb9e8843887c11",
+    "runs\\experiment_3_e_long64\\checkpoint_16000.pt": "089094897ab29fbffe4a27bf5c14a9fef61e899d25d03a8301e801de9560905a",
+    "runs\\experiment_3_e_long64\\checkpoint_22000.pt": "92ffc1e8c2bb3c17b871716932db94a86dc3c098181fabf60842fcf191414393",
+    "runs\\experiment_3_e_wide96\\checkpoint.pt": "b603527cde8eb1d9797c461548fb5a294dccd601d4572f7353906060d47ac01c",
+    "runs\\experiment_3_e_wide96\\checkpoint_10000.pt": "b603527cde8eb1d9797c461548fb5a294dccd601d4572f7353906060d47ac01c",
+    "runs\\air3d_cpu_20261022\\validation\\resume_test_continuous\\checkpoint.pt": "10d5fbcccb3ca549f5866089724d7d00d5c5ba28130900f6eb9bbcf3c2fdf898",
+    "runs\\air3d_cpu_20261022\\validation\\resume_test_split\\checkpoint.pt": "6c1577a16268edc3fa08217356ebc8723fcf1fcbec6669ece08bf5e01ad6d2aa",
+    "evaluation\\reserved_final_states\\states.npz": "f902bb08c7fe93d7a6275048e9cc41ddf2f4819be2f9a600597ae1d5666280c6",
+    "experiments_6d\\development_evaluation\\development_states.npz": "3b6d07a8da343546f92165af0831ccf260273365aec486cf3169dfb883b6c75d",
+    "experiments_6d\\development_evaluation\\reference_values.npz": "10629839cd76abe9d8bc5eba004f16cc6d34698208cdf8b213dd82e5534c3390",
+    "experiments_6d\\development_evaluation\\reference_gradients.npz": "ae5dfe170543810d26889dafa5df506e3dfe217a4d842205c292828f5105f925",
+    "experiments_6d\\closed_loop_evaluation\\initial_states.npz": "8d10e49df68bc4f2f9069a5ce39208f97e6dd8dd78e7f3c10f77f248ca9db202",
+    "experiments_6d\\closed_loop_evaluation\\rollouts_dt_0.005.npz": "14fb5454bd0944f60a78402b256238606d5715ecaac1edb82e8defadbe213005",
+    "experiments_6d\\closed_loop_evaluation\\rollouts_dt_0.010.npz": "8f54fb3ca164e24d96efbebfedd9142bfdbc208c9813aee60c9d6ceaf581648e"
+  }
+}

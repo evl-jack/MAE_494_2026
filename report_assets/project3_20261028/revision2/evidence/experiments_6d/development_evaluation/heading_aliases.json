@@ -1,0 +1,50 @@
+[
+  {
+    "model": "4A",
+    "actor": "pursuer",
+    "count": 4782,
+    "mean_abs_alias_gap": 0.07343333214521408,
+    "max_abs_alias_gap": 0.23163393139839172,
+    "classification_disagreement": 0.14199079882894186
+  },
+  {
+    "model": "4A",
+    "actor": "evader",
+    "count": 2426,
+    "mean_abs_alias_gap": 0.029983332380652428,
+    "max_abs_alias_gap": 0.12554997205734253,
+    "classification_disagreement": 0.05935696619950536
+  },
+  {
+    "model": "4B",
+    "actor": "pursuer",
+    "count": 4782,
+    "mean_abs_alias_gap": 0.005875452421605587,
+    "max_abs_alias_gap": 0.07175236940383911,
+    "classification_disagreement": 0.010874111250522794
+  },
+  {
+    "model": "4B",
+    "actor": "evader",
+    "count": 2426,
+    "mean_abs_alias_gap": 0.026469599455595016,
+    "max_abs_alias_gap": 0.3015015423297882,
+    "classification_disagreement": 0.05935696619950536
+  },
+  {
+    "model": "4C",
+    "actor": "pursuer",
+    "count": 4782,
+    "mean_abs_alias_gap": 0.003596861846745014,
+    "max_abs_alias_gap": 0.03245256841182709,
+    "classification_disagreement": 0.006273525721455458
+  },
+  {
+    "model": "4C",
+    "actor": "evader",
+    "count": 2426,
+    "mean_abs_alias_gap": 0.018820198252797127,
+    "max_abs_alias_gap": 0.2576337158679962,
+    "classification_disagreement": 0.036685902720527616
+  }
+]

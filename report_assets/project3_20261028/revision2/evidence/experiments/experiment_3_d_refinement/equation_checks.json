@@ -1,0 +1,37 @@
+[
+  {
+    "model": "3A",
+    "terminal_max_abs": 9.382063814733499e-08,
+    "max_obstacle_violation": 9.382063814733499e-08,
+    "checkpoint_reload": true,
+    "evaluation_weights_unchanged": true
+  },
+  {
+    "model": "adam_200",
+    "terminal_max_abs": 9.382063814733499e-08,
+    "max_obstacle_violation": 9.382063814733499e-08,
+    "checkpoint_reload": true,
+    "evaluation_weights_unchanged": true
+  },
+  {
+    "model": "adam_800",
+    "terminal_max_abs": 9.382063814733499e-08,
+    "max_obstacle_violation": 9.382063814733499e-08,
+    "checkpoint_reload": true,
+    "evaluation_weights_unchanged": true
+  },
+  {
+    "model": "plain_gradient_200",
+    "terminal_max_abs": 9.382063814733499e-08,
+    "max_obstacle_violation": 9.382063814733499e-08,
+    "checkpoint_reload": true,
+    "evaluation_weights_unchanged": true
+  },
+  {
+    "model": "second_moment_scaled_200",
+    "terminal_max_abs": 9.382063814733499e-08,
+    "max_obstacle_violation": 9.382063814733499e-08,
+    "checkpoint_reload": true,
+    "evaluation_weights_unchanged": true
+  }
+]

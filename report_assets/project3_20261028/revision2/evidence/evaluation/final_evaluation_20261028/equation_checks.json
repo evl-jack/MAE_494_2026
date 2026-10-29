@@ -1,0 +1,23 @@
+[
+  {
+    "model": "3A",
+    "terminal_max_abs": 8.362456449528821e-08,
+    "maximum_obstacle_violation": 8.362456449528821e-08,
+    "weights_unchanged": true,
+    "no_parameter_gradients": true
+  },
+  {
+    "model": "Adam200",
+    "terminal_max_abs": 8.362456449528821e-08,
+    "maximum_obstacle_violation": 8.362456449528821e-08,
+    "weights_unchanged": true,
+    "no_parameter_gradients": true
+  },
+  {
+    "model": "Long22000",
+    "terminal_max_abs": 8.362456449528821e-08,
+    "maximum_obstacle_violation": 8.362456449528821e-08,
+    "weights_unchanged": true,
+    "no_parameter_gradients": true
+  }
+]

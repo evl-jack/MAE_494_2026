@@ -1,6 +1,6 @@
 # MAE 494 — Project 3: DeepReach Air3D Reproduction
 
-> Technical report revised October 28, 2026. Outreach and interview documentation are omitted in this revision. The report emphasizes the problem, minimal replication, P1–P5 diagnostics, and completed research. Reproducibility, the recommendation memo and final presentation polish remain later tasks. Research status is the previously reviewed October 28 snapshot; this structural revision adds no results.
+> Technical report revised October 28, 2026 — second research update. P1–P5 precede experiments. Includes completed 3D refinements/final evaluation and 6D value, gradient, rollout and failure diagnostics. Experiment 5 remains in preparation at the source-review cutoff. Outreach and the memo remain deferred.
 
 ## 1. Problem brief — replicating DeepReach on Air3D
 
@@ -10,7 +10,7 @@ The evader chooses a bounded turn rate to avoid collision; the pursuer chooses i
 
 A conventional grid solver supplies an approximate numerical reference for this fixed three-state game. Grids become expensive as state dimension grows, motivating neural reachability methods. This reduced replication does not demonstrate that a PINN is faster or more accurate than a cached grid on Air3D; its measured comparison appears under P1 and P5.
 
-The immediate goal is to reproduce and diagnose the small PINN, then learn as much as possible from that scale before enlarging the network or adding reference supervision. The researcher's broader interest in gradient-based safe control motivates the application, while the completed study measures values, residuals and classifications. It does not establish closed-loop collision avoidance or certified safety.
+The immediate goal is to reproduce and diagnose the small PINN, then learn as much as possible from that scale before enlarging the network or adding reference supervision. The researcher's broader interest in gradient-based safe control motivates the application. The completed study now covers scalar values, gradients, turning choices and finite closed-loop development tests, including a remaining failure. It does not establish certified safety.
 
 ## 2. Minimal case formulation — reduced Air3D replication
 
@@ -64,6 +64,16 @@ V(0,s) = l(s)
 ```
 
 For the ideal solution, V<=0 identifies states from which collision can be forced despite optimal evasion. Controls derived from a learned approximation are candidates and are not certified safe.
+
+### Joint-coordinate extension — the same game in six states
+
+Experiment 4 trains a fresh network on z=(xp,yp,θp,xe,ye,θe), with time remaining as its seventh input. Each vehicle obeys xdot=v cos θ, ydot=v sin θ and a bounded heading rate. The target is the pursuer–evader distance minus R. Absolute-position boundaries are sampling limits, not physical walls.
+
+The Hamiltonian is the sum of both vehicles' translational gradient terms plus Ω|V_θe|−Ω|V_θp|. Candidate inputs are u=Ω sign(V_θe) for the evader and d=−Ω sign(V_θp) for the pursuer.
+
+Rotate the pursuer–evader displacement into the evader frame and use ψ=θp−θe to recover the original three-state Air3D equations. This exact physical reduction allows evaluation with the checked **3D numerical solver** and mapped derivatives; no 6D grid is claimed. The raw-joint neural network does not apply that reduction internally, allowing its translation/rotation/heading inconsistencies to be measured.
+
+The same 0.5 s look-ahead knob and physical parameters are retained. The extension adds redundant coordinates, not altitude or full-flight dynamics. Its values are evaluated on independent relative-configuration groups with four equivalent poses each. Training remains physics-only; numerical values, gradients and reference-derived bounds do not enter updates.
 
 ### Neural solver and comparison workflow
 
@@ -134,7 +144,13 @@ The baseline records terminal and physics losses separately; terminal pretrainin
 
 *Training-loss diagnostic. Saved baseline history; this measures training batches, not the held-out reference error in P3.*
 
-For 3A–3C, the analytic terminal condition is exact by construction, so the analytic terminal loss is identically zero and has zero training weight. Zero-time coordinates still contribute to the physics residual. Logarithmic plots must handle a zero terminal term explicitly rather than inventing a positive value.
+For 3A–3E and 4B/4C, the analytic terminal condition is exact by construction, so the analytic terminal loss is identically zero and has zero training weight. Zero-time coordinates still contribute to the physics residual. Logarithmic plots must handle a zero terminal term explicitly rather than inventing a positive value.
+
+The later 6D training histories separate the soft-terminal 4A baseline from the constrained 4B/4C runs:
+
+![6D terminal and physics training histories](report_assets/project3_20261028/revision2/evidence/experiments_6d/training_history.png)
+
+*Training histories are not value-error or controller-safety measurements. 4C continues 4B rather than starting an independent fresh run.*
 
 The per-run histories are preserved in the experiment workspace. Full component-plot coverage and log-axis presentation across every candidate remain a reporting check; this revision does not claim that a single baseline figure completes that work for all runs.
 
@@ -151,6 +167,12 @@ The evaluation was extended to 21 direct reference snapshots at 0.025 s spacing 
 The 21-time solve stores direct snapshots rather than interpolating values in time. Its shortened output-aligned Euler steps introduce a maximum shared-snapshot difference of 0.00001375 m relative to the original three-time solve. This small difference is recorded rather than treating the two reference runs as numerically identical.
 
 Relative L² is a normalized aggregate value error, not a sign-classification rate. Its denominator is the reference-value L² norm on the same states at that time. The original three-time and newer 21-time results support the measured growth in error with look-ahead; no precise collapse threshold is claimed.
+
+The later frozen final evaluation also reports relative L² versus the same look-ahead knob. This curve uses **different, previously reserved states** and is not overlaid as if it were the development set:
+
+![Relative L2 across horizons on the frozen 3D final set](report_assets/project3_20261028/revision2/evidence/evaluation/final_evaluation_20261028/final_comparison.png)
+
+*Final-set Long22000 relative L² is 15.48% at 0.5 s; see Section 4.7 for protocol, independence and residual limitations. The 6D grouped comparison in Section 4.8 uses a third evaluation dataset.*
 
 ### P4 — Where the error occurs: fields and Fourier spectra
 
@@ -189,6 +211,8 @@ For this fixed game, compare training plus repeated network queries with one gri
 3A–3C recorded training times of 220.28, 339.46 and 203.98 s respectively. They were not included in the original warm-inference benchmark. Their update budgets and execution differences are retained in Section 4; equal updates do not imply equal computation or wall time.
 
 [Timing protocol and complete records](report_assets/project3_20261028/evidence/diagnostics_20261027/README.md)
+
+Later compute records: 3E compares duration and width with an approximate work proxy rather than equal wall time. 4C has 22,000 cumulative physics updates and 771.6 s cumulative update time, including its 4B parent. Its closed-loop study reports control intervals and trajectory counts separately. These later workloads do not retroactively establish an inference speedup or a matched 3D/6D cost benchmark.
 
 ### Diagnostic coverage and remaining limits
 
@@ -360,7 +384,7 @@ Frozen-checkpoint diagnostics found strong physics-loss parameter gradients on t
 
 Final-time-only physics-loss gradients can locally oppose lower reference value error. Full-training-distribution gradients and hypothetical saved-Adam directions behave differently. These parameter gradients study optimization, not the reliability of spatial value gradients for drone controls. Reference-error gradients were evaluation-only: they did not update weights.
 
-Twenty-four thousand fresh final-evaluation states were reserved. At the reviewed cutoff, no predictions or reference labels had been generated for them.
+At this earlier learning-signal stage, 24,000 fresh final-evaluation states were reserved without predictions or labels. They were subsequently used under the frozen final protocol in Section 4.7 and are now consumed.
 
 [Learning-signal diagnostic](report_assets/project3_20261028/evidence/experiments/experiment_3_a/learning_signals/README.md)
 
@@ -384,25 +408,157 @@ Audit physics loss decreased 10.78%; final-horizon value MAE decreased 2.90%. No
 
 [Probe protocol, costs and results](report_assets/project3_20261028/evidence/experiments/experiment_3_a/step_direction_probe/README.md)
 
-### 4.5 Findings and limitations
+### 4.5 Experiment 3D — short refinement and follow-up diagnostics
 
-**Current working baseline: Experiment 3A.** Loss reweighting improved the original soft-output model; imposing the analytic terminal/obstacle construction improved values and sign classifications further. Periodic inputs and the specified time mixture removed or reduced particular defects without improving overall accuracy. The evidence favors judging each proposed change across the full domain and both sign-error rates.
+**Question and design.** Could finite-step probes justify a better sequential optimizer? Starting from identical 3A checkpoints, compare continued Adam at +200 and +800 updates with plain/scaled directions using step selection for 200 updates. Extra physics-loss assessments and gradient costs are recorded separately.
 
-The remaining outliers have strong learning signals. Local physics-loss descent and reference-error descent need not agree, and neither a generally broken Adam optimizer nor a unique causal explanation has been established. Frozen finite-step probes motivate the separate refinement comparison now being prepared/run in the main chat.
+| Endpoint | Development MAE at 0.5 s [m] | Audit physics loss | MAE improvement over 3A |
+|---|---:|---:|---:|
+| Original 3A | 0.02602121 | 0.00841644 | — |
+| **Adam +200** | **0.02281836** | 0.00817238 | **12.31%** |
+| Adam +800 | 0.02501950 | 0.00734407 | 3.85% |
+| Plain direction +200, step selection | 0.02496357 | 0.00576398 | 4.06% |
+| Scaled direction +200, step selection | 0.02515615 | **0.00566352** | 3.32% |
 
-All trained comparisons remain single-seed and development-data based. The numerical reference is approximate. Exact imposed output properties do not imply accurate values, valid lower bounds, time monotonicity, accurate control gradients or closed-loop collision avoidance. Full-scale/6D transfer and certified safety remain unestablished.
+**Finding.** Adam +200 was the strongest value-accuracy endpoint in this trial. The step-selected methods reduced audit loss by about 32%, but value MAE improved only 3–4%. Adam +800 reduced physics loss further than +200 while producing worse value accuracy. These fixed endpoints do not establish an optimal stopping time or universal optimizer ranking.
 
+Follow-up frozen diagnostics attributed about 94% of the controlled audit-loss reduction to points outside the smaller value-comparison square. Interior residuals also improved, but less. At the Adam +200 checkpoint, none of 72 geometry/time-weighted probes improved final-time MAE. All 160 optimizer-history probes reduced audit physics loss but none improved final-time MAE; removing momentum did not eliminate this local mismatch. These are local parameter-learning diagnostics, not evidence of an accuracy ceiling.
 
-### 4.6 Work in progress at the reporting cutoff
+[3D results and budget](report_assets/project3_20261028/revision2/evidence/experiments/experiment_3_d_refinement/RESULTS.md) · [Geometry/time probes](report_assets/project3_20261028/revision2/evidence/experiments/experiment_3_d_refinement/geometry_horizon_probe/README.md) · [Optimizer-history probes](report_assets/project3_20261028/revision2/evidence/experiments/experiment_3_d_refinement/optimizer_history_probe/README.md)
 
-On October 28 the experiment chat began a short refinement comparison from 3A: 200 steps for continued Adam and two directions with step-size control, with Adam also planned through 800 steps to help account for extra selection evaluations. Evaluation counts and wall-clock time are to be reported separately. **No completed refinement result is included in this update.** The status is a dated snapshot of the main chat, not a new experiment launched here.
+### 4.6 Experiment 3E — duration versus capacity
 
-### 4.7 Proposed work — not completed results
+**Question and design.** Does deliberately increasing compute improve beyond Adam +200? Compare width 64 continued to 22,000 total physics steps with a fresh width-96 model at 10,000 steps. The two new endpoints are within 1% under a nominal linear-layer MAC proxy, not exact training FLOPs or wall time. Width changes initialization and parameter count; continuation adds full-horizon exposure.
 
-- Complete and assess the already-authorized refinement in the experiment chat, including its additional selection cost.
-- Use the reserved final states only after choosing a protocol; repeat seeds before claiming generalization.
-- Evaluate spatial value gradients, derived controls and closed-loop encounters separately.
-- Treat lower-bound enforcement, trajectory/costate consistency, further training choices, scale-up and reference supervision as separate future options.
+| Model | Parameters | Total physics steps | Development MAE [m] | Relative L² [%] | IoU | False-unsafe [%] |
+|---|---:|---:|---:|---:|---:|---:|
+| Adam +200 | 8,705 | 10,200 | 0.02281836 | 17.23 | 0.817 | 6.318 |
+| **Long64 / Long22000** | 8,705 | 22,000 | **0.01985405** | **15.47** | **0.846** | **5.148** |
+| Wide96 | 19,201 | 10,000 | 0.02126600 | 15.96 | 0.832 | 5.693 |
+
+All three have zero observed false-safe cases at nonzero development horizons. Long64 improves final-time MAE 12.99% over Adam +200, and Wide96 improves it 6.80%. Cumulative recorded training times were 417.68 s for Long64 and 604.37 s for Wide96; Long64 includes the historical parent time. Newly executed continuation took 197.40 s. These conditions do not support a controlled hardware-efficiency claim.
+
+**Interpretation.** More training and capacity both helped in these runs; the longer narrow model was strongest overall. The trajectory was not monotonic: MAE worsened to 0.02564849 m at 12,000 steps and was 0.02320025 m at 16,000 before improving at 22,000. Local probes therefore did not establish a training ceiling. No result proves that more compute is strictly necessary, that every increase helps, or that 22,000 is optimal.
+
+[3E measured results](report_assets/project3_20261028/revision2/evidence/experiments/experiment_3_e_capacity_budget/RESULTS.md)
+
+### 4.7 Frozen final evaluation — new states, separate from development
+
+After fixing checkpoint hashes, solver, metrics and protocol, the three selected width-64 models were evaluated on the **24,000 previously reserved states** at all 21 horizons. No training, tuning or further model selection occurred. The final set is now **consumed** and cannot be described as untouched in future work.
+
+| Fixed model | Final-set MAE [m] | Relative L² [%] | IoU | False-unsafe / reference-safe [%] |
+|---|---:|---:|---:|---:|
+| Original 3A | 0.02628533 | 19.17 | 0.79701 | 7.008 |
+| Adam +200 | 0.02297716 | 17.25 | 0.81636 | 6.190 |
+| **Long22000** | **0.02008032** | **15.48** | **0.84239** | **5.149** |
+
+Long22000 improves final-time MAE **12.61%** over Adam +200; the paired 95% bootstrap interval is **11.93%–13.25%**. MAE improves at all 20 nonzero horizons. The interval covers state-sampling uncertainty conditional on these models and the reference, not training-seed or solver uncertainty.
+
+There were zero observed false-safe cases at nonzero horizons. The final-time denominators are 5,179 reference-unsafe and 18,821 reference-safe states, distinct from the development set. Long22000's maximum absolute error is still 0.26455 m; lower-bound and time-monotonicity violations remain. The improvement generalizes to these new states in the same fixed game, not to arbitrary dynamics or safe controls.
+
+![Frozen final evaluation: relative L2, values and classifications across look-ahead](report_assets/project3_20261028/revision2/evidence/evaluation/final_evaluation_20261028/final_comparison.png)
+
+*Final-evaluation graph, kept separate from development curves and tables. The states are paired across models and recur across horizons.*
+
+[Final protocol, bootstrap and results](report_assets/project3_20261028/revision2/evidence/evaluation/final_evaluation_20261028/README.md)
+
+### 4.8 Experiment 4 — joint-coordinate 6D replication
+
+**Question.** Do the formulation and duration gains transfer when a fresh network learns six absolute pose coordinates rather than three relative coordinates? This is the same planar two-vehicle game in redundant coordinates, not a full-flight or new six-dimensional interaction.
+
+**Training.** All models use seven inputs (time plus six states), three width-64 sine layers, 8,897 parameters, 2,048 samples/step, Adam at 1e-4 and two CPU threads. 4A uses the reduced soft-terminal weight; 4B uses exact terminal/obstacle output; 4C continues 4B. The 4A/4B physics streams and 10,000 physics-update budgets match, but initialization/output and terminal pretraining differ.
+
+| Run | Terminal-only updates | Cumulative physics updates | Added update time [s] | Cumulative update time [s] |
+|---|---:|---:|---:|---:|
+| 4A — soft terminal | 2,000 | 10,000 | 363.7 | 363.7 |
+| 4B — exact output | 0 | 10,000 | 329.7 | 329.7 |
+| 4C — longer exact output | 0 | 22,000 | 441.9 | 771.6 |
+
+These are update times, excluding startup/checkpoint/log overhead. 4C inherits 4B; their budgets must not be counted as independent fresh runs.
+
+**Grouped development evaluation.** There are 6,000 fresh relative configurations, each lifted to four equivalent joint poses: 24,000 queries per horizon, but only 6,000 independent groups. Intervals resample whole groups. The old 3D final set is not reused as new 6D test evidence.
+
+| Model | MAE at 0.5 s [m] | Relative L² [%] | IoU | False-safe [%] | False-unsafe [%] |
+|---|---:|---:|---:|---:|---:|
+| 4A | 0.08695 | 44.99 | 0.578 | 3.51 | 17.90 |
+| 4B | 0.02631 | 18.02 | 0.777 | 0 observed | 7.70 |
+| **4C** | **0.02573** | **17.51** | **0.780** | **0 observed** | **7.55** |
+| 3D 3A comparator | 0.02582 | 19.14 | 0.798 | 0 observed | 6.78 |
+| 3D Long comparator | 0.01943 | 15.33 | 0.842 | 0 observed | 5.01 |
+
+The exact formulation reduces MAE 69.75% from 4A to 4B. Additional duration reduces it 2.19% from 4B to 4C (group-paired 95% interval 0.98%–3.41%). The coarse/fine reference value disagreement is 0.00215 m, larger than the 0.00058 m incremental gain; the ordering also survives comparison against the coarse reference but is not an exact-solution certificate. 4C remains 32.44% worse in value MAE than 3D Long on these same groups.
+
+![6D grouped development comparison](report_assets/project3_20261028/revision2/evidence/experiments_6d/development_evaluation/comparison.png)
+
+**Coordinate consistency and gradients.** 4C's mean within-group value range is 0.01180 m, with 2.27% of groups changing predicted safety class across poses. Its translation-only gap averages 0.00078 m; rotation-only gap 0.00793 m. The 3D comparators are invariant by construction.
+
+On initially separated, coarse/fine sign-stable subsets with switching-coefficient magnitude above 0.01 m/rad, 4C agrees with reference evader turns in 97.51% of queries and pursuer turns in 98.97%. These subsets contain 2,524 and 2,242 relative groups respectively. Near-zero or numerically unstable directions are excluded only from this conditional diagnostic. Zero final-horizon false-safe cases do not hold at every horizon: at 0.15 s, 4B has 20 and 4C has three false-safe joint queries.
+
+[6D training](report_assets/project3_20261028/revision2/evidence/experiments_6d/TRAINING_RESULTS.md) · [Grouped values, invariance and gradients](report_assets/project3_20261028/revision2/evidence/experiments_6d/development_evaluation/README.md)
+
+### 4.9 Closed-loop development tests — improved, with a shared failure
+
+A frozen 8×8 policy matrix ran at 0.01 and 0.005 s control intervals: 102,400 mathematical trajectories over 200 development groups and four poses. Controls are sample-and-hold with decreasing time remaining and exact constant-turn arc integration. Within-step samples and relative-speed distance bounds distinguish definite from possible contacts.
+
+Against the approximate numerical-reference pursuer at dt=0.005 s, the reference-safe subset contains **576 posed states / 144 relative groups**, initially separated and with both coarse/fine initial values above +0.01 m:
+
+| Evader | Definite contacts / 576 | Groups with any contact / 144 |
+|---|---:|---:|
+| 4A | 40 | 17 |
+| 4B | 9 | 3 |
+| 4C | 4 | 1 |
+| 3D Long | 4 | 1 |
+| Numerical reference | 0 | 0 |
+| Straight | 100 | 25 |
+
+The four 4C contacts are four poses of one encounter, also failed by 3D Long. None of these learned/reference contact outcomes changes when the control interval is halved. The failure reaches about 0.20127 m separation, below the 0.25 m collision threshold; it is not an ambiguous contact at these time steps.
+
+![Closed-loop policy contact matrix](report_assets/project3_20261028/revision2/evidence/experiments_6d/closed_loop_evaluation/collision_matrix.png)
+
+**Interpretation.** The tested improvements help finite-policy collision outcomes, but do not establish an exhaustive adversarial guarantee. The reference evader avoided contact on this tested subset. The failed encounter is initially labeled unsafe by both learned models despite positive reference values; it is not a case of an initially positive learned value followed by collision.
+
+[Rollout methods, all subsets and replay checks](report_assets/project3_20261028/revision2/evidence/experiments_6d/closed_loop_evaluation/README.md)
+
+### 4.10 Shared-failure investigation and reference refinement
+
+At relative state (0.43141, −0.23433, 0.89643), both networks initially choose +3 rad/s while the audited numerical references choose −3 rad/s. Reference-guided turn prefixes reveal a displaced learned switching transition: 4C avoids contact after a tested 50 ms prefix, whereas 25 ms is insufficient; 3D Long avoids it after a tested 10 ms prefix. These are reference-assisted diagnostic interventions on one selected failure, **not new learned capabilities or a general controller patch**.
+
+Three reference grids—129×129×96, 161×161×120 and 193×193×144—and two derivative estimators all retain the negative initial reference turn. The initial central-grid evader coefficient changes from −0.10367 to −0.15916 to −0.18808 m/rad. Between the finest two grids its magnitude changes about 15.4%, and signs differ on two of 21 fixed path queries. This strengthens the initial-direction mismatch evidence while leaving the nearby switching boundary incompletely resolved.
+
+![Local reference and learned switching comparison](report_assets/project3_20261028/revision2/evidence/experiments_6d/local_reference_refinement/local_reference_comparison.png)
+
+[Matched-state interventions](report_assets/project3_20261028/revision2/evidence/experiments_6d/shared_failure_diagnostic/README.md) · [Three-grid local refinement](report_assets/project3_20261028/revision2/evidence/experiments_6d/local_reference_refinement/README.md)
+
+### 4.11 Local physics-loss audit — what the loss detects
+
+The frozen-model audit uses 16,884 correlated local queries and 32,768 fresh global physics points per model. The global distributions follow each model's training coordinates; they are not matched physical encounter distributions.
+
+| Model | Global native VI MAE | Local wrong-turn VI MAE | Local right-turn VI MAE | Wrong-turn AUC from residual |
+|---|---:|---:|---:|---:|
+| 4C | 0.010992 | 0.133236 | 0.138714 | 0.482 |
+| 3D Long | 0.005252 | 0.256264 | 0.070654 | 0.881 |
+
+4C's wrong-turn region has about 12.1× its global mean residual, with strong local parameter gradients. The broad-domain gradient is nearly orthogonal to the local wrong-region gradient (cosine 0.0029). The failure is therefore not hidden by tiny local loss. Yet residual size barely ranks right versus wrong turns within 4C's selected map; high residual alone is not a control-error label.
+
+![Local residuals versus turning maps](report_assets/project3_20261028/revision2/evidence/experiments_6d/local_physics_audit/residual_and_turn_maps.png)
+
+No optimizer, rollout or new model was introduced by this audit. It motivates testing physics-only sampling priorities, without proving sampling caused the error or will correct it.
+
+[Audit protocol, margins and gradient evidence](report_assets/project3_20261028/revision2/evidence/experiments_6d/local_physics_audit/README.md)
+
+### 4.12 Current conclusions and limits
+
+**3D value-model result:** Long22000 is the strongest selected narrow model, with its improvement confirmed on the then-unused final states. **6D result:** exact output and additional duration transfer to the raw-joint formulation, but the relative-coordinate model remains more accurate on grouped encounters. These are different datasets and their headline values must not be merged.
+
+**Control result:** turning-sign agreement and closed-loop performance have now been evaluated on development data. They improve substantially over 4A but retain a clear shared failure. The control evidence is finite, conditional on policies and subsets, and subject to reference-gradient resolution. No certified safety, uniform value-error bound, paper-scale accuracy or full quadrotor-flight validation is claimed.
+
+P1–P5 measurements remain necessary: lower residual, consistency of one property, and better selected outliers do not each establish a better value function or controller. The study remains single-training-seed; sampling/bootstrap intervals do not measure training-seed or solver uncertainty. The consumed 3D final set is not new final evidence for later 6D tuning.
+
+### 4.13 Work in preparation — residual-priority sampling comparison
+
+At this source-review cutoff, the experiment chat is implementing/checking a two-arm comparison from the same 4C checkpoint and Adam state: 2,000 full-horizon updates per arm, with matched batch size. The proposed mixed arm replaces 448 of 1,792 nonterminal points with a high-residual bank refreshed every 50 updates. Candidate points come from the full training domain, without reference labels or seeding the known failure; scoring overhead will be reported separately.
+
+**No completed Experiment 5 training or outcome is reported here.** Broad development value/turn/rollout comparisons and checks for damage to previously correct regions are planned. Future final groups must be frozen separately. Outreach, the memo and final presentation polish remain deferred.
 
 ## 5. Reproducibility — retained for later polish
 
@@ -412,9 +568,9 @@ On October 28 the experiment chat began a short refinement comparison from 3A: 2
 - [Implementation and setup](https://github.com/evl-jack/MAE_494_2026/blob/Main/outputs/deepreach/README.md)
 - [Experiment 2 comparison data](https://github.com/evl-jack/MAE_494_2026/blob/Main/outputs/deepreach/experiments/experiment_2/comparison.csv)
 
-Experiments 1 and 2 completed on October 22, 2026; 3A–3C completed on October 27. The finite-step probe completed on October 28. Experiment 2 candidates ran through VS Code Run and Debug. Experiment 1 training used a managed process with the selected interpreter; it was not launched by the debugger. Checkpoint reload and optimizer restart checks passed.
+Experiments 1 and 2 completed on October 22, 2026; 3A–3C on October 27. The 3D refinement, frozen final evaluation, joint-coordinate training and subsequent control/failure audits are recorded in the October 28 research update. Experiment 2 candidates ran through VS Code Run and Debug. Experiment 1 training used a managed process with the selected interpreter; it was not launched by the debugger. Checkpoint reload and optimizer restart checks passed.
 
-Selected later reports, CSV/JSON summaries and figures are published under report_assets/project3_20261028/evidence/. Full raw arrays, checkpoints, source and training records remain in the experiment workspace. These reporting snapshots are not a complete runnable experiment checkout. Source documents may describe proposals subsequently tested; Section 4 gives the research synthesis at the reporting cutoff.
+The earlier reporting evidence is preserved under report_assets/project3_20261028/evidence/; new selected reports, CSV/JSON summaries and figures are added under its revision2/evidence/ directory. Full raw arrays, checkpoints, source and training records remain in the experiment workspace. These reporting snapshots are not a complete runnable experiment checkout. Source documents may describe proposals subsequently tested; Section 4 gives the research synthesis at the reporting cutoff.
 
 From the repository root with Python 3.12:
 

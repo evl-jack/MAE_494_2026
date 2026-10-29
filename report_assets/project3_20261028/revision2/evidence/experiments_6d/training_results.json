@@ -1,0 +1,154 @@
+{
+  "status": "all three fixed-budget runs completed",
+  "runs": {
+    "4A": {
+      "completed_updates": 12000,
+      "terminal_only_updates": 2000,
+      "cumulative_physics_updates": 10000,
+      "cumulative_update_seconds": 363.66231629566755,
+      "additional_update_seconds": 363.66231629566755,
+      "fixed_terminal_weight": 10.265570068359375,
+      "final_batch": {
+        "step": 12000,
+        "phase": "curriculum",
+        "tmax": 0.5,
+        "terminal_mae": 0.013431128114461899,
+        "vi_mae": 0.07911715656518936,
+        "terminal_weight": 10.265570068359375,
+        "loss": 0.21699532866477966,
+        "elapsed_seconds": 363.66231629566755
+      },
+      "parent": null,
+      "checkpoint_sha256": "9f6baf59d6fe6e44e3100d6e36fdf13d4c044f8a82f4f15f6775caeeeb3ecc0c",
+      "checkpoint_bytes": 147170,
+      "execution": {
+        "execution": "VS Code Run and Debug; main project interpreter and output",
+        "sources": {
+          "train.py": "0d309cdd1d429ab94a4d9a98e1501c972c2e26f49ac8bec731a2f538a8ed8698",
+          "network.py": "07f95e3e5ada96373b243d4d8dca4b55362763b5cd2416af672d597a9fd7eb59",
+          "joint6d.py": "b0734c017847e6d5783357ed1291bfa7150f73e4e0a258b5ffec366bb69fc0de"
+        }
+      },
+      "environment": {
+        "python": "3.12.14",
+        "torch": "2.5.1+cpu",
+        "threads": 2,
+        "device": "cpu"
+      },
+      "source_hashes": {
+        "train.py": "0d309cdd1d429ab94a4d9a98e1501c972c2e26f49ac8bec731a2f538a8ed8698",
+        "network.py": "07f95e3e5ada96373b243d4d8dca4b55362763b5cd2416af672d597a9fd7eb59",
+        "joint6d.py": "b0734c017847e6d5783357ed1291bfa7150f73e4e0a258b5ffec366bb69fc0de"
+      }
+    },
+    "4B": {
+      "completed_updates": 10000,
+      "terminal_only_updates": 0,
+      "cumulative_physics_updates": 10000,
+      "cumulative_update_seconds": 329.7191845959751,
+      "additional_update_seconds": 329.7191845959751,
+      "fixed_terminal_weight": 0.0,
+      "final_batch": {
+        "step": 10000,
+        "phase": "curriculum",
+        "tmax": 0.5,
+        "terminal_mae": 0.0,
+        "vi_mae": 0.015380733646452427,
+        "terminal_weight": 0.0,
+        "loss": 0.015380733646452427,
+        "elapsed_seconds": 329.7191845959751
+      },
+      "parent": null,
+      "checkpoint_sha256": "169488aa121b8cd1ce1497471e0530e7a601fcc34a660e3257dac22e4432810a",
+      "checkpoint_bytes": 145058,
+      "execution": {
+        "execution": "VS Code Run and Debug; main project interpreter and output",
+        "sources": {
+          "train.py": "0d309cdd1d429ab94a4d9a98e1501c972c2e26f49ac8bec731a2f538a8ed8698",
+          "network.py": "07f95e3e5ada96373b243d4d8dca4b55362763b5cd2416af672d597a9fd7eb59",
+          "joint6d.py": "b0734c017847e6d5783357ed1291bfa7150f73e4e0a258b5ffec366bb69fc0de"
+        }
+      },
+      "environment": {
+        "python": "3.12.14",
+        "torch": "2.5.1+cpu",
+        "threads": 2,
+        "device": "cpu"
+      },
+      "source_hashes": {
+        "train.py": "0d309cdd1d429ab94a4d9a98e1501c972c2e26f49ac8bec731a2f538a8ed8698",
+        "network.py": "07f95e3e5ada96373b243d4d8dca4b55362763b5cd2416af672d597a9fd7eb59",
+        "joint6d.py": "b0734c017847e6d5783357ed1291bfa7150f73e4e0a258b5ffec366bb69fc0de"
+      }
+    },
+    "4C": {
+      "completed_updates": 22000,
+      "terminal_only_updates": 0,
+      "cumulative_physics_updates": 22000,
+      "cumulative_update_seconds": 771.5802447909955,
+      "additional_update_seconds": 441.8610601950204,
+      "fixed_terminal_weight": 0.0,
+      "final_batch": {
+        "step": 22000,
+        "phase": "full_horizon",
+        "tmax": 0.5,
+        "terminal_mae": 0.0,
+        "vi_mae": 0.011402693577110767,
+        "terminal_weight": 0.0,
+        "loss": 0.011402693577110767,
+        "elapsed_seconds": 771.5802447909955
+      },
+      "parent": {
+        "path": "C:\\Users\\jackf\\Documents\\Codex\\2026-10-19\\deepreach-project-3\\outputs\\deepreach\\experiments_6d\\runs\\4B\\checkpoint.pt",
+        "sha256": "169488aa121b8cd1ce1497471e0530e7a601fcc34a660e3257dac22e4432810a",
+        "step": 10000,
+        "elapsed_seconds": 329.7191845959751
+      },
+      "checkpoint_sha256": "55cd53461dc8ea02c03f801494050ebdf126b2f97b6c0198284cc70e530e7706",
+      "checkpoint_bytes": 158690,
+      "execution": {
+        "execution": "VS Code Run and Debug; main project interpreter and output",
+        "sources": {
+          "train.py": "0d309cdd1d429ab94a4d9a98e1501c972c2e26f49ac8bec731a2f538a8ed8698",
+          "network.py": "07f95e3e5ada96373b243d4d8dca4b55362763b5cd2416af672d597a9fd7eb59",
+          "joint6d.py": "b0734c017847e6d5783357ed1291bfa7150f73e4e0a258b5ffec366bb69fc0de"
+        }
+      },
+      "environment": {
+        "python": "3.12.14",
+        "torch": "2.5.1+cpu",
+        "threads": 2,
+        "device": "cpu"
+      },
+      "source_hashes": {
+        "train.py": "0d309cdd1d429ab94a4d9a98e1501c972c2e26f49ac8bec731a2f538a8ed8698",
+        "network.py": "07f95e3e5ada96373b243d4d8dca4b55362763b5cd2416af672d597a9fd7eb59",
+        "joint6d.py": "b0734c017847e6d5783357ed1291bfa7150f73e4e0a258b5ffec366bb69fc0de"
+      }
+    }
+  },
+  "previous_checkpoints_and_final_states_unchanged": true,
+  "numerical_reference_evaluation_performed": false,
+  "new_evaluation_data_generated": false,
+  "final_states_used": false,
+  "hardware": {
+    "checked_at": "2026-10-28T13:18:41.6859439-07:00",
+    "memory": {
+      "TotalVisibleMemorySize": 32974272,
+      "FreePhysicalMemory": 16008768
+    },
+    "cpu": {
+      "Name": "Intel(R) Core(TM) Ultra 7 165U",
+      "NumberOfLogicalProcessors": 14,
+      "LoadPercentage": 18
+    },
+    "python_processes": [],
+    "disk": {
+      "Used": 276326969344,
+      "Free": 745494470656
+    }
+  },
+  "matched_4a_4b_physics_stream_end_states": true,
+  "frozen_sources_and_configs_unchanged": true,
+  "summary_source_sha256": "574ae4832393f6901c2f5061281ec7ae672b610cf12b1b69e6c2de6ec1a87053"
+}

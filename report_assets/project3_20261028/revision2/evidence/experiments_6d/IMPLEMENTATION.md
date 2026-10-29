@@ -1,0 +1,13 @@
+# Implementation verification — 28 October 2026
+
+The seven physical inputs feed three sine layers of width 64 and a scalar output (8,897 parameters). No relative-coordinate reduction is performed inside the network. Normalization uses separate time, position and heading scales. Both the soft-terminal output and exact terminal/obstacle square output are implemented.
+
+The HJI residual is `max(V_tau - H6, V - l6)`. Autodiff differentiates physical coordinates, so inverse input scales enter derivatives automatically. The sampler draws joint states uniformly over the absolute box, with the requested trailing rows at zero time. Independent terminal and physics generators prevent pretraining from shifting the paired physics sequence. The caller will supply the curriculum time limit when a trainer is implemented.
+
+`check_network.py` passed for both variants on synthetic states. Maximum derivative disagreement with central differences was 2.55e-9; the normalized/physical derivative chain agreed exactly. The square output matched terminal values exactly and respected its obstacle inequality on sampled states. Physics loss produced finite nonzero parameter gradients. Selecting the declared max/min controls reproduced the Hamiltonian to within 9e-16. These are implementation checks, not evidence of prediction accuracy or controller safety.
+
+The physics streams matched across variants after different terminal sampling and model construction, including batches of 2,048 states with 256 zero-time rows. Sampler-state replay and float32 CPU component snapshot roundtrips were exact. Invalid input dimensions, physical bounds and old-style 3D snapshot schemas were rejected. Component snapshots contain model/configuration/sampler state only; a resumable optimizer checkpoint and training loop are deliberately not implemented yet.
+
+No optimizer was created and no parameter was updated. Existing checkpoint files and the consumed 3D final-state file retained their hashes. No new development/final evaluation data were generated. Detailed numbers, source hashes and protected-file hashes are in `implementation_checks.json`. Random initial residuals in that file are diagnostic values only, not experiment results.
+
+Use the VS Code Run and Debug entry **6D: Verify network and sampler — no training** to repeat these component checks. The subsequent [training protocol and trainer verification](TRAINING_PROTOCOL.md) records the frozen budgets and disposable optimizer tests. The no-optimizer statements above describe the original component-check stage. Experimental training remains paused.

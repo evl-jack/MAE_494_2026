@@ -1,0 +1,72 @@
+{
+  "status": "completed",
+  "training": true,
+  "endpoints": [
+    {
+      "method": "adam",
+      "steps": 200,
+      "accepted_steps": 200,
+      "gradient_batches": 200,
+      "trial_physics_batches": 0,
+      "total_physics_batch_assessments": 200,
+      "elapsed_seconds": 4.337466900004074,
+      "checkpoint": "experiments\\experiment_3_d_refinement\\adam\\checkpoint_200.pt",
+      "sha256": "d803ad0c33811dd89f64157e0f546f294f1fd7609213f5778dae398d7bb83147",
+      "sample_prefix_sha256": "9ac2f8f8ac977cc09384091f043fe08a6e0087be3641bf89d4a9f42fb98e55e1"
+    },
+    {
+      "method": "adam",
+      "steps": 800,
+      "accepted_steps": 800,
+      "gradient_batches": 800,
+      "trial_physics_batches": 0,
+      "total_physics_batch_assessments": 800,
+      "elapsed_seconds": 15.278309400076978,
+      "checkpoint": "experiments\\experiment_3_d_refinement\\adam\\checkpoint_800.pt",
+      "sha256": "a10929c354d28d8109c7f187371d28603fc0f810c67a10d6ce4b01cafac3d29c",
+      "sample_prefix_sha256": "a9aa4c3400dc7ae2796e0adfbac6c696bc2abb7824ab0caa8967b775858e0aa5"
+    },
+    {
+      "method": "plain_gradient",
+      "steps": 200,
+      "accepted_steps": 200,
+      "gradient_batches": 200,
+      "trial_physics_batches": 600,
+      "total_physics_batch_assessments": 800,
+      "elapsed_seconds": 8.569963100017048,
+      "checkpoint": "experiments\\experiment_3_d_refinement\\plain_gradient\\checkpoint_200.pt",
+      "sha256": "9538904a6c6ae7c4a20ec723314e5b67b2fe8caced7e284452cdbc5d14df0d1d",
+      "sample_prefix_sha256": "9ac2f8f8ac977cc09384091f043fe08a6e0087be3641bf89d4a9f42fb98e55e1"
+    },
+    {
+      "method": "second_moment_scaled",
+      "steps": 200,
+      "accepted_steps": 200,
+      "gradient_batches": 200,
+      "trial_physics_batches": 600,
+      "total_physics_batch_assessments": 800,
+      "elapsed_seconds": 7.907696800073609,
+      "checkpoint": "experiments\\experiment_3_d_refinement\\second_moment_scaled\\checkpoint_200.pt",
+      "sha256": "d72c85c5b9343630386735142982cf8e0589589b4e826190f425b0d07354efad",
+      "sample_prefix_sha256": "9ac2f8f8ac977cc09384091f043fe08a6e0087be3641bf89d4a9f42fb98e55e1"
+    }
+  ],
+  "protected_inputs": {
+    "runs\\air3d_cpu_20261022\\checkpoint.pt": "4b7c44caa643bc5b7145edcfc57dc325ef9915372a52023c2a6e865e09055e8d",
+    "runs\\air3d_smoke_20261022\\checkpoint.pt": "d8dc0ab79419fcf6ca280e2ace8a67ce7a1a00d32f17fc2899784a25900ea76b",
+    "runs\\experiment_2_a_loss_20261022\\checkpoint.pt": "78b5efd83e9023a2089b13a524a26b60084df9746a750f453e6abfd7592ebbac",
+    "runs\\experiment_2_b_sampling_20261022\\checkpoint.pt": "4a9db6ba6b5a4fc83ebbe0b10a588c02ac830d4d639703bbada1222c150a2e42",
+    "runs\\experiment_2_c_hold_20261022\\checkpoint.pt": "5f1c41f8903325db05e8963edb0a6b370e2e71f33a77f5996ab05a4b7ccb8a1c",
+    "runs\\experiment_3_a_constraints\\checkpoint.pt": "44d19503406e4339fda5376c1074a20e5bf2c3508085af9f47d159e9858d8b62",
+    "runs\\experiment_3_b_periodic\\checkpoint.pt": "e18ff2c9733eb93c226e3e0eb03578cafefc9725695dc1e6045ec001faa42ac0",
+    "runs\\experiment_3_c_time_sampling\\checkpoint.pt": "2ef5c97491ad35dd5b436507f65352e56ee91485e9af86537a77b4e9c8000f95",
+    "lookahead_21points_20261027\\heldout_values.npz": "b70e081991f8dee14b03acebd5f63ee3fd85b5ef0a044714a3df4545425f0177",
+    "evaluation\\reserved_final_states\\states.npz": "f902bb08c7fe93d7a6275048e9cc41ddf2f4819be2f9a600597ae1d5666280c6"
+  },
+  "reserved_final_states_used": false,
+  "reference_labels_loaded": false,
+  "identical_200_batch_prefix": true,
+  "elapsed_seconds": 39.00157870003022,
+  "protocol_sha256": "fa33171267dbf9d3d7b66d748d139b66eb19020ac63b150c71e6aade8dcb2c42",
+  "source_sha256": "2d677d128edccfe770d4f83a74e0403ef998478bcfc85f79e3de0cdc4312c33a"
+}

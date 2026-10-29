@@ -1,0 +1,38 @@
+[
+  {
+    "grid": "129x129x96",
+    "n": 129,
+    "initial_value": 0.036902845246075455,
+    "central_grid_evader_coefficient": -0.10366535445940411,
+    "relative_heading_derivative": -0.18479203429632052,
+    "projected_spatial_derivative": -0.28845738875572463,
+    "value_interpolant_derivative_eps_1e_minus5": -0.15732797157587408,
+    "value_interpolant_derivative_eps_1e_minus6": -0.15732797158107825,
+    "fd_epsilon_sensitivity": 5.204170427930421e-12,
+    "derivative_estimator_difference": 0.05366261712167414
+  },
+  {
+    "grid": "161x161x120",
+    "n": 161,
+    "initial_value": 0.03532367243108081,
+    "central_grid_evader_coefficient": -0.15916360610530006,
+    "relative_heading_derivative": -0.1915013775123428,
+    "projected_spatial_derivative": -0.35066498361764287,
+    "value_interpolant_derivative_eps_1e_minus5": -0.18363325955221552,
+    "value_interpolant_derivative_eps_1e_minus6": -0.18363325949427578,
+    "fd_epsilon_sensitivity": 5.793973634204974e-11,
+    "derivative_estimator_difference": 0.02446965338897572
+  },
+  {
+    "grid": "193x193x144",
+    "n": 193,
+    "initial_value": 0.03500070926702851,
+    "central_grid_evader_coefficient": -0.18808090998798632,
+    "relative_heading_derivative": -0.1947076125579641,
+    "projected_spatial_derivative": -0.3827885225459504,
+    "value_interpolant_derivative_eps_1e_minus5": -0.19106046890531023,
+    "value_interpolant_derivative_eps_1e_minus6": -0.19106046885569716,
+    "fd_epsilon_sensitivity": 4.961306365736107e-11,
+    "derivative_estimator_difference": 0.002979558867710841
+  }
+]

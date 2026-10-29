@@ -1,0 +1,132 @@
+{
+  "status": "frozen before opening reserved states",
+  "date": "2026-10-28",
+  "base_repository_commit": "37e3e86",
+  "models": {
+    "3A": {
+      "path": "runs/experiment_3_a_constraints/checkpoint.pt",
+      "sha256": "44d19503406e4339fda5376c1074a20e5bf2c3508085af9f47d159e9858d8b62",
+      "step": 10000,
+      "width": 64
+    },
+    "Adam200": {
+      "path": "experiments/experiment_3_d_refinement/adam/checkpoint_200.pt",
+      "sha256": "d803ad0c33811dd89f64157e0f546f294f1fd7609213f5778dae398d7bb83147",
+      "step": 10200,
+      "width": 64
+    },
+    "Long22000": {
+      "path": "runs/experiment_3_e_long64/checkpoint_22000.pt",
+      "sha256": "92ffc1e8c2bb3c17b871716932db94a86dc3c098181fabf60842fcf191414393",
+      "step": 22000,
+      "width": 64
+    }
+  },
+  "states": {
+    "path": "evaluation/reserved_final_states/states.npz",
+    "sha256": "f902bb08c7fe93d7a6275048e9cc41ddf2f4819be2f9a600597ae1d5666280c6",
+    "count": 24000,
+    "seed": 991731
+  },
+  "times": [
+    0.0,
+    0.025,
+    0.05,
+    0.07500000000000001,
+    0.1,
+    0.125,
+    0.15000000000000002,
+    0.17500000000000002,
+    0.2,
+    0.225,
+    0.25,
+    0.275,
+    0.30000000000000004,
+    0.325,
+    0.35000000000000003,
+    0.375,
+    0.4,
+    0.42500000000000004,
+    0.45,
+    0.47500000000000003,
+    0.5
+  ],
+  "reference": {
+    "grid": [
+      129,
+      129,
+      96
+    ],
+    "domain": 2.0,
+    "heading": "periodic",
+    "solver": "Unchanged first-order local Lax-Friedrichs obstacle solver",
+    "cfl": 0.8,
+    "output_times": "Direct snapshots at all 21 times; spatial/heading interpolation only, no temporal interpolation.",
+    "comparison_half_width": 0.6,
+    "dependency_radius_bound": 1.5985281374238571,
+    "consistency_checks": "Original three fine snapshots within .001 m; recomputed old dense reference at first 64 development states within 1e-10 m."
+  },
+  "primary": "Final-time value MAE of Long22000 versus Adam200; report all fixed models regardless of outcome.",
+  "secondary": [
+    "21-time MAE/RMSE/relative L2",
+    "unsafe-set IoU",
+    "both classification errors",
+    "p95/p99/max absolute error",
+    "each-model worst 240 MAE",
+    "ahead/behind MAE",
+    "physical bound and horizon monotonicity diagnostics",
+    "comparison-state VI residual",
+    "analytic terminal/obstacle checks"
+  ],
+  "paired_uncertainty": {
+    "method": "State-paired percentile bootstrap, final-time MAE and relative MAE improvement.",
+    "draws": 2000,
+    "seed": 991743,
+    "level": 0.95,
+    "pairs": [
+      "3A versus Long22000",
+      "Adam200 versus Long22000"
+    ],
+    "scope": "Sampling uncertainty conditional on fixed trained models and approximate reference; not training-seed, solver or real-world safety uncertainty."
+  },
+  "prohibited": "No training, tuning, additional model selection, optimizer updates, adaptive grid/time changes or new candidate models.",
+  "classification": "V <= 0 is unsafe; reference labels are approximate numerical values.",
+  "temporal_increase_tolerance_m": 0.0001,
+  "below_minus_radius_tolerance_m": 0.0001,
+  "threads": 2,
+  "device": "cpu",
+  "source_sha256": {
+    "final_evaluate.py": "7054a9a2447df2adb0cb28a674c5278dff6d11c924a1f82ae4211679a3cf37a4",
+    "reference.py": "9d47292d61389539b4a6677249bf17e4dc38315bf49c5864bcfcb7d9d505ea32",
+    "deepreach.py": "830e2e0544f5b1d9fab80d59217e50b5fba0a6b7c0c91e536343d2123d5d016a",
+    "validate.py": "827ff3fbf99e0bfc2b22e6d760a9f257201a8e2ca4d47f6f431d5dc104d64169",
+    "diagnostics.py": "6c43d03a0f5657db00a023b4817190dbac0e02a784b65e590d5ad83d4f99d8f6"
+  },
+  "protected_inputs": {
+    "runs\\air3d_cpu_20261022\\checkpoint.pt": "4b7c44caa643bc5b7145edcfc57dc325ef9915372a52023c2a6e865e09055e8d",
+    "runs\\air3d_smoke_20261022\\checkpoint.pt": "d8dc0ab79419fcf6ca280e2ace8a67ce7a1a00d32f17fc2899784a25900ea76b",
+    "runs\\experiment_2_a_loss_20261022\\checkpoint.pt": "78b5efd83e9023a2089b13a524a26b60084df9746a750f453e6abfd7592ebbac",
+    "runs\\experiment_2_b_sampling_20261022\\checkpoint.pt": "4a9db6ba6b5a4fc83ebbe0b10a588c02ac830d4d639703bbada1222c150a2e42",
+    "runs\\experiment_2_c_hold_20261022\\checkpoint.pt": "5f1c41f8903325db05e8963edb0a6b370e2e71f33a77f5996ab05a4b7ccb8a1c",
+    "runs\\experiment_3_a_constraints\\checkpoint.pt": "44d19503406e4339fda5376c1074a20e5bf2c3508085af9f47d159e9858d8b62",
+    "runs\\experiment_3_b_periodic\\checkpoint.pt": "e18ff2c9733eb93c226e3e0eb03578cafefc9725695dc1e6045ec001faa42ac0",
+    "runs\\experiment_3_c_time_sampling\\checkpoint.pt": "2ef5c97491ad35dd5b436507f65352e56ee91485e9af86537a77b4e9c8000f95",
+    "runs\\experiment_3_e_long64\\checkpoint.pt": "92ffc1e8c2bb3c17b871716932db94a86dc3c098181fabf60842fcf191414393",
+    "runs\\experiment_3_e_long64\\checkpoint_10200.pt": "4e5fb8b23e9a8711f550d8ec6ad076ba610736da126998d201160b3e828d7364",
+    "runs\\experiment_3_e_long64\\checkpoint_10800.pt": "fa5424fd329359f80b7bc44137f24603540d767fd2c8966e691e8759d9219254",
+    "runs\\experiment_3_e_long64\\checkpoint_12000.pt": "94634d8ae525b4886ae89f12f078ca82e3bd2be1357ac3ba5abb9e8843887c11",
+    "runs\\experiment_3_e_long64\\checkpoint_16000.pt": "089094897ab29fbffe4a27bf5c14a9fef61e899d25d03a8301e801de9560905a",
+    "runs\\experiment_3_e_long64\\checkpoint_22000.pt": "92ffc1e8c2bb3c17b871716932db94a86dc3c098181fabf60842fcf191414393",
+    "runs\\experiment_3_e_wide96\\checkpoint.pt": "b603527cde8eb1d9797c461548fb5a294dccd601d4572f7353906060d47ac01c",
+    "runs\\experiment_3_e_wide96\\checkpoint_10000.pt": "b603527cde8eb1d9797c461548fb5a294dccd601d4572f7353906060d47ac01c",
+    "runs\\air3d_cpu_20261022\\validation\\resume_test_continuous\\checkpoint.pt": "10d5fbcccb3ca549f5866089724d7d00d5c5ba28130900f6eb9bbcf3c2fdf898",
+    "runs\\air3d_cpu_20261022\\validation\\resume_test_split\\checkpoint.pt": "6c1577a16268edc3fa08217356ebc8723fcf1fcbec6669ece08bf5e01ad6d2aa",
+    "runs/experiment_3_a_constraints/checkpoint.pt": "44d19503406e4339fda5376c1074a20e5bf2c3508085af9f47d159e9858d8b62",
+    "experiments/experiment_3_d_refinement/adam/checkpoint_200.pt": "d803ad0c33811dd89f64157e0f546f294f1fd7609213f5778dae398d7bb83147",
+    "runs/experiment_3_e_long64/checkpoint_22000.pt": "92ffc1e8c2bb3c17b871716932db94a86dc3c098181fabf60842fcf191414393",
+    "evaluation/reserved_final_states/states.npz": "f902bb08c7fe93d7a6275048e9cc41ddf2f4819be2f9a600597ae1d5666280c6",
+    "lookahead_21points_20261027/heldout_values.npz": "b70e081991f8dee14b03acebd5f63ee3fd85b5ef0a044714a3df4545425f0177",
+    "runs/air3d_cpu_20261022/validation/reference_fine.npz": "d3d76ab2209bf551de61fc1f0c681dd03bbdd5c3639ce8c1d63b14ad59a69cc5",
+    "experiments/experiment_3_e_capacity_budget/final_comparison.json": "3bf0cb643346933f39f0192397678787ec067eab11faa5c4d8996254b2f69596"
+  }
+}

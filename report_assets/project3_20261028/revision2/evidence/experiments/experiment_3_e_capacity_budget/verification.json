@@ -1,0 +1,45 @@
+{
+  "status": "passed",
+  "all_protected_hashes_unchanged": true,
+  "wide_final_rng_matches_original_3A": true,
+  "native_final_files_match_snapshots": true,
+  "cohort_matches_preexisting_hash": "9ceec217b2e794cd062bdb8dc8eb6c096ee36aaaa1dada4bd036e10b0eb695bb",
+  "predictions_finite": true,
+  "short_continuation_replay": {
+    "10200": {
+      "model_max_abs_difference": 0.0,
+      "sampling_rng_matches": true
+    },
+    "10800": {
+      "model_max_abs_difference": 0.0,
+      "sampling_rng_matches": true
+    }
+  },
+  "reserved_final_states_used": false,
+  "derived_metrics": {
+    "3A_64_10000": {
+      "outlier_improvement_vs_Adam200_percent": -10.581937824916995,
+      "global_audit_loss_reduction_vs_Adam200_percent": -2.9863153054012335
+    },
+    "Adam200_64_10200": {
+      "outlier_improvement_vs_Adam200_percent": 0.0,
+      "global_audit_loss_reduction_vs_Adam200_percent": 0.0
+    },
+    "long64_12000": {
+      "outlier_improvement_vs_Adam200_percent": -19.401378132610926,
+      "global_audit_loss_reduction_vs_Adam200_percent": 15.831797180559237
+    },
+    "long64_16000": {
+      "outlier_improvement_vs_Adam200_percent": -6.237474302723262,
+      "global_audit_loss_reduction_vs_Adam200_percent": 25.856475360464678
+    },
+    "long64_22000": {
+      "outlier_improvement_vs_Adam200_percent": 8.089605631439689,
+      "global_audit_loss_reduction_vs_Adam200_percent": 40.32980137634118
+    },
+    "wide96_10000": {
+      "outlier_improvement_vs_Adam200_percent": 6.021708372040795,
+      "global_audit_loss_reduction_vs_Adam200_percent": 4.103219729986633
+    }
+  }
+}

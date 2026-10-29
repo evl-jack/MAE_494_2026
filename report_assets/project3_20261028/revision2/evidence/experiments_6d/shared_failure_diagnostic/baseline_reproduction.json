@@ -1,0 +1,26 @@
+[
+  {
+    "model": "4C",
+    "dt": 0.01,
+    "max_minimum_distance_difference": 4.719855645207716e-09,
+    "contact_flags_match": true
+  },
+  {
+    "model": "3D_Long",
+    "dt": 0.01,
+    "max_minimum_distance_difference": 1.1102230246251565e-15,
+    "contact_flags_match": true
+  },
+  {
+    "model": "4C",
+    "dt": 0.005,
+    "max_minimum_distance_difference": 4.785608853641321e-09,
+    "contact_flags_match": true
+  },
+  {
+    "model": "3D_Long",
+    "dt": 0.005,
+    "max_minimum_distance_difference": 5.689893001203927e-15,
+    "contact_flags_match": true
+  }
+]

@@ -1,0 +1,37 @@
+[
+  {
+    "model": "4A",
+    "terminal_max_abs": 0.20683378991941045,
+    "maximum_obstacle_violation": 0.20683378991941045,
+    "below_minus_radius_fraction": 0.0013333333333333333,
+    "temporal_increase_fraction": 0.17268541666666667
+  },
+  {
+    "model": "4B",
+    "terminal_max_abs": 1.0033023545297226e-07,
+    "maximum_obstacle_violation": 9.758690810990345e-08,
+    "below_minus_radius_fraction": 0.0032916666666666667,
+    "temporal_increase_fraction": 0.13627708333333333
+  },
+  {
+    "model": "4C",
+    "terminal_max_abs": 1.0033023545297226e-07,
+    "maximum_obstacle_violation": 9.758690810990345e-08,
+    "below_minus_radius_fraction": 0.002458333333333333,
+    "temporal_increase_fraction": 0.13765833333333333
+  },
+  {
+    "model": "3D_3A",
+    "terminal_max_abs": 7.331904816609836e-08,
+    "maximum_obstacle_violation": 7.331904816609836e-08,
+    "below_minus_radius_fraction": 0.015,
+    "temporal_increase_fraction": 0.17271666666666666
+  },
+  {
+    "model": "3D_Long",
+    "terminal_max_abs": 7.331904816609836e-08,
+    "maximum_obstacle_violation": 7.331904816609836e-08,
+    "below_minus_radius_fraction": 0.011833333333333333,
+    "temporal_increase_fraction": 0.15634166666666666
+  }
+]

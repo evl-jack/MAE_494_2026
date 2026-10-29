@@ -1,0 +1,107 @@
+{
+  "status": "frozen before new residual or parameter-gradient queries",
+  "date": "2026-10-28",
+  "purpose": "Post-hoc development loss-visibility audit of group 603; not independent final evaluation",
+  "models": [
+    "4C",
+    "3D_Long"
+  ],
+  "local": "Saved 21 early times x 201 physical heading offsets, lifted to all four equivalent poses",
+  "reference": "Existing 161/193 local queried maps only. No new solver run; labels used for diagnostics only.",
+  "local_reference_margin": 0.01,
+  "additional_margins": [
+    0.005,
+    0.02
+  ],
+  "stable": "161/193 evader coefficients have same sign, both abs > margin",
+  "global_samples": 32768,
+  "global_zero_time": 4096,
+  "global_seeds": {
+    "4C": 991760,
+    "3D_Long": 991761
+  },
+  "global_distribution": "Fresh full-horizon collocation audit from each model own training box; last 1/8 at time zero. Not a replay of training coverage.",
+  "late_global": "time remaining >= .4 s",
+  "local_physics_terms": [
+    "V_tau",
+    "H",
+    "V_tau-H",
+    "V-l",
+    "max(V_tau-H,V-l)",
+    "actor coefficients"
+  ],
+  "summaries": [
+    "mean/quantiles/branch activity",
+    "wrong/right reference-stable subsets",
+    "absolute/squared residual rankings",
+    "residual correlations with value/coefficient errors",
+    "descriptive wrong-sign ROC AUC and global percentiles",
+    "global intrinsic-window occupancy (rx/ry within .1 and heading within .2 rad of initial case, tau>=.4)",
+    "formal Hamiltonian argument reflection a -> -a; not a feasible model update"
+  ],
+  "gradient_objectives": [
+    "global_all",
+    "global_late",
+    "local_uniform",
+    "local_wrong",
+    "local_right",
+    "local_network_switch_weighted",
+    "local_initial_heading_weighted",
+    "local_early_weighted"
+  ],
+  "weighting": "Physics residual only. Fixed detached weights: network |a|<=.02 gets 5x; |heading offset|<=.05 gets 5x; elapsed<=.05 gets 2x. Normalize each objective to mean one.",
+  "wrong_right_weights": "Reference-informed subset masks for diagnosis only, not a proposed reference-free training sampler",
+  "gradient_use": "Parameter gradients, norms and cosines only. No optimizer, step, line search, checkpoint candidate or reference-error minimization.",
+  "limitations": "Local points/poses are correlated; all regions selected from one known development failure. No inferential p-values or generalization claim.",
+  "source_hashes": {
+    "audit_local_physics.py": "574ce2a8ca6aee68bf68bdab05a1ee648b9767242293ec1956614775f453267d",
+    "network.py": "07f95e3e5ada96373b243d4d8dca4b55362763b5cd2416af672d597a9fd7eb59",
+    "evaluate.py": "a513e8ba9e7bcad396bd6ee16b6f4f1070bb18bca702960e89d04b33f61eeca1",
+    "rollouts.py": "72d6cfd548cbf2ec0ac1796566b34dad24f9eb04e6acf4c9edb78648d4c44978",
+    "deepreach.py": "830e2e0544f5b1d9fab80d59217e50b5fba0a6b7c0c91e536343d2123d5d016a",
+    "joint6d.py": "b0734c017847e6d5783357ed1291bfa7150f73e4e0a258b5ffec366bb69fc0de",
+    "reference.py": "9d47292d61389539b4a6677249bf17e4dc38315bf49c5864bcfcb7d9d505ea32"
+  },
+  "protected_inputs": {
+    "experiments\\experiment_3_d_refinement\\adam\\checkpoint_200.pt": "d803ad0c33811dd89f64157e0f546f294f1fd7609213f5778dae398d7bb83147",
+    "experiments\\experiment_3_d_refinement\\adam\\checkpoint_800.pt": "a10929c354d28d8109c7f187371d28603fc0f810c67a10d6ce4b01cafac3d29c",
+    "experiments\\experiment_3_d_refinement\\plain_gradient\\checkpoint_200.pt": "9538904a6c6ae7c4a20ec723314e5b67b2fe8caced7e284452cdbc5d14df0d1d",
+    "experiments\\experiment_3_d_refinement\\second_moment_scaled\\checkpoint_200.pt": "d72c85c5b9343630386735142982cf8e0589589b4e826190f425b0d07354efad",
+    "experiments_6d\\runs\\4A\\checkpoint.pt": "9f6baf59d6fe6e44e3100d6e36fdf13d4c044f8a82f4f15f6775caeeeb3ecc0c",
+    "experiments_6d\\runs\\4B\\checkpoint.pt": "169488aa121b8cd1ce1497471e0530e7a601fcc34a660e3257dac22e4432810a",
+    "experiments_6d\\runs\\4C\\checkpoint.pt": "55cd53461dc8ea02c03f801494050ebdf126b2f97b6c0198284cc70e530e7706",
+    "runs\\air3d_cpu_20261022\\checkpoint.pt": "4b7c44caa643bc5b7145edcfc57dc325ef9915372a52023c2a6e865e09055e8d",
+    "runs\\air3d_smoke_20261022\\checkpoint.pt": "d8dc0ab79419fcf6ca280e2ace8a67ce7a1a00d32f17fc2899784a25900ea76b",
+    "runs\\experiment_2_a_loss_20261022\\checkpoint.pt": "78b5efd83e9023a2089b13a524a26b60084df9746a750f453e6abfd7592ebbac",
+    "runs\\experiment_2_b_sampling_20261022\\checkpoint.pt": "4a9db6ba6b5a4fc83ebbe0b10a588c02ac830d4d639703bbada1222c150a2e42",
+    "runs\\experiment_2_c_hold_20261022\\checkpoint.pt": "5f1c41f8903325db05e8963edb0a6b370e2e71f33a77f5996ab05a4b7ccb8a1c",
+    "runs\\experiment_3_a_constraints\\checkpoint.pt": "44d19503406e4339fda5376c1074a20e5bf2c3508085af9f47d159e9858d8b62",
+    "runs\\experiment_3_b_periodic\\checkpoint.pt": "e18ff2c9733eb93c226e3e0eb03578cafefc9725695dc1e6045ec001faa42ac0",
+    "runs\\experiment_3_c_time_sampling\\checkpoint.pt": "2ef5c97491ad35dd5b436507f65352e56ee91485e9af86537a77b4e9c8000f95",
+    "runs\\experiment_3_e_long64\\checkpoint.pt": "92ffc1e8c2bb3c17b871716932db94a86dc3c098181fabf60842fcf191414393",
+    "runs\\experiment_3_e_long64\\checkpoint_10200.pt": "4e5fb8b23e9a8711f550d8ec6ad076ba610736da126998d201160b3e828d7364",
+    "runs\\experiment_3_e_long64\\checkpoint_10800.pt": "fa5424fd329359f80b7bc44137f24603540d767fd2c8966e691e8759d9219254",
+    "runs\\experiment_3_e_long64\\checkpoint_12000.pt": "94634d8ae525b4886ae89f12f078ca82e3bd2be1357ac3ba5abb9e8843887c11",
+    "runs\\experiment_3_e_long64\\checkpoint_16000.pt": "089094897ab29fbffe4a27bf5c14a9fef61e899d25d03a8301e801de9560905a",
+    "runs\\experiment_3_e_long64\\checkpoint_22000.pt": "92ffc1e8c2bb3c17b871716932db94a86dc3c098181fabf60842fcf191414393",
+    "runs\\experiment_3_e_wide96\\checkpoint.pt": "b603527cde8eb1d9797c461548fb5a294dccd601d4572f7353906060d47ac01c",
+    "runs\\experiment_3_e_wide96\\checkpoint_10000.pt": "b603527cde8eb1d9797c461548fb5a294dccd601d4572f7353906060d47ac01c",
+    "runs\\air3d_cpu_20261022\\validation\\resume_test_continuous\\checkpoint.pt": "10d5fbcccb3ca549f5866089724d7d00d5c5ba28130900f6eb9bbcf3c2fdf898",
+    "runs\\air3d_cpu_20261022\\validation\\resume_test_split\\checkpoint.pt": "6c1577a16268edc3fa08217356ebc8723fcf1fcbec6669ece08bf5e01ad6d2aa",
+    "experiments_6d\\local_reference_refinement\\fixed_queries.npz": "ba8700ba15e91bb42b3a1b31627b11f9430d703c09d8f0c9a7016e13a5a25dbe",
+    "experiments_6d\\local_reference_refinement\\reference_161_120.npz": "afc6a936c7074deae4f20b0a957512edb92cc6c73f522ea2a205b51b4177450a",
+    "experiments_6d\\local_reference_refinement\\reference_193_144.npz": "b2bbc36cd035332887b45b7ecff0b3281d97605581cfa5dc8d02b8b439a741da",
+    "evaluation\\reserved_final_states\\states.npz": "f902bb08c7fe93d7a6275048e9cc41ddf2f4819be2f9a600597ae1d5666280c6"
+  },
+  "helper_checks": {
+    "status": "passed",
+    "analytic_hamiltonian_max_abs": 0.0,
+    "invariant_residual_max_abs": 8.881784197001252e-16,
+    "native_residuals_match": true,
+    "pointwise_formal_sign_reflection": true
+  },
+  "training": false,
+  "parameter_updates": 0,
+  "optimizer_created": false,
+  "threads": 2
+}

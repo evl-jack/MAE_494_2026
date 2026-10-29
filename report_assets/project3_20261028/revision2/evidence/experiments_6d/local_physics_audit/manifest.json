@@ -1,0 +1,14 @@
+{
+  "status": "completed local physics-loss audit",
+  "training": false,
+  "optimizer_created": false,
+  "parameter_updates": 0,
+  "models_unchanged": true,
+  "protected_inputs_unchanged": true,
+  "old_final_states_queried": false,
+  "protocol_sha256": "2a96d645e7a2ae4f7649d5ef5bc5ce648f937a4ec9f4e184f35ef5d6edd35ef1",
+  "seconds": 8.3223232999444,
+  "execution": "Managed process with main project interpreter; not VS Code debugger",
+  "reference_solve_performed": false,
+  "model_step_performed": false
+}

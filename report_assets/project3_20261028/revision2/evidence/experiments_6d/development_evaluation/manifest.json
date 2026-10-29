@@ -1,0 +1,167 @@
+{
+  "status": "completed grouped development evaluation",
+  "training": false,
+  "optimizer_created": false,
+  "parameter_updates": 0,
+  "old_final_states_queried": false,
+  "future_final_seed_used": false,
+  "protected_inputs_unchanged": true,
+  "protocol_sha256": "008e19ef856714cbb4c34fbde25794b23e200c390551da57baf9fdc24e84a4de",
+  "source_hashes": {
+    "evaluate.py": "a513e8ba9e7bcad396bd6ee16b6f4f1070bb18bca702960e89d04b33f61eeca1",
+    "network.py": "07f95e3e5ada96373b243d4d8dca4b55362763b5cd2416af672d597a9fd7eb59",
+    "joint6d.py": "b0734c017847e6d5783357ed1291bfa7150f73e4e0a258b5ffec366bb69fc0de",
+    "reference.py": "9d47292d61389539b4a6677249bf17e4dc38315bf49c5864bcfcb7d9d505ea32",
+    "deepreach.py": "830e2e0544f5b1d9fab80d59217e50b5fba0a6b7c0c91e536343d2123d5d016a",
+    "validate.py": "827ff3fbf99e0bfc2b22e6d760a9f257201a8e2ca4d47f6f431d5dc104d64169"
+  },
+  "seconds": 232.68843830004334,
+  "execution": "managed process with main project interpreter; not VS Code debugger",
+  "relative_groups": 6000,
+  "joint_queries_per_horizon": 24000,
+  "final_metrics": [
+    {
+      "model": "4A",
+      "time": 0.5,
+      "mae": 0.08694683788293253,
+      "rmse": 0.10851213063593106,
+      "max_abs": 0.38999827576963103,
+      "iou": 0.5782876064333018,
+      "disagreement_fraction": 0.14858333333333335,
+      "false_safe_fraction_of_reference_unsafe": 0.0351223362273086,
+      "false_safe_fraction_of_all": 0.007416666666666667,
+      "false_unsafe_fraction_of_reference_safe": 0.17895626452567082,
+      "reference_unsafe_count": 5068,
+      "total_count": 24000,
+      "false_safe_count": 178,
+      "false_unsafe_count": 3388,
+      "bias": -0.07237017868085585,
+      "p99_abs": 0.2742014954090399,
+      "relative_l2": 0.4499421707808302
+    },
+    {
+      "model": "4B",
+      "time": 0.5,
+      "mae": 0.02630514341982387,
+      "rmse": 0.04344784633416957,
+      "max_abs": 0.23330951853092716,
+      "iou": 0.7765859638369599,
+      "disagreement_fraction": 0.06075,
+      "false_safe_fraction_of_reference_unsafe": 0.0,
+      "false_safe_fraction_of_all": 0.0,
+      "false_unsafe_fraction_of_reference_safe": 0.07701246566659624,
+      "reference_unsafe_count": 5068,
+      "total_count": 24000,
+      "false_safe_count": 0,
+      "false_unsafe_count": 1458,
+      "bias": -0.0262449470103412,
+      "p99_abs": 0.14254872856836676,
+      "relative_l2": 0.18015514192544138
+    },
+    {
+      "model": "4C",
+      "time": 0.5,
+      "mae": 0.025728377454951816,
+      "rmse": 0.042232413248666494,
+      "max_abs": 0.16922078188670786,
+      "iou": 0.7799322868574946,
+      "disagreement_fraction": 0.059583333333333335,
+      "false_safe_fraction_of_reference_unsafe": 0.0,
+      "false_safe_fraction_of_all": 0.0,
+      "false_unsafe_fraction_of_reference_safe": 0.0755334882738221,
+      "reference_unsafe_count": 5068,
+      "total_count": 24000,
+      "false_safe_count": 0,
+      "false_unsafe_count": 1430,
+      "bias": -0.0256826890856823,
+      "p99_abs": 0.1287657088324902,
+      "relative_l2": 0.17511538648312208
+    },
+    {
+      "model": "3D_3A",
+      "time": 0.5,
+      "mae": 0.025819675259143793,
+      "rmse": 0.04616850600133096,
+      "max_abs": 0.28364341050906716,
+      "iou": 0.7978589420654912,
+      "disagreement_fraction": 0.0535,
+      "false_safe_fraction_of_reference_unsafe": 0.0,
+      "false_safe_fraction_of_all": 0.0,
+      "false_unsafe_fraction_of_reference_safe": 0.06782167758292837,
+      "reference_unsafe_count": 5068,
+      "total_count": 24000,
+      "false_safe_count": 0,
+      "false_unsafe_count": 1284,
+      "bias": -0.025808821570015232,
+      "p99_abs": 0.17520526149182547,
+      "relative_l2": 0.1914362725181634
+    },
+    {
+      "model": "3D_Long",
+      "time": 0.5,
+      "mae": 0.0194268903204809,
+      "rmse": 0.03698228488655002,
+      "max_abs": 0.2543463666060337,
+      "iou": 0.8424202127659575,
+      "disagreement_fraction": 0.0395,
+      "false_safe_fraction_of_reference_unsafe": 0.0,
+      "false_safe_fraction_of_all": 0.0,
+      "false_unsafe_fraction_of_reference_safe": 0.05007394886963871,
+      "reference_unsafe_count": 5068,
+      "total_count": 24000,
+      "false_safe_count": 0,
+      "false_unsafe_count": 948,
+      "bias": -0.01937615804362557,
+      "p99_abs": 0.1470093030383897,
+      "relative_l2": 0.15334589271053836
+    }
+  ],
+  "bootstrap": [
+    {
+      "old": "4A",
+      "new": "4B",
+      "mae_reduction": 0.06064169446310867,
+      "relative_improvement_percent": 69.74571581862264,
+      "mae_reduction_95_interval": [
+        0.059196317875544816,
+        0.0620625632787234
+      ],
+      "relative_improvement_percent_95_interval": [
+        68.74840969344889,
+        70.67465619477072
+      ],
+      "scope": "Group sampling only; conditional on trained models and approximate reference. No training-seed or reference-grid uncertainty."
+    },
+    {
+      "old": "4B",
+      "new": "4C",
+      "mae_reduction": 0.0005767659648720502,
+      "relative_improvement_percent": 2.1925976820084263,
+      "mae_reduction_95_interval": [
+        0.00025618136771081706,
+        0.0009037666373015318
+      ],
+      "relative_improvement_percent_95_interval": [
+        0.9792418095190633,
+        3.4128180325667214
+      ],
+      "scope": "Group sampling only; conditional on trained models and approximate reference. No training-seed or reference-grid uncertainty."
+    },
+    {
+      "old": "3D_Long",
+      "new": "4C",
+      "mae_reduction": -0.006301487134470915,
+      "relative_improvement_percent": -32.43693164740596,
+      "mae_reduction_95_interval": [
+        -0.006869706418639085,
+        -0.005734722300589321
+      ],
+      "relative_improvement_percent_95_interval": [
+        -36.09269488650359,
+        -28.97685620552905
+      ],
+      "scope": "Group sampling only; conditional on trained models and approximate reference. No training-seed or reference-grid uncertainty."
+    }
+  ],
+  "closed_loop_rollouts_performed": false
+}

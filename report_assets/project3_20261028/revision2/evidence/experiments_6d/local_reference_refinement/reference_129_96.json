@@ -1,0 +1,83 @@
+{
+  "grid": [
+    129,
+    129,
+    96
+  ],
+  "seconds": 164.45937490009237,
+  "steps": 340,
+  "dx": 0.03125,
+  "dtheta": 0.06544984694978735,
+  "dtmax": 0.00149920999302421,
+  "initial_value": 0.036902845246075455,
+  "initial_evader_coefficient": -0.10366535445940411,
+  "initial_pursuer_coefficient": -0.18479203429632052,
+  "initial_value_secants": [
+    {
+      "width": 1e-05,
+      "value_minus": 0.03690441853510075,
+      "value_center": 0.036902845246075455,
+      "value_plus": 0.03690127197566923,
+      "left_secant": -0.1573289025294522,
+      "right_secant": -0.15732704062229597,
+      "central_secant": -0.15732797157587408
+    },
+    {
+      "width": 1e-06,
+      "value_minus": 0.03690300257414013,
+      "value_center": 0.036902845246075455,
+      "value_plus": 0.036902687918196966,
+      "left_secant": -0.15732806467327887,
+      "right_secant": -0.15732787848887764,
+      "central_secant": -0.15732797158107825
+    },
+    {
+      "width": 0.002,
+      "value_minus": 0.03721787088950962,
+      "value_center": 0.036902845246075455,
+      "value_plus": 0.03658856436483685,
+      "left_secant": -0.1575128217170818,
+      "right_secant": -0.15714044061930152,
+      "central_secant": -0.15732663116819165
+    },
+    {
+      "width": 0.005,
+      "value_minus": 0.037691770605621115,
+      "value_center": 0.036902845246075455,
+      "value_plus": 0.03611857466589978,
+      "left_secant": -0.157785071909132,
+      "right_secant": -0.156854116035135,
+      "central_secant": -0.1573195939721335
+    },
+    {
+      "width": 0.01,
+      "value_minus": 0.038485099538830336,
+      "value_center": 0.036902845246075455,
+      "value_plus": 0.03533921029431876,
+      "left_secant": -0.1582254292754881,
+      "right_secant": -0.15636349517566955,
+      "central_secant": -0.15729446222557883
+    },
+    {
+      "width": 0.02,
+      "value_minus": 0.04008373108544143,
+      "value_center": 0.036902845246075455,
+      "value_plus": 0.03379620666814238,
+      "left_secant": -0.1590442919682987,
+      "right_secant": -0.1553319288966539,
+      "central_secant": -0.1571881104324763
+    },
+    {
+      "width": 0.04,
+      "value_minus": 0.04339124494698797,
+      "value_center": 0.036902845246075455,
+      "value_plus": 0.03162053465242973,
+      "left_secant": -0.16220999252281285,
+      "right_secant": -0.1320577648411432,
+      "central_secant": -0.14713387868197803
+    }
+  ],
+  "old_value_max_abs": 0.0,
+  "old_coefficient_max_abs": 0.0,
+  "queried_output_sha256": "2684fba489a09a1d6a7ebc71524d18f1261f5f1342308ebc5a41f75246eb4ad9"
+}

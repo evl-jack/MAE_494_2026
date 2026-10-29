@@ -1,0 +1,46 @@
+{
+  "experiment": "3E: duration versus capacity",
+  "parent_sha256": "44d19503406e4339fda5376c1074a20e5bf2c3508085af9f47d159e9858d8b62",
+  "threads": 2,
+  "seed": 7,
+  "long64": {
+    "total_steps": 22000,
+    "additional_steps": 12000,
+    "curriculum_steps": 10000,
+    "full_horizon_hold_steps": 12000,
+    "snapshots": [
+      10200,
+      10800,
+      12000,
+      16000,
+      22000
+    ]
+  },
+  "wide96": {
+    "total_steps": 10000,
+    "curriculum_steps": 10000,
+    "full_horizon_hold_steps": 0,
+    "sampling_initial_width": 64
+  },
+  "primary_endpoints": [
+    "original_3A_64_10000",
+    "long64_22000",
+    "wide96_10000"
+  ],
+  "secondary_endpoints": [
+    "saved_Adam200",
+    "long64_12000",
+    "long64_16000"
+  ],
+  "unchanged": "Air3D physics, raw heading, 3 hidden sine layers, exact terminal/obstacle output, Adam lr .0001, 2048 samples/step, 256 zero-time physics points.",
+  "sampling": "Wide network initialization has seed 7, then sampling RNG resets to post-width64 initialization. First 10000 physical batches match original 3A exactly.",
+  "budget": {
+    "linear_macs_per_point_64": 8512,
+    "linear_macs_per_point_96": 18912,
+    "wide_to_long_nominal_work_ratio": 1.0099111414900888,
+    "note": "Layer linear multiply-accumulate proxy only; not actual FLOPs, wall-time or derivative cost equivalence. Report timing and point counts too."
+  },
+  "evaluation": "After all fixed endpoints complete: existing development references at 21 horizons, same physics audit as 3D, constraints and outliers. Reserved final states unused.",
+  "stopping": "Fixed step counts, no reference-based early stopping; native checkpoints every 1000 steps plus declared snapshots.",
+  "scope": "Single seed. Same-update capacity comparison uses 3A64 vs wide96; approximate compute comparison uses long64 vs wide96. Wider initialization and full-horizon exposure differ."
+}

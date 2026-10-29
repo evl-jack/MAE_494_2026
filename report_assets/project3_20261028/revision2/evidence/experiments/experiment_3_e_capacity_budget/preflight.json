@@ -1,0 +1,53 @@
+{
+  "status": "passed",
+  "hardware": {
+    "cpu": "Intel(R) Core(TM) Ultra 7 165U",
+    "logical_processors": 14,
+    "physical_ram_gib": 31.44671630859375,
+    "available_ram_gib": 15.55733871459961,
+    "disk_free_gib": 695.5791320800781,
+    "torch_cuda_available": false,
+    "training_device": "cpu",
+    "threads": 2,
+    "method": "Read-only registry CPU name, Windows memory status API, filesystem disk usage; CIM unavailable in this environment."
+  },
+  "parameter_counts": {
+    "width64": 8705,
+    "width96": 19201
+  },
+  "full_10000_batch_sampling_hash": "6e7699f08ed84305176c7d6e71c532b3ff29136226f4e523b9e86d14869fa0f6",
+  "both_sampling_streams_match": true,
+  "parent_final_sampling_rng_matches": true,
+  "mechanical_checks": {
+    "width64": {
+      "autodiff_fd_max_abs": 6.657381590446931e-09,
+      "chain_rule_max_abs": 2.220446049250313e-16,
+      "hamiltonian_brute_max_abs": 1.7763568394002505e-15,
+      "optimal_control_max_abs": 1.7763568394002505e-15
+    },
+    "width96": {
+      "autodiff_fd_max_abs": 4.373412298974699e-09,
+      "chain_rule_max_abs": 2.220446049250313e-16,
+      "hamiltonian_brute_max_abs": 1.7763568394002505e-15,
+      "optimal_control_max_abs": 1.7763568394002505e-15
+    }
+  },
+  "gradient_benchmarks": {
+    "width64": {
+      "median_gradient_batch_seconds": 0.011825600056909025,
+      "parameter_updates": 0
+    },
+    "width96": {
+      "median_gradient_batch_seconds": 0.01465449994429946,
+      "parameter_updates": 0
+    }
+  },
+  "snapshot_and_resume_trajectory_check": true,
+  "checks_use_disposable_four_step_optimizer_fixtures": true,
+  "fixture_directory": "C:\\Users\\jackf\\Documents\\Codex\\2026-10-19\\deepreach-project-3\\work\\capacity_snapshot_5wi57gfs",
+  "sources": {
+    "capacity_budget.py": "f8ad6366ac6f26d4d9bb0395ba33fc72907e21208a8b04c3396a515d0e1f1c3e",
+    "deepreach.py": "830e2e0544f5b1d9fab80d59217e50b5fba0a6b7c0c91e536343d2123d5d016a"
+  },
+  "protocol_sha256": "056d97a1a9ee3ee5c103f536ab8a1ab3560369b6c7f1f8ccd7c0010ff9e4d91e"
+}

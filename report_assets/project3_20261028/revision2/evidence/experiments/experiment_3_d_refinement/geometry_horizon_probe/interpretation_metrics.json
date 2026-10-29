@@ -1,0 +1,111 @@
+{
+  "selected_summary": [
+    {
+      "checkpoint": "3A",
+      "family": "unweighted",
+      "weight": 0.0,
+      "alpha": 0.3,
+      "final_mae": 0.025867978091777894,
+      "final_mae_percent_change": -0.588888418070838,
+      "focused_audit_reduction_percent": 2.050031234699146,
+      "global_audit_reduction_percent": 0.20759827055684976
+    },
+    {
+      "checkpoint": "3A",
+      "family": "weighted",
+      "weight": 0.5,
+      "alpha": 0.3,
+      "final_mae": 0.02566029894118735,
+      "final_mae_percent_change": -1.3870031814028512,
+      "focused_audit_reduction_percent": 9.572429540828379,
+      "global_audit_reduction_percent": 1.672314554881598
+    },
+    {
+      "checkpoint": "3A",
+      "family": "all",
+      "weight": 0.5,
+      "alpha": 0.3,
+      "final_mae": 0.02566029894118735,
+      "final_mae_percent_change": -1.3870031814028512,
+      "focused_audit_reduction_percent": 9.572429540828379,
+      "global_audit_reduction_percent": 1.672314554881598
+    },
+    {
+      "checkpoint": "Adam200",
+      "family": "unweighted",
+      "weight": 0.0,
+      "alpha": 1.0,
+      "final_mae": 0.023481173209547165,
+      "final_mae_percent_change": 2.9047462045330112,
+      "focused_audit_reduction_percent": 2.4574947381371013,
+      "global_audit_reduction_percent": 6.62378283483774
+    },
+    {
+      "checkpoint": "Adam200",
+      "family": "weighted",
+      "weight": 0.1,
+      "alpha": 1.0,
+      "final_mae": 0.023929237884727644,
+      "final_mae_percent_change": 4.868361108745581,
+      "focused_audit_reduction_percent": 8.708339820897233,
+      "global_audit_reduction_percent": 5.30611747721805
+    },
+    {
+      "checkpoint": "Adam200",
+      "family": "all",
+      "weight": 0.1,
+      "alpha": 1.0,
+      "final_mae": 0.023929237884727644,
+      "final_mae_percent_change": 4.868361108745581,
+      "focused_audit_reduction_percent": 8.708339820897233,
+      "global_audit_reduction_percent": 5.30611747721805
+    }
+  ],
+  "counts": {
+    "3A_weighted": {
+      "total": 72,
+      "value_mae_improved": 72,
+      "minimum_mae": 0.024021340866643315
+    },
+    "3A_unweighted": {
+      "total": 24,
+      "value_mae_improved": 18,
+      "minimum_mae": 0.02530063016182356
+    },
+    "Adam200_weighted": {
+      "total": 72,
+      "value_mae_improved": 0,
+      "minimum_mae": 0.022891988734836798
+    },
+    "Adam200_unweighted": {
+      "total": 24,
+      "value_mae_improved": 0,
+      "minimum_mae": 0.02282158361235718
+    }
+  },
+  "selected_terminal_checks": [
+    {
+      "checkpoint": "3A",
+      "family": "unweighted",
+      "terminal_max_abs": 9.382063814733499e-08
+    },
+    {
+      "checkpoint": "3A",
+      "family": "weighted",
+      "terminal_max_abs": 9.382063814733499e-08
+    },
+    {
+      "checkpoint": "Adam200",
+      "family": "unweighted",
+      "terminal_max_abs": 9.382063814733499e-08
+    },
+    {
+      "checkpoint": "Adam200",
+      "family": "weighted",
+      "terminal_max_abs": 9.382063814733499e-08
+    }
+  ],
+  "equal_displacement_verified": true,
+  "focused_geometry_verified": true,
+  "protected_hashes_verified": true
+}

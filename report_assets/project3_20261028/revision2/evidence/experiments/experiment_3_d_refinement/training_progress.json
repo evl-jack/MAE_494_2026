@@ -1,0 +1,50 @@
+[
+  {
+    "method": "adam",
+    "steps": 200,
+    "accepted_steps": 200,
+    "gradient_batches": 200,
+    "trial_physics_batches": 0,
+    "total_physics_batch_assessments": 200,
+    "elapsed_seconds": 4.337466900004074,
+    "checkpoint": "experiments\\experiment_3_d_refinement\\adam\\checkpoint_200.pt",
+    "sha256": "d803ad0c33811dd89f64157e0f546f294f1fd7609213f5778dae398d7bb83147",
+    "sample_prefix_sha256": "9ac2f8f8ac977cc09384091f043fe08a6e0087be3641bf89d4a9f42fb98e55e1"
+  },
+  {
+    "method": "adam",
+    "steps": 800,
+    "accepted_steps": 800,
+    "gradient_batches": 800,
+    "trial_physics_batches": 0,
+    "total_physics_batch_assessments": 800,
+    "elapsed_seconds": 15.278309400076978,
+    "checkpoint": "experiments\\experiment_3_d_refinement\\adam\\checkpoint_800.pt",
+    "sha256": "a10929c354d28d8109c7f187371d28603fc0f810c67a10d6ce4b01cafac3d29c",
+    "sample_prefix_sha256": "a9aa4c3400dc7ae2796e0adfbac6c696bc2abb7824ab0caa8967b775858e0aa5"
+  },
+  {
+    "method": "plain_gradient",
+    "steps": 200,
+    "accepted_steps": 200,
+    "gradient_batches": 200,
+    "trial_physics_batches": 600,
+    "total_physics_batch_assessments": 800,
+    "elapsed_seconds": 8.569963100017048,
+    "checkpoint": "experiments\\experiment_3_d_refinement\\plain_gradient\\checkpoint_200.pt",
+    "sha256": "9538904a6c6ae7c4a20ec723314e5b67b2fe8caced7e284452cdbc5d14df0d1d",
+    "sample_prefix_sha256": "9ac2f8f8ac977cc09384091f043fe08a6e0087be3641bf89d4a9f42fb98e55e1"
+  },
+  {
+    "method": "second_moment_scaled",
+    "steps": 200,
+    "accepted_steps": 200,
+    "gradient_batches": 200,
+    "trial_physics_batches": 600,
+    "total_physics_batch_assessments": 800,
+    "elapsed_seconds": 7.907696800073609,
+    "checkpoint": "experiments\\experiment_3_d_refinement\\second_moment_scaled\\checkpoint_200.pt",
+    "sha256": "d72c85c5b9343630386735142982cf8e0589589b4e826190f425b0d07354efad",
+    "sample_prefix_sha256": "9ac2f8f8ac977cc09384091f043fe08a6e0087be3641bf89d4a9f42fb98e55e1"
+  }
+]

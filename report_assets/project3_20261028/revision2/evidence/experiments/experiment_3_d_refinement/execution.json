@@ -1,0 +1,6 @@
+{
+  "launch": "VS Code Run and Debug from Homework window; main repo interpreter and output",
+  "training": true,
+  "reference_labels_loaded": false,
+  "threads": 2
+}

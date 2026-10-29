@@ -1,0 +1,17 @@
+{
+  "status": "training protocol frozen; Experiment 4 not started",
+  "date": "2026-10-28",
+  "evaluation_protocol_frozen": false,
+  "experimental_updates": 0,
+  "disposable_fixture_updates": 27,
+  "files": {
+    "outputs\\deepreach\\experiments_6d\\TRAINING_PROTOCOL.md": "2bb87979251df5cc763d4d5a5adf32df8ed75d5e8618ec1887956a2b53324737",
+    "outputs\\deepreach\\experiments_6d\\train.py": "0d309cdd1d429ab94a4d9a98e1501c972c2e26f49ac8bec731a2f538a8ed8698",
+    "outputs\\deepreach\\experiments_6d\\check_training.py": "63fdb5ce6c96b4f8e715d904b05c93996f1b168521fa1adaee0e3dab4c170063",
+    "outputs\\deepreach\\experiments_6d\\network.py": "07f95e3e5ada96373b243d4d8dca4b55362763b5cd2416af672d597a9fd7eb59",
+    "outputs\\deepreach\\joint6d.py": "b0734c017847e6d5783357ed1291bfa7150f73e4e0a258b5ffec366bb69fc0de",
+    "outputs\\deepreach\\experiments_6d\\configs\\4A.json": "2d420848d5d933348186563c1c6532fde279f9a475ccd29c360c7fe4fd5103d1",
+    "outputs\\deepreach\\experiments_6d\\configs\\4B.json": "4f765d783e6f60c72526d7e0f8ec0f48bf51cd80781d63ab0dcf76233b4aaf0a",
+    "outputs\\deepreach\\experiments_6d\\configs\\4C.json": "0cd39539d2fadadd62e74f0a800c42f40aa92bc6eacb0e29c5a0ebc667aff487"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "status": "completed",
+  "training": false,
+  "optimizer_created_for_training": false,
+  "disposable_optimizer_formula_check_only": true,
+  "persisted_parameter_updates": 0,
+  "independent_probes": 192,
+  "checks_baseline_fallback": true,
+  "cost": {
+    "main_physics_gradient_batches": 32,
+    "main_physics_gradient_point_assessments": 40960,
+    "candidate_physics_point_assessments": 3932160,
+    "candidate_reference_value_point_assessments": 13824000,
+    "note": "Excludes baseline evaluation and small disposable verification calculations; this is extra diagnostic compute."
+  },
+  "checkpoints_unchanged": true,
+  "model_parameters_unchanged": true,
+  "no_accumulated_parameter_gradients": true,
+  "reference_labels_used_for_directions_or_selection": false,
+  "reserved_final_states_used": false,
+  "checks": [
+    {
+      "checkpoint": "3A",
+      "weighted_gradient_identity": true,
+      "raw_adam_formula_matches_disposable_torch_step": true
+    },
+    {
+      "checkpoint": "Adam200",
+      "weighted_gradient_identity": true,
+      "raw_adam_formula_matches_disposable_torch_step": true
+    }
+  ],
+  "protected_inputs": {
+    "runs\\air3d_cpu_20261022\\checkpoint.pt": "4b7c44caa643bc5b7145edcfc57dc325ef9915372a52023c2a6e865e09055e8d",
+    "runs\\air3d_smoke_20261022\\checkpoint.pt": "d8dc0ab79419fcf6ca280e2ace8a67ce7a1a00d32f17fc2899784a25900ea76b",
+    "runs\\experiment_2_a_loss_20261022\\checkpoint.pt": "78b5efd83e9023a2089b13a524a26b60084df9746a750f453e6abfd7592ebbac",
+    "runs\\experiment_2_b_sampling_20261022\\checkpoint.pt": "4a9db6ba6b5a4fc83ebbe0b10a588c02ac830d4d639703bbada1222c150a2e42",
+    "runs\\experiment_2_c_hold_20261022\\checkpoint.pt": "5f1c41f8903325db05e8963edb0a6b370e2e71f33a77f5996ab05a4b7ccb8a1c",
+    "runs\\experiment_3_a_constraints\\checkpoint.pt": "44d19503406e4339fda5376c1074a20e5bf2c3508085af9f47d159e9858d8b62",
+    "runs\\experiment_3_b_periodic\\checkpoint.pt": "e18ff2c9733eb93c226e3e0eb03578cafefc9725695dc1e6045ec001faa42ac0",
+    "runs\\experiment_3_c_time_sampling\\checkpoint.pt": "2ef5c97491ad35dd5b436507f65352e56ee91485e9af86537a77b4e9c8000f95",
+    "lookahead_21points_20261027\\heldout_values.npz": "b70e081991f8dee14b03acebd5f63ee3fd85b5ef0a044714a3df4545425f0177",
+    "evaluation\\reserved_final_states\\states.npz": "f902bb08c7fe93d7a6275048e9cc41ddf2f4819be2f9a600597ae1d5666280c6",
+    "experiments\\experiment_3_d_refinement\\adam\\checkpoint_200.pt": "d803ad0c33811dd89f64157e0f546f294f1fd7609213f5778dae398d7bb83147",
+    "experiments\\experiment_3_d_refinement\\adam\\checkpoint_800.pt": "a10929c354d28d8109c7f187371d28603fc0f810c67a10d6ce4b01cafac3d29c",
+    "experiments\\experiment_3_d_refinement\\plain_gradient\\checkpoint_200.pt": "9538904a6c6ae7c4a20ec723314e5b67b2fe8caced7e284452cdbc5d14df0d1d",
+    "experiments\\experiment_3_d_refinement\\second_moment_scaled\\checkpoint_200.pt": "d72c85c5b9343630386735142982cf8e0589589b4e826190f425b0d07354efad",
+    "experiments\\experiment_3_a\\outliers\\worst_240_states.csv": "9ceec217b2e794cd062bdb8dc8eb6c096ee36aaaa1dada4bd036e10b0eb695bb"
+  },
+  "sources": {
+    "probe_geometry_horizon.py": "f4a71f51c559a6ea37eef770c3b1c82a7443d4c867790918c63d5e987ea86c8c",
+    "deepreach.py": "442b005f8a8c6e0e4762badf70c4ebc60350914a7afcf8bbe2589a141fa3bd53",
+    "probe_step_directions.py": "84d8e1072d20f64368f69bba948dbad9da4051ee2783cd4ce2779313d26a8ddb",
+    "diagnose_learning_signals.py": "b5e3773dad1c61ae34cdb8f6cc9bb458e21cab2c82f50d8a95e0dfb81cca3a23"
+  },
+  "elapsed_seconds": 36.735838099964894,
+  "threads": 2
+}

@@ -1,0 +1,56 @@
+{
+  "label": "Post-evaluation diagnosis from saved trajectories and existing predictions; no new queries",
+  "cases": [
+    {
+      "development_group_id": 603,
+      "relative_state": [
+        0.43140652292386467,
+        -0.23433213624243837,
+        0.8964320422038857
+      ],
+      "fine_reference_value": 0.036902845246075455,
+      "coarse_reference_value": 0.044972031015222964,
+      "pose_hits": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "initial_4c_predictions": [
+        -0.07315680384635925,
+        -0.075375497341156,
+        -0.04049143195152283,
+        -0.07919412851333618
+      ],
+      "initial_3d_long_predictions": [
+        -0.03911459445953369,
+        -0.03911459445953369,
+        -0.03911459445953369,
+        -0.03911459445953369
+      ],
+      "first_contact_times": [
+        0.39375,
+        0.39375,
+        0.39375,
+        0.39375
+      ],
+      "sampled_minimum_distances": [
+        0.2012664817188835,
+        0.20126648171888378,
+        0.20126648171887193,
+        0.20126648171888198
+      ],
+      "first_different_evader_action_time_from_reference_rollout": 0.0,
+      "first_actions_canonical": {
+        "learned_4C": 3,
+        "reference": -3
+      },
+      "reference_evader_sampled_minimum_distances": [
+        0.287243279050271,
+        0.2872432790502712,
+        0.2872432790502632,
+        0.2872432790502674
+      ]
+    }
+  ]
+}

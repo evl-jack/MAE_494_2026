@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "pre_training_command": "python outputs/deepreach/train_refinement.py --check",
+  "pre_training_checks": "Proposal restoration; moment/displacement equivalence to PyTorch Adam, verified before launch on disposable copies.",
+  "fixed_endpoint_budgets": true,
+  "identical_200_batch_prefix": true,
+  "all_protected_hashes_unchanged": true,
+  "training_source_matches_pre_run_snapshot": true,
+  "comparison_rows": 105,
+  "reserved_final_states_used": false,
+  "training_launch_confirmed": "VS Code Debug Console confirmed all endpoints and completion."
+}

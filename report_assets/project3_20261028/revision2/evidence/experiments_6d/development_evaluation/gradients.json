@@ -1,0 +1,102 @@
+[
+  {
+    "model": "4A",
+    "time": 0.25,
+    "six_gradient_component_mae": 0.11533654817781326,
+    "reference_coarse_fine_component_mae": 0.005216318927294289,
+    "mean_gradient_cosine": 0.9677110588742323,
+    "nonzero_cosine_count": 24000,
+    "translation_identity_mean_norm": 0.030993400141596794,
+    "rotation_identity_mean_abs": 0.05014558797141283
+  },
+  {
+    "model": "4A",
+    "time": 0.5,
+    "six_gradient_component_mae": 0.156494013100538,
+    "reference_coarse_fine_component_mae": 0.006647974861956623,
+    "mean_gradient_cosine": 0.9353776738265859,
+    "nonzero_cosine_count": 24000,
+    "translation_identity_mean_norm": 0.06502802670001984,
+    "rotation_identity_mean_abs": 0.06698380549434399
+  },
+  {
+    "model": "4B",
+    "time": 0.25,
+    "six_gradient_component_mae": 0.0379691447086904,
+    "reference_coarse_fine_component_mae": 0.005216318927294289,
+    "mean_gradient_cosine": 0.9935267152027838,
+    "nonzero_cosine_count": 24000,
+    "translation_identity_mean_norm": 0.002810189500451088,
+    "rotation_identity_mean_abs": 0.008169066340419197
+  },
+  {
+    "model": "4B",
+    "time": 0.5,
+    "six_gradient_component_mae": 0.05482863912432399,
+    "reference_coarse_fine_component_mae": 0.006647974861956623,
+    "mean_gradient_cosine": 0.985289690623668,
+    "nonzero_cosine_count": 24000,
+    "translation_identity_mean_norm": 0.00451896246522665,
+    "rotation_identity_mean_abs": 0.012344181068798659
+  },
+  {
+    "model": "4C",
+    "time": 0.25,
+    "six_gradient_component_mae": 0.03385331220651663,
+    "reference_coarse_fine_component_mae": 0.005216318927294289,
+    "mean_gradient_cosine": 0.9955382048035848,
+    "nonzero_cosine_count": 24000,
+    "translation_identity_mean_norm": 0.0021762314718216658,
+    "rotation_identity_mean_abs": 0.00589140048867119
+  },
+  {
+    "model": "4C",
+    "time": 0.5,
+    "six_gradient_component_mae": 0.051941100157720146,
+    "reference_coarse_fine_component_mae": 0.006647974861956623,
+    "mean_gradient_cosine": 0.9880716679608805,
+    "nonzero_cosine_count": 24000,
+    "translation_identity_mean_norm": 0.0033476005773991346,
+    "rotation_identity_mean_abs": 0.010276310779292312
+  },
+  {
+    "model": "3D_3A",
+    "time": 0.25,
+    "six_gradient_component_mae": 0.038148386211144115,
+    "reference_coarse_fine_component_mae": 0.005216318927294289,
+    "mean_gradient_cosine": 0.9921837169327299,
+    "nonzero_cosine_count": 24000,
+    "translation_identity_mean_norm": 0.0,
+    "rotation_identity_mean_abs": 2.1224415420442645e-17
+  },
+  {
+    "model": "3D_3A",
+    "time": 0.5,
+    "six_gradient_component_mae": 0.060746177949264415,
+    "reference_coarse_fine_component_mae": 0.006647974861956623,
+    "mean_gradient_cosine": 0.9772518190735215,
+    "nonzero_cosine_count": 24000,
+    "translation_identity_mean_norm": 0.0,
+    "rotation_identity_mean_abs": 2.2392641849574197e-17
+  },
+  {
+    "model": "3D_Long",
+    "time": 0.25,
+    "six_gradient_component_mae": 0.03132397142095486,
+    "reference_coarse_fine_component_mae": 0.005216318927294289,
+    "mean_gradient_cosine": 0.9944791891887153,
+    "nonzero_cosine_count": 24000,
+    "translation_identity_mean_norm": 0.0,
+    "rotation_identity_mean_abs": 2.108853919489748e-17
+  },
+  {
+    "model": "3D_Long",
+    "time": 0.5,
+    "six_gradient_component_mae": 0.04916068141833459,
+    "reference_coarse_fine_component_mae": 0.006647974861956623,
+    "mean_gradient_cosine": 0.9836918120362564,
+    "nonzero_cosine_count": 24000,
+    "translation_identity_mean_norm": 0.0,
+    "rotation_identity_mean_abs": 2.2451167308720418e-17
+  }
+]

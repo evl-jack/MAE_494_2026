@@ -1,0 +1,40 @@
+{
+  "status": "passed",
+  "fixture": "Constant paired errors: 0.4, 0.2 and 0.1; no final data used.",
+  "expected_relative_intervals_percent": [
+    [
+      75.0,
+      75.0
+    ],
+    [
+      50.0,
+      50.0
+    ]
+  ],
+  "observed": {
+    "3A_versus_Long22000": {
+      "observed_absolute_mae_reduction": 0.30000000000000004,
+      "absolute_mae_reduction_95_percentile_interval": [
+        0.30000000000000004,
+        0.30000000000000004
+      ],
+      "observed_relative_mae_improvement_percent": 75.0,
+      "relative_mae_improvement_percent_95_percentile_interval": [
+        75.0,
+        75.0
+      ]
+    },
+    "Adam200_versus_Long22000": {
+      "observed_absolute_mae_reduction": 0.1,
+      "absolute_mae_reduction_95_percentile_interval": [
+        0.1,
+        0.1
+      ],
+      "observed_relative_mae_improvement_percent": 50.0,
+      "relative_mae_improvement_percent_95_percentile_interval": [
+        50.0,
+        50.0
+      ]
+    }
+  }
+}

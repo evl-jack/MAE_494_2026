@@ -1,0 +1,47 @@
+[
+  {
+    "old": "4A",
+    "new": "4B",
+    "mae_reduction": 0.06064169446310867,
+    "relative_improvement_percent": 69.74571581862264,
+    "mae_reduction_95_interval": [
+      0.059196317875544816,
+      0.0620625632787234
+    ],
+    "relative_improvement_percent_95_interval": [
+      68.74840969344889,
+      70.67465619477072
+    ],
+    "scope": "Group sampling only; conditional on trained models and approximate reference. No training-seed or reference-grid uncertainty."
+  },
+  {
+    "old": "4B",
+    "new": "4C",
+    "mae_reduction": 0.0005767659648720502,
+    "relative_improvement_percent": 2.1925976820084263,
+    "mae_reduction_95_interval": [
+      0.00025618136771081706,
+      0.0009037666373015318
+    ],
+    "relative_improvement_percent_95_interval": [
+      0.9792418095190633,
+      3.4128180325667214
+    ],
+    "scope": "Group sampling only; conditional on trained models and approximate reference. No training-seed or reference-grid uncertainty."
+  },
+  {
+    "old": "3D_Long",
+    "new": "4C",
+    "mae_reduction": -0.006301487134470915,
+    "relative_improvement_percent": -32.43693164740596,
+    "mae_reduction_95_interval": [
+      -0.006869706418639085,
+      -0.005734722300589321
+    ],
+    "relative_improvement_percent_95_interval": [
+      -36.09269488650359,
+      -28.97685620552905
+    ],
+    "scope": "Group sampling only; conditional on trained models and approximate reference. No training-seed or reference-grid uncertainty."
+  }
+]

@@ -1,0 +1,90 @@
+[
+  {
+    "model": "4C",
+    "pose": 0,
+    "value": -0.07315680384635925,
+    "learned_evader_coefficient": 0.17995381355285645,
+    "learned_pursuer_coefficient": -0.16078056395053864,
+    "fine_evader_coefficient": -0.10366535445940411,
+    "coarse_evader_coefficient": -0.009707459953265746,
+    "fine_pursuer_coefficient": -0.18479203429632052,
+    "coarse_pursuer_coefficient": -0.17790830746404376
+  },
+  {
+    "model": "4C",
+    "pose": 1,
+    "value": -0.075375497341156,
+    "learned_evader_coefficient": 0.18789230287075043,
+    "learned_pursuer_coefficient": -0.16712050139904022,
+    "fine_evader_coefficient": -0.10366535445940389,
+    "coarse_evader_coefficient": -0.009707459953265468,
+    "fine_pursuer_coefficient": -0.18479203429632046,
+    "coarse_pursuer_coefficient": -0.17790830746404374
+  },
+  {
+    "model": "4C",
+    "pose": 2,
+    "value": -0.04049143195152283,
+    "learned_evader_coefficient": 0.14684180915355682,
+    "learned_pursuer_coefficient": -0.19590221345424652,
+    "fine_evader_coefficient": -0.10366535445940434,
+    "coarse_evader_coefficient": -0.009707459953265912,
+    "fine_pursuer_coefficient": -0.18479203429632046,
+    "coarse_pursuer_coefficient": -0.17790830746404374
+  },
+  {
+    "model": "4C",
+    "pose": 3,
+    "value": -0.07919412851333618,
+    "learned_evader_coefficient": 0.2005363255739212,
+    "learned_pursuer_coefficient": -0.21071331202983856,
+    "fine_evader_coefficient": -0.10366535445940395,
+    "coarse_evader_coefficient": -0.009707459953265496,
+    "fine_pursuer_coefficient": -0.18479203429632052,
+    "coarse_pursuer_coefficient": -0.1779083074640438
+  },
+  {
+    "model": "3D_Long",
+    "pose": 0,
+    "value": -0.03911459445953369,
+    "learned_evader_coefficient": 0.09984454206209245,
+    "learned_pursuer_coefficient": -0.224102184176445,
+    "fine_evader_coefficient": -0.10366535445940411,
+    "coarse_evader_coefficient": -0.009707459953265746,
+    "fine_pursuer_coefficient": -0.18479203429632052,
+    "coarse_pursuer_coefficient": -0.17790830746404376
+  },
+  {
+    "model": "3D_Long",
+    "pose": 1,
+    "value": -0.03911459445953369,
+    "learned_evader_coefficient": 0.09984454206209241,
+    "learned_pursuer_coefficient": -0.224102184176445,
+    "fine_evader_coefficient": -0.10366535445940389,
+    "coarse_evader_coefficient": -0.009707459953265468,
+    "fine_pursuer_coefficient": -0.18479203429632046,
+    "coarse_pursuer_coefficient": -0.17790830746404374
+  },
+  {
+    "model": "3D_Long",
+    "pose": 2,
+    "value": -0.03911459445953369,
+    "learned_evader_coefficient": 0.09984454206209249,
+    "learned_pursuer_coefficient": -0.224102184176445,
+    "fine_evader_coefficient": -0.10366535445940434,
+    "coarse_evader_coefficient": -0.009707459953265912,
+    "fine_pursuer_coefficient": -0.18479203429632046,
+    "coarse_pursuer_coefficient": -0.17790830746404374
+  },
+  {
+    "model": "3D_Long",
+    "pose": 3,
+    "value": -0.03911459445953369,
+    "learned_evader_coefficient": 0.09984454206209241,
+    "learned_pursuer_coefficient": -0.224102184176445,
+    "fine_evader_coefficient": -0.10366535445940395,
+    "coarse_evader_coefficient": -0.009707459953265496,
+    "fine_pursuer_coefficient": -0.18479203429632052,
+    "coarse_pursuer_coefficient": -0.1779083074640438
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "control_update_trajectories_replayed": 7680000,
+  "pair_subset_contact_rows_checked": 384,
+  "reference_interpolation_fixture": {
+    "status": "passed",
+    "linear_time_spatial_periodic_gradient_max_abs": 1.1102230246251565e-16
+  },
+  "no_model_queries": true,
+  "parameter_updates": 0
+}

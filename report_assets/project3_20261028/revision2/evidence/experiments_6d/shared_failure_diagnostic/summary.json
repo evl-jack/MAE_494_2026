@@ -1,0 +1,218 @@
+[
+  {
+    "model": "4C",
+    "variant": "learned",
+    "mode": "learned",
+    "duration": 0.0,
+    "definite_contacts": 4,
+    "possible_contacts": 4,
+    "worst_sampled_minimum_distance": 0.20126647693327118
+  },
+  {
+    "model": "4C",
+    "variant": "initial_turn_5ms",
+    "mode": "initial_turn",
+    "duration": 0.005,
+    "definite_contacts": 4,
+    "possible_contacts": 4,
+    "worst_sampled_minimum_distance": 0.19120572821079562
+  },
+  {
+    "model": "4C",
+    "variant": "initial_turn_10ms",
+    "mode": "initial_turn",
+    "duration": 0.01,
+    "definite_contacts": 4,
+    "possible_contacts": 4,
+    "worst_sampled_minimum_distance": 0.18126845469960354
+  },
+  {
+    "model": "4C",
+    "variant": "initial_turn_25ms",
+    "mode": "initial_turn",
+    "duration": 0.025,
+    "definite_contacts": 4,
+    "possible_contacts": 4,
+    "worst_sampled_minimum_distance": 0.15246139396578592
+  },
+  {
+    "model": "4C",
+    "variant": "initial_turn_50ms",
+    "mode": "initial_turn",
+    "duration": 0.05,
+    "definite_contacts": 0,
+    "possible_contacts": 0,
+    "worst_sampled_minimum_distance": 0.2872432795875041
+  },
+  {
+    "model": "4C",
+    "variant": "initial_turn_100ms",
+    "mode": "initial_turn",
+    "duration": 0.1,
+    "definite_contacts": 0,
+    "possible_contacts": 0,
+    "worst_sampled_minimum_distance": 0.2872432794911177
+  },
+  {
+    "model": "4C",
+    "variant": "feedback_prefix_5ms",
+    "mode": "feedback_prefix",
+    "duration": 0.005,
+    "definite_contacts": 4,
+    "possible_contacts": 4,
+    "worst_sampled_minimum_distance": 0.19120572821079562
+  },
+  {
+    "model": "4C",
+    "variant": "feedback_prefix_10ms",
+    "mode": "feedback_prefix",
+    "duration": 0.01,
+    "definite_contacts": 4,
+    "possible_contacts": 4,
+    "worst_sampled_minimum_distance": 0.18126845469960354
+  },
+  {
+    "model": "4C",
+    "variant": "feedback_prefix_25ms",
+    "mode": "feedback_prefix",
+    "duration": 0.025,
+    "definite_contacts": 4,
+    "possible_contacts": 4,
+    "worst_sampled_minimum_distance": 0.15246139396578592
+  },
+  {
+    "model": "4C",
+    "variant": "feedback_prefix_50ms",
+    "mode": "feedback_prefix",
+    "duration": 0.05,
+    "definite_contacts": 0,
+    "possible_contacts": 0,
+    "worst_sampled_minimum_distance": 0.2872432795875041
+  },
+  {
+    "model": "4C",
+    "variant": "feedback_prefix_100ms",
+    "mode": "feedback_prefix",
+    "duration": 0.1,
+    "definite_contacts": 0,
+    "possible_contacts": 0,
+    "worst_sampled_minimum_distance": 0.2872432794911177
+  },
+  {
+    "model": "4C",
+    "variant": "reference_all",
+    "mode": "reference_all",
+    "duration": 0.5,
+    "definite_contacts": 0,
+    "possible_contacts": 0,
+    "worst_sampled_minimum_distance": 0.28724327905026326
+  },
+  {
+    "model": "3D_Long",
+    "variant": "learned",
+    "mode": "learned",
+    "duration": 0.0,
+    "definite_contacts": 4,
+    "possible_contacts": 4,
+    "worst_sampled_minimum_distance": 0.20126648171887762
+  },
+  {
+    "model": "3D_Long",
+    "variant": "initial_turn_5ms",
+    "mode": "initial_turn",
+    "duration": 0.005,
+    "definite_contacts": 4,
+    "possible_contacts": 4,
+    "worst_sampled_minimum_distance": 0.1912057326830544
+  },
+  {
+    "model": "3D_Long",
+    "variant": "initial_turn_10ms",
+    "mode": "initial_turn",
+    "duration": 0.01,
+    "definite_contacts": 0,
+    "possible_contacts": 0,
+    "worst_sampled_minimum_distance": 0.28724327905026326
+  },
+  {
+    "model": "3D_Long",
+    "variant": "initial_turn_25ms",
+    "mode": "initial_turn",
+    "duration": 0.025,
+    "definite_contacts": 0,
+    "possible_contacts": 0,
+    "worst_sampled_minimum_distance": 0.28724327905026326
+  },
+  {
+    "model": "3D_Long",
+    "variant": "initial_turn_50ms",
+    "mode": "initial_turn",
+    "duration": 0.05,
+    "definite_contacts": 0,
+    "possible_contacts": 0,
+    "worst_sampled_minimum_distance": 0.28724327905026326
+  },
+  {
+    "model": "3D_Long",
+    "variant": "initial_turn_100ms",
+    "mode": "initial_turn",
+    "duration": 0.1,
+    "definite_contacts": 0,
+    "possible_contacts": 0,
+    "worst_sampled_minimum_distance": 0.28724327905026326
+  },
+  {
+    "model": "3D_Long",
+    "variant": "feedback_prefix_5ms",
+    "mode": "feedback_prefix",
+    "duration": 0.005,
+    "definite_contacts": 4,
+    "possible_contacts": 4,
+    "worst_sampled_minimum_distance": 0.1912057326830544
+  },
+  {
+    "model": "3D_Long",
+    "variant": "feedback_prefix_10ms",
+    "mode": "feedback_prefix",
+    "duration": 0.01,
+    "definite_contacts": 0,
+    "possible_contacts": 0,
+    "worst_sampled_minimum_distance": 0.28724327905026326
+  },
+  {
+    "model": "3D_Long",
+    "variant": "feedback_prefix_25ms",
+    "mode": "feedback_prefix",
+    "duration": 0.025,
+    "definite_contacts": 0,
+    "possible_contacts": 0,
+    "worst_sampled_minimum_distance": 0.28724327905026326
+  },
+  {
+    "model": "3D_Long",
+    "variant": "feedback_prefix_50ms",
+    "mode": "feedback_prefix",
+    "duration": 0.05,
+    "definite_contacts": 0,
+    "possible_contacts": 0,
+    "worst_sampled_minimum_distance": 0.28724327905026326
+  },
+  {
+    "model": "3D_Long",
+    "variant": "feedback_prefix_100ms",
+    "mode": "feedback_prefix",
+    "duration": 0.1,
+    "definite_contacts": 0,
+    "possible_contacts": 0,
+    "worst_sampled_minimum_distance": 0.28724327905026326
+  },
+  {
+    "model": "3D_Long",
+    "variant": "reference_all",
+    "mode": "reference_all",
+    "duration": 0.5,
+    "definite_contacts": 0,
+    "possible_contacts": 0,
+    "worst_sampled_minimum_distance": 0.28724327905026326
+  }
+]

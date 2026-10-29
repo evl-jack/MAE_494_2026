@@ -1,0 +1,80 @@
+[
+  {
+    "model": "3A_64_10000",
+    "terminal_max_abs": 9.382063814733499e-08,
+    "max_obstacle_violation": 9.382063814733499e-08,
+    "derivatives_and_hamiltonian": {
+      "autodiff_fd_max_abs": 4.100958947428346e-09,
+      "chain_rule_max_abs": 4.440892098500626e-16,
+      "hamiltonian_brute_max_abs": 1.7763568394002505e-15,
+      "optimal_control_max_abs": 1.7763568394002505e-15
+    },
+    "weights_unchanged": true,
+    "no_parameter_gradients": true
+  },
+  {
+    "model": "Adam200_64_10200",
+    "terminal_max_abs": 9.382063814733499e-08,
+    "max_obstacle_violation": 9.382063814733499e-08,
+    "derivatives_and_hamiltonian": {
+      "autodiff_fd_max_abs": 4.1082823393212564e-09,
+      "chain_rule_max_abs": 6.106226635438361e-16,
+      "hamiltonian_brute_max_abs": 1.7763568394002505e-15,
+      "optimal_control_max_abs": 1.7763568394002505e-15
+    },
+    "weights_unchanged": true,
+    "no_parameter_gradients": true
+  },
+  {
+    "model": "long64_12000",
+    "terminal_max_abs": 9.382063814733499e-08,
+    "max_obstacle_violation": 9.382063814733499e-08,
+    "derivatives_and_hamiltonian": {
+      "autodiff_fd_max_abs": 4.133062350697436e-09,
+      "chain_rule_max_abs": 8.326672684688674e-16,
+      "hamiltonian_brute_max_abs": 1.7763568394002505e-15,
+      "optimal_control_max_abs": 1.7763568394002505e-15
+    },
+    "weights_unchanged": true,
+    "no_parameter_gradients": true
+  },
+  {
+    "model": "long64_16000",
+    "terminal_max_abs": 9.382063814733499e-08,
+    "max_obstacle_violation": 9.382063814733499e-08,
+    "derivatives_and_hamiltonian": {
+      "autodiff_fd_max_abs": 4.095021557959377e-09,
+      "chain_rule_max_abs": 5.551115123125783e-16,
+      "hamiltonian_brute_max_abs": 1.7763568394002505e-15,
+      "optimal_control_max_abs": 1.7763568394002505e-15
+    },
+    "weights_unchanged": true,
+    "no_parameter_gradients": true
+  },
+  {
+    "model": "long64_22000",
+    "terminal_max_abs": 9.382063814733499e-08,
+    "max_obstacle_violation": 9.382063814733499e-08,
+    "derivatives_and_hamiltonian": {
+      "autodiff_fd_max_abs": 4.027244121518336e-09,
+      "chain_rule_max_abs": 5.551115123125783e-16,
+      "hamiltonian_brute_max_abs": 1.7763568394002505e-15,
+      "optimal_control_max_abs": 1.7763568394002505e-15
+    },
+    "weights_unchanged": true,
+    "no_parameter_gradients": true
+  },
+  {
+    "model": "wide96_10000",
+    "terminal_max_abs": 9.382063814733499e-08,
+    "max_obstacle_violation": 9.382063814733499e-08,
+    "derivatives_and_hamiltonian": {
+      "autodiff_fd_max_abs": 3.978316051589381e-09,
+      "chain_rule_max_abs": 7.216449660063518e-16,
+      "hamiltonian_brute_max_abs": 1.7763568394002505e-15,
+      "optimal_control_max_abs": 1.7763568394002505e-15
+    },
+    "weights_unchanged": true,
+    "no_parameter_gradients": true
+  }
+]

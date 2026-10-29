@@ -1,0 +1,16 @@
+{
+  "status": "design and physics checks complete; no network or training",
+  "training": false,
+  "network_initialized": false,
+  "new_evaluation_datasets_generated": false,
+  "previous_final_states_used": false,
+  "source_sha256": {
+    "joint6d.py": "b0734c017847e6d5783357ed1291bfa7150f73e4e0a258b5ffec366bb69fc0de",
+    "check_joint6d.py": "a0ad8074c9bfc7cffa15a6ae3f96781e69b4d65f43329b674e472e3be22a2f75",
+    "experiments\\experiment_4_joint6d\\SPECIFICATION.md": "e64982e08e690f68486810c71bfc133c9b2fdfa3813d0c73b1cc1b305739815c",
+    "experiments\\experiment_4_joint6d\\protocol_draft.json": "9d75449b1e7fa2df8bb4dbdb593c5a6dcf02856175980609e1443be8d0850ad4",
+    "experiments\\experiment_4_joint6d\\SOURCE_REVIEW.md": "b49ec9267d06313f8c5dca191174554eaa25bc066835128f084f7e31390d0f2a"
+  },
+  "paper": "https://arxiv.org/html/2011.02082",
+  "scope": "Same pursuit-evasion game in joint coordinates; planned six-state network is not an implemented trained model."
+}

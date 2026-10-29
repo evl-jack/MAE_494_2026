@@ -1,0 +1,31 @@
+{
+  "status": "design draft; no training or neural model initialized",
+  "problem": "JointAir3D6D",
+  "source": "DeepReach Section VI-B, https://arxiv.org/html/2011.02082",
+  "state_order": ["xp", "yp", "heading_p", "xe", "ye", "heading_e"],
+  "network_input_order": ["tau", "xp", "yp", "heading_p", "xe", "ye", "heading_e"],
+  "game": {"evader": "maximizing control u", "pursuer": "minimizing disturbance d"},
+  "speed": 0.75,
+  "turn_bound": 3.0,
+  "collision_center_distance": 0.25,
+  "horizon": 0.5,
+  "absolute_position_half_width": 2.0,
+  "angle_factor": 1.2,
+  "proposed_network": {"hidden_layers": 3, "width": 64, "activation": "sine", "parameters": 8897},
+  "proposed_optimizer": {"name": "Adam", "lr": 0.0001, "threads": 2},
+  "proposed_physics_batch": {"total": 2048, "zero_time": 256},
+  "proposed_runs": [
+    {"id": "4A", "output": "soft terminal", "terminal_weight_factor": 0.1, "terminal_weight_calibration": "initial physics loss / terminal loss, fixed thereafter", "terminal_pretraining_steps": 2000, "curriculum_steps": 10000},
+    {"id": "4B", "output": "exact terminal/obstacle square", "terminal_pretraining_steps": 0, "curriculum_steps": 10000},
+    {"id": "4C", "parent": "completed 4B", "additional_full_horizon_steps": 12000, "cumulative_physics_steps": 22000}
+  ],
+  "proposed_seed_roles": {"initialization": 7, "terminal_sampling": 991745, "physics_sampling": 991746, "development_relative_groups": 991747, "future_final_relative_groups": 991748},
+  "proposed_development": {"relative_configurations": 6000, "joint_poses_per_configuration": 4, "times": 21, "relative_xy_half_width": 0.6, "midpoint_half_width": 0.5},
+  "evaluation_data_generated": false,
+  "future_final_data_generated": false,
+  "previous_consumed_final_set_used": false,
+  "reference": "Unchanged 3D numerical Air3D solver queried via exact coordinate reduction; evaluation only, never a training label.",
+  "control_evaluation": {"proposed_relative_configurations": 200, "poses_each": 4, "time_steps": [0.01, 0.005], "switching_margin_sweep_m_per_rad": [0.005, 0.01, 0.02], "coarse_fine_reference_sign_agreement_required_for_stable_subset": true},
+  "split_unit": "relative configuration; all equivalent poses stay together",
+  "next_step": "Implement joint-input network and sampler, then freeze and check a training protocol. No training command is registered by this draft."
+}

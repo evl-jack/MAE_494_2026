@@ -1,0 +1,26 @@
+{
+  "experiment": "3D: short physics-only refinement",
+  "parent_checkpoint": "runs/experiment_3_a_constraints/checkpoint.pt",
+  "parent_sha256": "44d19503406e4339fda5376c1074a20e5bf2c3508085af9f47d159e9858d8b62",
+  "output": "experiments/experiment_3_d_refinement",
+  "threads": 2,
+  "controlled_steps": 200,
+  "adam_steps": 800,
+  "adam_intermediate": 200,
+  "step_multipliers": [
+    0.1,
+    0.3,
+    1.0
+  ],
+  "directions": [
+    "plain_gradient",
+    "second_moment_scaled"
+  ],
+  "acceptance": "Lowest construction-batch absolute VI residual, including unchanged parameters; no reference labels.",
+  "moment_policy": "Restore original Adam moments initially; advance moments once per construction gradient even if a controlled parameter step is rejected.",
+  "scaling_policy": "Equal L2 displacement to that iteration's actual hypothetical Adam update; scaled direction uses updated bias-corrected Adam second moment.",
+  "sampling": "Continue parent Torch RNG; 2048 states per step, 256 zero-time physics points, remaining times uniform over full 0.5 s; identical batch prefix across arms.",
+  "evaluation": "Only completed fixed endpoints; existing development states/reference at all 21 times; separate physics audit seed 991736; reserved final states remain unused.",
+  "stopping": "Fixed endpoints only; fail on nonfinite loss/gradient/parameters; no development-metric early stopping.",
+  "cost_note": "Controlled arm: 200 gradient batches plus 600 physics-loss trial batches. Adam 200 matches gradient batches; Adam 800 matches total physics batch assessments, not FLOPs or wall time. Report elapsed time separately."
+}

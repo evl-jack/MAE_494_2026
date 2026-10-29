@@ -1,0 +1,192 @@
+[
+  {
+    "source": "129",
+    "kind": "initial_heading_offset",
+    "crossings": [
+      {
+        "bracket": [
+          0.04199999999999998,
+          0.043999999999999984
+        ],
+        "linear_estimate": 0.042300886882759965
+      }
+    ]
+  },
+  {
+    "source": "129",
+    "kind": "early_fixed_path_time",
+    "crossings": [
+      {
+        "bracket": [
+          0.015,
+          0.02
+        ],
+        "linear_estimate": 0.01872411146032707
+      }
+    ]
+  },
+  {
+    "source": "161",
+    "kind": "initial_heading_offset",
+    "crossings": [
+      {
+        "bracket": [
+          0.062,
+          0.064
+        ],
+        "linear_estimate": 0.06232398295071526
+      }
+    ]
+  },
+  {
+    "source": "161",
+    "kind": "early_fixed_path_time",
+    "crossings": [
+      {
+        "bracket": [
+          0.025,
+          0.03
+        ],
+        "linear_estimate": 0.02989894794578252
+      }
+    ]
+  },
+  {
+    "source": "193",
+    "kind": "initial_heading_offset",
+    "crossings": [
+      {
+        "bracket": [
+          0.07400000000000001,
+          0.07600000000000001
+        ],
+        "linear_estimate": 0.0742975482293426
+      }
+    ]
+  },
+  {
+    "source": "193",
+    "kind": "early_fixed_path_time",
+    "crossings": [
+      {
+        "bracket": [
+          0.035,
+          0.04
+        ],
+        "linear_estimate": 0.035955578602621295
+      }
+    ]
+  },
+  {
+    "source": "4C",
+    "pose": 0,
+    "kind": "initial_heading_offset",
+    "crossings": [
+      {
+        "bracket": [
+          -0.17400000000000002,
+          -0.17200000000000001
+        ],
+        "linear_estimate": -0.17236781761340383
+      }
+    ]
+  },
+  {
+    "source": "4C",
+    "pose": 1,
+    "kind": "initial_heading_offset",
+    "crossings": [
+      {
+        "bracket": [
+          -0.17600000000000002,
+          -0.17400000000000002
+        ],
+        "linear_estimate": -0.17571154117551518
+      }
+    ]
+  },
+  {
+    "source": "4C",
+    "pose": 2,
+    "kind": "initial_heading_offset",
+    "crossings": [
+      {
+        "bracket": [
+          -0.132,
+          -0.13
+        ],
+        "linear_estimate": -0.13196165286841607
+      }
+    ]
+  },
+  {
+    "source": "4C",
+    "pose": 3,
+    "kind": "initial_heading_offset",
+    "crossings": [
+      {
+        "bracket": [
+          -0.14200000000000002,
+          -0.14
+        ],
+        "linear_estimate": -0.14023782529331358
+      }
+    ]
+  },
+  {
+    "source": "3D_Long",
+    "pose": 0,
+    "kind": "initial_heading_offset",
+    "crossings": [
+      {
+        "bracket": [
+          -0.025999999999999995,
+          -0.02400000000000002
+        ],
+        "linear_estimate": -0.02406817802360421
+      }
+    ]
+  },
+  {
+    "source": "3D_Long",
+    "pose": 1,
+    "kind": "initial_heading_offset",
+    "crossings": [
+      {
+        "bracket": [
+          -0.025999999999999995,
+          -0.02400000000000002
+        ],
+        "linear_estimate": -0.02406817802360421
+      }
+    ]
+  },
+  {
+    "source": "3D_Long",
+    "pose": 2,
+    "kind": "initial_heading_offset",
+    "crossings": [
+      {
+        "bracket": [
+          -0.025999999999999995,
+          -0.02400000000000002
+        ],
+        "linear_estimate": -0.02406817802360421
+      }
+    ]
+  },
+  {
+    "source": "3D_Long",
+    "pose": 3,
+    "kind": "initial_heading_offset",
+    "crossings": [
+      {
+        "bracket": [
+          -0.025999999999999995,
+          -0.02400000000000002
+        ],
+        "linear_estimate": -0.024068178023604204
+      }
+    ]
+  }
+]

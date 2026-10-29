@@ -1,0 +1,30 @@
+{
+  "grid": [
+    129,
+    129,
+    96
+  ],
+  "build_seconds": 105.00745579996146,
+  "steps": 340,
+  "dtmax": 0.00149920999302421,
+  "dx": 0.03125,
+  "dtheta": 0.06544984694978735,
+  "original_fine_shared": [
+    {
+      "time": 0.0,
+      "max_abs": 0.0
+    },
+    {
+      "time": 0.25,
+      "max_abs": 1.3751363997144272e-05
+    },
+    {
+      "time": 0.5,
+      "max_abs": 1.2795164215956278e-05
+    }
+  ],
+  "original_dense_prefix_max_abs": 0.0,
+  "queried_reference_sha256": "7325b2b46199dce47dcfd0d71728b8b7b089492d6d190b16a0759ea33e2d2844",
+  "no_temporal_interpolation": true,
+  "reference_is_approximate": true
+}

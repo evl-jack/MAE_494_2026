@@ -1,0 +1,33 @@
+{
+  "training": false,
+  "primary_checkpoint": "Adam200",
+  "secondary_checkpoint": "3A",
+  "construction": "Reuse eight 2048-point global batches from geometry/horizon probe, seed 991738; no focused loss in gradient.",
+  "selection": "Lowest global physics selection loss, with unchanged baseline available.",
+  "audit": "Reuse separate seed 991740 global and focused physics pools; neither constructs/selects directions.",
+  "selection_pool": "Reuse global seed 991739 pool.",
+  "directions": [
+    "saved_adam",
+    "suppress_first_moment",
+    "fresh_adam",
+    "plain_gradient",
+    "swapped_first_moment"
+  ],
+  "normalization": "Every direction matches saved-Adam L2 displacement for that checkpoint/batch; natural restart step magnitude is not tested.",
+  "suppressed_m": "Set incoming first moment to zero; retain saved second moment, clock and usual beta1 update.",
+  "swapped_m": "Borrow only incoming first moment from other checkpoint; keep current weights, gradient, second moment and clock.",
+  "fresh_adam": "Zero both moments and restart clock at zero; normalize resulting first-step direction.",
+  "step_multipliers": [
+    0.01,
+    0.1,
+    0.3,
+    1.0
+  ],
+  "reference_usage": "Evaluation-only final-time MAE/half-MSE gradients and finite-step development accuracy; never direction construction or selection.",
+  "evaluated_times": [
+    0.1,
+    0.25,
+    0.5
+  ],
+  "reserved_final_states_used": false
+}

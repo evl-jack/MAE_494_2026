@@ -1,0 +1,11 @@
+{
+  "partition_gain_shares": {
+    "reference_deep_unsafe": 0.36333903842139353,
+    "reference_boundary_band": 0.08887050303097363,
+    "reference_far_safe": 0.547790458547633
+  },
+  "ahead_gain_share": 0.8640515340578676,
+  "uniform_shift_false_safe_count": 5,
+  "classification_transition_identity_passed": true,
+  "protected_hashes_verified": true
+}

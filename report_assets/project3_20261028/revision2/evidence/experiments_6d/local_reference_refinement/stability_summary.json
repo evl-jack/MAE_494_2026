@@ -1,0 +1,10 @@
+{
+  "initial_sign_consistent_across_three_levels_and_both_estimators": true,
+  "initial_reference_direction": "negative (-3 rad/s)",
+  "latest_initial_coefficient_absolute_change": 0.028917303882686263,
+  "latest_initial_coefficient_relative_change_percent": 15.374927675824917,
+  "latest_fixed_path_sign_disagreements": 2,
+  "fixed_path_points": 21,
+  "latest_local_map_sign_disagreement_fraction": 0.03387822790807866,
+  "exact_solution_convergence_certified": false
+}

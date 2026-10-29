@@ -1,0 +1,11 @@
+{
+  "cpu": "Intel(R) Core(TM) Ultra 7 165U",
+  "logical_processors": 14,
+  "physical_ram_gib": 31.44671630859375,
+  "available_ram_gib": 15.55733871459961,
+  "disk_free_gib": 695.5791320800781,
+  "torch_cuda_available": false,
+  "training_device": "cpu",
+  "threads": 2,
+  "method": "Read-only registry CPU name, Windows memory status API, filesystem disk usage; CIM unavailable in this environment."
+}

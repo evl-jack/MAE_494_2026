@@ -1,0 +1,26 @@
+{
+  "3A_versus_Long22000": {
+    "observed_absolute_mae_reduction": 0.006205008483744116,
+    "absolute_mae_reduction_95_percentile_interval": [
+      0.006021234394737721,
+      0.006390295572125109
+    ],
+    "observed_relative_mae_improvement_percent": 23.606359733849533,
+    "relative_mae_improvement_percent_95_percentile_interval": [
+      23.037252364961017,
+      24.139184261941832
+    ]
+  },
+  "Adam200_versus_Long22000": {
+    "observed_absolute_mae_reduction": 0.002896838775084131,
+    "absolute_mae_reduction_95_percentile_interval": [
+      0.002732847782653287,
+      0.0030707368919288044
+    ],
+    "observed_relative_mae_improvement_percent": 12.607473297675396,
+    "relative_mae_improvement_percent_95_percentile_interval": [
+      11.926381261620731,
+      13.252364457048156
+    ]
+  }
+}

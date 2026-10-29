@@ -1,0 +1,49 @@
+{
+  "status": "completed",
+  "training": false,
+  "optimizer_created": false,
+  "parameter_updates": 0,
+  "fixed_protocol_sha256": "fb04bf4990ea897f4824ed50fa43cd62cb5e64f2ad56bca27158ce0c37da2bda",
+  "models": {
+    "3A": {
+      "path": "runs/experiment_3_a_constraints/checkpoint.pt",
+      "sha256": "44d19503406e4339fda5376c1074a20e5bf2c3508085af9f47d159e9858d8b62",
+      "step": 10000,
+      "width": 64
+    },
+    "Adam200": {
+      "path": "experiments/experiment_3_d_refinement/adam/checkpoint_200.pt",
+      "sha256": "d803ad0c33811dd89f64157e0f546f294f1fd7609213f5778dae398d7bb83147",
+      "step": 10200,
+      "width": 64
+    },
+    "Long22000": {
+      "path": "runs/experiment_3_e_long64/checkpoint_22000.pt",
+      "sha256": "92ffc1e8c2bb3c17b871716932db94a86dc3c098181fabf60842fcf191414393",
+      "step": 22000,
+      "width": 64
+    }
+  },
+  "reserved_states_sha256": "f902bb08c7fe93d7a6275048e9cc41ddf2f4819be2f9a600597ae1d5666280c6",
+  "reservation_consumed": true,
+  "no_further_tuning": true,
+  "source_sha256": {
+    "final_evaluate.py": "7054a9a2447df2adb0cb28a674c5278dff6d11c924a1f82ae4211679a3cf37a4",
+    "reference.py": "9d47292d61389539b4a6677249bf17e4dc38315bf49c5864bcfcb7d9d505ea32",
+    "deepreach.py": "830e2e0544f5b1d9fab80d59217e50b5fba0a6b7c0c91e536343d2123d5d016a",
+    "validate.py": "827ff3fbf99e0bfc2b22e6d760a9f257201a8e2ca4d47f6f431d5dc104d64169",
+    "diagnostics.py": "6c43d03a0f5657db00a023b4817190dbac0e02a784b65e590d5ad83d4f99d8f6"
+  },
+  "protected_inputs_unchanged": true,
+  "output_sha256": {
+    "metrics.csv": "bf2d801bc7725cda8cb5cc0cb37c40d70e8ed6c08f5101932ae71d0edc08e524",
+    "final_metrics.json": "1ac7aa2a3db7f465c6d0d8a863de84267283417b41ac6c5769194590ef6169bb",
+    "reference_values.npz": "7325b2b46199dce47dcfd0d71728b8b7b089492d6d190b16a0759ea33e2d2844",
+    "model_predictions.npz": "5c5cc4a9728c43a72f30503fd4344891cf37fc8b1674698e5c86c940c35cb7fa",
+    "paired_confidence_intervals.json": "44c4f72f903698ecc575fe33765f1646dedd8c17bf7993a19d343796a6071c62"
+  },
+  "comparisons": 63,
+  "execution": "managed process with existing project interpreter",
+  "elapsed_seconds_this_execution": 116.01401490007993,
+  "completed_utc": "2026-10-28T19:16:06.615514+00:00"
+}

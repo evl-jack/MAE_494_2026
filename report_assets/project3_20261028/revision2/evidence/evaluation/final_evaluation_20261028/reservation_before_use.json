@@ -1,0 +1,27 @@
+{
+  "status": "reserved; no predictions or reference labels generated",
+  "seed": 991731,
+  "states": 24000,
+  "state_order": [
+    "x",
+    "y",
+    "psi"
+  ],
+  "bounds": [
+    [
+      -0.6,
+      0.6
+    ],
+    [
+      -0.6,
+      0.6
+    ],
+    [
+      -3.141592653589793,
+      3.141592653589793
+    ]
+  ],
+  "horizon": 0.5,
+  "sha256": "f902bb08c7fe93d7a6275048e9cc41ddf2f4819be2f9a600597ae1d5666280c6",
+  "used_for_current_diagnostics": false
+}

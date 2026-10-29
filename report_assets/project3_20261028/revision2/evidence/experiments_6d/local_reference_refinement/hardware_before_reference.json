@@ -1,0 +1,11 @@
+{
+  "checked_at": "2026-10-28T14:51:18.7607841-07:00",
+  "memory": {
+    "TotalVisibleMemorySize": 32974272,
+    "FreePhysicalMemory": 17110484
+  },
+  "cpu": {
+    "Name": "Intel(R) Core(TM) Ultra 7 165U",
+    "LoadPercentage": 46
+  }
+}

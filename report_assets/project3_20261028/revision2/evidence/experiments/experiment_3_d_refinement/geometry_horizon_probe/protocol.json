@@ -1,0 +1,47 @@
+{
+  "training": false,
+  "primary_checkpoint": "Adam200",
+  "secondary_checkpoint": "3A",
+  "focused_region": {
+    "time": [
+      0.35,
+      0.5
+    ],
+    "x": [
+      0.0,
+      0.6
+    ],
+    "y": [
+      -0.6,
+      0.6
+    ],
+    "heading": "Original extended training heading range"
+  },
+  "objective": "(1-lambda)*mean(global |VI|) + lambda*mean(focused |VI|)",
+  "weights": [
+    0.0,
+    0.1,
+    0.25,
+    0.5
+  ],
+  "construction_batches": 8,
+  "global_batch_size": 2048,
+  "global_terminal_points": 256,
+  "focused_batch_size": 512,
+  "construction_seed": 991738,
+  "selection_seed": 991739,
+  "audit_seed": 991740,
+  "assessment_global_size": 8192,
+  "assessment_global_terminal_points": 1024,
+  "assessment_focused_size": 2048,
+  "directions": "Saved-state hypothetical Adam from each weighted physics gradient; normalize to unweighted Adam displacement for that batch.",
+  "step_multipliers": [
+    0.1,
+    0.3,
+    1.0
+  ],
+  "selection_score": "0.75*global physics loss + 0.25*focused physics loss, same score for every candidate.",
+  "selection_guard": "Global selection physics loss must not exceed frozen baseline; unchanged baseline always available.",
+  "reference_usage": "Development evaluation only; no labels/gradients in construction or selection.",
+  "reserved_final_states_used": false
+}

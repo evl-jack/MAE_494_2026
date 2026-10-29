@@ -1,0 +1,15 @@
+{
+  "training": false,
+  "topics": [
+    "physics by location",
+    "separation over horizon",
+    "broad value correction versus boundary shift"
+  ],
+  "physics_inputs": "Reuse 8192 development audit queries, seed 991736; no new reference labels.",
+  "value_inputs": "Existing 24000 development states and predictions, 21 horizons.",
+  "boundary_band_m": 0.02,
+  "paired_change_tolerance_m": 1e-06,
+  "separation_threshold_m": 0.0001,
+  "uniform_shift": "Mean Adam200-minus-3A value change at each horizon, fitted from predictions only; offline descriptive comparison, not a model.",
+  "reserved_final_states_used": false
+}

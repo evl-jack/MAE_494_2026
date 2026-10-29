@@ -1,0 +1,17 @@
+{
+  "checked_at": "2026-10-28T13:18:41.6859439-07:00",
+  "memory": {
+    "TotalVisibleMemorySize": 32974272,
+    "FreePhysicalMemory": 16008768
+  },
+  "cpu": {
+    "Name": "Intel(R) Core(TM) Ultra 7 165U",
+    "NumberOfLogicalProcessors": 14,
+    "LoadPercentage": 18
+  },
+  "python_processes": [],
+  "disk": {
+    "Used": 276326969344,
+    "Free": 745494470656
+  }
+}

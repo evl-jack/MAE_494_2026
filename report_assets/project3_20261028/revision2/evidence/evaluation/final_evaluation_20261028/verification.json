@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "comparisons": 63,
+  "all_exported_mae_rmse_and_classification_counts_recomputed": true,
+  "protocol_and_output_hashes_match": true,
+  "all_protected_inputs_unchanged": true,
+  "reservation_correctly_marked_consumed": true,
+  "original_states_bytes_unchanged": true,
+  "training": false,
+  "tuning": false,
+  "nonzero_horizon_false_safe_counts": {
+    "3A": {
+      "max_false_safe_count_nonzero": 0,
+      "nonzero_horizons": 20
+    },
+    "Adam200": {
+      "max_false_safe_count_nonzero": 0,
+      "nonzero_horizons": 20
+    },
+    "Long22000": {
+      "max_false_safe_count_nonzero": 0,
+      "nonzero_horizons": 20
+    }
+  }
+}

@@ -1,0 +1,22 @@
+[
+  {
+    "old": "129",
+    "new": "161",
+    "initial_value_change": -0.001579172814994645,
+    "initial_coefficient_change": -0.055498251645895946,
+    "heading_cut_coefficient_mae": 0.02521620182823372,
+    "fixed_path_coefficient_mae": 0.03294879357524045,
+    "fixed_path_sign_disagreements": 2,
+    "local_map_sign_disagreement_fraction": 0.05401563610518834
+  },
+  {
+    "old": "161",
+    "new": "193",
+    "initial_value_change": -0.000322963164052302,
+    "initial_coefficient_change": -0.028917303882686263,
+    "heading_cut_coefficient_mae": 0.017811568151432235,
+    "fixed_path_coefficient_mae": 0.025684802451221976,
+    "fixed_path_sign_disagreements": 2,
+    "local_map_sign_disagreement_fraction": 0.03387822790807866
+  }
+]

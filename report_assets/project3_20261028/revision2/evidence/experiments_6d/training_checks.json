@@ -1,0 +1,40 @@
+{
+  "status": "passed",
+  "experimental_training_started": false,
+  "disposable_optimizer_fixture_updates": 27,
+  "fixtures_deleted": true,
+  "fixture_shape": "7 inputs, 2 hidden layers of width 8; batches of 32",
+  "fixture_seeds": [
+    991750,
+    991751,
+    991752
+  ],
+  "variants": {
+    "4A": {
+      "bitwise_resume": true,
+      "total_fixture_steps": 5,
+      "calibrated_terminal_weight": 0.09260399341583253
+    },
+    "4B": {
+      "bitwise_resume": true,
+      "total_fixture_steps": 3,
+      "calibrated_terminal_weight": 0.0
+    }
+  },
+  "full_horizon_extension_and_resume": true,
+  "output_overwrite_rejected": true,
+  "incorrect_config_schema_and_incomplete_parent_rejected": true,
+  "protected_inputs_unchanged": true,
+  "final_states_used": false,
+  "sources": {
+    "train.py": "0d309cdd1d429ab94a4d9a98e1501c972c2e26f49ac8bec731a2f538a8ed8698",
+    "network.py": "07f95e3e5ada96373b243d4d8dca4b55362763b5cd2416af672d597a9fd7eb59",
+    "joint6d.py": "b0734c017847e6d5783357ed1291bfa7150f73e4e0a258b5ffec366bb69fc0de"
+  },
+  "check_source_sha256": "63fdb5ce6c96b4f8e715d904b05c93996f1b168521fa1adaee0e3dab4c170063",
+  "configs": {
+    "4A.json": "2d420848d5d933348186563c1c6532fde279f9a475ccd29c360c7fe4fd5103d1",
+    "4B.json": "4f765d783e6f60c72526d7e0f8ec0f48bf51cd80781d63ab0dcf76233b4aaf0a",
+    "4C.json": "0cd39539d2fadadd62e74f0a800c42f40aa92bc6eacb0e29c5a0ebc667aff487"
+  }
+}

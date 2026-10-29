@@ -1,0 +1,103 @@
+{
+  "status": "completed",
+  "endpoints": [
+    {
+      "run": "long64",
+      "step": 10200,
+      "checkpoint": "runs\\experiment_3_e_long64\\checkpoint_10200.pt",
+      "sha256": "4e5fb8b23e9a8711f550d8ec6ad076ba610736da126998d201160b3e828d7364",
+      "elapsed_seconds": 223.24105609988328,
+      "additional_training_seconds": 2.956951400032267,
+      "width": 64,
+      "samples": 20889600,
+      "linear_mac_proxy": 177812275200
+    },
+    {
+      "run": "long64",
+      "step": 10800,
+      "checkpoint": "runs\\experiment_3_e_long64\\checkpoint_10800.pt",
+      "sha256": "fa5424fd329359f80b7bc44137f24603540d767fd2c8966e691e8759d9219254",
+      "elapsed_seconds": 232.66637069988064,
+      "additional_training_seconds": 12.382266400032677,
+      "width": 64,
+      "samples": 22118400,
+      "linear_mac_proxy": 188271820800
+    },
+    {
+      "run": "long64",
+      "step": 12000,
+      "checkpoint": "runs\\experiment_3_e_long64\\checkpoint_12000.pt",
+      "sha256": "94634d8ae525b4886ae89f12f078ca82e3bd2be1357ac3ba5abb9e8843887c11",
+      "elapsed_seconds": 254.41945959988516,
+      "additional_training_seconds": 34.13535470003262,
+      "width": 64,
+      "samples": 24576000,
+      "linear_mac_proxy": 209190912000
+    },
+    {
+      "run": "long64",
+      "step": 16000,
+      "checkpoint": "runs\\experiment_3_e_long64\\checkpoint_16000.pt",
+      "sha256": "089094897ab29fbffe4a27bf5c14a9fef61e899d25d03a8301e801de9560905a",
+      "elapsed_seconds": 323.7244846998947,
+      "additional_training_seconds": 103.44038039993029,
+      "width": 64,
+      "samples": 32768000,
+      "linear_mac_proxy": 278921216000
+    },
+    {
+      "run": "long64",
+      "step": 22000,
+      "checkpoint": "runs\\experiment_3_e_long64\\checkpoint_22000.pt",
+      "sha256": "92ffc1e8c2bb3c17b871716932db94a86dc3c098181fabf60842fcf191414393",
+      "elapsed_seconds": 417.68483079993166,
+      "additional_training_seconds": 197.40072649996728,
+      "width": 64,
+      "samples": 45056000,
+      "linear_mac_proxy": 383516672000
+    },
+    {
+      "run": "wide96",
+      "step": 10000,
+      "checkpoint": "runs\\experiment_3_e_wide96\\checkpoint_10000.pt",
+      "sha256": "b603527cde8eb1d9797c461548fb5a294dccd601d4572f7353906060d47ac01c",
+      "elapsed_seconds": 604.3722078999272,
+      "additional_training_seconds": 604.3722074999241,
+      "width": 96,
+      "samples": 20480000,
+      "linear_mac_proxy": 387317760000
+    }
+  ],
+  "protected_inputs": {
+    "runs\\air3d_cpu_20261022\\checkpoint.pt": "4b7c44caa643bc5b7145edcfc57dc325ef9915372a52023c2a6e865e09055e8d",
+    "runs\\air3d_smoke_20261022\\checkpoint.pt": "d8dc0ab79419fcf6ca280e2ace8a67ce7a1a00d32f17fc2899784a25900ea76b",
+    "runs\\experiment_2_a_loss_20261022\\checkpoint.pt": "78b5efd83e9023a2089b13a524a26b60084df9746a750f453e6abfd7592ebbac",
+    "runs\\experiment_2_b_sampling_20261022\\checkpoint.pt": "4a9db6ba6b5a4fc83ebbe0b10a588c02ac830d4d639703bbada1222c150a2e42",
+    "runs\\experiment_2_c_hold_20261022\\checkpoint.pt": "5f1c41f8903325db05e8963edb0a6b370e2e71f33a77f5996ab05a4b7ccb8a1c",
+    "runs\\experiment_3_a_constraints\\checkpoint.pt": "44d19503406e4339fda5376c1074a20e5bf2c3508085af9f47d159e9858d8b62",
+    "runs\\experiment_3_b_periodic\\checkpoint.pt": "e18ff2c9733eb93c226e3e0eb03578cafefc9725695dc1e6045ec001faa42ac0",
+    "runs\\experiment_3_c_time_sampling\\checkpoint.pt": "2ef5c97491ad35dd5b436507f65352e56ee91485e9af86537a77b4e9c8000f95",
+    "experiments\\experiment_3_d_refinement\\adam\\checkpoint_200.pt": "d803ad0c33811dd89f64157e0f546f294f1fd7609213f5778dae398d7bb83147",
+    "experiments\\experiment_3_d_refinement\\adam\\checkpoint_800.pt": "a10929c354d28d8109c7f187371d28603fc0f810c67a10d6ce4b01cafac3d29c",
+    "lookahead_21points_20261027\\heldout_values.npz": "b70e081991f8dee14b03acebd5f63ee3fd85b5ef0a044714a3df4545425f0177",
+    "evaluation\\reserved_final_states\\states.npz": "f902bb08c7fe93d7a6275048e9cc41ddf2f4819be2f9a600597ae1d5666280c6"
+  },
+  "short_refinement_replay": {
+    "10200": {
+      "model_max_abs_difference": 0.0,
+      "sampling_rng_matches": true
+    },
+    "10800": {
+      "model_max_abs_difference": 0.0,
+      "sampling_rng_matches": true
+    }
+  },
+  "reference_labels_loaded": false,
+  "reserved_final_states_used": false,
+  "protocol_sha256": "056d97a1a9ee3ee5c103f536ab8a1ab3560369b6c7f1f8ccd7c0010ff9e4d91e",
+  "sources": {
+    "capacity_budget.py": "f8ad6366ac6f26d4d9bb0395ba33fc72907e21208a8b04c3396a515d0e1f1c3e",
+    "deepreach.py": "830e2e0544f5b1d9fab80d59217e50b5fba0a6b7c0c91e536343d2123d5d016a"
+  },
+  "orchestration_elapsed_seconds": 807.3696808000095
+}

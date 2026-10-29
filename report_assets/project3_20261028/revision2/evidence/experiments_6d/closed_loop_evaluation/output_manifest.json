@@ -1,0 +1,30 @@
+{
+  "status": "verified closed-loop development outputs",
+  "files": {
+    "collision_matrix.png": "b593a7dd948f94d27a442ca29890f067ba4e470e91e10ffdb66cec2c41283ecb",
+    "finite_policy_worst.csv": "06e0115833f8c220cab66da7674a69427dea039d43c9a098e72613e39f14db57",
+    "finite_policy_worst.json": "ed0a5677c3acb3b673f23c829d6837c1237f635f30e45a70f451a262222e8638",
+    "initial_states.npz": "8d10e49df68bc4f2f9069a5ce39208f97e6dd8dd78e7f3c10f77f248ca9db202",
+    "manifest.json": "04cd40b0f2a95257cde5b4db47a893ea32b8c58f50aeb85363133510d7a3a923",
+    "METHODOLOGY.md": "557b175f32243ec47f70638ef3966da61307d29d71d59bbe1eeef91af7c90a2a",
+    "policy_pair_metrics.csv": "b27584d22263d3df268886d67da40d254e7b1d0f7b6a421c30bc0f151867f63c",
+    "policy_pair_metrics.json": "62988899691806d795934ac3a3483055fd730c716484bdc51cf3392b3bb10668",
+    "predetermined_examples.png": "dcda468f322293b30db1269e02e98b43d19f4a1247e82c5dca2f4e21252898fa",
+    "primary_contact_cases.json": "b23d110f8e469986eb3abdfefaae875993cda29ea5df8d64785357864edb8e81",
+    "protocol.json": "143c4690469e77a484347adc4f0a76dc946bf70fee143f61dfe28cd33c351042",
+    "README.md": "44730e5c7f700945e98b4208051583537ca7e44231f506674522d48004715c99",
+    "replay_checks.json": "472e81a5a0da162c2574123e1716e96620b6f38e7ee439a2ca86c10cdf597fcf",
+    "rollouts_dt_0.005.npz": "14fb5454bd0944f60a78402b256238606d5715ecaac1edb82e8defadbe213005",
+    "rollouts_dt_0.010.npz": "8f54fb3ca164e24d96efbebfedd9142bfdbc208c9813aee60c9d6ceaf581648e",
+    "sources\\deepreach.py": "830e2e0544f5b1d9fab80d59217e50b5fba0a6b7c0c91e536343d2123d5d016a",
+    "sources\\evaluate.py": "a513e8ba9e7bcad396bd6ee16b6f4f1070bb18bca702960e89d04b33f61eeca1",
+    "sources\\joint6d.py": "b0734c017847e6d5783357ed1291bfa7150f73e4e0a258b5ffec366bb69fc0de",
+    "sources\\network.py": "07f95e3e5ada96373b243d4d8dca4b55362763b5cd2416af672d597a9fd7eb59",
+    "sources\\reference.py": "9d47292d61389539b4a6677249bf17e4dc38315bf49c5864bcfcb7d9d505ea32",
+    "sources\\rollouts.py": "72d6cfd548cbf2ec0ac1796566b34dad24f9eb04e6acf4c9edb78648d4c44978",
+    "status.json": "e70aae91ec756595d6195f159376f916a2e760d3677dfde700fef34c39fbf59e",
+    "time_step_sensitivity.csv": "51ddcc5e76cd259c9cd7af987b8d757fc0e822dde692238b602dae35b53ca528",
+    "time_step_sensitivity.json": "9ce8f3b0f1a3d9c94020024265a1ea4e796bcc5d7ed515cb3c678aef593e963b"
+  },
+  "report_source_sha256": "ab6c924b068b020bea5b9d6e4606eb3837ce622b5e76d75e5b72aba5675f96fc"
+}

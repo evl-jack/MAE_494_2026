@@ -1,0 +1,57 @@
+{
+  "status": "passed",
+  "value_metric_rows_recomputed": 105,
+  "saved_gradient_comparisons_recomputed": 10,
+  "no_new_model_queries": true,
+  "secondary": {
+    "label": "Post-evaluation sensitivity summary from already saved arrays; no new model/reference queries",
+    "coarse_final_mae": {
+      "4A": 0.08831209641896776,
+      "4B": 0.028330406426810242,
+      "4C": 0.027774389881561924,
+      "3D_3A": 0.027871256822981732,
+      "3D_Long": 0.021488136223412814
+    },
+    "coarse_4c_vs_4b_improvement_percent": 1.9626140792746856,
+    "worst_horizon_false_safe": {
+      "4B": {
+        "model": "4B",
+        "time": 0.15000000000000002,
+        "mae": 0.010758000486009603,
+        "rmse": 0.01713160502724798,
+        "max_abs": 0.11039081016940824,
+        "iou": 0.8995130588756087,
+        "disagreement_fraction": 0.018916666666666665,
+        "false_safe_fraction_of_reference_unsafe": 0.004897159647404506,
+        "false_safe_fraction_of_all": 0.0008333333333333334,
+        "false_unsafe_fraction_of_reference_safe": 0.02179152440249046,
+        "reference_unsafe_count": 4084,
+        "total_count": 24000,
+        "false_safe_count": 20,
+        "false_unsafe_count": 434,
+        "bias": -0.0104079217618062,
+        "p99_abs": 0.05654572865623857,
+        "relative_l2": 0.06848418323428984
+      },
+      "4C": {
+        "model": "4C",
+        "time": 0.15000000000000002,
+        "mae": 0.010282449710017152,
+        "rmse": 0.015348088360776897,
+        "max_abs": 0.06562274514092771,
+        "iou": 0.902676399026764,
+        "disagreement_fraction": 0.018333333333333333,
+        "false_safe_fraction_of_reference_unsafe": 0.0007345739471106758,
+        "false_safe_fraction_of_all": 0.000125,
+        "false_unsafe_fraction_of_reference_safe": 0.02194215705965053,
+        "reference_unsafe_count": 4084,
+        "total_count": 24000,
+        "false_safe_count": 3,
+        "false_unsafe_count": 437,
+        "bias": -0.010217285064087676,
+        "p99_abs": 0.04543645109461109,
+        "relative_l2": 0.06135451371449025
+      }
+    }
+  }
+}

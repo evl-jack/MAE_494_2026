@@ -1,0 +1,12 @@
+{
+  "python": "3.12.14",
+  "torch": "2.5.1+cpu",
+  "numpy": "1.26.4",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "processor": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+  "cpu_count": 14,
+  "device": "cpu",
+  "cuda_available": false,
+  "threads": 2,
+  "upstream": "a8127aa7825d58623e9646211644876c83dd71d0"
+}

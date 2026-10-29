@@ -1,0 +1,962 @@
+[
+  {
+    "model": "4C",
+    "dt": 0.01,
+    "variant": "learned",
+    "maximum_state_replay_difference": 3.35276251206551e-08,
+    "maximum_minimum_distance_difference": 4.7198547847848715e-09,
+    "contact_flags_match": true,
+    "minimum_distance_upper_float64": [
+      0.20127262806989138,
+      0.20127262806989096,
+      0.201272628069895,
+      0.20127262806989157
+    ],
+    "minimum_distance_lower_float64": [
+      0.20033512806889137,
+      0.20033512806889095,
+      0.20033512806889497,
+      0.20033512806889156
+    ]
+  },
+  {
+    "model": "4C",
+    "dt": 0.01,
+    "variant": "initial_turn_5ms",
+    "maximum_state_replay_difference": 3.319234753718092e-08,
+    "maximum_minimum_distance_difference": 4.397184893978334e-09,
+    "contact_flags_match": true,
+    "minimum_distance_upper_float64": [
+      0.19121232781773942,
+      0.19121232781773936,
+      0.19121232781774294,
+      0.19121232781773959
+    ],
+    "minimum_distance_lower_float64": [
+      0.1902748278167394,
+      0.19027482781673935,
+      0.19027482781674293,
+      0.19027482781673957
+    ]
+  },
+  {
+    "model": "4C",
+    "dt": 0.01,
+    "variant": "initial_turn_10ms",
+    "maximum_state_replay_difference": 3.2857072618242e-08,
+    "maximum_minimum_distance_difference": 4.05963440641699e-09,
+    "contact_flags_match": true,
+    "minimum_distance_upper_float64": [
+      0.18126302957728146,
+      0.181263029577281,
+      0.18126302957728482,
+      0.18126302957728174
+    ],
+    "minimum_distance_lower_float64": [
+      0.18032552957628145,
+      0.18032552957628098,
+      0.1803255295762848,
+      0.18032552957628173
+    ]
+  },
+  {
+    "model": "4C",
+    "dt": 0.01,
+    "variant": "initial_turn_25ms",
+    "maximum_state_replay_difference": 3.185124253235472e-08,
+    "maximum_minimum_distance_difference": 2.9141650481623316e-09,
+    "contact_flags_match": true,
+    "minimum_distance_upper_float64": [
+      0.15245341621644112,
+      0.15245341621644096,
+      0.15245341621644362,
+      0.15245341621644098
+    ],
+    "minimum_distance_lower_float64": [
+      0.1515159162154411,
+      0.15151591621544094,
+      0.1515159162154436,
+      0.15151591621544097
+    ]
+  },
+  {
+    "model": "4C",
+    "dt": 0.01,
+    "variant": "initial_turn_50ms",
+    "maximum_state_replay_difference": 3.0174855503162235e-08,
+    "maximum_minimum_distance_difference": 7.381164568442955e-10,
+    "contact_flags_match": true,
+    "minimum_distance_upper_float64": [
+      0.2872436909882423,
+      0.28724369098824215,
+      0.2872436909882443,
+      0.28724369098824365
+    ],
+    "minimum_distance_lower_float64": [
+      0.28630619098724236,
+      0.2863061909872422,
+      0.28630619098724436,
+      0.2863061909872437
+    ]
+  },
+  {
+    "model": "4C",
+    "dt": 0.01,
+    "variant": "initial_turn_100ms",
+    "maximum_state_replay_difference": 2.6822092991096724e-08,
+    "maximum_minimum_distance_difference": 5.9814558861504e-10,
+    "contact_flags_match": true,
+    "minimum_distance_upper_float64": [
+      0.2872436909882423,
+      0.28724369098824215,
+      0.2872436909882443,
+      0.28724369098824365
+    ],
+    "minimum_distance_lower_float64": [
+      0.28630619098724236,
+      0.2863061909872422,
+      0.28630619098724436,
+      0.2863061909872437
+    ]
+  },
+  {
+    "model": "4C",
+    "dt": 0.01,
+    "variant": "feedback_prefix_5ms",
+    "maximum_state_replay_difference": 3.319234753718092e-08,
+    "maximum_minimum_distance_difference": 4.397184893978334e-09,
+    "contact_flags_match": true,
+    "minimum_distance_upper_float64": [
+      0.19121232781773942,
+      0.19121232781773936,
+      0.19121232781774294,
+      0.19121232781773959
+    ],
+    "minimum_distance_lower_float64": [
+      0.1902748278167394,
+      0.19027482781673935,
+      0.19027482781674293,
+      0.19027482781673957
+    ]
+  },
+  {
+    "model": "4C",
+    "dt": 0.01,
+    "variant": "feedback_prefix_10ms",
+    "maximum_state_replay_difference": 3.2857072618242e-08,
+    "maximum_minimum_distance_difference": 4.05963440641699e-09,
+    "contact_flags_match": true,
+    "minimum_distance_upper_float64": [
+      0.18126302957728146,
+      0.181263029577281,
+      0.18126302957728482,
+      0.18126302957728174
+    ],
+    "minimum_distance_lower_float64": [
+      0.18032552957628145,
+      0.18032552957628098,
+      0.1803255295762848,
+      0.18032552957628173
+    ]
+  },
+  {
+    "model": "4C",
+    "dt": 0.01,
+    "variant": "feedback_prefix_25ms",
+    "maximum_state_replay_difference": 3.185124253235472e-08,
+    "maximum_minimum_distance_difference": 2.9141650481623316e-09,
+    "contact_flags_match": true,
+    "minimum_distance_upper_float64": [
+      0.15245341621644112,
+      0.15245341621644096,
+      0.15245341621644362,
+      0.15245341621644098
+    ],
+    "minimum_distance_lower_float64": [
+      0.1515159162154411,
+      0.15151591621544094,
+      0.1515159162154436,
+      0.15151591621544097
+    ]
+  },
+  {
+    "model": "4C",
+    "dt": 0.01,
+    "variant": "feedback_prefix_50ms",
+    "maximum_state_replay_difference": 3.0174855503162235e-08,
+    "maximum_minimum_distance_difference": 7.381164568442955e-10,
+    "contact_flags_match": true,
+    "minimum_distance_upper_float64": [
+      0.2872436909882423,
+      0.28724369098824215,
+      0.2872436909882443,
+      0.28724369098824365
+    ],
+    "minimum_distance_lower_float64": [
+      0.28630619098724236,
+      0.2863061909872422,
+      0.28630619098724436,
+      0.2863061909872437
+    ]
+  },
+  {
+    "model": "4C",
+    "dt": 0.01,
+    "variant": "feedback_prefix_100ms",
+    "maximum_state_replay_difference": 2.6822092991096724e-08,
+    "maximum_minimum_distance_difference": 5.9814558861504e-10,
+    "contact_flags_match": true,
+    "minimum_distance_upper_float64": [
+      0.2872436909882423,
+      0.28724369098824215,
+      0.2872436909882443,
+      0.28724369098824365
+    ],
+    "minimum_distance_lower_float64": [
+      0.28630619098724236,
+      0.2863061909872422,
+      0.28630619098724436,
+      0.2863061909872437
+    ]
+  },
+  {
+    "model": "4C",
+    "dt": 0.01,
+    "variant": "reference_all",
+    "maximum_state_replay_difference": 0.0,
+    "maximum_minimum_distance_difference": 0.0,
+    "contact_flags_match": true,
+    "minimum_distance_upper_float64": [
+      0.2872436909882423,
+      0.28724369098824215,
+      0.2872436909882443,
+      0.28724369098824365
+    ],
+    "minimum_distance_lower_float64": [
+      0.28630619098724236,
+      0.2863061909872422,
+      0.28630619098724436,
+      0.2863061909872437
+    ]
+  },
+  {
+    "model": "4C",
+    "dt": 0.005,
+    "variant": "learned",
+    "maximum_state_replay_difference": 3.35276384433314e-08,
+    "maximum_minimum_distance_difference": 4.7856064389062425e-09,
+    "contact_flags_match": true,
+    "minimum_distance_upper_float64": [
+      0.20126648171888084,
+      0.2012664817188808,
+      0.20126648171887762,
+      0.20126648171888056
+    ],
+    "minimum_distance_lower_float64": [
+      0.20079773171788085,
+      0.20079773171788082,
+      0.20079773171787763,
+      0.20079773171788057
+    ]
+  },
+  {
+    "model": "4C",
+    "dt": 0.005,
+    "variant": "initial_turn_5ms",
+    "maximum_state_replay_difference": 3.319236263621406e-08,
+    "maximum_minimum_distance_difference": 4.472258785526151e-09,
+    "contact_flags_match": true,
+    "minimum_distance_upper_float64": [
+      0.19120573268305716,
+      0.19120573268305732,
+      0.1912057326830544,
+      0.1912057326830568
+    ],
+    "minimum_distance_lower_float64": [
+      0.19073698268205716,
+      0.19073698268205733,
+      0.1907369826820544,
+      0.1907369826820568
+    ]
+  },
+  {
+    "model": "4C",
+    "dt": 0.005,
+    "variant": "initial_turn_10ms",
+    "maximum_state_replay_difference": 3.2857086829096716e-08,
+    "maximum_minimum_distance_difference": 4.14757073130545e-09,
+    "contact_flags_match": true,
+    "minimum_distance_upper_float64": [
+      0.18126845884717688,
+      0.18126845884717682,
+      0.18126845884717427,
+      0.18126845884717657
+    ],
+    "minimum_distance_lower_float64": [
+      0.18079970884617688,
+      0.18079970884617683,
+      0.18079970884617427,
+      0.18079970884617658
+    ]
+  },
+  {
+    "model": "4C",
+    "dt": 0.005,
+    "variant": "initial_turn_25ms",
+    "maximum_state_replay_difference": 3.185125940774469e-08,
+    "maximum_minimum_distance_difference": 3.0429158359712716e-09,
+    "contact_flags_match": true,
+    "minimum_distance_upper_float64": [
+      0.15246139700870373,
+      0.1524613970087036,
+      0.15246139700870176,
+      0.15246139700870356
+    ],
+    "minimum_distance_lower_float64": [
+      0.15199264700770374,
+      0.1519926470077036,
+      0.15199264700770176,
+      0.15199264700770357
+    ]
+  },
+  {
+    "model": "4C",
+    "dt": 0.005,
+    "variant": "initial_turn_50ms",
+    "maximum_state_replay_difference": 3.017486127632196e-08,
+    "maximum_minimum_distance_difference": 5.372408629078507e-10,
+    "contact_flags_match": true,
+    "minimum_distance_upper_float64": [
+      0.287243279050268,
+      0.287243279050268,
+      0.28724327905026326,
+      0.2872432790502674
+    ],
+    "minimum_distance_lower_float64": [
+      0.286774529049268,
+      0.286774529049268,
+      0.28677452904926326,
+      0.2867745290492674
+    ]
+  },
+  {
+    "model": "4C",
+    "dt": 0.005,
+    "variant": "initial_turn_100ms",
+    "maximum_state_replay_difference": 2.6822098764256452e-08,
+    "maximum_minimum_distance_difference": 4.4085479711242215e-10,
+    "contact_flags_match": true,
+    "minimum_distance_upper_float64": [
+      0.287243279050268,
+      0.287243279050268,
+      0.28724327905026326,
+      0.2872432790502674
+    ],
+    "minimum_distance_lower_float64": [
+      0.286774529049268,
+      0.286774529049268,
+      0.28677452904926326,
+      0.2867745290492674
+    ]
+  },
+  {
+    "model": "4C",
+    "dt": 0.005,
+    "variant": "feedback_prefix_5ms",
+    "maximum_state_replay_difference": 3.319236263621406e-08,
+    "maximum_minimum_distance_difference": 4.472258785526151e-09,
+    "contact_flags_match": true,
+    "minimum_distance_upper_float64": [
+      0.19120573268305716,
+      0.19120573268305732,
+      0.1912057326830544,
+      0.1912057326830568
+    ],
+    "minimum_distance_lower_float64": [
+      0.19073698268205716,
+      0.19073698268205733,
+      0.1907369826820544,
+      0.1907369826820568
+    ]
+  },
+  {
+    "model": "4C",
+    "dt": 0.005,
+    "variant": "feedback_prefix_10ms",
+    "maximum_state_replay_difference": 3.2857086829096716e-08,
+    "maximum_minimum_distance_difference": 4.14757073130545e-09,
+    "contact_flags_match": true,
+    "minimum_distance_upper_float64": [
+      0.18126845884717688,
+      0.18126845884717682,
+      0.18126845884717427,
+      0.18126845884717657
+    ],
+    "minimum_distance_lower_float64": [
+      0.18079970884617688,
+      0.18079970884617683,
+      0.18079970884617427,
+      0.18079970884617658
+    ]
+  },
+  {
+    "model": "4C",
+    "dt": 0.005,
+    "variant": "feedback_prefix_25ms",
+    "maximum_state_replay_difference": 3.185125940774469e-08,
+    "maximum_minimum_distance_difference": 3.0429158359712716e-09,
+    "contact_flags_match": true,
+    "minimum_distance_upper_float64": [
+      0.15246139700870373,
+      0.1524613970087036,
+      0.15246139700870176,
+      0.15246139700870356
+    ],
+    "minimum_distance_lower_float64": [
+      0.15199264700770374,
+      0.1519926470077036,
+      0.15199264700770176,
+      0.15199264700770357
+    ]
+  },
+  {
+    "model": "4C",
+    "dt": 0.005,
+    "variant": "feedback_prefix_50ms",
+    "maximum_state_replay_difference": 3.017486127632196e-08,
+    "maximum_minimum_distance_difference": 5.372408629078507e-10,
+    "contact_flags_match": true,
+    "minimum_distance_upper_float64": [
+      0.287243279050268,
+      0.287243279050268,
+      0.28724327905026326,
+      0.2872432790502674
+    ],
+    "minimum_distance_lower_float64": [
+      0.286774529049268,
+      0.286774529049268,
+      0.28677452904926326,
+      0.2867745290492674
+    ]
+  },
+  {
+    "model": "4C",
+    "dt": 0.005,
+    "variant": "feedback_prefix_100ms",
+    "maximum_state_replay_difference": 2.6822098764256452e-08,
+    "maximum_minimum_distance_difference": 4.4085479711242215e-10,
+    "contact_flags_match": true,
+    "minimum_distance_upper_float64": [
+      0.287243279050268,
+      0.287243279050268,
+      0.28724327905026326,
+      0.2872432790502674
+    ],
+    "minimum_distance_lower_float64": [
+      0.286774529049268,
+      0.286774529049268,
+      0.28677452904926326,
+      0.2867745290492674
+    ]
+  },
+  {
+    "model": "4C",
+    "dt": 0.005,
+    "variant": "reference_all",
+    "maximum_state_replay_difference": 0.0,
+    "maximum_minimum_distance_difference": 0.0,
+    "contact_flags_match": true,
+    "minimum_distance_upper_float64": [
+      0.287243279050268,
+      0.287243279050268,
+      0.28724327905026326,
+      0.2872432790502674
+    ],
+    "minimum_distance_lower_float64": [
+      0.286774529049268,
+      0.286774529049268,
+      0.28677452904926326,
+      0.2867745290492674
+    ]
+  },
+  {
+    "model": "3D_Long",
+    "dt": 0.01,
+    "variant": "learned",
+    "maximum_state_replay_difference": 0.0,
+    "maximum_minimum_distance_difference": 0.0,
+    "contact_flags_match": true,
+    "minimum_distance_upper_float64": [
+      0.20127262806989138,
+      0.20127262806989096,
+      0.201272628069895,
+      0.20127262806989157
+    ],
+    "minimum_distance_lower_float64": [
+      0.20033512806889137,
+      0.20033512806889095,
+      0.20033512806889497,
+      0.20033512806889156
+    ]
+  },
+  {
+    "model": "3D_Long",
+    "dt": 0.01,
+    "variant": "initial_turn_5ms",
+    "maximum_state_replay_difference": 0.0,
+    "maximum_minimum_distance_difference": 0.0,
+    "contact_flags_match": true,
+    "minimum_distance_upper_float64": [
+      0.19121232781773942,
+      0.19121232781773936,
+      0.19121232781774294,
+      0.19121232781773959
+    ],
+    "minimum_distance_lower_float64": [
+      0.1902748278167394,
+      0.19027482781673935,
+      0.19027482781674293,
+      0.19027482781673957
+    ]
+  },
+  {
+    "model": "3D_Long",
+    "dt": 0.01,
+    "variant": "initial_turn_10ms",
+    "maximum_state_replay_difference": 0.0,
+    "maximum_minimum_distance_difference": 0.0,
+    "contact_flags_match": true,
+    "minimum_distance_upper_float64": [
+      0.2872436909882423,
+      0.28724369098824215,
+      0.2872436909882443,
+      0.28724369098824365
+    ],
+    "minimum_distance_lower_float64": [
+      0.28630619098724236,
+      0.2863061909872422,
+      0.28630619098724436,
+      0.2863061909872437
+    ]
+  },
+  {
+    "model": "3D_Long",
+    "dt": 0.01,
+    "variant": "initial_turn_25ms",
+    "maximum_state_replay_difference": 0.0,
+    "maximum_minimum_distance_difference": 0.0,
+    "contact_flags_match": true,
+    "minimum_distance_upper_float64": [
+      0.2872436909882424,
+      0.2872436909882423,
+      0.2872436909882439,
+      0.28724369098824354
+    ],
+    "minimum_distance_lower_float64": [
+      0.2863061909872424,
+      0.28630619098724236,
+      0.28630619098724397,
+      0.2863061909872436
+    ]
+  },
+  {
+    "model": "3D_Long",
+    "dt": 0.01,
+    "variant": "initial_turn_50ms",
+    "maximum_state_replay_difference": 0.0,
+    "maximum_minimum_distance_difference": 0.0,
+    "contact_flags_match": true,
+    "minimum_distance_upper_float64": [
+      0.2872436909882423,
+      0.28724369098824215,
+      0.2872436909882443,
+      0.28724369098824365
+    ],
+    "minimum_distance_lower_float64": [
+      0.28630619098724236,
+      0.2863061909872422,
+      0.28630619098724436,
+      0.2863061909872437
+    ]
+  },
+  {
+    "model": "3D_Long",
+    "dt": 0.01,
+    "variant": "initial_turn_100ms",
+    "maximum_state_replay_difference": 0.0,
+    "maximum_minimum_distance_difference": 0.0,
+    "contact_flags_match": true,
+    "minimum_distance_upper_float64": [
+      0.2872436909882423,
+      0.28724369098824215,
+      0.2872436909882443,
+      0.28724369098824365
+    ],
+    "minimum_distance_lower_float64": [
+      0.28630619098724236,
+      0.2863061909872422,
+      0.28630619098724436,
+      0.2863061909872437
+    ]
+  },
+  {
+    "model": "3D_Long",
+    "dt": 0.01,
+    "variant": "feedback_prefix_5ms",
+    "maximum_state_replay_difference": 0.0,
+    "maximum_minimum_distance_difference": 0.0,
+    "contact_flags_match": true,
+    "minimum_distance_upper_float64": [
+      0.19121232781773942,
+      0.19121232781773936,
+      0.19121232781774294,
+      0.19121232781773959
+    ],
+    "minimum_distance_lower_float64": [
+      0.1902748278167394,
+      0.19027482781673935,
+      0.19027482781674293,
+      0.19027482781673957
+    ]
+  },
+  {
+    "model": "3D_Long",
+    "dt": 0.01,
+    "variant": "feedback_prefix_10ms",
+    "maximum_state_replay_difference": 0.0,
+    "maximum_minimum_distance_difference": 0.0,
+    "contact_flags_match": true,
+    "minimum_distance_upper_float64": [
+      0.2872436909882423,
+      0.28724369098824215,
+      0.2872436909882443,
+      0.28724369098824365
+    ],
+    "minimum_distance_lower_float64": [
+      0.28630619098724236,
+      0.2863061909872422,
+      0.28630619098724436,
+      0.2863061909872437
+    ]
+  },
+  {
+    "model": "3D_Long",
+    "dt": 0.01,
+    "variant": "feedback_prefix_25ms",
+    "maximum_state_replay_difference": 0.0,
+    "maximum_minimum_distance_difference": 0.0,
+    "contact_flags_match": true,
+    "minimum_distance_upper_float64": [
+      0.2872436909882424,
+      0.2872436909882423,
+      0.2872436909882439,
+      0.28724369098824354
+    ],
+    "minimum_distance_lower_float64": [
+      0.2863061909872424,
+      0.28630619098724236,
+      0.28630619098724397,
+      0.2863061909872436
+    ]
+  },
+  {
+    "model": "3D_Long",
+    "dt": 0.01,
+    "variant": "feedback_prefix_50ms",
+    "maximum_state_replay_difference": 0.0,
+    "maximum_minimum_distance_difference": 0.0,
+    "contact_flags_match": true,
+    "minimum_distance_upper_float64": [
+      0.2872436909882423,
+      0.28724369098824215,
+      0.2872436909882443,
+      0.28724369098824365
+    ],
+    "minimum_distance_lower_float64": [
+      0.28630619098724236,
+      0.2863061909872422,
+      0.28630619098724436,
+      0.2863061909872437
+    ]
+  },
+  {
+    "model": "3D_Long",
+    "dt": 0.01,
+    "variant": "feedback_prefix_100ms",
+    "maximum_state_replay_difference": 0.0,
+    "maximum_minimum_distance_difference": 0.0,
+    "contact_flags_match": true,
+    "minimum_distance_upper_float64": [
+      0.2872436909882423,
+      0.28724369098824215,
+      0.2872436909882443,
+      0.28724369098824365
+    ],
+    "minimum_distance_lower_float64": [
+      0.28630619098724236,
+      0.2863061909872422,
+      0.28630619098724436,
+      0.2863061909872437
+    ]
+  },
+  {
+    "model": "3D_Long",
+    "dt": 0.01,
+    "variant": "reference_all",
+    "maximum_state_replay_difference": 0.0,
+    "maximum_minimum_distance_difference": 0.0,
+    "contact_flags_match": true,
+    "minimum_distance_upper_float64": [
+      0.2872436909882423,
+      0.28724369098824215,
+      0.2872436909882443,
+      0.28724369098824365
+    ],
+    "minimum_distance_lower_float64": [
+      0.28630619098724236,
+      0.2863061909872422,
+      0.28630619098724436,
+      0.2863061909872437
+    ]
+  },
+  {
+    "model": "3D_Long",
+    "dt": 0.005,
+    "variant": "learned",
+    "maximum_state_replay_difference": 0.0,
+    "maximum_minimum_distance_difference": 0.0,
+    "contact_flags_match": true,
+    "minimum_distance_upper_float64": [
+      0.20126648171888084,
+      0.2012664817188808,
+      0.20126648171887762,
+      0.20126648171888056
+    ],
+    "minimum_distance_lower_float64": [
+      0.20079773171788085,
+      0.20079773171788082,
+      0.20079773171787763,
+      0.20079773171788057
+    ]
+  },
+  {
+    "model": "3D_Long",
+    "dt": 0.005,
+    "variant": "initial_turn_5ms",
+    "maximum_state_replay_difference": 0.0,
+    "maximum_minimum_distance_difference": 0.0,
+    "contact_flags_match": true,
+    "minimum_distance_upper_float64": [
+      0.19120573268305716,
+      0.19120573268305732,
+      0.1912057326830544,
+      0.1912057326830568
+    ],
+    "minimum_distance_lower_float64": [
+      0.19073698268205716,
+      0.19073698268205733,
+      0.1907369826820544,
+      0.1907369826820568
+    ]
+  },
+  {
+    "model": "3D_Long",
+    "dt": 0.005,
+    "variant": "initial_turn_10ms",
+    "maximum_state_replay_difference": 0.0,
+    "maximum_minimum_distance_difference": 0.0,
+    "contact_flags_match": true,
+    "minimum_distance_upper_float64": [
+      0.287243279050268,
+      0.287243279050268,
+      0.28724327905026326,
+      0.2872432790502674
+    ],
+    "minimum_distance_lower_float64": [
+      0.286774529049268,
+      0.286774529049268,
+      0.28677452904926326,
+      0.2867745290492674
+    ]
+  },
+  {
+    "model": "3D_Long",
+    "dt": 0.005,
+    "variant": "initial_turn_25ms",
+    "maximum_state_replay_difference": 0.0,
+    "maximum_minimum_distance_difference": 0.0,
+    "contact_flags_match": true,
+    "minimum_distance_upper_float64": [
+      0.287243279050268,
+      0.287243279050268,
+      0.28724327905026326,
+      0.2872432790502674
+    ],
+    "minimum_distance_lower_float64": [
+      0.286774529049268,
+      0.286774529049268,
+      0.28677452904926326,
+      0.2867745290492674
+    ]
+  },
+  {
+    "model": "3D_Long",
+    "dt": 0.005,
+    "variant": "initial_turn_50ms",
+    "maximum_state_replay_difference": 0.0,
+    "maximum_minimum_distance_difference": 0.0,
+    "contact_flags_match": true,
+    "minimum_distance_upper_float64": [
+      0.287243279050268,
+      0.287243279050268,
+      0.28724327905026326,
+      0.2872432790502674
+    ],
+    "minimum_distance_lower_float64": [
+      0.286774529049268,
+      0.286774529049268,
+      0.28677452904926326,
+      0.2867745290492674
+    ]
+  },
+  {
+    "model": "3D_Long",
+    "dt": 0.005,
+    "variant": "initial_turn_100ms",
+    "maximum_state_replay_difference": 0.0,
+    "maximum_minimum_distance_difference": 0.0,
+    "contact_flags_match": true,
+    "minimum_distance_upper_float64": [
+      0.287243279050268,
+      0.287243279050268,
+      0.28724327905026326,
+      0.2872432790502674
+    ],
+    "minimum_distance_lower_float64": [
+      0.286774529049268,
+      0.286774529049268,
+      0.28677452904926326,
+      0.2867745290492674
+    ]
+  },
+  {
+    "model": "3D_Long",
+    "dt": 0.005,
+    "variant": "feedback_prefix_5ms",
+    "maximum_state_replay_difference": 0.0,
+    "maximum_minimum_distance_difference": 0.0,
+    "contact_flags_match": true,
+    "minimum_distance_upper_float64": [
+      0.19120573268305716,
+      0.19120573268305732,
+      0.1912057326830544,
+      0.1912057326830568
+    ],
+    "minimum_distance_lower_float64": [
+      0.19073698268205716,
+      0.19073698268205733,
+      0.1907369826820544,
+      0.1907369826820568
+    ]
+  },
+  {
+    "model": "3D_Long",
+    "dt": 0.005,
+    "variant": "feedback_prefix_10ms",
+    "maximum_state_replay_difference": 0.0,
+    "maximum_minimum_distance_difference": 0.0,
+    "contact_flags_match": true,
+    "minimum_distance_upper_float64": [
+      0.287243279050268,
+      0.287243279050268,
+      0.28724327905026326,
+      0.2872432790502674
+    ],
+    "minimum_distance_lower_float64": [
+      0.286774529049268,
+      0.286774529049268,
+      0.28677452904926326,
+      0.2867745290492674
+    ]
+  },
+  {
+    "model": "3D_Long",
+    "dt": 0.005,
+    "variant": "feedback_prefix_25ms",
+    "maximum_state_replay_difference": 0.0,
+    "maximum_minimum_distance_difference": 0.0,
+    "contact_flags_match": true,
+    "minimum_distance_upper_float64": [
+      0.287243279050268,
+      0.287243279050268,
+      0.28724327905026326,
+      0.2872432790502674
+    ],
+    "minimum_distance_lower_float64": [
+      0.286774529049268,
+      0.286774529049268,
+      0.28677452904926326,
+      0.2867745290492674
+    ]
+  },
+  {
+    "model": "3D_Long",
+    "dt": 0.005,
+    "variant": "feedback_prefix_50ms",
+    "maximum_state_replay_difference": 0.0,
+    "maximum_minimum_distance_difference": 0.0,
+    "contact_flags_match": true,
+    "minimum_distance_upper_float64": [
+      0.287243279050268,
+      0.287243279050268,
+      0.28724327905026326,
+      0.2872432790502674
+    ],
+    "minimum_distance_lower_float64": [
+      0.286774529049268,
+      0.286774529049268,
+      0.28677452904926326,
+      0.2867745290492674
+    ]
+  },
+  {
+    "model": "3D_Long",
+    "dt": 0.005,
+    "variant": "feedback_prefix_100ms",
+    "maximum_state_replay_difference": 0.0,
+    "maximum_minimum_distance_difference": 0.0,
+    "contact_flags_match": true,
+    "minimum_distance_upper_float64": [
+      0.287243279050268,
+      0.287243279050268,
+      0.28724327905026326,
+      0.2872432790502674
+    ],
+    "minimum_distance_lower_float64": [
+      0.286774529049268,
+      0.286774529049268,
+      0.28677452904926326,
+      0.2867745290492674
+    ]
+  },
+  {
+    "model": "3D_Long",
+    "dt": 0.005,
+    "variant": "reference_all",
+    "maximum_state_replay_difference": 0.0,
+    "maximum_minimum_distance_difference": 0.0,
+    "contact_flags_match": true,
+    "minimum_distance_upper_float64": [
+      0.287243279050268,
+      0.287243279050268,
+      0.28724327905026326,
+      0.2872432790502674
+    ],
+    "minimum_distance_lower_float64": [
+      0.286774529049268,
+      0.286774529049268,
+      0.28677452904926326,
+      0.2867745290492674
+    ]
+  }
+]
