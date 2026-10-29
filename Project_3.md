@@ -219,7 +219,7 @@ The seven-policy rollout matrix covered **78,400 trajectories** at two time step
 
 The approximate reference controller also collided in **four poses**, reaching .24521 m separation despite positive initial values from both grids. This exposes reference-feedback uncertainty rather than proving an exact winning strategy fails. Saved controls reproduced the rollout results on replay.
 
-### Conclusions and limits
+### Conclusions
 
 The main finding is that **better values, lower physics loss and reliable control are different goals**.
 
@@ -228,8 +228,6 @@ The main finding is that **better values, lower physics loss and reliable contro
 - Residual-guided sampling showed no clear advantage over uniform sampling and did not reduce primary collisions.
 
 I would conclude this study and retain **5U as the simpler 6D baseline**. **Long22000 remains the best confirmed 3D value result.** Neither is a universal winner across datasets and metrics.
-
-The study uses predominantly one training seed, a short horizon and simplified deterministic dynamics. Bootstrap intervals measure state-sampling variation conditional on fixed models and the approximate reference—not training-seed or solver uncertainty. Some comparisons bundle formulation and initialization changes. No unique root cause, uniform error bound, paper-scale accuracy or certified safety is established.
 
 Future work should first resolve the reference-feedback collision, then test targeted control/representation changes across seeds. The **reserved 6D final set remains unused**. Genuinely higher-dimensional games, reference-supervised training and real-world flight require separate studies.
 
@@ -240,6 +238,22 @@ The [evidence register](report_assets/project3_final_20261028/source_packet/evid
 Experiment 5 [training records](report_assets/project3_final_20261028/evidence/experiments_6d/experiment_5_sampling/TRAINING_RESULTS.md), [evaluation](report_assets/project3_final_20261028/evidence/experiments_6d/experiment_5_sampling/evaluation/README.md), and [methodology](report_assets/project3_final_20261028/evidence/experiments_6d/experiment_5_sampling/evaluation/METHODOLOGY.md) include protocols and verification. Checks recomputed saved metrics and replayed 5.88 million control updates; they do not independently certify scientific conclusions.
 
 Large arrays, checkpoints and complete source snapshots remain local. A portable runnable archive still needs assembly. [Earlier detailed reports](https://github.com/evl-jack/MAE_494_2026/blob/5461fdf9d07c7a170a6b1803a585fc2a1b1994b3/Project_3.md) remain available; their next-step statements are historical.
+
+## 6. Assumptions and limitations
+
+### Assumptions
+
+- **Idealized motion:** both vehicles move in a plane at equal constant speed with bounded turn rates and a fixed collision threshold. Positions and headings are known; sensing noise, delays, wind, altitude and full vehicle dynamics are not modeled.
+- **Fixed game:** results concern the specified parameters and 0.5 s horizon. The six joint coordinates describe the same three-state relative game; they do not establish scaling to a genuinely higher-dimensional interaction.
+- **Physics-only training:** the governing equations and analytic collision target are assumed correct. Numerical-reference values and gradients are used only for evaluation.
+
+### Limitations
+
+- **Approximate reference:** grid resolution, interpolation and feedback discretization affect values and controls. The reference controller also collided in one tested encounter, so it is not a safety guarantee.
+- **Limited generalization:** most configurations use one training seed. Bootstrap intervals cover sampled-state variation, not training-seed or solver uncertainty. Development groups informed the research; the 3D final set is consumed, and the 6D final set remains unused.
+- **Incomplete causal isolation:** some comparisons change initialization, pretraining or compute alongside the intended modification. They do not identify a universal cause of error.
+- **Control and constraints:** exact terminal/obstacle conditions do not enforce periodicity, horizon monotonicity or the lower value bound. Finite-policy rollouts leave unresolved failures and cannot establish safety against every allowed pursuer action.
+- **Scope of claims:** no uniform error bound, paper-scale accuracy, real-world flight validation or accuracy-matched speed advantage is established.
 
 ## References
 
