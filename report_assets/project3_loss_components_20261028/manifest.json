@@ -1,0 +1,480 @@
+{
+  "status": "Charts generated only from existing CSV logs; no training/model/reference evaluation",
+  "zero_handling": "Nonpositive values are omitted from log lines; exact terminal zeros are explicitly annotated, never replaced by epsilon.",
+  "plotting": "All logged rows plotted without smoothing. Missing components not invented. 3D pre/update-selected values are distinct; Experiment 5 terminal maximum error is not relabeled MAE.",
+  "sources": [
+    {
+      "run": "Experiment 1",
+      "source": "runs/air3d_cpu_20261022/history.csv",
+      "copy": "histories/Experiment_1.csv",
+      "sha256": "52bb18890caa9052af0df9be89d405ef2228f9e06157899eee268db986a962d1",
+      "rows": 62,
+      "first_row": {
+        "step": "1",
+        "phase": "pretrain",
+        "tmax": "0",
+        "terminal_mae": "1.787182331085205",
+        "pde_mae": "0.0",
+        "terminal_weight": "",
+        "loss": "1.787182331085205",
+        "elapsed_seconds": "0.033372500038240105"
+      },
+      "last_row": {
+        "step": "12000",
+        "phase": "curriculum",
+        "tmax": "0.5",
+        "terminal_mae": "0.008879014290869236",
+        "pde_mae": "0.08453342318534851",
+        "terminal_weight": "106.42515563964844",
+        "loss": "1.0294839143753052",
+        "elapsed_seconds": "206.3840161000262"
+      }
+    },
+    {
+      "run": "2A: lower terminal weight",
+      "source": "runs/experiment_2_a_loss_20261022/history.csv",
+      "copy": "histories/2A_lower_terminal_weight.csv",
+      "sha256": "81bf90a12555733d02f2ef819987cdac8da3f8e992b4ffaf743788393516c122",
+      "rows": 62,
+      "first_row": {
+        "step": "1",
+        "phase": "pretrain",
+        "tmax": "0",
+        "terminal_mae": "1.787182331085205",
+        "pde_mae": "0.0",
+        "terminal_weight": "",
+        "loss": "1.787182331085205",
+        "elapsed_seconds": "0.03737229999387637"
+      },
+      "last_row": {
+        "step": "12000",
+        "phase": "curriculum",
+        "tmax": "0.5",
+        "terminal_mae": "0.01395002007484436",
+        "pde_mae": "0.04941841959953308",
+        "terminal_weight": "10.642515563964844",
+        "loss": "0.19788171350955963",
+        "elapsed_seconds": "326.53945039998507"
+      }
+    },
+    {
+      "run": "2B: focused sampling",
+      "source": "runs/experiment_2_b_sampling_20261022/history.csv",
+      "copy": "histories/2B_focused_sampling.csv",
+      "sha256": "8e1591ca889ac1e8c234cc0a93283c731d998f98b78e4ed35e5c0b8664901d14",
+      "rows": 62,
+      "first_row": {
+        "step": "1",
+        "phase": "pretrain",
+        "tmax": "0",
+        "terminal_mae": "1.787182331085205",
+        "pde_mae": "0.0",
+        "terminal_weight": "",
+        "loss": "1.787182331085205",
+        "elapsed_seconds": "0.024988199991639704"
+      },
+      "last_row": {
+        "step": "12000",
+        "phase": "curriculum",
+        "tmax": "0.5",
+        "terminal_mae": "0.008439243771135807",
+        "pde_mae": "0.09263245761394501",
+        "terminal_weight": "125.34981536865234",
+        "loss": "1.1504900455474854",
+        "elapsed_seconds": "341.5055614000303"
+      }
+    },
+    {
+      "run": "2C: longer full-horizon training",
+      "source": "runs/experiment_2_c_hold_20261022/history.csv",
+      "copy": "histories/2C_longer_full-horizon_training.csv",
+      "sha256": "94e9ab1540c1037c6524fd2f725dcaf1533b8ab450ce83560880a8ad53beb306",
+      "rows": 112,
+      "first_row": {
+        "step": "1",
+        "phase": "pretrain",
+        "tmax": "0",
+        "terminal_mae": "1.787182331085205",
+        "pde_mae": "0.0",
+        "terminal_weight": "",
+        "loss": "1.787182331085205",
+        "elapsed_seconds": "0.033372500038240105"
+      },
+      "last_row": {
+        "step": "22000",
+        "phase": "full_horizon",
+        "tmax": "0.5",
+        "terminal_mae": "0.008069241419434547",
+        "pde_mae": "0.06788162142038345",
+        "terminal_weight": "106.42515563964844",
+        "loss": "0.9266518950462341",
+        "elapsed_seconds": "436.93593590002274"
+      }
+    },
+    {
+      "run": "3A: exact terminal and obstacle",
+      "source": "runs/experiment_3_a_constraints/history.csv",
+      "copy": "histories/3A_exact_terminal_and_obstacle.csv",
+      "sha256": "b80bebd5a6082ea61f849a023156c0929288f1f2aa90f1de7795ca67c0600bd2",
+      "rows": 51,
+      "first_row": {
+        "step": "1",
+        "phase": "curriculum",
+        "tmax": "5e-05",
+        "terminal_mae": "0.0",
+        "pde_mae": "0.13858318328857422",
+        "terminal_weight": "0.0",
+        "loss": "0.13858318328857422",
+        "elapsed_seconds": "0.06365449994336814"
+      },
+      "last_row": {
+        "step": "10000",
+        "phase": "curriculum",
+        "tmax": "0.5",
+        "terminal_mae": "0.0",
+        "pde_mae": "0.008247907273471355",
+        "terminal_weight": "0.0",
+        "loss": "0.008247907273471355",
+        "elapsed_seconds": "220.28367229993455"
+      }
+    },
+    {
+      "run": "3B: periodic heading",
+      "source": "runs/experiment_3_b_periodic/history.csv",
+      "copy": "histories/3B_periodic_heading.csv",
+      "sha256": "92e1bd36430d6064dd99bf2e3ed5744e8bd09b12398773c6a1d6b106b443fef8",
+      "rows": 51,
+      "first_row": {
+        "step": "1",
+        "phase": "curriculum",
+        "tmax": "5e-05",
+        "terminal_mae": "0.0",
+        "pde_mae": "0.13677659630775452",
+        "terminal_weight": "0.0",
+        "loss": "0.13677659630775452",
+        "elapsed_seconds": "0.046709699905477464"
+      },
+      "last_row": {
+        "step": "10000",
+        "phase": "curriculum",
+        "tmax": "0.5",
+        "terminal_mae": "0.0",
+        "pde_mae": "0.013476951979100704",
+        "terminal_weight": "0.0",
+        "loss": "0.013476951979100704",
+        "elapsed_seconds": "339.46405629999936"
+      }
+    },
+    {
+      "run": "3C: mixed time sampling",
+      "source": "runs/experiment_3_c_time_sampling/history.csv",
+      "copy": "histories/3C_mixed_time_sampling.csv",
+      "sha256": "f095d8f395acd61475a2e331d9cc7feae73e2dfba12b7f791eed3d9d9d7a4ecb",
+      "rows": 51,
+      "first_row": {
+        "step": "1",
+        "phase": "curriculum",
+        "tmax": "5e-05",
+        "terminal_mae": "0.0",
+        "pde_mae": "0.1708328127861023",
+        "terminal_weight": "0.0",
+        "loss": "0.1708328127861023",
+        "elapsed_seconds": "0.047400300041772425",
+        "full_horizon_fraction": "0.5",
+        "sampled_time_max": "0.4993606209754944"
+      },
+      "last_row": {
+        "step": "10000",
+        "phase": "curriculum",
+        "tmax": "0.5",
+        "terminal_mae": "0.0",
+        "pde_mae": "0.009449971839785576",
+        "terminal_weight": "0.0",
+        "loss": "0.009449971839785576",
+        "elapsed_seconds": "203.9750902999658",
+        "full_horizon_fraction": "0.5",
+        "sampled_time_max": "0.4998210370540619"
+      }
+    },
+    {
+      "run": "3D: Adam continuation (+200 endpoint marked)",
+      "source": "experiments/experiment_3_d_refinement/adam/history.csv",
+      "copy": "histories/3D_Adam_continuation_200_endpoint_marked.csv",
+      "sha256": "3a48c269bfbdfec98570118e001a7d272fe17382ab6680f8202504bda5aa566e",
+      "rows": 800,
+      "first_row": {
+        "step": "1",
+        "pre_physics_loss": "0.008674154058098793",
+        "chosen_physics_loss": "",
+        "alpha": "1.0",
+        "adam_displacement_l2": "",
+        "accepted": "1",
+        "elapsed_seconds": "0.034910200047306716"
+      },
+      "last_row": {
+        "step": "800",
+        "pre_physics_loss": "0.007362501695752144",
+        "chosen_physics_loss": "",
+        "alpha": "1.0",
+        "adam_displacement_l2": "",
+        "accepted": "1",
+        "elapsed_seconds": "15.278173999977298"
+      }
+    },
+    {
+      "run": "3D: plain gradient with step selection",
+      "source": "experiments/experiment_3_d_refinement/plain_gradient/history.csv",
+      "copy": "histories/3D_plain_gradient_with_step_selection.csv",
+      "sha256": "637767be0618aaccd2367286407a2bda1855de01fcaa7a86f8fac3058cf7fc3b",
+      "rows": 200,
+      "first_row": {
+        "step": "1",
+        "pre_physics_loss": "0.008674154058098793",
+        "chosen_physics_loss": "0.007821677019819617",
+        "alpha": "0.3",
+        "adam_displacement_l2": "0.0016655647195875645",
+        "accepted": "1",
+        "elapsed_seconds": "0.053406499908305705"
+      },
+      "last_row": {
+        "step": "200",
+        "pre_physics_loss": "0.005541009362787008",
+        "chosen_physics_loss": "0.005337368464097381",
+        "alpha": "0.3",
+        "adam_displacement_l2": "0.0013828236842527986",
+        "accepted": "1",
+        "elapsed_seconds": "8.569830799940974"
+      }
+    },
+    {
+      "run": "3D: scaled gradient with step selection",
+      "source": "experiments/experiment_3_d_refinement/second_moment_scaled/history.csv",
+      "copy": "histories/3D_scaled_gradient_with_step_selection.csv",
+      "sha256": "a76bfca93062219a0909d4abce5755a284e4a181d3d9493dccf83d40b3041aba",
+      "rows": 200,
+      "first_row": {
+        "step": "1",
+        "pre_physics_loss": "0.008674154058098793",
+        "chosen_physics_loss": "0.007228864589706063",
+        "alpha": "1.0",
+        "adam_displacement_l2": "0.0016655647195875645",
+        "accepted": "1",
+        "elapsed_seconds": "0.05160020000766963"
+      },
+      "last_row": {
+        "step": "200",
+        "pre_physics_loss": "0.0053442795760929585",
+        "chosen_physics_loss": "0.005032233078964055",
+        "alpha": "0.3",
+        "adam_displacement_l2": "0.0013844160130247474",
+        "accepted": "1",
+        "elapsed_seconds": "7.907497200067155"
+      }
+    },
+    {
+      "run": "3E: width 64, longer training",
+      "source": "runs/experiment_3_e_long64/history.csv",
+      "copy": "histories/3E_width_64_longer_training.csv",
+      "sha256": "f1daa0edd09f063f50b6cf7ea42896ee42d2cc5fe1f5e5a34449025bbfbcf9f3",
+      "rows": 111,
+      "first_row": {
+        "step": "1",
+        "phase": "curriculum",
+        "tmax": "5e-05",
+        "terminal_mae": "0.0",
+        "pde_mae": "0.13858318328857422",
+        "terminal_weight": "0.0",
+        "loss": "0.13858318328857422",
+        "elapsed_seconds": "0.06365449994336814"
+      },
+      "last_row": {
+        "step": "22000",
+        "phase": "full_horizon",
+        "tmax": "0.5",
+        "terminal_mae": "0.0",
+        "pde_mae": "0.0054220110177993774",
+        "terminal_weight": "0.0",
+        "loss": "0.0054220110177993774",
+        "elapsed_seconds": "417.6815985998837"
+      }
+    },
+    {
+      "run": "3E: width 96",
+      "source": "runs/experiment_3_e_wide96/history.csv",
+      "copy": "histories/3E_width_96.csv",
+      "sha256": "ed656fce3568f0f0bf2ace3564615d7ca79e232f8118b4a6aeea2d2820604572",
+      "rows": 51,
+      "first_row": {
+        "step": "1",
+        "phase": "curriculum",
+        "tmax": "5e-05",
+        "terminal_mae": "0.0",
+        "pde_mae": "0.12516458332538605",
+        "terminal_weight": "0.0",
+        "loss": "0.12516458332538605",
+        "elapsed_seconds": "0.0574166999431327"
+      },
+      "last_row": {
+        "step": "10000",
+        "phase": "curriculum",
+        "tmax": "0.5",
+        "terminal_mae": "0.0",
+        "pde_mae": "0.008029934950172901",
+        "terminal_weight": "0.0",
+        "loss": "0.008029934950172901",
+        "elapsed_seconds": "604.3720271999482"
+      }
+    },
+    {
+      "run": "4A: soft terminal penalty",
+      "source": "experiments_6d/runs/4A/history.csv",
+      "copy": "histories/4A_soft_terminal_penalty.csv",
+      "sha256": "71ebbeb9389906cfebad7017d2799110ed75debd23ac3845c3a9554e49129f94",
+      "rows": 122,
+      "first_row": {
+        "step": "1",
+        "phase": "terminal",
+        "tmax": "0.0",
+        "terminal_mae": "0.9842703938484192",
+        "vi_mae": "0.0",
+        "terminal_weight": "",
+        "loss": "0.9842703938484192",
+        "elapsed_seconds": "0.021714999922551215"
+      },
+      "last_row": {
+        "step": "12000",
+        "phase": "curriculum",
+        "tmax": "0.5",
+        "terminal_mae": "0.013431128114461899",
+        "vi_mae": "0.07911715656518936",
+        "terminal_weight": "10.265570068359375",
+        "loss": "0.21699532866477966",
+        "elapsed_seconds": "363.66231629566755"
+      }
+    },
+    {
+      "run": "4B: exact terminal and obstacle",
+      "source": "experiments_6d/runs/4B/history.csv",
+      "copy": "histories/4B_exact_terminal_and_obstacle.csv",
+      "sha256": "7f978fd0655d61b9335d912365d274ab5a55eac7692b34ceb043b3f1f7f2fdb5",
+      "rows": 101,
+      "first_row": {
+        "step": "1",
+        "phase": "curriculum",
+        "tmax": "5e-05",
+        "terminal_mae": "0.0",
+        "vi_mae": "0.09642697125673294",
+        "terminal_weight": "0.0",
+        "loss": "0.09642697125673294",
+        "elapsed_seconds": "0.035711899981833994"
+      },
+      "last_row": {
+        "step": "10000",
+        "phase": "curriculum",
+        "tmax": "0.5",
+        "terminal_mae": "0.0",
+        "vi_mae": "0.015380733646452427",
+        "terminal_weight": "0.0",
+        "loss": "0.015380733646452427",
+        "elapsed_seconds": "329.7191845959751"
+      }
+    },
+    {
+      "run": "4C: continuation of 4B (parent ends at 10000)",
+      "source": "experiments_6d/runs/4C/history.csv",
+      "copy": "histories/4C_continuation_of_4B_parent_ends_at_10000.csv",
+      "sha256": "0f0f3f18eb0884ea1d222d6342a756293453e98b2be3c1a77cc7dd22dcd09f3e",
+      "rows": 221,
+      "first_row": {
+        "step": "1",
+        "phase": "curriculum",
+        "tmax": "5e-05",
+        "terminal_mae": "0.0",
+        "vi_mae": "0.09642697125673294",
+        "terminal_weight": "0.0",
+        "loss": "0.09642697125673294",
+        "elapsed_seconds": "0.035711899981833994"
+      },
+      "last_row": {
+        "step": "22000",
+        "phase": "full_horizon",
+        "tmax": "0.5",
+        "terminal_mae": "0.0",
+        "vi_mae": "0.011402693577110767",
+        "terminal_weight": "0.0",
+        "loss": "0.011402693577110767",
+        "elapsed_seconds": "771.5802447909955"
+      }
+    },
+    {
+      "run": "5U: uniform sampling",
+      "source": "experiments_6d/experiment_5_sampling/runs/5U/history.csv",
+      "copy": "histories/5U_uniform_sampling.csv",
+      "sha256": "4d18ac9c1e2c895931052ec5959588813ff9c8b2851e885a39cabdb4539a9929",
+      "rows": 21,
+      "first_row": {
+        "additional_step": "1",
+        "cumulative_physics_step": "22001",
+        "mode": "uniform",
+        "sampled_vi_mae": "0.012325668707489967",
+        "terminal_max_abs": "0.0",
+        "update_seconds": "0.027036900050006807",
+        "sampling_seconds": "0.0008006000425666571",
+        "candidate_scoring_seconds": "0.0",
+        "selection_seconds": "0.0",
+        "scored_candidates": "0",
+        "bank_refreshes": "0",
+        "bank_age": "0"
+      },
+      "last_row": {
+        "additional_step": "2000",
+        "cumulative_physics_step": "24000",
+        "mode": "uniform",
+        "sampled_vi_mae": "0.01038274820894003",
+        "terminal_max_abs": "0.0",
+        "update_seconds": "41.79689860192593",
+        "sampling_seconds": "0.7439771951176226",
+        "candidate_scoring_seconds": "0.0",
+        "selection_seconds": "0.0",
+        "scored_candidates": "0",
+        "bank_refreshes": "0",
+        "bank_age": "0"
+      }
+    },
+    {
+      "run": "5R: residual-guided sampling",
+      "source": "experiments_6d/experiment_5_sampling/runs/5R/history.csv",
+      "copy": "histories/5R_residual-guided_sampling.csv",
+      "sha256": "80fa411fbb6819a0a53926831ff1b316600c1952cce61b48cf73ab1850361d1e",
+      "rows": 21,
+      "first_row": {
+        "additional_step": "1",
+        "cumulative_physics_step": "22001",
+        "mode": "mixed",
+        "sampled_vi_mae": "0.023898430168628693",
+        "terminal_max_abs": "0.0",
+        "update_seconds": "0.021878200001083314",
+        "sampling_seconds": "0.04638150008395314",
+        "candidate_scoring_seconds": "0.04041050001978874",
+        "selection_seconds": "0.0019107999978587031",
+        "scored_candidates": "8192",
+        "bank_refreshes": "1",
+        "bank_age": "0"
+      },
+      "last_row": {
+        "additional_step": "2000",
+        "cumulative_physics_step": "24000",
+        "mode": "mixed",
+        "sampled_vi_mae": "0.014361048117280006",
+        "terminal_max_abs": "0.0",
+        "update_seconds": "40.36603459727485",
+        "sampling_seconds": "2.8538369006710127",
+        "candidate_scoring_seconds": "1.6131692002527416",
+        "selection_seconds": "0.45806689898017794",
+        "scored_candidates": "327680",
+        "bank_refreshes": "40",
+        "bank_age": "49"
+      }
+    }
+  ]
+}

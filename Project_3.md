@@ -116,17 +116,37 @@ $$
 
 ### P2 — Training-loss components
 
-A **loss** is the error measure used to train the network. I track two components: error against the known zero-time answer (terminal loss), and disagreement with the governing equation (physics loss or residual). The original model sets their relative weighting once. Reference comparisons then check whether lower training loss actually produces better predictions.
+A **loss** is the error measure used to train the network. These plots separate disagreement with the known zero-time answer (**terminal loss**) from disagreement with the governing equation (**physics loss**). They use existing training logs, with logarithmic vertical axes.
 
-![Baseline separate training-loss history](https://raw.githubusercontent.com/evl-jack/MAE_494_2026/ed8a645c080b8aaf0ac0c0625fc514da7c3cc7e9/outputs/deepreach/experiments/experiment_1/figures/training_history.png)
+![Experiments 1 and 2: separate terminal, physics and weighted loss components](report_assets/project3_loss_components_20261028/experiments_1_2_losses.png)
 
-*Original baseline training history.*
+*Blue: terminal error; orange: physics error; green: weighted terminal contribution; gray: total objective. The dashed phase marker shows when physics training begins. In 2C, the later marker is the start of the additional training.*
 
-![6D terminal and physics training histories](report_assets/project3_20261028/revision2/evidence/experiments_6d/training_history.png)
+The constrained models build the zero-time answer into their output, so terminal-value loss is **exactly zero** and the total training objective is physics loss. Zero cannot appear on a logarithmic axis; it is labeled explicitly, without substituting an artificial small value.
 
-*Joint-coordinate histories. 4C continues 4B.*
+<details>
+<summary>Experiment 3 — constraints, periodic inputs, sampling and refinement</summary>
 
-The constrained models have zero terminal-value loss by construction, although zero-time points still enter the physics checks. Zero loss requires special handling on logarithmic axes. Experiment 5 uses a common set of physics-check points because its two training methods sample different situations. Complete component plots for every candidate still need a reporting check.
+![Experiment 3A–3E training-loss histories](report_assets/project3_loss_components_20261028/experiment_3_losses.png)
+
+*3D shows the loss before each update and, where logged, after the selected step on that same batch. Adam's +200 endpoint is marked; its trace continues to +800. Other markers identify continuation from a saved parent.*
+
+</details>
+
+![Experiment 4: separate terminal and physics components](report_assets/project3_loss_components_20261028/experiment_4_losses.png)
+
+*4A retains a weighted terminal penalty. 4B/4C enforce the terminal condition directly; 4C includes its inherited 4B history and continues after the 10,000-step marker.*
+
+<details>
+<summary>Experiment 5 — uniform and residual-guided continuation</summary>
+
+![Experiment 5U and 5R sampled physics-loss histories](report_assets/project3_loss_components_20261028/experiment_5_losses.png)
+
+*The logged terminal maximum error is zero in both arms. Their physics curves use different sampling distributions and must not be used to rank the models; the common evaluation audit provides that comparison.*
+
+</details>
+
+The plots show every logged point without smoothing. Each panel has its own vertical range. Training losses are diagnostics, not value-error or safety guarantees. [Saved CSV histories and plotting notes](report_assets/project3_loss_components_20261028/README.md) document the components and exact-zero handling.
 
 ### P3 — Difficulty knob and relative L²
 
