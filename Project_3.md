@@ -7,15 +7,15 @@ Completed Experiments 1–5. The 3D final evaluation is complete; 6D results are
 
 **How much can formulation, optimization and sampling improve a small physics-trained reachability model, and do better value predictions produce better control?**
 
-The practical motivation is fast repeated assessment of collision avoidance under an adversarial pursuer. The difficulty is learning a time-dependent value field accurately enough that both its sign and its derivatives are useful. We study a minimal public benchmark rather than a full quadrotor, noisy sensing or flight hardware. The work is primarily a diagnostic study with demonstrated formulation improvements. It does not identify a unique cause of every remaining error.
+The practical motivation is the rapid, repeated assessment of collision avoidance against an adversarial pursuer. The difficulty is learning a time-dependent value field accurately enough that both its sign and its derivatives are useful. I study a minimal public benchmark rather than a full quadrotor model, noisy sensing, or flight hardware. The work is primarily a diagnostic study with demonstrated formulation improvements. It does not identify a unique cause of every remaining error.
 
-DeepReach introduced sinusoidal neural PDE approximation for high-dimensional Hamilton–Jacobi reachability without explicit solution labels. We reproduce that core workflow at reduced scale. We do not compare our error percentages directly with paper metrics from different domains, horizons, model sizes or evaluation protocols. [Bansal and Tomlin, DeepReach](https://arxiv.org/abs/2011.02082).
+DeepReach introduced sinusoidal neural PDE approximation for high-dimensional Hamilton–Jacobi reachability without explicit solution labels. I reproduce that core workflow at a reduced scale. I do not compare my error percentages directly with the paper's metrics because the domains, horizons, model sizes, and evaluation protocols differ. [Bansal and Tomlin, DeepReach](https://arxiv.org/abs/2011.02082).
 
-We implemented a small DeepReach-style physics-informed neural network (PINN) for a two-vehicle collision-avoidance game and investigated improvements feasible on a CPU laptop. The original reduced model had final-horizon value mean absolute error (MAE) of .09150 m against an independent numerical reference. Reducing the terminal-loss multiplier improved development MAE to .04477 m; an output that enforces known terminal and obstacle conditions improved it to .02602 m. Subsequent optimization and additional training improved the selected 3D model, whose .02008 m MAE on previously unused final states confirmed the development trend. The formulation also helped a network using six joint coordinates, although that experiment represents the same intrinsically three-state game. Two further continuations improved final-horizon value error by about 10%, but residual-guided sampling showed no clear advantage over uniform sampling and no reduction in primary collision counts. The results support analytic constraints and broad evaluation before scaling training. They do not establish paper-scale reproduction, globally reliable control gradients or certified safety.
+I implemented a small DeepReach-style physics-informed neural network (PINN) for a two-vehicle collision-avoidance game and investigated improvements feasible on a CPU laptop. The original reduced model had final-horizon value mean absolute error (MAE) of .09150 m against an independent numerical reference. Reducing the terminal-loss multiplier improved development MAE to .04477 m; an output that enforces known terminal and obstacle conditions improved it to .02602 m. Subsequent optimization and additional training improved the selected 3D model, whose .02008 m MAE on previously unused final states confirmed the development trend. The formulation also helped a network using six joint coordinates, although that experiment represents the same intrinsically three-state game. Two further continuations improved final-horizon value error by about 10%, but residual-guided sampling showed no clear advantage over uniform sampling and no reduction in primary collision counts. The results support analytic constraints and broad evaluation before scaling training. They do not establish paper-scale reproduction, globally reliable control gradients or certified safety.
 
 ## 2. Minimal case formulation and replication
 
-Two planar vehicles travel at equal constant speed $v=.75$ m/s. The evader chooses turn rate $u$ and the pursuer chooses $d$, each bounded by $\omega=3$ rad/s. Contact occurs at center separation $R=.25$ m. The trained horizon is $T=.5$ s.
+Two planar vehicles travel at the same constant speed $v=.75$ m/s. The evader chooses turn rate $u$, and the pursuer chooses turn rate $d$, each bounded by $\omega=3$ rad/s. Contact occurs at a center-to-center separation of $R=.25$ m. The trained horizon is $T=.5$ s.
 
 In the evader's heading frame, $s=(x,y,\psi)$ contains relative position and relative heading:
 
@@ -48,11 +48,11 @@ $$
 
 These controls depend on derivatives, not simply on moving along the spatial gradient. A learned scalar value and its derived controller require separate tests.
 
-The 6D extension uses $z=(x_p,y_p,\theta_p,x_e,y_e,\theta_e)$ with ordinary planar constant-speed vehicle dynamics. The exact relative-coordinate reduction recovers the same $s$. Thus six joint states test redundant representation, translation/rotation consistency and gradient lifting; they do not demonstrate a new intrinsically six-dimensional flight game. Time is an additional input in both networks.
+The 6D extension uses $z=(x_p,y_p,\theta_p,x_e,y_e,\theta_e)$ with ordinary planar constant-speed vehicle dynamics. The exact relative-coordinate reduction recovers the same $s$. Thus, the six-state formulation tests redundant representation, translation/rotation consistency, and gradient lifting; they do not demonstrate a new intrinsically six-dimensional flight game. Time is an additional input in both networks.
 
 ### Network, training and evaluation scope
 
-The principal networks have three sine hidden layers of width 64: 8,705 parameters for the four-input relative network and 8,897 for the seven-input joint network. Adam uses learning rate $10^{-4}$ and batches of 2,048 points, including 256 zero-time rows. Automatic differentiation supplies the time and state derivatives in the physics residual. Collocation points are sampled during training; a conventional fixed table of supervised training labels is not required.
+The principal networks have three sine hidden layers of width 64: 8,705 parameters for the four-input relative network and 8,897 for the seven-input joint network. Adam uses a learning rate of $10^{-4}$ and batches of 2,048 points, including 256 zero-time rows. Automatic differentiation supplies the time and state derivatives in the physics residual. Collocation points are sampled during training; a conventional fixed table of supervised training labels is not required.
 
 The baseline combines a soft terminal penalty with physics training after terminal pretraining. The constrained alternative is
 
@@ -72,7 +72,7 @@ The [project diagnostic kit](https://designinformaticslab.github.io/DesignOptimi
 
 ### P1 — Conventional baseline: accuracy and solve cost
 
-The independent solver uses local Lax–Friedrichs finite differences, explicit Euler with a CFL restriction, target-obstacle projection, periodic heading and constant spatial boundary extension. We compare in an interior region and check sensitivity to a larger spatial domain.
+The independent solver uses local Lax–Friedrichs finite differences, explicit Euler with a CFL restriction, target-obstacle projection, periodic heading and constant spatial boundary extension. I compare results in an interior region and check their sensitivity to a larger spatial domain.
 
 The finest approximate reference uses 129 × 129 spatial nodes and 96 headings. Later comparisons extend the time evaluation to 21 saved direct snapshots at 0.025 s spacing; the original three-time measurements remain preserved. The original 3D development runs share 24,000 interior states at 0, 0.25 and 0.5 s remaining; later cohorts are distinguished below. Separate full-box diagnostic samples measure terminal error and the variational-inequality (VI) residual. No reference values or gradients enter training.
 
@@ -86,7 +86,6 @@ The baseline reference checks used 65/97/129 spatial-node grids with 48/72/96 he
 A standalone 129×129×96 solve took **136.73 s** and exactly reproduced the original saved three-time reference. The older **696.7 s** timing covers a multi-solve verification suite and must not be presented as the single-solve cost. The separate 21-output solve took 132.99 s and differs slightly because output times shorten Euler steps. These measurements do not imply that requesting more snapshots makes the solver faster; machine conditions and step schedules differ.
 
 Analytic no-turn and frozen-dynamics checks complement refinement and boundary checks. Grid-to-grid agreement is evidence of numerical sensitivity, not a rigorous bound on exact-solution error.
-
 
 
 ### Metric and cohort definitions
@@ -123,8 +122,7 @@ The later 6D training histories separate the soft-terminal 4A baseline from the 
 The per-run histories are preserved in the experiment workspace. Full component-plot coverage and log-axis presentation across every candidate remain a reporting check; this revision does not claim that a single baseline figure completes that work for all runs.
 
 
-
-The final Experiment 5 training records also distinguish update time, sampler time and candidate-scoring work. Its sampled losses average different collocation distributions and cannot rank the two arms; the later evaluation uses a common uniform physics audit.
+The final Experiment 5 training records also distinguish update time, sampler time and candidate-scoring work. The two arms' sampled losses average over different collocation distributions and cannot be used to rank them; the later evaluation uses a common uniform physics audit.
 
 ### P3 — Difficulty knob and relative L² graph
 
@@ -134,7 +132,7 @@ The difficulty knob is **evaluation look-ahead τ**, varied from 0 to 0.5 s at 2
 
 *The left panel is relative L² [%] versus the difficulty knob; the other panels show value MAE and false-safe rate. These curves use the original four models and reused development states. They do not include later constrained models or final-test states.*
 
-The independently solved 21-time reference stores direct snapshots, without time interpolation. Shortened output-aligned Euler steps cause a maximum shared-snapshot difference of 0.00001375 m from the original three-time solve. The original measurements remain preserved.
+The reference solver stores direct snapshots at all 21 times without temporal interpolation. Shortened output-aligned Euler steps cause a maximum shared-snapshot difference of 0.00001375 m from the original three-time solve. The original measurements remain preserved.
 
 ![Relative L2 and other metrics on the fixed 3D final set](report_assets/project3_20261028/revision2/evidence/evaluation/final_evaluation_20261028/final_comparison.png)
 
@@ -154,7 +152,7 @@ Later research examines local errors, invariance, turning transitions and physic
 
 ### P5 — Hardware, training and inference cost
 
-Hardware was an Intel Core Ultra 7 165U laptop with about 31.45 GiB RAM, CPU-only PyTorch 2.5.1 and two Torch threads. Historical baseline training took 206.38 s. A separately timed fine-grid build took 136.73 s. Warm baseline value inference took 351.14 microseconds for a single state and 2.69 microseconds/state in batches of 1,024; cached grid interpolation took 352.38 and .89 microseconds/state respectively. Loading, conversion and gradient/control work were excluded. These timings are not accuracy-matched and do not establish an operational speed advantage.
+The experiments ran on an Intel Core Ultra 7 165U laptop with about 31.45 GiB of RAM, CPU-only PyTorch 2.5.1, and two Torch threads. Historical baseline training took 206.38 s. A separately timed fine-grid build took 136.73 s. Warm baseline value inference took 351.14 microseconds for a single state and 2.69 microseconds/state in batches of 1,024; cached grid interpolation took 352.38 and .89 microseconds/state respectively. Loading, conversion and gradient/control work were excluded. These timings are not accuracy-matched and do not establish an operational speed advantage.
 
 For this fixed game, the honest repeated-query comparison is
 
@@ -165,7 +163,7 @@ $$
 
 The grid can also be cached; a new full solve must not be charged for every state query. Near-equal single-query timings yielded very large, workload-sensitive illustrative crossover counts in the original diagnostic. Batched grid queries were faster. Those old measurements are not a break-even claim for the improved models, whose inference was not benchmarked under the same protocol. Each Experiment 5 continuation recorded about 49 s inside its run timer, excluding imports/debugger startup. Additional candidate work must still be counted even though their observed wall times were similar.
 
-The latest primary value/reference evaluation took 157.44 s and rollout evaluation 145.96 s within their phase timers, excluding startup and later checking/reporting. Experiment 5's matching budget is 2,000 updates per arm, not equal total computation: 5R additionally scored 327,680 candidate points. The recorded run times were 49.138 s (5U) and 49.090 s (5R), and scoring is already included in sampler time.
+The latest primary value/reference evaluation took 157.44 s, and the rollout evaluation took 145.96 s within their respective phase timers, excluding startup and subsequent verification and reporting. Experiment 5's matching budget is 2,000 updates per arm, not equal total computation: 5R additionally scored 327,680 candidate points. The recorded run times were 49.138 s (5U) and 49.090 s (5R), and scoring is already included in sampler time.
 
 ### Diagnostic scope
 
@@ -179,7 +177,7 @@ Experiments 1–3 use the relative-state representation; Experiment 4 tests the 
 
 ### Experiments 1–3: relative-state formulation and optimization
 
-The table below uses the corresponding 3D development comparisons. Rounded cross-stage values summarize the progression; the archived records identify each state's seed and reference snapshots. They are not pooled with final-test or 6D results.
+The table below uses the corresponding 3D development comparisons. Rounded cross-stage values summarize the progression; the archived records identify the sampling seeds and reference snapshots. They are not pooled with final-test or 6D results.
 
 | Experiment | Change | MAE at .5 s (m) | Interpretation |
 |---|---|---:|---|
@@ -194,7 +192,7 @@ The table below uses the corresponding 3D development comparisons. Rounded cross
 | 3E | Width-64 model continued to 22,000 updates | .01985 | Best value result in that development comparison |
 | 3E | Fresh width-96 model, 10,000 updates | .02127 | Capacity helped, but not a controlled equal-runtime win |
 
-The baseline's MAE rose from .04230 m at .25 s to .09150 m at .5 s. At .5 s it predicted safe on 46.42% of reference-unsafe development states. Reducing the terminal multiplier cut MAE by 51.1%; exact-output 3A then reduced it by a further 41.87% versus 2A. The latter comparison also removes pretraining and changes initialization, so it measures a formulation package rather than the output equation in isolation.
+The baseline's MAE rose from .04230 m at .25 s to .09150 m at .5 s. At .5 s, it predicted that 46.42% of reference-unsafe development states were safe. Reducing the terminal multiplier cut MAE by 51.1%; exact-output 3A then reduced it by a further 41.87% versus 2A. The latter comparison also removes pretraining and changes initialization, so it measures a formulation package rather than the output equation in isolation.
 
 Parameter-gradient diagnostics found strong local learning signals. Several short directions and optimizer-history probes reduced physics loss without improving value MAE. Periodic features and time mixtures improved selected outliers while worsening broader performance. These are useful negative results: neither lower residual nor selected-case improvement reliably ranked the methods. They do not prove that all periodic features, sampling strategies or alternative optimizers would fail.
 
@@ -202,7 +200,7 @@ The baseline and initial-modification look-ahead graph appears under P3.
 
 ### Completed 3D final evaluation
 
-After freezing the selected models and protocol, 24,000 previously unused states confirmed the improvement:
+After I froze the selected models and protocol, evaluation on 24,000 previously unused states confirmed the improvement:
 
 | Fixed checkpoint | Final-set MAE at .5 s (m) | Unsafe-set IoU |
 |---|---:|---:|
@@ -214,7 +212,7 @@ Long22000 reduced MAE by **12.61%** versus Adam +200, with a paired 95% sampling
 
 ### Experiment 4: transfer to joint coordinates and control diagnostics
 
-On the same grouped 6D development encounters, soft-output 4A had MAE .08695 m, exact-output 4B .02631 m, and its longer continuation 4C .02573 m. The formulation package reduced error 69.75% from 4A to 4B. Additional updates reduced it 2.19% from 4B to 4C. The fixed 3D Long model had .01943 m MAE on those same encounters, outperforming 4C. Redundant coordinates therefore introduced measurable representation difficulty in these runs.
+On the same grouped 6D development encounters, soft-output 4A had an MAE of .08695 m, exact-output 4B had an MAE of .02631 m, and its longer continuation, 4C, had an MAE of .02573 m. The formulation package reduced error by 69.75% from 4A to 4B. Additional updates reduced it by 2.19% from 4B to 4C. The fixed 3D Long model had an MAE of .01943 m on those same encounters, outperforming 4C. Redundant coordinates therefore introduced measurable representation difficulty in these runs.
 
 The raw joint model was not exactly invariant: rotating or translating equivalent encounters could change its prediction. Derivative and rollout tests also exposed localized turning failures despite high aggregate gradient agreement. Fine-grid local checks supported a displaced learned switching transition, while refinement showed that the numerical derivative itself was sensitive near some transitions. Native physics residuals detected the difficult region, but large residual did not reliably distinguish its correct and incorrect turns. This motivated Experiment 5 rather than establishing sampling as the unique cause.
 
@@ -234,7 +232,7 @@ All three models were evaluated on a **new** development set: 6,000 relative gro
 
 The mixed model reduced late-time residuals and some residual tails. Its average common-domain residual, evader turn-sign agreement, equivalent-pose spread and heading-alias metric were worse than 5U's. Neither branch corrected the old initial-turn failure. The seven-policy, two-time-step rollout matrix contained 78,400 trajectories. Primary learned contact counts remained unchanged when the time step was halved, and all saved control updates were replayed successfully.
 
-The approximate reference controller also collided in four of the 628 reference-safe poses. Both numerical grids labeled that initial encounter safe with a margin, but sampled feedback reached .24521 m separation against the .25 m radius. Thus the numerical value/feedback combination is an imperfect comparator. The eight learned-model contacts occurred in states all three PINNs initially classified as unsafe; they are not initially declared-safe collisions by those models.
+The approximate reference controller also produced collisions in four of the 628 reference-safe poses. Both numerical grids labeled that initial encounter safe with a margin, but the sampled feedback policy reached a separation of .24521 m, below the .25 m collision threshold. Thus the numerical value/feedback combination is an imperfect comparator. The eight learned-model contacts occurred in states all three PINNs initially classified as unsafe; they are not initially declared-safe collisions by those models.
 
 ![Experiment 5 values, classification and equivalent-pose spread](report_assets/project3_final_20261028/source_packet/figures/experiment5.png)
 
@@ -256,7 +254,7 @@ The most useful research finding is the distinction between **value accuracy, ob
 
 The study uses predominantly one training seed per configuration, a short fixed horizon, simplified deterministic dynamics and approximate grid labels. Bootstrap intervals quantify sampled-state variation conditional on checkpoints and reference; they omit training-seed and solver uncertainty. Equivalent poses and reused horizons are correlated. Error spectra, strong local gradients and failed probes do not prove a universal root cause. Several comparisons change more than one practical aspect of training.
 
-We recommend **concluding this experimental study with these limits stated**. Keep the uniform continuation as the simpler 6D comparison baseline, rather than promoting 5R because of its tiny MAE lead. The best confirmed 3D value result remains Long22000 on its completed final evaluation. These roles must not be combined into a claim that one model wins every metric or dataset.
+I recommend **concluding this experimental study with these limitations stated**. I would retain the uniform continuation as the simpler 6D comparison baseline rather than favor 5R because of its small MAE lead. The best confirmed 3D value result remains Long22000 on its completed final evaluation. These roles must not be combined into a claim that one model wins every metric or dataset.
 
 Further work can first distinguish numerical-reference and feedback errors in the newly identified collision case, then test a targeted gradient/representation remedy across multiple seeds. Genuinely higher-dimensional games require separate formulations and validation. Hybrid reference supervision, trust-region training, two-network safety/direction models and real-world flight tests were discussed but not demonstrated here.
 
@@ -266,9 +264,9 @@ Detailed older reports remain available as [the previous research synthesis](htt
 
 ## 5. Reproducibility and evidence
 
-The [source final-report packet](report_assets/project3_final_20261028/source_packet/REPORT.md), [evidence and claims register](report_assets/project3_final_20261028/source_packet/evidence.json), and [reproduction guide](report_assets/project3_final_20261028/source_packet/REPRODUCIBILITY.md) retain the main chat's final analysis and provenance. The register lists original project-root source paths and SHA256 hashes, not paths relative to the GitHub asset folder. Its 22 evidence-source hashes, copied figures and all packet-file hashes were checked before publication.
+The [archived final-report packet](report_assets/project3_final_20261028/source_packet/REPORT.md), [evidence and claims register](report_assets/project3_final_20261028/source_packet/evidence.json), and [reproduction guide](report_assets/project3_final_20261028/source_packet/REPRODUCIBILITY.md) retain the original final analysis and its provenance. The register lists original project-root source paths and SHA256 hashes, not paths relative to the GitHub asset folder. Its 22 evidence-source hashes, copied figures and all packet-file hashes were checked before publication.
 
-The final packet is a reporting artifact, not a complete runnable checkpoint archive. Large arrays, checkpoints, full training histories and source snapshots remain in the project copies. The register and archived guides identify the required environment, scripts and original locations; previous public implementation code is linked in the existing project documentation. Completing the portable reproduction package remains separate from claiming the saved local workflows ran.
+The final packet is a reporting artifact, not a complete runnable checkpoint archive. Large arrays, checkpoints, full training histories and source snapshots remain in the project copies. The register and archived guides identify the required environment, scripts and original locations; previous public implementation code is linked in the existing project documentation. The saved local workflows were executed, but preparing a complete, portable reproduction package remains a separate task.
 
 New Experiment 5 [training records](report_assets/project3_final_20261028/evidence/experiments_6d/experiment_5_sampling/TRAINING_RESULTS.md), [common development evaluation](report_assets/project3_final_20261028/evidence/experiments_6d/experiment_5_sampling/evaluation/README.md), and [evaluation/rollout methodology](report_assets/project3_final_20261028/evidence/experiments_6d/experiment_5_sampling/evaluation/METHODOLOGY.md) are included with selected smaller tables, protocols and verification records. Saved-array checks covered 63 value rows, six gradient rows, 72 switching rows, six physics-audit rows, 294 rollout rows and replay of 5.88 million saved control updates. These checks reproduce saved metrics; they do not establish scientific validity or safety by themselves.
 
@@ -280,9 +278,9 @@ The [recommendation memo](report_assets/project3_final_20261028/source_packet/RE
 
 ## 7. Presentation and submission status
 
-The final technical analysis preserves the agreed problem → formulation → P1–P5 → experiments order. Equations, graphs and tables distinguish evaluation cohorts and completed results from future work. The original main-chat packet is archived unchanged; publication-status statements inside it describe its preparation stage.
+The final technical analysis preserves the agreed problem → formulation → P1–P5 → experiments order. Equations, graphs and tables distinguish evaluation cohorts and completed results from future work. The original analysis packet is archived unchanged; publication-status statements inside it describe its preparation stage.
 
-Outreach/interview details remain omitted as requested. Actual researcher-facing context, any review record, the memo delivery record and final portable-code/presentation polish still need the user's records and later completion. No interview quotations, approval, message delivery or response are invented here. The technical report is published on GitHub; course submission and researcher correspondence are separate actions.
+Outreach/interview details remain omitted as requested. I still need to add the researcher-facing context, any review record, and the memo delivery record from my own records, and complete the portable code package and final presentation polish. This report does not include unverified interview quotations or claims of approval, memo delivery, or a researcher response. The technical report is published on GitHub; course submission and researcher correspondence are separate actions.
 
 ## References
 
