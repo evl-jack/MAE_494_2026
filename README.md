@@ -13,4 +13,7 @@ Team Name: AI Generated
 - [Project 3 — Experiment 1 results](outputs/deepreach/experiments/experiment_1/README.md) — reduced CPU baseline, comparison figures, measured errors and limitations.
 - [Project 3 code and run instructions](outputs/deepreach/README.md) — PINN, independent solver, configurations and check results.
 
+- [Project 4 — Coolant manifold optimization](Project%204.md) — engineering report, adjoint verification, and fitted-wall results.
+- [Project 4 technical appendix](Project%204%20Appendix.md) — derivations, checks, and reproduction evidence.
+
 <img width="1254" height="1254" alt="5be19a8b-210a-47cc-a0c1-b922b266bc0d" src="https://github.com/user-attachments/assets/22732ec6-8d1b-4ce7-abbf-76e1b5384671" />
