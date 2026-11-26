@@ -4,11 +4,11 @@ Arizona State University · MAE 494 Design Optimization · Project 4
 
 ## 1. Summary
 
-At Reynolds number 50, the optimized branch transition reduced fitted-wall pumping power by **4.84%** and increased the side outlet's share of inlet flow from **4.024% to 8.465%**. The main pipe and all ports stayed fixed. The raw Navier–Stokes reconstruction is the selected design because it passed the paired mesh screen and outperformed the Stokes-optimized geometry when both were evaluated with Navier–Stokes.
+At Reynolds number 50, the optimized branch transition reduced fitted-wall pumping power by **4.84%** and increased the side outlet's share of inlet flow from **4.024% to 8.465%**. The adjoint was **60.48× faster** than serial finite differences, and the immersed KKT audit gave a projected stationarity residual of **1.369 × 10⁻⁸**. The main pipe and all ports stayed fixed. The raw Navier–Stokes reconstruction is the selected design because it passed the paired mesh screen and outperformed the Stokes-optimized geometry when both were evaluated with Navier–Stokes.
 
 ![Original, raw optimized, and smoothed junctions](https://raw.githubusercontent.com/evl-jack/Coolant_Manifold/cc9ecd49d64b4a5ff143a331d62f67eab14adf3f/assets/three_panel.png)
 
-[Full report and WebGL viewer source](https://github.com/evl-jack/Coolant_Manifold/blob/cc9ecd49d64b4a5ff143a331d62f67eab14adf3f/index.html) · [Numerical results](https://github.com/evl-jack/Coolant_Manifold/blob/cc9ecd49d64b4a5ff143a331d62f67eab14adf3f/data/results.json) · [Optimization slide](https://github.com/evl-jack/Coolant_Manifold/blob/cc9ecd49d64b4a5ff143a331d62f67eab14adf3f/optimization-slide.html)
+[Public interactive 3D viewer (pilot release)](https://evl-jack.github.io/Coolant_Manifold/) · [Technical appendix and checklist](Project%204%20Appendix.md) · [Final report and WebGL source](https://github.com/evl-jack/Coolant_Manifold/blob/cc9ecd49d64b4a5ff143a331d62f67eab14adf3f/index.html) · [Numerical results](https://github.com/evl-jack/Coolant_Manifold/blob/cc9ecd49d64b4a5ff143a331d62f67eab14adf3f/data/results.json) · [Optimization slide](https://github.com/evl-jack/Coolant_Manifold/blob/cc9ecd49d64b4a5ff143a331d62f67eab14adf3f/optimization-slide.html)
 
 ## 2. Design and optimization problem
 
