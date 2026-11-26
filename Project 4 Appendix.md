@@ -2,6 +2,27 @@
 
 [Read the main report](Project%204.md)
 
+## Checklist status
+
+| Checklist area | Evidence and outstanding work |
+|---|---|
+| 1. Executive summary | Headline metrics, serial speedup and KKT are in the report. The linked live viewer serves the pilot release. |
+| 2. Engineering and formulation | Dimensions, editable-grid figure, objectives and constraint are documented. The geometry figure and written dimensions sit together in the report and appendix. |
+| 3. Governing fluid mechanics | Equations, stress, Reynolds scaling, inlet and boundary conditions are documented. A dedicated labeled boundary-condition schematic is open. |
+| 4. Brinkman model | Derivations, reconstructed geometry and archived density fields are linked. Standalone interpolation and projection curves are open. |
+| 5. Finite elements | Weak form, basis, quadrature, transformation, tangent, Newton flowchart and mesh records are documented. A standalone node-layout diagram is open. |
+| 6. Verification | Benchmark values, manufactured convergence, Newton residual sequence, mass balance and energy audit are documented. Dedicated Newton and leakage plots and isolated final material-transfer and tangent rechecks are open. |
+| 7. Adjoint sensitivities | Both response derivatives, reverse density chain, finite-difference stencils, complete directional table and both Taylor plots are included. |
+| 8. Computational efficiency | Serial solve counts, measured subtotals, runtime plot and three-size parallel scaling are included. |
+| 9. Optimization | Algorithm, loop, stages, stop reasons, starting field, geometry and performance histories are included. |
+| 10. KKT | Lagrangian, four conditions, projected residual, tolerances, multiplier interpretation and spatial audit are included. |
+| 11. Mesh convergence | Procedures, full archived mesh tables, convergence figure, paired calculation and smoothed-case failure are included. |
+| 12. Stokes vs. Navier–Stokes | Matched cross-evaluation, KKT and runtime comparisons, geometry, density and field figures are included. |
+| 13. Final results | Fitted performance table and linked geometry, pressure and velocity comparisons are included. |
+| 14. Website | Public pilot page availability was checked. Final release deployment and functional browser acceptance are open. |
+| 15. Conclusions and limitations | Engineering outcomes and modeling/numerical limits are documented. |
+| 16. AI and reproducibility | AI contributions, source and run links, dependencies and course README navigation are included. Team firsthand verification, a caught graded-solver bug and validated full CFD reproduction are open. |
+
 ### 1–3. Summary, formulation, and flow equations
 
 The executive summary, engineering motivation, design variables, state, power objective, and side-flow constraint are in the main report. The dimensional flow equations are
@@ -79,7 +100,7 @@ Directional differences used $[F(m+hd)-F(m-hd)]/(2h)$ in the interior and $[-3F(
 |---|---|---|
 | Original | 1.921e−7 / 5.147e−7 / 4.713e−7 | 1.372e−8 / 2.707e−8 / 8.587e−8 |
 | Gray | 2.280e−10 / 7.979e−9 / 1.025e−8 | 3.496e−11 / 7.464e−10 / 8.276e−10 |
-| β = 0 | 1.134e−7 / 1.922e−7 / 1.973e−7 | 3.089e−8 / 2.291e−8 / 2.552e−8 |
+| β = 0 | 1.134e−7 / 1.922e−7 / 1.973e−7 | 3.089e−8 / 1.932e−8 / 2.291e−8 |
 | β = 2 | 2.142e−7 / 4.351e−7 / 3.344e−7 | 2.270e−9 / 3.453e−8 / 3.523e−8 |
 | β = 8 | 2.533e−6 / 3.156e−7 / 5.901e−7 | 2.957e−7 / 2.659e−9 / 1.789e−8 |
 
